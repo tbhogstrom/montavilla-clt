@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { neon } from '@neondatabase/serverless';
+import { getDb } from '../../lib/db';
 import { getResend, confirmationEmail, adminNotificationEmail } from '../../lib/email';
 
 export const POST: APIRoute = async ({ request }) => {
@@ -15,7 +15,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // ── DB insert ────────────────────────────────────────────────
-    const sql = neon(import.meta.env.DATABASE_URL);
+    const sql = getDb();
 
     await sql`
       CREATE TABLE IF NOT EXISTS signups (

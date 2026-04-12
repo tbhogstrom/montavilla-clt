@@ -1,0 +1,233 @@
+---
+import { getDb } from '../lib/db';
+import '../styles/global.css';
+import UrgencyBar from '../components/UrgencyBar.astro';
+import Nav        from '../components/Nav.astro';
+import Footer     from '../components/Footer.astro';
+
+const GOAL = 4_999_000;
+
+let pledges: { name: string; amount: number; created_at: Date }[] = [];
+let total  = 0;
+let count  = 0;
+
+try {
+  const sql = getDb();
+  await sql`
+    CREATE TABLE IF NOT EXISTS pledges (
+      id         SERIAL PRIMARY KEY,
+      name       TEXT    NOT NULL,
+      amount     INTEGER NOT NULL,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    )
+  `;
+  const stats = await sql`
+    SELECT COUNT(*)::int AS count, COALESCE(SUM(amount), 0)::int AS total
+    FROM pledges
+  `;
+  count  = stats[0]?.count  ?? 0;
+  total  = stats[0]?.total  ?? 0;
+  pledges = (await sql`SELECT name, amount, created_at FROM pledges ORDER BY created_at DESC`) as typeof pledges;
+} catch (e) {
+  console.error('Calculator page DB error:', e);
+}
+
+const pct     = total > 0 ? Math.min(100, (total / GOAL) * 100) : 0;
+const pctStr  = pct < 0.1 && pct > 0 ? '< 0.1' : pct.toFixed(1);
+
+function fmt(n: number) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency', currency: 'USD', maximumFractionDigits: 0,
+  }).format(n);
+}
+
+function fmtDate(d: Date | string) {
+  return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Pledge Calculator — Montavilla Land Trust</title>
+    <meta name="description" content="Add your name to the public pledge ledger. Non-binding expressions of community financial support for the Montavilla Community Land Trust." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <UrgencyBar />
+    <Nav />
+
+    <!-- ─── HEADER ─────────────────────────────────────── -->
+    <section class="calc-header">
+      <div class="wrap">
+        <p class="eyebrow" style="color:var(--gold);">Community Momentum</p>
+        <h1 class="section-h" style="color:var(--cream);font-size:clamp(2.5rem,6vw,4.5rem);">
+          What If We All<br><em style="color:var(--gold);font-style:normal;">Chipped In?</em>
+        </h1>
+        <p class="calc-subhead">
+          Pledges are non-binding expressions of community financial support.
+          Every dollar shown here tells grant makers and lenders that Montavilla
+          is serious about owning this land.
+        </p>
+
+        <div class="calc-stats">
+          <div class="calc-stat">
+            <span class="calc-num">{count > 0 ? fmt(total) : '—'}</span>
+            <span class="calc-label">Total Pledged</span>
+          </div>
+          <div class="calc-stat">
+            <span class="calc-num">{count > 0 ? count.toLocaleString() : '—'}</span>
+            <span class="calc-label">Neighbors In</span>
+          </div>
+          <div class="calc-stat">
+            <span class="calc-num">{fmt(GOAL)}</span>
+            <span class="calc-label">Acquisition Goal</span>
+          </div>
+        </div>
+
+        {total > 0 && (
+          <div class="calc-progress-wrap">
+            <div class="calc-progress-bar">
+              <div class="calc-progress-fill" style={`width:${Math.max(pct, 0.5)}%`}></div>
+            </div>
+            <p class="calc-progress-label">
+              {pctStr}% of goal in community pledges — plus grants, CDFIs, and anchor donors close the gap.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- ─── PLEDGE FORM ────────────────────────────────── -->
+    <section class="calc-form-section">
+      <div class="wrap" style="max-width:640px;">
+        <p class="eyebrow">Add Your Pledge</p>
+        <h2 class="section-h" style="color:var(--forest);">Put Your Name<br>on the Ledger.</h2>
+        <p style="font-family:'Crimson Pro',serif;font-size:1.1rem;color:var(--dark);line-height:1.6;margin-bottom:2rem;">
+          Pledges are public and non-binding. They show the strength of community
+          commitment — not a payment. You'll never be charged.
+        </p>
+
+        <form class="pledge-form" id="pledge-form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="pledge-name">Your Public Name</label>
+              <input type="text" id="pledge-name" name="name" placeholder="e.g. Sarah M." required>
+            </div>
+            <div class="field">
+              <label for="pledge-amount">Pledge Amount ($)</label>
+              <input type="number" id="pledge-amount" name="amount" placeholder="e.g. 500" min="1" max="999999" required>
+            </div>
+          </div>
+          <button type="submit" class="petition-submit" id="pledge-btn">
+            Add to the Public Ledger
+          </button>
+          <p class="petition-note">
+            Your name and amount will appear publicly on this page. This is a non-binding pledge — you will never be charged.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ─── PUBLIC LEDGER ──────────────────────────────── -->
+    <section class="ledger-section">
+      <div class="wrap">
+        <p class="eyebrow">The Public Ledger</p>
+        <h2 class="section-h" style="color:var(--cream);">
+          {count} {count === 1 ? 'Neighbor Has' : 'Neighbors Have'} Pledged
+        </h2>
+
+        {pledges.length === 0 ? (
+          <p style="font-family:'Crimson Pro',serif;font-size:1.15rem;color:var(--sage);font-style:italic;">
+            No pledges yet — be the first to put your name on the ledger.
+          </p>
+        ) : (
+          <div class="ledger-wrap">
+            <table class="ledger">
+              <thead>
+                <tr>
+                  <th>Neighbor</th>
+                  <th class="right">Pledge</th>
+                  <th class="right">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pledges.map(p => (
+                  <tr>
+                    <td>{p.name}</td>
+                    <td class="right amount">{fmt(p.amount)}</td>
+                    <td class="right date">{fmtDate(p.created_at)}</td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class="total-label">Total</td>
+                  <td class="right total-amount">{fmt(total)}</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <Footer />
+
+    <script>
+      const form = document.getElementById('pledge-form') as HTMLFormElement;
+      const btn  = document.getElementById('pledge-btn') as HTMLButtonElement;
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const nameInput   = form.querySelector<HTMLInputElement>('[name="name"]')!;
+        const amountInput = form.querySelector<HTMLInputElement>('[name="amount"]')!;
+
+        if (!nameInput.value.trim()) {
+          nameInput.style.borderColor = '#A84C1A';
+          nameInput.focus();
+          return;
+        }
+        if (!amountInput.value || Number(amountInput.value) < 1) {
+          amountInput.style.borderColor = '#A84C1A';
+          amountInput.focus();
+          return;
+        }
+
+        btn.textContent = 'Adding to ledger…';
+        btn.disabled = true;
+
+        try {
+          const res = await fetch('/api/pledge', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name:   nameInput.value.trim(),
+              amount: Number(amountInput.value),
+            }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            btn.textContent = '✓ Added! Reloading ledger…';
+            btn.style.background = '#3D6147';
+            setTimeout(() => window.location.reload(), 800);
+          } else {
+            btn.textContent = data.error ?? 'Something went wrong — try again.';
+            btn.disabled = false;
+          }
+        } catch {
+          btn.textContent = 'Network error — please try again.';
+          btn.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>

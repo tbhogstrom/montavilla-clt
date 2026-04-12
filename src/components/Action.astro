@@ -12,26 +12,48 @@
         <span class="icon">💚</span>
         <h3>Donate</h3>
         <p>Seed our acquisition fund. Every dollar signals to funders that this community is organized and serious about ownership.</p>
-        <a href="#petition" class="btn-sm">Donate Now</a>
+        <button class="btn-sm donate-btn">Donate Now</button>
+        <p class="donate-msg" aria-live="polite"></p>
       </div>
       <div class="action-card">
         <span class="icon">✍️</span>
         <h3>Sign the Petition</h3>
         <p>Hundreds of signatures show the city, the sellers, and our grant partners that Montavilla stands united behind this vision.</p>
-        <a href="#petition" class="btn-sm">Sign Now</a>
+        <a href="/#petition" class="btn-sm">Sign Now</a>
       </div>
       <div class="action-card">
         <span class="icon">📢</span>
         <h3>Spread the Word</h3>
         <p>Print our flyer. Post on social. Tell every neighbor. This campaign wins through grassroots reach — one conversation at a time.</p>
-        <a href="#petition" class="btn-sm">Get Materials</a>
+        <a href="/#petition" class="btn-sm">Get Materials</a>
       </div>
       <div class="action-card">
         <span class="icon">🤝</span>
         <h3>Join the Steering Committee</h3>
         <p>Bring skills in law, finance, design, organizing, or communications to the core team building this land trust.</p>
-        <a href="#petition" class="btn-sm">Get Involved</a>
+        <a href="/#petition" class="btn-sm">Get Involved</a>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.donate-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const msg = btn.nextElementSibling as HTMLElement;
+      btn.textContent = '🐷 Hold tight!';
+      btn.disabled = true;
+      btn.style.background = 'var(--moss)';
+      if (msg) {
+        msg.textContent = 'Save your pennies — we\'re still organizing! Check back soon for our fundraising campaign.';
+        msg.style.opacity = '1';
+      }
+      setTimeout(() => {
+        btn.textContent = 'Donate Now';
+        btn.disabled = false;
+        btn.style.background = '';
+        if (msg) { msg.textContent = ''; msg.style.opacity = '0'; }
+      }, 5000);
+    });
+  });
+</script>

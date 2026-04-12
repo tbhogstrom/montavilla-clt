@@ -4,6 +4,7 @@ import '../styles/global.css';
 import UrgencyBar from '../components/UrgencyBar.astro';
 import Nav        from '../components/Nav.astro';
 import Footer     from '../components/Footer.astro';
+import Analytics  from '@vercel/analytics/astro';
 
 const GOAL = 4_999_000;
 
@@ -184,6 +185,7 @@ function fmtDate(d: Date | string) {
     </section>
 
     <Footer />
+    <Analytics />
 
     <script>
       const form = document.getElementById('pledge-form') as HTMLFormElement;

@@ -1,5 +1,6 @@
 ---
 export const prerender = true;
+import Analytics from '@vercel/analytics/astro';
 ---
 
 <!doctype html>
@@ -640,5 +641,6 @@ footer a { color: var(--gold); text-decoration: none; }
     }
   });
 </script>
+  <Analytics />
 </body>
 </html>

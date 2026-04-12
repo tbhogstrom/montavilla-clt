@@ -1,0 +1,81 @@
+---
+export const prerender = true;
+
+import '../styles/global.css';
+import UrgencyBar from '../components/UrgencyBar.astro';
+import Nav        from '../components/Nav.astro';
+import Hero       from '../components/Hero.astro';
+import Situation  from '../components/Situation.astro';
+import Building   from '../components/Building.astro';
+import Roadmap    from '../components/Roadmap.astro';
+import Action     from '../components/Action.astro';
+import Petition   from '../components/Petition.astro';
+import About      from '../components/About.astro';
+import Footer     from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Montavilla Community Land Trust — montavillalandtrust.org</title>
+    <meta
+      name="description"
+      content="We're building a Community Land Trust to permanently protect the Montavilla Farmers Market and 7700 SE Stark Street for our neighborhood — forever."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <UrgencyBar />
+    <Nav />
+    <Hero />
+    <Situation />
+    <Building />
+    <Roadmap />
+    <Action />
+    <Petition />
+    <About />
+    <Footer />
+
+    <script>
+      // Scroll-reveal for roadmap steps
+      const stepObserver = new IntersectionObserver(
+        (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.step').forEach((el, i) => {
+        (el as HTMLElement).style.transitionDelay = `${(i % 5) * 0.08}s`;
+        stepObserver.observe(el);
+      });
+
+      // Scroll-reveal for cards
+      const cardObserver = new IntersectionObserver(
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).style.opacity = '1';
+            (e.target as HTMLElement).style.transform = 'translateY(0)';
+          }
+        }),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll('.card, .action-card').forEach((el, i) => {
+        const h = el as HTMLElement;
+        h.style.opacity = '0';
+        h.style.transform = 'translateY(16px)';
+        h.style.transition = `opacity 0.5s ease ${(i % 4) * 0.08}s, transform 0.5s ease ${(i % 4) * 0.08}s`;
+        cardObserver.observe(el);
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const target = document.querySelector(a.getAttribute('href') ?? '');
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+    </script>
+  </body>
+</html>

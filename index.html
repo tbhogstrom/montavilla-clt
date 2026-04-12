@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montavilla Community Land Trust — montavillalandtrust.org</title>
+<meta name="description" content="We're building a Community Land Trust to permanently protect the Montavilla Farmers Market and 7700 SE Stark Street for our neighborhood — forever.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:  #1D3A2A;
+  --moss:    #3D6147;
+  --sage:    #7A9E7E;
+  --ochre:   #C8872A;
+  --gold:    #E8A832;
+  --cream:   #F5EED8;
+  --warm:    #EDE0C4;
+  --rust:    #A84C1A;
+  --dark:    #0E1F16;
+  --max:     960px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Work Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+/* ─── NAV ─────────────────────────────────────────────── */
+nav {
+  background: var(--forest);
+  position: sticky; top: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.5rem; height: 3.5rem;
+  border-bottom: 3px solid var(--ochre);
+}
+.nav-logo {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; font-size: 1.05rem;
+  color: var(--cream); letter-spacing: 0.04em;
+  text-decoration: none; display: flex; align-items: center; gap: 0.6rem;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 1.75rem; align-items: center; }
+.nav-links a {
+  color: var(--sage); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--ochre); color: white !important;
+  padding: 0.45rem 1.1rem; font-size: 0.78rem !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--gold) !important; color: var(--dark) !important; }
+
+/* ─── URGENCY BAR ─────────────────────────────────────── */
+.urgency-bar {
+  background: var(--rust); color: white;
+  text-align: center; padding: 0.55rem 1rem;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em;
+}
+
+/* ─── HERO ────────────────────────────────────────────── */
+.hero {
+  background: var(--forest);
+  min-height: calc(100vh - 3.5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(200,135,42,0.1) 0%, transparent 55%);
+  pointer-events: none;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 3rem 5rem 4rem;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.5s ease forwards 0.3s;
+}
+.hero h1 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 900; font-size: clamp(3rem, 6.5vw, 5.5rem);
+  line-height: 0.92; color: var(--cream); letter-spacing: -0.02em;
+  opacity: 0; animation: fadeUp 0.6s ease forwards 0.5s;
+}
+.hero h1 em { color: var(--gold); font-style: normal; display: block; }
+.hero-body {
+  font-family: 'Crimson Pro', serif; font-size: 1.2rem;
+  color: var(--sage); line-height: 1.6; margin-top: 1.75rem; max-width: 420px;
+  opacity: 0; animation: fadeUp 0.6s ease forwards 0.7s;
+}
+.hero-btns {
+  display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2.25rem;
+  opacity: 0; animation: fadeUp 0.6s ease forwards 0.9s;
+}
+.btn { display: inline-block; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 2rem; transition: all 0.2s; cursor: pointer; border: none; font-family: 'Work Sans', sans-serif; }
+.btn-primary { background: var(--ochre); color: white; }
+.btn-primary:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--cream); border: 1.5px solid var(--sage); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+.hero-right {
+  display: flex; align-items: center; justify-content: center;
+  padding: 3rem 3rem 3rem 1rem; position: relative; z-index: 1;
+  opacity: 0; animation: fadeIn 1s ease forwards 0.6s;
+}
+.hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: rgba(122,158,126,0.2); border: 1px solid rgba(122,158,126,0.2);
+  width: 100%; max-width: 380px;
+}
+.stat-box {
+  background: rgba(255,255,255,0.04); padding: 2rem 1.5rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+.stat-box:hover { background: rgba(255,255,255,0.08); }
+.stat-box .num {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 900; font-size: 3.5rem; color: var(--gold);
+  display: block; line-height: 1;
+}
+.stat-box .unit { font-size: 1.5rem; }
+.stat-box .label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--sage); margin-top: 0.5rem; display: block;
+}
+.stat-box .sub {
+  font-family: 'Crimson Pro', serif; font-size: 0.9rem;
+  color: rgba(122,158,126,0.7); margin-top: 0.3rem; display: block;
+}
+.stat-box.featured { background: rgba(200,135,42,0.12); border: 1px solid rgba(200,135,42,0.3); }
+.stat-box.featured .num { color: var(--gold); }
+
+/* ─── SECTION SHARED ───────────────────────────────────── */
+section { padding: 5rem 1.5rem; }
+.wrap { max-width: var(--max); margin: 0 auto; }
+.wrap-sm { max-width: 660px; margin: 0 auto; }
+.eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ochre); margin-bottom: 0.6rem; }
+.section-h {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05; margin-bottom: 1.5rem;
+}
+
+/* ─── SITUATION ────────────────────────────────────────── */
+.situation { background: var(--warm); }
+.situation .section-h { color: var(--forest); }
+.situation p { font-family: 'Crimson Pro', serif; font-size: 1.2rem; line-height: 1.65; color: var(--dark); margin-bottom: 1.1rem; }
+.situation p strong { color: var(--forest); }
+
+.callout {
+  border-left: 4px solid var(--ochre); background: var(--cream);
+  padding: 1.25rem 1.5rem; margin-top: 2rem;
+  font-family: 'Crimson Pro', serif; font-size: 1.15rem;
+  font-style: italic; color: var(--forest); line-height: 1.6;
+}
+
+/* ─── WHAT WE'RE BUILDING ──────────────────────────────── */
+.building { background: var(--forest); }
+.building .eyebrow { color: var(--gold); }
+.building .section-h { color: var(--cream); }
+.building .lead {
+  font-family: 'Crimson Pro', serif; font-size: 1.15rem;
+  color: var(--sage); max-width: 620px; line-height: 1.65; margin-bottom: 3rem;
+}
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1px; background: rgba(122,158,126,0.15);
+  border: 1px solid rgba(122,158,126,0.15);
+}
+.card {
+  background: rgba(255,255,255,0.04); padding: 2rem 1.5rem;
+  border-top: 3px solid transparent; transition: all 0.25s;
+}
+.card:hover { background: rgba(255,255,255,0.08); border-top-color: var(--ochre); }
+.card .icon { font-size: 2.2rem; margin-bottom: 0.9rem; display: block; }
+.card h3 { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--gold); margin-bottom: 0.6rem; }
+.card p { font-family: 'Crimson Pro', serif; font-size: 1.05rem; color: var(--sage); line-height: 1.55; }
+
+/* ─── ROADMAP ──────────────────────────────────────────── */
+.roadmap { background: var(--cream); }
+.roadmap .section-h { color: var(--forest); }
+.roadmap .lead { font-family: 'Crimson Pro', serif; font-size: 1.15rem; color: var(--dark); max-width: 580px; line-height: 1.6; margin-bottom: 3rem; }
+.steps { display: flex; flex-direction: column; }
+.step {
+  display: grid; grid-template-columns: 4rem 1fr; gap: 1.5rem;
+  padding: 1.75rem 0; border-bottom: 1px solid rgba(29,58,42,0.1); align-items: start;
+  opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.step.visible { opacity: 1; transform: translateY(0); }
+.step:last-child { border-bottom: none; }
+.step-num { font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 2.8rem; color: var(--ochre); line-height: 1; }
+.step-tag { display: inline-block; background: var(--forest); color: var(--gold); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.6rem; margin-bottom: 0.5rem; }
+.step h3 { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--forest); margin-bottom: 0.4rem; }
+.step p { font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: var(--dark); line-height: 1.6; }
+
+/* ─── ACTION ───────────────────────────────────────────── */
+.action { background: var(--ochre); text-align: center; }
+.action h2 {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+  font-size: clamp(2.5rem, 8vw, 5rem); color: var(--forest);
+  line-height: 0.9; margin-bottom: 1.25rem;
+}
+.action .lead { font-family: 'Crimson Pro', serif; font-size: 1.2rem; color: var(--dark); max-width: 520px; margin: 0 auto 3rem; line-height: 1.6; }
+.action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.action-card {
+  background: var(--forest); padding: 2.25rem 1.5rem 2rem; text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.action-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(14,31,22,0.3); }
+.action-card .icon { font-size: 2.2rem; margin-bottom: 0.9rem; display: block; }
+.action-card h3 { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--gold); margin-bottom: 0.6rem; }
+.action-card p { font-family: 'Crimson Pro', serif; font-size: 1rem; color: var(--sage); line-height: 1.5; margin-bottom: 1.5rem; }
+.action-card .btn-sm {
+  display: inline-block; background: var(--ochre); color: white;
+  font-family: 'Work Sans', sans-serif; font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.4rem;
+  text-decoration: none; transition: background 0.2s;
+}
+.action-card .btn-sm:hover { background: var(--gold); color: var(--dark); }
+
+/* ─── PETITION ─────────────────────────────────────────── */
+.petition { background: var(--warm); }
+.petition .section-h { color: var(--forest); }
+.petition .lead { font-family: 'Crimson Pro', serif; font-size: 1.15rem; color: var(--dark); line-height: 1.6; max-width: 600px; margin-bottom: 2.5rem; }
+.petition-form {
+  background: var(--forest); padding: 2.5rem;
+  max-width: 600px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-row.single { grid-template-columns: 1fr; }
+.field label { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
+.field input, .field textarea, .field select {
+  width: 100%; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(122,158,126,0.3);
+  color: var(--cream); font-family: 'Work Sans', sans-serif; font-size: 0.95rem;
+  padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s;
+}
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--gold); }
+.field input::placeholder, .field textarea::placeholder { color: rgba(122,158,126,0.5); }
+.field textarea { resize: vertical; min-height: 80px; }
+.field select { appearance: none; cursor: pointer; }
+.field select option { background: var(--forest); }
+.petition-submit {
+  width: 100%; background: var(--ochre); color: white; border: none;
+  font-family: 'Work Sans', sans-serif; font-weight: 700; font-size: 1rem;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 1rem;
+  cursor: pointer; margin-top: 0.5rem; transition: background 0.2s;
+}
+.petition-submit:hover { background: var(--gold); color: var(--dark); }
+.petition-note { font-size: 0.8rem; color: var(--sage); margin-top: 1rem; font-family: 'Crimson Pro', serif; font-style: italic; }
+
+/* ─── ABOUT ─────────────────────────────────────────────── */
+.about { background: var(--forest); }
+.about .eyebrow { color: var(--gold); }
+.about .section-h { color: var(--cream); }
+.about p { font-family: 'Crimson Pro', serif; font-size: 1.15rem; color: var(--sage); line-height: 1.7; margin-bottom: 1.1rem; }
+.about a { color: var(--gold); }
+
+/* ─── FOOTER ────────────────────────────────────────────── */
+footer {
+  background: var(--dark); padding: 2.5rem 1.5rem;
+  border-top: 3px solid var(--ochre);
+}
+.footer-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--cream); }
+.footer-brand span { color: var(--gold); }
+footer p { font-size: 0.8rem; color: var(--sage); line-height: 1.7; }
+footer a { color: var(--gold); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.footer-hash { font-weight: 700; font-size: 0.85rem; color: var(--ochre); }
+
+/* ─── KEYFRAMES ─────────────────────────────────────────── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { padding: 0 1.5rem 3rem; }
+  .hero-stats { max-width: 100%; }
+  .hero-left { padding: 3rem 1.5rem 2rem; }
+  nav { padding: 0 1rem; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  ⚡ URGENT: 7700 SE Stark is listed for sale at $4,999,000. Act before a developer closes. ⚡
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">MONTAVILLA<span>&nbsp;LAND TRUST</span></a>
+  <div class="nav-links">
+    <a href="#situation">The Situation</a>
+    <a href="#building">Our Vision</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#petition">Sign &amp; Join</a>
+    <a href="#petition" class="nav-cta">Become a Founder</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Montavilla Community Land Trust · montavillalandtrust.org</p>
+    <h1>
+      OWN THIS<br>
+      <em>LAND.</em><br>
+      TOGETHER.
+    </h1>
+    <p class="hero-body">
+      The property beneath the Montavilla Farmers Market is for sale.
+      We're organizing our neighborhood to buy it — and protect it forever —
+      through a Community Land Trust.
+    </p>
+    <div class="hero-btns">
+      <a href="#petition" class="btn btn-primary">Become a Founding Member</a>
+      <a href="#building" class="btn btn-ghost">See the Vision</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-box featured">
+        <span class="num">19</span>
+        <span class="label">Years at SE Stark</span>
+        <span class="sub">Home since 2007</span>
+      </div>
+      <div class="stat-box">
+        <span class="num">70<span class="unit">+</span></span>
+        <span class="label">Local Vendors</span>
+        <span class="sub">Farmers, bakers, makers</span>
+      </div>
+      <div class="stat-box">
+        <span class="num">.84</span>
+        <span class="label">Acres to Protect</span>
+        <span class="sub">Corner lot, fully assembled</span>
+      </div>
+      <div class="stat-box">
+        <span class="num">∞</span>
+        <span class="label">Years Protected</span>
+        <span class="sub">If we act now</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATION -->
+<section class="situation" id="situation">
+  <div class="wrap-sm">
+    <p class="eyebrow">The Situation</p>
+    <h2 class="section-h">The Market's Home Is on the Market.</h2>
+    <p>
+      Since 2007, the Montavilla Farmers Market has anchored community life on SE Stark Street —
+      growing from 17 vendors to more than 70, and becoming one of Portland's most beloved
+      neighborhood markets. In late 2024, the owners of the 0.84-acre parcel at
+      <strong>7700 SE Stark Street</strong> notified the market that they intended to sell.
+    </p>
+    <p>
+      The property is now listed at <strong>$4,999,000</strong>. The market can continue operating
+      until ownership transfers — but the zoning allows up to four stories of commercial and
+      residential development. If a developer closes, the market may be displaced permanently,
+      along with Portland Guitar Repair, the lot's only remaining tenant.
+    </p>
+    <p>
+      There is no timeline guarantee. A sale could happen at any time. But there is also
+      an opportunity — one that communities in cities across the country have seized to
+      protect beloved spaces through <strong>Community Land Trusts</strong>.
+    </p>
+    <div class="callout">
+      "We're grateful for the past 19 years in our location, and want to plan carefully
+      for what comes next." — Montavilla Farmers Market
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'RE BUILDING -->
+<section class="building" id="building">
+  <div class="wrap">
+    <p class="eyebrow">Our Vision</p>
+    <h2 class="section-h" style="color:var(--cream);">Not Just Saved.<br>Built to Last Generations.</h2>
+    <p class="lead">
+      A Community Land Trust permanently removes land from the speculative market.
+      The community owns the ground. Development serves people — not profit.
+      Here's what we're building at 7700 SE Stark.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <span class="icon">🌿</span>
+        <h3>Community Land Trust</h3>
+        <p>The land held in perpetuity for community benefit. It can never be flipped or redeveloped away from its mission. This is the legal and moral core of the project.</p>
+      </div>
+      <div class="card">
+        <span class="icon">☀️</span>
+        <h3>Year-Round Market Pavilion</h3>
+        <p>Industrial shade structures and landscape design make the outdoor market functional in Portland's rain — turning a seasonal venue into a year-round community fixture.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🏗️</span>
+        <h3>Mass Timber Community Hub</h3>
+        <p>A sustainably built structure housing a commissary kitchen, commercial cold storage, and deep freezers — giving market vendors the infrastructure they need to grow.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🌳</span>
+        <h3>Protected Green Space</h3>
+        <p>Thoughtful landscape design ensures the lot remains open, welcoming, and ecologically active — green space for Montavilla permanently woven into the neighborhood.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="wrap">
+    <p class="eyebrow">How We Get There</p>
+    <h2 class="section-h">A Clear Path From<br>Here to Forever.</h2>
+    <p class="lead">Community land trust acquisitions have succeeded in cities across the country. Here's our roadmap.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <span class="step-tag">Now — Month 2</span>
+          <h3>Build the Coalition</h3>
+          <p>Neighbors, vendors, and local businesses align around a shared vision.
+          We're forming a steering committee, holding community meetings, and building
+          the petition that demonstrates to funders and the city that Montavilla is organized and serious.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <span class="step-tag">Month 1 — 4</span>
+          <h3>Legal &amp; Land Trust Structure</h3>
+          <p>We establish the Community Land Trust entity — partnering with Proud Ground
+          (Portland's established CLT) or forming a new 501(c)(3) with land trust bylaws.
+          This is the legal vehicle that will own the land in perpetuity.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <span class="step-tag">Month 2 — 12</span>
+          <h3>Community Fundraising</h3>
+          <p>A Patronicity crowdfund (which can unlock city and state matching grants),
+          community bonds, anchor donor outreach, and vendor founding pledges build our
+          capital base. Every dollar demonstrates credibility to lenders and grant makers.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <span class="step-tag">Month 4 — 14</span>
+          <h3>Grants &amp; CDFI Financing</h3>
+          <p>We pursue USDA Farmers Market Promotion Program grants, Meyer Memorial Trust,
+          Oregon Dept. of Agriculture, and Portland CDBG funding — plus a bridge loan from
+          a Portland-active CDFI (Craft3, Community Vision, or Beneficial State Bank).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <span class="step-tag">Month 8 — 18</span>
+          <h3>Acquisition &amp; Build-Out</h3>
+          <p>With financing assembled, we make a credible offer — potentially structured as
+          a bargain sale giving the sellers a meaningful charitable deduction. Then we break
+          ground on the pavilion, mass timber hub, and landscape design that will define this
+          space for a generation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION -->
+<section class="action" id="action">
+  <div class="wrap">
+    <h2>BECOME A<br>FOUNDING<br>MEMBER</h2>
+    <p class="lead">
+      You don't need to be a developer or a lawyer.
+      You just need to show up. This is how communities win.
+    </p>
+    <div class="action-grid">
+      <div class="action-card">
+        <span class="icon">💚</span>
+        <h3>Donate</h3>
+        <p>Seed our acquisition fund. Every dollar signals to funders that this community is organized and serious about ownership.</p>
+        <a href="#petition" class="btn-sm">Donate Now</a>
+      </div>
+      <div class="action-card">
+        <span class="icon">✍️</span>
+        <h3>Sign the Petition</h3>
+        <p>Hundreds of signatures show the city, the sellers, and our grant partners that Montavilla stands united behind this vision.</p>
+        <a href="#petition" class="btn-sm">Sign Now</a>
+      </div>
+      <div class="action-card">
+        <span class="icon">📢</span>
+        <h3>Spread the Word</h3>
+        <p>Print our flyer. Post on social. Tell every neighbor. This campaign wins through grassroots reach — one conversation at a time.</p>
+        <a href="#petition" class="btn-sm">Get Materials</a>
+      </div>
+      <div class="action-card">
+        <span class="icon">🤝</span>
+        <h3>Join the Steering Committee</h3>
+        <p>Bring skills in law, finance, design, organizing, or communications to the core team building this land trust.</p>
+        <a href="#petition" class="btn-sm">Get Involved</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PETITION / SIGN UP -->
+<section class="petition" id="petition">
+  <div class="wrap">
+    <p class="eyebrow">Sign &amp; Join</p>
+    <h2 class="section-h">Add Your Name.<br>Build the Movement.</h2>
+    <p class="lead">
+      Sign our community petition and join the MCLT founding member list.
+      We'll keep you updated on meetings, milestones, and ways to plug in as we move fast.
+    </p>
+    <div class="petition-form">
+      <div class="form-row">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" placeholder="First">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last">
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@email.com">
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label>Neighborhood / ZIP</label>
+          <input type="text" placeholder="e.g. Montavilla / 97215">
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label>How can you help? (optional)</label>
+          <select>
+            <option value="">Select one…</option>
+            <option>Donate funds</option>
+            <option>Volunteer time / organizing</option>
+            <option>Legal or financial expertise</option>
+            <option>Design or communications</option>
+            <option>Vendor or market connection</option>
+            <option>Spread the word</option>
+            <option>Join the steering committee</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label>Message (optional)</label>
+          <textarea placeholder="Why does this matter to you? What do you want to see?"></textarea>
+        </div>
+      </div>
+      <button class="petition-submit" onclick="handleSubmit()">Sign the Petition &amp; Join MCLT</button>
+      <p class="petition-note">By signing, you join the Montavilla Community Land Trust founding member list and agree to receive occasional campaign updates. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="wrap-sm">
+    <p class="eyebrow">About This Effort</p>
+    <h2 class="section-h">Who We Are</h2>
+    <p>
+      The Montavilla Community Land Trust is a neighbor-led coalition organizing to permanently
+      protect the land at 7700 SE Stark Street through community ownership. We are residents,
+      market vendors, and local business people who believe that Montavilla's most important
+      gathering place should belong to the people who built it.
+    </p>
+    <p>
+      We are in the early stages of formal organization. We welcome neighbors with experience
+      in law, nonprofit finance, real estate, design, organizing, and community outreach to
+      join the steering committee.
+    </p>
+    <p>
+      Contact us at <a href="mailto:info@montavillalandtrust.org">info@montavillalandtrust.org</a>
+      or follow <strong>#MontavillaLandTrust</strong> for updates.
+    </p>
+    <p style="font-size:0.85rem; color:rgba(122,158,126,0.6); margin-top:2rem; font-family:'Crimson Pro',serif; font-style:italic;">
+      This coalition operates independently from the Montavilla Farmers Market organization.
+      Property listed by Premiere Property Group, MLS #647025177. Parcel R198852.
+      Verify all information independently.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">MONTAVILLA <span>LAND TRUST</span></div>
+      <p style="margin-top:0.4rem;">montavillalandtrust.org<br>
+        <a href="mailto:info@montavillalandtrust.org">info@montavillalandtrust.org</a>
+      </p>
+    </div>
+    <div style="text-align:right;">
+      <div class="footer-hash">#MontavillaLandTrust</div>
+      <p style="margin-top:0.4rem;">Montavilla, Portland OR 97215<br>
+        <a href="#petition">Become a Founding Member →</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll-reveal for steps
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.step, .card, .action-card').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  observer.observe(el);
+});
+
+// Cards reveal
+document.querySelectorAll('.card, .action-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  const cardObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  cardObs.observe(el);
+});
+
+// Form submit
+function handleSubmit() {
+  const btn = document.querySelector('.petition-submit');
+  const fields = document.querySelectorAll('.petition-form input, .petition-form select');
+  const email = document.querySelector('input[type="email"]').value;
+  if (!email || !email.includes('@')) {
+    document.querySelector('input[type="email"]').style.borderColor = '#A84C1A';
+    return;
+  }
+  btn.textContent = '✓ You\'re signed! Welcome to MCLT.';
+  btn.style.background = '#3D6147';
+  btn.disabled = true;
+  fields.forEach(f => f.disabled = true);
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>

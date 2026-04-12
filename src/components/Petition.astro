@@ -1,0 +1,112 @@
+---
+---
+<section class="petition" id="petition">
+  <div class="wrap">
+    <p class="eyebrow">Sign &amp; Join</p>
+    <h2 class="section-h">Add Your Name.<br>Build the Movement.</h2>
+    <p class="lead">
+      Sign our community petition and join the MCLT founding member list.
+      We'll keep you updated on meetings, milestones, and ways to plug in as we move fast.
+    </p>
+    <form class="petition-form" id="petition-form" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="First">
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Last">
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label for="neighborhood">Neighborhood / ZIP</label>
+          <input type="text" id="neighborhood" name="neighborhood" placeholder="e.g. Montavilla / 97215">
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label for="howCanHelp">How can you help? (optional)</label>
+          <select id="howCanHelp" name="howCanHelp">
+            <option value="">Select one…</option>
+            <option>Donate funds</option>
+            <option>Volunteer time / organizing</option>
+            <option>Legal or financial expertise</option>
+            <option>Design or communications</option>
+            <option>Vendor or market connection</option>
+            <option>Spread the word</option>
+            <option>Join the steering committee</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row single">
+        <div class="field">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message" placeholder="Why does this matter to you? What do you want to see?"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="petition-submit">Sign the Petition &amp; Join MCLT</button>
+      <p class="petition-note">
+        By signing, you join the Montavilla Community Land Trust founding member list and agree
+        to receive occasional campaign updates. Unsubscribe anytime.
+      </p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('petition-form') as HTMLFormElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector<HTMLButtonElement>('.petition-submit')!;
+    const emailInput = form.querySelector<HTMLInputElement>('[name="email"]')!;
+
+    if (!emailInput.value.includes('@')) {
+      emailInput.style.borderColor = '#A84C1A';
+      emailInput.focus();
+      return;
+    }
+
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    const payload = {
+      firstName:    form.querySelector<HTMLInputElement>('[name="firstName"]')?.value  ?? '',
+      lastName:     form.querySelector<HTMLInputElement>('[name="lastName"]')?.value   ?? '',
+      email:        emailInput.value,
+      neighborhood: form.querySelector<HTMLInputElement>('[name="neighborhood"]')?.value ?? '',
+      howCanHelp:   form.querySelector<HTMLSelectElement>('[name="howCanHelp"]')?.value  ?? '',
+      message:      form.querySelector<HTMLTextAreaElement>('[name="message"]')?.value   ?? '',
+    };
+
+    try {
+      const res = await fetch('/api/sign', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        btn.textContent = "✓ You're signed! Welcome to MCLT.";
+        btn.style.background = '#3D6147';
+        form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+          'input, select, textarea'
+        ).forEach(f => { f.disabled = true; });
+      } else {
+        btn.textContent = 'Something went wrong — please try again.';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — please try again.';
+      btn.disabled = false;
+    }
+  });
+</script>

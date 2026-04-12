@@ -1,0 +1,17 @@
+{
+  "name": "montavilla-clt",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "db:setup": "node --import tsx/esm db/setup.ts"
+  },
+  "dependencies": {
+    "@astrojs/vercel": "^8.0.0",
+    "@neondatabase/serverless": "^0.10.0",
+    "astro": "^5.0.0",
+    "resend": "^6.4.2"
+  }
+}

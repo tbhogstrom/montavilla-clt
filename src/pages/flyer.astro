@@ -1,0 +1,254 @@
+---
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Flyer — Montavilla Community Land Trust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: #ccc;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .print-hint {
+    background: #fff; border: 1px solid #ddd; padding: 0.75rem 1.5rem;
+    font-size: 0.82rem; color: #555; text-align: center;
+    max-width: 680px; line-height: 1.6;
+  }
+  .print-hint strong { color: #111; }
+  .print-hint a { color: #C8872A; }
+
+  /* ── The sheet: 8.5×11 landscape, two half-sheets side by side ── */
+  .sheet {
+    width: 11in; height: 8.5in;
+    background: white;
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+
+  /* ── Each half-flyer ── */
+  .flyer {
+    width: 5.5in; height: 8.5in;
+    padding: 0.45in 0.45in 0.35in;
+    display: flex; flex-direction: column;
+    border-right: 1px dashed #ccc;
+    overflow: hidden;
+  }
+  .flyer:last-child { border-right: none; }
+
+  /* ── Header ── */
+  .fl-eyebrow {
+    font-size: 7pt; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #555; margin-bottom: 0.12in;
+  }
+  .fl-date {
+    font-size: 7.5pt; font-weight: 600; color: #333;
+    margin-bottom: 0.08in; letter-spacing: 0.04em;
+  }
+  .fl-location {
+    font-size: 7pt; color: #666; margin-bottom: 0.18in;
+  }
+
+  .fl-headline {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900; font-size: 64pt; line-height: 0.88;
+    letter-spacing: -0.03em; color: #000;
+    margin-bottom: 0.18in;
+  }
+
+  .fl-rule { width: 100%; height: 2px; background: #000; margin-bottom: 0.15in; }
+
+  /* ── Body ── */
+  .fl-body {
+    font-size: 8.5pt; line-height: 1.55; color: #222;
+    margin-bottom: 0.15in; flex-shrink: 0;
+  }
+  .fl-body strong { font-weight: 700; color: #000; }
+
+  .fl-rule-thin { width: 100%; height: 1px; background: #ccc; margin: 0.13in 0; flex-shrink: 0; }
+
+  /* ── Actions ── */
+  .fl-actions { display: flex; flex-direction: column; gap: 0.1in; flex-shrink: 0; }
+  .fl-action { display: grid; grid-template-columns: 0.35in 1fr; gap: 0.08in; align-items: start; }
+  .fl-num {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900; font-size: 18pt; color: #000; line-height: 1;
+  }
+  .fl-action-text {}
+  .fl-action-label {
+    font-size: 7pt; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #000; margin-bottom: 0.02in;
+  }
+  .fl-action-desc { font-size: 8pt; color: #444; line-height: 1.45; }
+  .fl-action-desc strong { color: #000; }
+
+  /* ── Footer ── */
+  .fl-footer {
+    margin-top: auto; padding-top: 0.15in;
+    border-top: 2px solid #000;
+  }
+  .fl-url {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700; font-size: 13pt; color: #000;
+    letter-spacing: 0.02em; margin-bottom: 0.04in;
+  }
+  .fl-contact {
+    font-size: 7pt; color: #555; line-height: 1.6;
+  }
+  .fl-tag {
+    font-size: 7pt; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #000; margin-top: 0.05in;
+  }
+  .fl-disclaimer {
+    font-size: 6pt; color: #999; margin-top: 0.06in; line-height: 1.4;
+  }
+
+  /* ── Print styles ── */
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    .print-hint { display: none; }
+    .sheet {
+      width: 11in; height: 8.5in;
+      page-break-after: avoid;
+    }
+    @page {
+      size: 11in 8.5in landscape;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-hint">
+  <strong>To save as PDF:</strong> File → Print → "Save as PDF" → Paper: Letter → Orientation: Landscape → Scale: 100% → No margins.
+  Cut down the center dashed line to get two half-sheet flyers.
+  <br>To share digitally, send this URL: <a href="/flyer">montavillalandtrust.org/flyer</a>
+</div>
+
+<div class="sheet">
+
+  <!-- ── FLYER 1 ── -->
+  <div class="flyer">
+    <p class="fl-eyebrow">Montavilla Community Land Trust</p>
+    <p class="fl-date">Sunday, April 12, 2026 · Montavilla Farmers Market</p>
+    <p class="fl-location">7700 SE Stark St · Market Hours 10am – 2pm</p>
+
+    <div class="fl-headline">TODAY<br>IS THE<br>DAY.</div>
+
+    <div class="fl-rule"></div>
+
+    <p class="fl-body">
+      The Montavilla Farmers Market has been at SE Stark since 2007.
+      Now the 0.84-acre lot it calls home is listed for sale at <strong>$4,999,000</strong>.
+      A developer could close at any time — and the market could be lost forever.
+    </p>
+    <p class="fl-body">
+      A group of neighbors is organizing the <strong>Montavilla Community Land Trust</strong>
+      to purchase this land and protect it permanently. The plan: a year-round market pavilion,
+      a mass timber community hub with commissary kitchen and cold storage, and protected green space —
+      owned by this community, in perpetuity.
+    </p>
+
+    <div class="fl-rule-thin"></div>
+
+    <div class="fl-actions">
+      <div class="fl-action">
+        <div class="fl-num">01</div>
+        <div class="fl-action-text">
+          <p class="fl-action-label">Sign Up</p>
+          <p class="fl-action-desc">Join the founding member list at <strong>montavillalandtrust.org</strong></p>
+        </div>
+      </div>
+      <div class="fl-action">
+        <div class="fl-num">02</div>
+        <div class="fl-action-text">
+          <p class="fl-action-label">Read the Prospectus</p>
+          <p class="fl-action-desc">Download the full project plan at <strong>montavillalandtrust.org</strong></p>
+        </div>
+      </div>
+      <div class="fl-action">
+        <div class="fl-num">03</div>
+        <div class="fl-action-text">
+          <p class="fl-action-label">Pledge</p>
+          <p class="fl-action-desc">Make a founding pledge — any amount. Shows funders we're serious. <strong>Nothing charged today.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fl-footer">
+      <div class="fl-url">montavillalandtrust.org</div>
+      <p class="fl-contact">info@montavillalandtrust.org</p>
+      <p class="fl-tag">#MontavillaLandTrust</p>
+      <p class="fl-disclaimer">Independent neighbor coalition. MLS #647025177. Parcel R198852. Verify all information independently.</p>
+    </div>
+  </div>
+
+  <!-- ── FLYER 2 (identical) ── -->
+  <div class="flyer">
+    <p class="fl-eyebrow">Montavilla Community Land Trust</p>
+    <p class="fl-date">Sunday, April 12, 2026 · Montavilla Farmers Market</p>
+    <p class="fl-location">7700 SE Stark St · Market Hours 10am – 2pm</p>
+
+    <div class="fl-headline">TODAY<br>IS THE<br>DAY.</div>
+
+    <div class="fl-rule"></div>
+
+    <p class="fl-body">
+      The Montavilla Farmers Market has been at SE Stark since 2007.
+      Now the 0.84-acre lot it calls home is listed for sale at <strong>$4,999,000</strong>.
+      A developer could close at any time — and the market could be lost forever.
+    </p>
+    <p class="fl-body">
+      A group of neighbors is organizing the <strong>Montavilla Community Land Trust</strong>
+      to purchase this land and protect it permanently. The plan: a year-round market pavilion,
+      a mass timber community hub with commissary kitchen and cold storage, and protected green space —
+      owned by this community, in perpetuity.
+    </p>
+
+    <div class="fl-rule-thin"></div>
+
+    <div class="fl-actions">
+      <div class="fl-action">
+        <div class="fl-num">01</div>
+        <div class="fl-action-text">
+          <p class="fl-action-label">Sign Up</p>
+          <p class="fl-action-desc">Join the founding member list at <strong>montavillalandtrust.org</strong></p>
+        </div>
+      </div>
+      <div class="fl-action">
+        <div class="fl-num">02</div>
+        <div class="fl-action-text">
+          <p class="fl-action-label">Read the Prospectus</p>
+          <p class="fl-action-desc">Download the full project plan at <strong>montavillalandtrust.org</strong></p>
+        </div>
+      </div>
+      <div class="fl-action">
+        <div class="fl-num">03</div>
+        <div class="fl-action-text">
+          <p class="fl-action-label">Pledge</p>
+          <p class="fl-action-desc">Make a founding pledge — any amount. Shows funders we're serious. <strong>Nothing charged today.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fl-footer">
+      <div class="fl-url">montavillalandtrust.org</div>
+      <p class="fl-contact">info@montavillalandtrust.org</p>
+      <p class="fl-tag">#MontavillaLandTrust</p>
+      <p class="fl-disclaimer">Independent neighbor coalition. MLS #647025177. Parcel R198852. Verify all information independently.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

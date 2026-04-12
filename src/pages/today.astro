@@ -1,0 +1,644 @@
+---
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today Is the Day — Montavilla Community Land Trust</title>
+<meta name="description" content="The land beneath the Montavilla Farmers Market is for sale. Today is the day to act. Print flyers. Talk to neighbors. Pledge. Read the prospectus.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:  #0a0a0a;
+  --off:    #111111;
+  --gray:   #444;
+  --lgray:  #999;
+  --rule:   #222;
+  --white:  #FAFAF8;
+  --cream:  #F2EAD4;
+  --forest: #1D3A2A;
+  --gold:   #E8A832;
+  --ochre:  #C8872A;
+  --rust:   #A84C1A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Work Sans', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  background: var(--black); border-bottom: 2px solid #222;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 3.25rem;
+}
+.nav-brand {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+  font-size: 0.95rem; letter-spacing: 0.06em; color: var(--white);
+  text-decoration: none;
+}
+.nav-brand em { color: var(--gold); font-style: normal; }
+.nav-link {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #666; text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--black); text-align: center;
+  padding: 4rem 1.5rem 3.5rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: 'TODAY IS THE DAY';
+  position: absolute; inset: 0;
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+  font-size: 22vw; color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+  display: flex; align-items: center; justify-content: center;
+  letter-spacing: -0.04em; pointer-events: none; white-space: nowrap;
+  overflow: hidden; line-height: 1;
+}
+.date-stamp {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--ochre); margin-bottom: 1.5rem;
+  opacity: 0; animation: up 0.5s ease forwards 0.2s;
+}
+.hero h1 {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+  font-size: clamp(5rem, 18vw, 13rem); line-height: 0.85;
+  color: var(--white); letter-spacing: -0.03em;
+  opacity: 0; animation: up 0.6s ease forwards 0.35s;
+}
+.hero h1 em { color: var(--gold); font-style: normal; display: block; }
+.hero-rule {
+  width: 60px; height: 3px; background: var(--ochre);
+  margin: 2rem auto 2rem; opacity: 0; animation: up 0.5s ease forwards 0.55s;
+}
+.hero-sub {
+  font-family: 'Crimson Pro', serif; font-size: clamp(1.1rem, 3vw, 1.45rem);
+  color: #888; max-width: 560px; margin: 0 auto; line-height: 1.6;
+  opacity: 0; animation: up 0.6s ease forwards 0.65s;
+}
+.hero-sub strong { color: var(--white); }
+
+/* ── URGENCY BAND ── */
+.urgency {
+  background: var(--rust); text-align: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+  color: white;
+}
+
+/* ── SECTION BASE ── */
+section { padding: 5rem 1.5rem; }
+.wrap { max-width: 960px; margin: 0 auto; }
+.wrap-sm { max-width: 660px; margin: 0 auto; }
+.eyebrow {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--ochre); margin-bottom: 0.6rem;
+}
+.sh {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.0; margin-bottom: 1.5rem;
+}
+
+/* ── SITUATION ── */
+.situation { background: var(--cream); border-bottom: 1px solid #ddd; }
+.situation .sh { color: var(--forest); }
+.situation p {
+  font-family: 'Crimson Pro', serif; font-size: 1.2rem;
+  line-height: 1.7; color: #222; margin-bottom: 1rem;
+}
+.situation p strong { color: var(--forest); }
+
+/* ── ACTION PLAN ── */
+.plan { background: var(--black); border-bottom: 1px solid var(--rule); }
+.plan .sh { color: var(--white); }
+.plan-intro {
+  font-family: 'Crimson Pro', serif; font-size: 1.15rem;
+  color: #888; max-width: 580px; line-height: 1.6; margin-bottom: 3.5rem;
+}
+.action-steps { display: flex; flex-direction: column; gap: 0; }
+.action-step {
+  display: grid; grid-template-columns: 5rem 1fr auto;
+  gap: 2rem; align-items: start;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--rule);
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.action-step.visible { opacity: 1; transform: translateY(0); }
+.action-step:last-child { border-bottom: none; }
+.step-num {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+  font-size: 4rem; color: #222; line-height: 1; padding-top: 0.1rem;
+}
+.step-tag {
+  display: inline-block; background: var(--ochre); color: white;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 0.2rem 0.6rem; margin-bottom: 0.6rem;
+}
+.step-body h3 {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+  font-size: 1.6rem; color: var(--white); margin-bottom: 0.5rem;
+}
+.step-body p {
+  font-family: 'Crimson Pro', serif; font-size: 1.1rem;
+  color: #888; line-height: 1.6; max-width: 480px;
+}
+.step-body p strong { color: #ccc; }
+.step-action { display: flex; align-items: flex-start; padding-top: 0.5rem; }
+
+.btn {
+  display: inline-block; text-decoration: none; cursor: pointer;
+  font-family: 'Work Sans', sans-serif; font-weight: 700;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.75rem 1.5rem; border: none; transition: all 0.2s; white-space: nowrap;
+}
+.btn-white { background: var(--white); color: var(--black); }
+.btn-white:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid #333; }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.btn-gold { background: var(--gold); color: var(--black); }
+.btn-gold:hover { background: var(--ochre); color: white; transform: translateY(-2px); }
+
+/* ── DOWNLOADS ── */
+.downloads { background: var(--white); border-bottom: 1px solid #eee; }
+.downloads .sh { color: var(--black); }
+.download-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px; background: #e0e0e0; border: 1px solid #e0e0e0; margin-top: 2.5rem;
+}
+.dl-card {
+  background: var(--white); padding: 2rem 1.75rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  transition: background 0.2s;
+}
+.dl-card:hover { background: var(--cream); }
+.dl-icon { font-size: 2.5rem; line-height: 1; }
+.dl-card h3 {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+  font-size: 1.3rem; color: var(--black);
+}
+.dl-card p {
+  font-family: 'Crimson Pro', serif; font-size: 1.05rem;
+  color: var(--gray); line-height: 1.55; flex: 1;
+}
+.dl-meta {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--lgray);
+}
+
+/* ── PLEDGE ── */
+.pledge { background: var(--forest); }
+.pledge .eyebrow { color: var(--gold); }
+.pledge .sh { color: var(--white); }
+.pledge-intro {
+  font-family: 'Crimson Pro', serif; font-size: 1.15rem;
+  color: #7A9E7E; max-width: 560px; line-height: 1.65; margin-bottom: 2.5rem;
+}
+.pledge-form { max-width: 560px; display: flex; flex-direction: column; gap: 1rem; }
+.pledge-amounts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.amount-btn {
+  background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.15);
+  color: white; font-family: 'Work Sans', sans-serif; font-weight: 700;
+  font-size: 1rem; padding: 0.65rem 1.4rem; cursor: pointer; transition: all 0.2s;
+}
+.amount-btn:hover, .amount-btn.active {
+  background: var(--gold); border-color: var(--gold); color: var(--black);
+}
+.pledge-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.pfield label {
+  display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: #7A9E7E; margin-bottom: 0.35rem;
+}
+.pfield input {
+  width: 100%; background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.15); color: white;
+  font-family: 'Work Sans', sans-serif; font-size: 0.95rem;
+  padding: 0.7rem 1rem; outline: none; transition: border-color 0.2s;
+}
+.pfield input:focus { border-color: var(--gold); }
+.pfield input::placeholder { color: rgba(122,158,126,0.5); }
+.pledge-submit {
+  background: var(--gold); color: var(--black); border: none;
+  font-family: 'Work Sans', sans-serif; font-weight: 700;
+  font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 1rem 2rem; cursor: pointer; transition: all 0.2s; align-self: flex-start;
+}
+.pledge-submit:hover:not(:disabled) { background: var(--ochre); color: white; }
+.pledge-submit:disabled { cursor: default; }
+.pledge-note {
+  font-family: 'Crimson Pro', serif; font-style: italic;
+  font-size: 0.88rem; color: rgba(122,158,126,0.6); line-height: 1.5;
+}
+
+/* ── SIGNUP ── */
+.signup { background: var(--black); border-top: 1px solid var(--rule); text-align: center; }
+.signup .sh { color: var(--white); }
+.signup p { font-family: 'Crimson Pro', serif; font-size: 1.1rem; color: #888; margin-bottom: 2rem; }
+.signup-row {
+  display: flex; gap: 0; max-width: 460px; margin: 0 auto; flex-wrap: wrap;
+  justify-content: center;
+}
+.signup-row input {
+  flex: 1; min-width: 220px; background: rgba(255,255,255,0.05);
+  border: 1.5px solid #333; color: white;
+  font-family: 'Work Sans', sans-serif; font-size: 0.95rem;
+  padding: 0.85rem 1.25rem; outline: none; transition: border-color 0.2s;
+}
+.signup-row input:focus { border-color: var(--gold); }
+.signup-row input::placeholder { color: #555; }
+.signup-row button {
+  background: var(--white); color: var(--black); border: none;
+  font-family: 'Work Sans', sans-serif; font-weight: 700;
+  font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.85rem 1.75rem; cursor: pointer; white-space: nowrap; transition: background 0.2s;
+}
+.signup-row button:hover { background: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black); border-top: 1px solid #1a1a1a;
+  padding: 2rem 1.5rem; text-align: center;
+}
+footer p { font-size: 0.78rem; color: #444; line-height: 1.8; }
+footer a { color: var(--gold); text-decoration: none; }
+
+@keyframes up { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+@media (max-width: 680px) {
+  .action-step { grid-template-columns: 3.5rem 1fr; }
+  .step-action { grid-column: 2; }
+  .step-num { font-size: 2.8rem; }
+  .pledge-fields { grid-template-columns: 1fr; }
+  nav { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-brand">MONTAVILLA <em>LAND TRUST</em></a>
+  <a href="#signup" class="nav-link">Join</a>
+</nav>
+
+<!-- URGENCY -->
+<div class="urgency">
+  ⚡ 7700 SE Stark is listed for sale at $4,999,000. A developer could close at any time. ⚡
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="date-stamp">Sunday, April 12, 2026 &nbsp;·&nbsp; Montavilla Farmers Market Day</p>
+  <h1>TODAY<br><em>IS THE</em><br>DAY.</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">
+    The land beneath the <strong>Montavilla Farmers Market</strong> is for sale.<br>
+    We're buying it — and protecting it forever. Here's how you help.
+  </p>
+</section>
+
+<!-- SITUATION -->
+<section class="situation">
+  <div class="wrap-sm">
+    <p class="eyebrow">What's Happening</p>
+    <h2 class="sh" style="color:var(--forest);">19 Years. 70+ Vendors. One Urgent Moment.</h2>
+    <p>
+      Since 2007, the Montavilla Farmers Market has been at 7700 SE Stark Street.
+      The owners told the market in late 2024 they planned to sell.
+      The property is now listed at <strong>$4,999,000</strong>.
+      The zoning allows up to four stories of development.
+      If a developer closes, the market could be displaced — permanently.
+    </p>
+    <p>
+      A coalition of neighbors is organizing the <strong>Montavilla Community Land Trust</strong>
+      to purchase this land and hold it in perpetuity. The plan: a year-round market pavilion,
+      a mass timber community hub with commissary kitchen and cold storage, and protected green space —
+      owned by this community, forever.
+    </p>
+    <p>
+      <strong>Today, market day, is the single best moment to organize.</strong>
+      You're surrounded by neighbors who care. Use it.
+    </p>
+  </div>
+</section>
+
+<!-- ACTION PLAN -->
+<section class="plan" id="action">
+  <div class="wrap">
+    <p class="eyebrow">The Action Plan</p>
+    <h2 class="sh">What To Do Today.</h2>
+    <p class="plan-intro">
+      Three concrete actions. Each one builds the momentum that gets this land trust funded and closed.
+    </p>
+    <div class="action-steps">
+
+      <div class="action-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <span class="step-tag">Do it right now</span>
+          <h3>Print the Flyer. Hand It Out.</h3>
+          <p>
+            We made a one-page black-and-white flyer designed to print on any home or office printer.
+            <strong>Print a stack. Bring them to the market. Hand them to everyone you talk to.</strong>
+            Leave a pile at the coffee shop. Post one on every bulletin board in Montavilla.
+            This is how word spreads faster than social media.
+          </p>
+        </div>
+        <div class="step-action">
+          <a href="/flyer" target="_blank" class="btn btn-white">⬇ Print Flyer →</a>
+        </div>
+      </div>
+
+      <div class="action-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <span class="step-tag">Talk to your neighbors</span>
+          <h3>Have the Conversation.</h3>
+          <p>
+            You're at the market. Your neighbors are at the market.
+            <strong>Talk to them.</strong> Tell them what's happening.
+            Tell them about the land trust. Tell them to sign up.
+            One real conversation does more than ten social media posts.
+            The market runs until 2pm — use every minute of it.
+          </p>
+          <p style="margin-top:0.75rem;">
+            Not sure what to say? <em>"The land beneath this market is for sale.
+            A group of us are trying to buy it through a community land trust.
+            Go to montavillalandtrust.org to sign up and pledge."</em>
+          </p>
+        </div>
+        <div class="step-action">
+          <a href="#signup" class="btn btn-outline">Sign Up →</a>
+        </div>
+      </div>
+
+      <div class="action-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <span class="step-tag">Read + Share</span>
+          <h3>Read the Prospectus.</h3>
+          <p>
+            We built a detailed prospectus laying out the full project — the land,
+            the zoning, the CLT structure, the building program, the fundraising plan,
+            and comparable properties. <strong>Read it. Share it.</strong>
+            Send it to anyone who can donate, advise, or connect us to funders.
+            This is the document that turns conversations into commitments.
+          </p>
+        </div>
+        <div class="step-action">
+          <a href="/Montavilla_Community_Land_Trust_Prospectus.pdf" download class="btn btn-outline">⬇ Download Prospectus</a>
+        </div>
+      </div>
+
+      <div class="action-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <span class="step-tag">Most important</span>
+          <h3>Make a Founding Pledge.</h3>
+          <p>
+            We need to demonstrate to grant makers, CDFIs, and the city that this community
+            is putting real money behind the vision. <strong>A founding pledge — any amount —
+            signals that we're serious.</strong> Pledges are collected when we're ready to close.
+            Nothing is charged today. But every pledge we collect makes the next funder meeting easier.
+          </p>
+        </div>
+        <div class="step-action">
+          <a href="#pledge" class="btn btn-gold">Make a Pledge →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section class="downloads">
+  <div class="wrap">
+    <p class="eyebrow">Campaign Materials</p>
+    <h2 class="sh">Download Everything.</h2>
+    <div class="download-grid">
+      <div class="dl-card">
+        <div class="dl-icon">🖨️</div>
+        <h3>Today Is the Day — Flyer</h3>
+        <p>Black and white, prints on any printer. 8.5×11. Take to the market, post in the neighborhood, leave at every coffee shop.</p>
+        <p class="dl-meta">PDF · B&W · Print-Ready</p>
+        <a href="/flyer" target="_blank" class="btn btn-white" style="margin-top:0.5rem; border: 1.5px solid #ddd;">⬇ Print Flyer</a>
+      </div>
+      <div class="dl-card">
+        <div class="dl-icon">📄</div>
+        <h3>Community Prospectus</h3>
+        <p>The full project plan — parcel research, CLT structure, building program, fundraising roadmap, comparable properties. Share with anyone serious.</p>
+        <p class="dl-meta">PDF · Full Document</p>
+        <a href="/Montavilla_Community_Land_Trust_Prospectus.pdf" download class="btn btn-white" style="margin-top:0.5rem; border: 1.5px solid #ddd;">⬇ Download Prospectus</a>
+      </div>
+      <div class="dl-card">
+        <div class="dl-icon">🌿</div>
+        <h3>Full Color Campaign Flyer</h3>
+        <p>The high-impact color version — for digital sharing, email, and color printing at copy shops. Designed for screens and posters.</p>
+        <p class="dl-meta">PDF · Full Color · Shareable</p>
+        <a href="/MCLT_Awareness_Flyer.pdf" download class="btn btn-white" style="margin-top:0.5rem; border: 1.5px solid #ddd;">⬇ Download Color Flyer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLEDGE -->
+<section class="pledge" id="pledge">
+  <div class="wrap">
+    <p class="eyebrow">Founding Pledge</p>
+    <h2 class="sh">Put Your Name on This.</h2>
+    <p class="pledge-intro">
+      Pledges are not charged today — they're collected when we're ready to close.
+      But every pledge we collect is evidence that this community is organized,
+      serious, and ready to own this land together.
+    </p>
+    <div class="pledge-form" id="pledge-form">
+      <div>
+        <label style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#7A9E7E;display:block;margin-bottom:0.5rem;">Pledge Amount</label>
+        <div class="pledge-amounts">
+          <button class="amount-btn" data-amount="25">$25</button>
+          <button class="amount-btn" data-amount="50">$50</button>
+          <button class="amount-btn" data-amount="100">$100</button>
+          <button class="amount-btn" data-amount="250">$250</button>
+          <button class="amount-btn" data-amount="500">$500</button>
+          <button class="amount-btn" data-amount="">Other</button>
+        </div>
+      </div>
+      <div class="pledge-fields">
+        <div class="pfield">
+          <label for="p-first">First Name</label>
+          <input type="text" id="p-first" placeholder="First">
+        </div>
+        <div class="pfield">
+          <label for="p-last">Last Name</label>
+          <input type="text" id="p-last" placeholder="Last">
+        </div>
+        <div class="pfield">
+          <label for="p-email">Email</label>
+          <input type="email" id="p-email" placeholder="you@email.com">
+        </div>
+        <div class="pfield">
+          <label for="p-amount">Pledge Amount ($)</label>
+          <input type="number" id="p-amount" placeholder="Enter amount" min="1">
+        </div>
+      </div>
+      <button class="pledge-submit" id="pledge-btn">Submit Founding Pledge</button>
+      <p class="pledge-note">
+        No payment collected today. Your pledge is a commitment of intent that helps us
+        demonstrate community support to grant makers, CDFIs, and city partners.
+        We'll reach out before any funds are collected.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SIGN UP -->
+<section class="signup" id="signup">
+  <div class="wrap-sm">
+    <h2 class="sh">Stay in the Loop.</h2>
+    <p>Get meeting invites, campaign milestones, and ways to plug in as we build toward closing.</p>
+    <div class="signup-row">
+      <input type="email" placeholder="your@email.com" id="su-email">
+      <button id="su-btn">Count Me In</button>
+    </div>
+    <p style="margin-top:1.25rem; font-size:0.8rem; color:#444; font-family:'Crimson Pro',serif;">
+      Or email: <a href="mailto:info@montavillalandtrust.org">info@montavillalandtrust.org</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong style="color:#888;">Montavilla Community Land Trust</strong><br>
+    montavillalandtrust.org &nbsp;·&nbsp;
+    <a href="mailto:info@montavillalandtrust.org">info@montavillalandtrust.org</a><br>
+    #MontavillaLandTrust &nbsp;·&nbsp; Portland, OR 97215<br><br>
+    <span style="font-size:0.72rem;">
+      This coalition operates independently from the Montavilla Farmers Market organization.
+      Property listed by Premiere Property Group, MLS #647025177. Parcel R198852.
+    </span>
+  </p>
+</footer>
+
+<script>
+  // ── Scroll reveal ──────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.action-step').forEach((el, i) => {
+    (el as HTMLElement).style.transitionDelay = (i * 0.1) + 's';
+    obs.observe(el);
+  });
+
+  // ── Smooth scroll ──────────────────────────────────────────
+  document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href') ?? '');
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // ── Amount buttons ─────────────────────────────────────────
+  document.querySelectorAll<HTMLButtonElement>('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const amountInput = document.getElementById('p-amount') as HTMLInputElement;
+      const val = btn.dataset.amount ?? '';
+      amountInput.value = val;
+      if (!val) amountInput.focus();
+    });
+  });
+
+  // ── Pledge submit ──────────────────────────────────────────
+  document.getElementById('pledge-btn')?.addEventListener('click', async () => {
+    const first  = (document.getElementById('p-first')  as HTMLInputElement).value.trim();
+    const last   = (document.getElementById('p-last')   as HTMLInputElement).value.trim();
+    const email  = (document.getElementById('p-email')  as HTMLInputElement).value.trim();
+    const amount = Number((document.getElementById('p-amount') as HTMLInputElement).value);
+    const btn    = document.getElementById('pledge-btn') as HTMLButtonElement;
+
+    if (!first || !email || !email.includes('@') || !amount || amount < 1) {
+      btn.textContent = 'Please fill in all fields.';
+      btn.style.background = '#A84C1A';
+      btn.style.color = 'white';
+      setTimeout(() => { btn.textContent = 'Submit Founding Pledge'; btn.style.background = ''; btn.style.color = ''; }, 2500);
+      return;
+    }
+
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    const name = [first, last].filter(Boolean).join(' ');
+
+    // Fire both in parallel — pledge ledger + petition signup
+    const [pledgeRes, signRes] = await Promise.allSettled([
+      fetch('/api/pledge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, amount }),
+      }),
+      fetch('/api/sign', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName: first, lastName: last, email, neighborhood: '', howCanHelp: 'Donate funds', message: `Pledge: $${amount}` }),
+      }),
+    ]);
+
+    const ok = pledgeRes.status === 'fulfilled' && pledgeRes.value.ok;
+    if (ok) {
+      btn.textContent = `✓ Pledge of $${amount.toLocaleString()} recorded. Thank you, ${first}.`;
+      btn.style.background = '#3D6147';
+      btn.style.color = 'white';
+    } else {
+      btn.textContent = 'Something went wrong — please try again.';
+      btn.disabled = false;
+    }
+  });
+
+  // ── Signup ─────────────────────────────────────────────────
+  document.getElementById('su-btn')?.addEventListener('click', async () => {
+    const email = (document.getElementById('su-email') as HTMLInputElement).value.trim();
+    const btn   = document.getElementById('su-btn') as HTMLButtonElement;
+
+    if (!email || !email.includes('@')) {
+      btn.textContent = 'Enter a valid email.';
+      setTimeout(() => { btn.textContent = 'Count Me In'; }, 1500);
+      return;
+    }
+
+    btn.textContent = 'Joining…';
+    btn.disabled = true;
+
+    const res = await fetch('/api/sign', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName: '', lastName: '', email, neighborhood: '', howCanHelp: '', message: '' }),
+    });
+
+    if (res.ok) {
+      btn.textContent = "✓ You're in!";
+      btn.style.background = '#3D6147';
+      btn.style.color = 'white';
+      (document.getElementById('su-email') as HTMLInputElement).disabled = true;
+    } else {
+      btn.textContent = 'Something went wrong.';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

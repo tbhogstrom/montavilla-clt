@@ -4,13 +4,18 @@ import { getDb } from '../../lib/db';
 export const GET: APIRoute = async () => {
   try {
     const sql = getDb();
-    const result = await sql`SELECT COUNT(*)::int AS count FROM signups`;
-    return new Response(JSON.stringify({ count: result[0]?.count ?? 0 }), {
+    const [signups, pledges] = await Promise.all([
+      sql`SELECT COUNT(*)::int AS count FROM signups`,
+      sql`SELECT COALESCE(SUM(amount), 0)::int AS total FROM pledges`.catch(() => [{ total: 0 }]),
+    ]);
+    return new Response(JSON.stringify({
+      count:        signups[0]?.count ?? 0,
+      pledgeTotal:  pledges[0]?.total ?? 0,
+    }), {
       headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
     });
   } catch {
-    // Table may not exist yet
-    return new Response(JSON.stringify({ count: 0 }), {
+    return new Response(JSON.stringify({ count: 0, pledgeTotal: 0 }), {
       headers: { 'Content-Type': 'application/json' },
     });
   }

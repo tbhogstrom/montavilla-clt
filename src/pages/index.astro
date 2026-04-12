@@ -2,9 +2,10 @@
 export const prerender = true;
 
 import '../styles/global.css';
-import UrgencyBar from '../components/UrgencyBar.astro';
-import Nav        from '../components/Nav.astro';
-import Hero       from '../components/Hero.astro';
+import UrgencyBar     from '../components/UrgencyBar.astro';
+import Nav            from '../components/Nav.astro';
+import SignatureCount from '../components/SignatureCount.astro';
+import Hero           from '../components/Hero.astro';
 import Situation  from '../components/Situation.astro';
 import Building   from '../components/Building.astro';
 import Roadmap    from '../components/Roadmap.astro';
@@ -31,6 +32,7 @@ import Footer     from '../components/Footer.astro';
   <body>
     <UrgencyBar />
     <Nav />
+    <SignatureCount />
     <Hero />
     <Situation />
     <Building />

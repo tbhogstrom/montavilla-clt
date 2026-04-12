@@ -46,6 +46,26 @@ nav {
 }
 .nav-cta:hover { background: var(--gold) !important; color: var(--dark) !important; }
 
+/* ─── SIGNATURE COUNT BAR ────────────────────────────── */
+.sig-bar {
+  background: var(--moss);
+  color: var(--cream);
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  display: none;
+}
+.sig-bar--visible { display: block; }
+.sig-bar strong {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin-right: 0.15em;
+}
+
 /* ─── URGENCY BAR ─────────────────────────────────────── */
 .urgency-bar {
   background: var(--rust); color: white;

@@ -1,0 +1,20 @@
+---
+---
+<div class="sig-bar" id="sig-bar" aria-live="polite">
+  <span id="sig-inner"></span>
+</div>
+
+<script>
+  fetch('/api/count')
+    .then(r => r.json())
+    .then(({ count }) => {
+      if (!count || count < 1) return;
+      const bar   = document.getElementById('sig-bar');
+      const inner = document.getElementById('sig-inner');
+      if (!bar || !inner) return;
+      const label = count === 1 ? 'Montavilla neighbor likes' : 'Montavilla neighbors like';
+      inner.innerHTML = `<strong>${count.toLocaleString()}</strong> ${label} this idea`;
+      bar.classList.add('sig-bar--visible');
+    })
+    .catch(() => {/* stay hidden */});
+</script>

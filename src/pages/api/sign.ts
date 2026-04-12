@@ -49,7 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
     const ADMIN   = import.meta.env.ADMIN_EMAIL  ?? 'info@montavillalandtrust.org';
     const name    = [firstName, lastName].filter(Boolean).join(' ') || 'there';
 
-    await Promise.allSettled([
+    const [confirmation, notification] = await Promise.allSettled([
       // Confirmation to signer
       resend.emails.send({
         from:    `Montavilla Land Trust <${FROM}>`,
@@ -65,6 +65,16 @@ export const POST: APIRoute = async ({ request }) => {
         html:    adminNotificationEmail({ firstName, lastName, email, neighborhood, howCanHelp, message }),
       }),
     ]);
+
+    if (confirmation.status === 'rejected')
+      console.error('Confirmation email failed:', confirmation.reason);
+    else if (confirmation.value.error)
+      console.error('Confirmation email error:', confirmation.value.error);
+
+    if (notification.status === 'rejected')
+      console.error('Admin notification failed:', notification.reason);
+    else if (notification.value.error)
+      console.error('Admin notification error:', notification.value.error);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

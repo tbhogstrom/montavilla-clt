@@ -1,0 +1,195 @@
+---
+import { getDb } from '../../lib/db';
+
+const token = Astro.cookies.get('admin_token')?.value;
+if (token !== import.meta.env.ADMIN_PASSWORD) {
+  return Astro.redirect('/admin/login');
+}
+
+const sql = getDb();
+
+await sql`
+  CREATE TABLE IF NOT EXISTS broadcasts (
+    id         SERIAL PRIMARY KEY,
+    subject    TEXT NOT NULL,
+    github_url TEXT,
+    html_body  TEXT NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    sent_at    TIMESTAMPTZ,
+    sent_count INTEGER
+  )
+`;
+
+const broadcasts = await sql`SELECT id, subject, github_url, created_at, sent_at, sent_count FROM broadcasts ORDER BY created_at DESC`;
+const [{ count }] = await sql`SELECT COUNT(DISTINCT email)::int AS count FROM signups WHERE email IS NOT NULL AND email != ''`;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Admin — Montavilla Land Trust</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Work Sans', sans-serif; background: #0E1F16; color: #F5EED8; min-height: 100vh; }
+    nav { background: #1D3A2A; border-bottom: 2px solid #C8872A; padding: 0 2rem; height: 3.25rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; color: #F5EED8; }
+    .brand span { color: #E8A832; }
+    .sub-count { font-size: 0.75rem; color: #7A9E7E; }
+    main { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; color: #E8A832; letter-spacing: 0.04em; }
+
+    /* New broadcast form */
+    .new-form { background: #1D3A2A; border: 1px solid rgba(122,158,126,0.2); padding: 2rem; margin-bottom: 3rem; }
+    .new-form h2 { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7A9E7E; margin-bottom: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; margin-bottom: 1rem; }
+    label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #7A9E7E; margin-bottom: 0.35rem; }
+    input { width: 100%; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(122,158,126,0.3); color: #F5EED8; font-family: inherit; font-size: 0.95rem; padding: 0.7rem 1rem; outline: none; }
+    input:focus { border-color: #E8A832; }
+    input::placeholder { color: rgba(122,158,126,0.4); }
+    .btn { display: inline-block; font-family: inherit; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.7rem 1.5rem; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-gold { background: #C8872A; color: white; }
+    .btn-gold:hover { background: #E8A832; color: #0E1F16; }
+    .btn-sm { padding: 0.45rem 1rem; font-size: 0.68rem; }
+    .btn-outline { background: transparent; border: 1.5px solid rgba(122,158,126,0.4); color: #7A9E7E; }
+    .btn-outline:hover { border-color: #E8A832; color: #E8A832; }
+    .btn-send { background: #1D3A2A; border: 1.5px solid #C8872A; color: #E8A832; }
+    .btn-send:hover { background: #C8872A; color: white; }
+    .btn-danger { background: transparent; border: 1.5px solid rgba(168,76,26,0.4); color: rgba(168,76,26,0.8); }
+    #form-msg { font-size: 0.8rem; color: #7A9E7E; margin-top: 0.75rem; min-height: 1.2em; }
+
+    /* Broadcast list */
+    .list-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .list-header h2 { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7A9E7E; }
+    .broadcast-list { display: flex; flex-direction: column; gap: 1px; background: rgba(122,158,126,0.1); border: 1px solid rgba(122,158,126,0.1); }
+    .broadcast-item { background: #0E1F16; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; }
+    .broadcast-item:hover { background: #111f17; }
+    .b-subject { font-weight: 600; font-size: 0.95rem; color: #F5EED8; margin-bottom: 0.2rem; }
+    .b-meta { font-size: 0.72rem; color: #7A9E7E; }
+    .b-sent { color: #3D6147; font-weight: 700; }
+    .b-draft { color: #C8872A; }
+    .b-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .empty { padding: 2rem; text-align: center; color: #7A9E7E; font-size: 0.9rem; font-style: italic; background: #0E1F16; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">MONTAVILLA <span>LAND TRUST</span> · Admin</div>
+    <span class="sub-count">{count} subscribers</span>
+  </nav>
+
+  <main>
+    <h1>Broadcast Dashboard</h1>
+
+    <!-- New broadcast -->
+    <div class="new-form">
+      <h2>New Broadcast</h2>
+      <div class="form-row">
+        <div>
+          <label for="subject">Subject Line</label>
+          <input type="text" id="subject" placeholder="e.g. April Update from MCLT">
+        </div>
+        <div>
+          <label for="github-url">GitHub Markdown URL</label>
+          <input type="text" id="github-url" placeholder="https://github.com/tbhogstrom/montavilla-clt/blob/main/workspace/emails/...md">
+        </div>
+      </div>
+      <button class="btn btn-gold" id="fetch-btn">Fetch &amp; Save Draft</button>
+      <p id="form-msg"></p>
+    </div>
+
+    <!-- Broadcast list -->
+    <div class="list-header">
+      <h2>All Broadcasts</h2>
+    </div>
+    <div class="broadcast-list">
+      {broadcasts.length === 0 && (
+        <div class="empty">No broadcasts yet — create one above.</div>
+      )}
+      {broadcasts.map(b => (
+        <div class="broadcast-item">
+          <div>
+            <div class="b-subject">{b.subject}</div>
+            <div class="b-meta">
+              {new Date(b.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              &nbsp;·&nbsp;
+              {b.sent_at
+                ? <span class="b-sent">✓ Sent to {b.sent_count} subscribers</span>
+                : <span class="b-draft">Draft</span>
+              }
+            </div>
+          </div>
+          <div class="b-actions">
+            <a href={`/emails/${b.id}`} target="_blank" class="btn btn-sm btn-outline">Preview</a>
+            {!b.sent_at && (
+              <button class="btn btn-sm btn-send" data-id={b.id} data-subject={b.subject}>
+                Send to {count}
+              </button>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <script>
+    // Fetch & save draft
+    document.getElementById('fetch-btn')?.addEventListener('click', async () => {
+      const subject   = (document.getElementById('subject') as HTMLInputElement).value.trim();
+      const githubUrl = (document.getElementById('github-url') as HTMLInputElement).value.trim();
+      const msg       = document.getElementById('form-msg')!;
+      const btn       = document.getElementById('fetch-btn') as HTMLButtonElement;
+
+      if (!subject || !githubUrl) { msg.textContent = 'Both fields are required.'; return; }
+
+      btn.textContent = 'Fetching…';
+      btn.disabled = true;
+
+      const res  = await fetch('/api/admin/draft', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subject, githubUrl }),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        msg.textContent = `✓ Draft saved. Opening preview…`;
+        setTimeout(() => {
+          window.open(`/emails/${data.id}`, '_blank');
+          window.location.reload();
+        }, 800);
+      } else {
+        msg.textContent = `Error: ${data.error}`;
+        btn.textContent = 'Fetch & Save Draft';
+        btn.disabled = false;
+      }
+    });
+
+    // Send broadcast
+    document.querySelectorAll<HTMLButtonElement>('.btn-send').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id      = btn.dataset.id;
+        const subject = btn.dataset.subject;
+        if (!confirm(`Send "${subject}" to all subscribers? This cannot be undone.`)) return;
+
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        const res  = await fetch(`/api/admin/send/${id}`, { method: 'POST' });
+        const data = await res.json();
+
+        if (res.ok) {
+          btn.textContent = `✓ Sent to ${data.sent}`;
+          btn.style.background = '#3D6147';
+          setTimeout(() => window.location.reload(), 1500);
+        } else {
+          btn.textContent = `Error: ${data.error}`;
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

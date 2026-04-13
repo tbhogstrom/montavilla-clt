@@ -1,0 +1,35 @@
+---
+const error = Astro.url.searchParams.get('error');
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Admin — Montavilla Land Trust</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    body { font-family: 'Work Sans', sans-serif; background: #0E1F16; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+    .box { background: #1D3A2A; border: 1px solid rgba(122,158,126,0.2); padding: 2.5rem; width: 100%; max-width: 360px; }
+    .brand { font-family: serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; color: #F5EED8; margin-bottom: 2rem; }
+    .brand span { color: #E8A832; }
+    label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #7A9E7E; margin-bottom: 0.4rem; }
+    input { width: 100%; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(122,158,126,0.3); color: #F5EED8; font-size: 1rem; padding: 0.75rem 1rem; outline: none; margin-bottom: 1rem; }
+    input:focus { border-color: #E8A832; }
+    button { width: 100%; background: #C8872A; color: white; border: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem; cursor: pointer; }
+    button:hover { background: #E8A832; color: #0E1F16; }
+    .error { color: #A84C1A; font-size: 0.85rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="brand">MONTAVILLA <span>LAND TRUST</span> · Admin</div>
+    {error && <p class="error">Incorrect password.</p>}
+    <form method="POST" action="/api/admin/login">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autofocus required>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+</body>
+</html>

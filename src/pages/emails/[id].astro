@@ -1,0 +1,137 @@
+---
+import { getDb } from '../../lib/db';
+
+const { id } = Astro.params;
+const sql = getDb();
+
+let broadcast: any = null;
+try {
+  const rows = await sql`SELECT * FROM broadcasts WHERE id = ${id!}`;
+  broadcast = rows[0] ?? null;
+} catch {
+  // table may not exist yet
+}
+
+if (!broadcast) return Astro.redirect('/');
+
+function fmtDate(d: Date | string) {
+  return new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>{broadcast.subject} — Montavilla Land Trust</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,400;1,400&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Work Sans', sans-serif; background: #0E1F16; padding: 2rem 1rem; }
+
+    .email-wrap { max-width: 600px; margin: 0 auto; }
+
+    /* Header */
+    .email-header {
+      background: #1D3A2A; padding: 1.75rem 2.5rem;
+      border-bottom: 3px solid #C8872A;
+    }
+    .email-brand {
+      font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+      font-size: 1rem; letter-spacing: 0.08em; color: #F5EED8;
+    }
+    .email-brand span { color: #E8A832; }
+
+    /* Body */
+    .email-body {
+      background: #1D3A2A; padding: 2.5rem;
+    }
+    .email-body h1 {
+      font-family: 'Big Shoulders Display', sans-serif; font-weight: 900;
+      font-size: 2.5rem; color: #F5EED8; line-height: 1.05;
+      margin-bottom: 1.25rem; letter-spacing: -0.02em;
+    }
+    .email-body h2 {
+      font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+      font-size: 1.4rem; color: #E8A832; margin: 2rem 0 0.6rem;
+    }
+    .email-body h3 {
+      font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+      font-size: 1.1rem; color: #F5EED8; margin: 1.5rem 0 0.4rem;
+    }
+    .email-body p {
+      font-family: 'Crimson Pro', serif; font-size: 1.1rem;
+      color: #7A9E7E; line-height: 1.7; margin-bottom: 1rem;
+    }
+    .email-body strong { color: #F5EED8; }
+    .email-body em { color: rgba(122,158,126,0.8); }
+    .email-body a { color: #E8A832; }
+    .email-body ul, .email-body ol {
+      color: #7A9E7E; padding-left: 1.5rem; margin-bottom: 1rem;
+      font-family: 'Crimson Pro', serif; font-size: 1.1rem; line-height: 1.7;
+    }
+    .email-body hr {
+      border: none; border-top: 1px solid rgba(122,158,126,0.2); margin: 1.5rem 0;
+    }
+    .email-body blockquote {
+      border-left: 3px solid #C8872A; padding-left: 1rem;
+      margin: 1rem 0; color: rgba(122,158,126,0.7);
+      font-style: italic;
+    }
+
+    /* Footer */
+    .email-footer {
+      background: #0E1F16; padding: 1.5rem 2.5rem;
+      border-top: 1px solid rgba(122,158,126,0.15);
+    }
+    .email-footer p {
+      font-size: 0.78rem; color: rgba(122,158,126,0.5); line-height: 1.8;
+    }
+    .email-footer a { color: #E8A832; text-decoration: none; }
+
+    /* Preview badge */
+    .preview-badge {
+      background: rgba(200,135,42,0.15); border: 1px solid rgba(200,135,42,0.3);
+      color: #E8A832; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.35rem 0.8rem; display: inline-block; margin-bottom: 1rem;
+    }
+
+    .meta { font-size: 0.75rem; color: rgba(122,158,126,0.4); margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="email-wrap">
+    {!broadcast.sent_at && <div style="text-align:center;margin-bottom:1rem;"><span class="preview-badge">Preview — Not Yet Sent</span></div>}
+
+    <div class="email-header">
+      <div class="email-brand">MONTAVILLA <span>LAND TRUST</span></div>
+    </div>
+
+    <div class="email-body">
+      <Fragment set:html={broadcast.html_body} />
+    </div>
+
+    <div class="email-footer">
+      <p>
+        Montavilla Community Land Trust &nbsp;·&nbsp;
+        <a href="https://montavillalandtrust.org">montavillalandtrust.org</a><br>
+        <a href="mailto:info@montavillalandtrust.org">info@montavillalandtrust.org</a>
+        &nbsp;·&nbsp; Portland, OR 97215
+      </p>
+      <p style="margin-top:0.5rem;">
+        Reply "unsubscribe" to be removed from future emails.
+      </p>
+      <p class="meta">
+        {broadcast.sent_at
+          ? `Sent ${fmtDate(broadcast.sent_at)} to ${broadcast.sent_count} subscribers.`
+          : `Draft · ${fmtDate(broadcast.created_at)}`
+        }
+      </p>
+    </div>
+  </div>
+</body>
+</html>

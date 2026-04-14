@@ -1,0 +1,199 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import CommunityPost from '../../components/CommunityPost.astro';
+import NewPostForm from '../../components/NewPostForm.astro';
+import { getDb } from '../../lib/db';
+
+let posts: any[] = [];
+try {
+  const sql = getDb();
+  await sql`
+    CREATE TABLE IF NOT EXISTS posts (
+      id           TEXT PRIMARY KEY,
+      type         TEXT NOT NULL DEFAULT 'discussion',
+      title        TEXT NOT NULL,
+      body         TEXT,
+      image_url    TEXT,
+      display_name TEXT NOT NULL,
+      neighborhood TEXT,
+      created_at   TIMESTAMPTZ DEFAULT NOW(),
+      is_deleted   BOOLEAN DEFAULT FALSE
+    )
+  `;
+  posts = await sql`
+    SELECT id, type, title, body, image_url, display_name, neighborhood, created_at
+    FROM posts
+    WHERE is_deleted = FALSE
+    ORDER BY created_at DESC
+    LIMIT 100
+  `;
+} catch (err) {
+  console.error('community page DB error:', err);
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community — Montavilla Community Land Trust</title>
+  <meta name="description" content="Join the conversation. Share stories, ideas, and updates about the Montavilla Community Land Trust effort." />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body>
+  <Nav />
+
+  <!-- Hero -->
+  <section class="community-hero">
+    <div class="wrap">
+      <p class="eyebrow">Montavilla Community</p>
+      <h1 class="community-hero__h">The Conversation<br>That Builds the Coalition.</h1>
+      <p class="community-hero__sub">
+        Share your story. Ask a question. Propose an idea. This space belongs to everyone
+        working to protect Montavilla's most important gathering place.
+      </p>
+      <button id="open-new-post" class="btn btn-primary">Start a Conversation</button>
+    </div>
+  </section>
+
+  <!-- Posts -->
+  <section class="community-feed">
+    <div class="wrap">
+      <div class="community-feed__toolbar">
+        <p class="community-feed__count">
+          {posts.length === 0
+            ? 'No posts yet — be the first.'
+            : `${posts.length} conversation${posts.length === 1 ? '' : 's'}`}
+        </p>
+        <button id="open-new-post-2" class="btn-sm">+ New Post</button>
+      </div>
+
+      <div id="post-grid" class="community-grid">
+        {posts.map(post => (
+          <CommunityPost
+            id={post.id}
+            type={post.type}
+            title={post.title}
+            body={post.body}
+            image_url={post.image_url}
+            display_name={post.display_name}
+            neighborhood={post.neighborhood}
+            created_at={post.created_at}
+          />
+        ))}
+      </div>
+
+      {posts.length === 0 && (
+        <div class="community-empty">
+          <p>The conversation starts with you.</p>
+          <button id="open-new-post-3" class="btn btn-primary" style="margin-top:1.5rem;">
+            Start a Conversation
+          </button>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <Footer />
+  <NewPostForm />
+</body>
+</html>
+
+<script>
+  // All "open" buttons dispatch the same event the dialog listens for
+  document.querySelectorAll('#open-new-post, #open-new-post-2, #open-new-post-3')
+    .forEach(btn => btn.addEventListener('click', () => {
+      document.dispatchEvent(new CustomEvent('open-new-post'));
+    }));
+
+  // Prepend a newly created post without a full reload
+  document.addEventListener('post-created', (e: Event) => {
+    const post = (e as CustomEvent).detail;
+    const grid = document.getElementById('post-grid')!;
+
+    const date = new Date(post.created_at).toLocaleDateString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric',
+    });
+
+    const typeLabel = post.type === 'update' ? 'Update' : 'Discussion';
+    const badgeClass = post.type === 'update' ? 'community-post__badge--update' : 'community-post__badge--discussion';
+
+    const article = document.createElement('article');
+    article.className = `community-post community-post--${post.type}`;
+    article.innerHTML = `
+      ${post.image_url ? `<div class="community-post__img"><img src="${post.image_url}" alt="${post.title}" loading="lazy"></div>` : ''}
+      <div class="community-post__body">
+        <div class="community-post__meta">
+          <span class="community-post__badge ${badgeClass}">${typeLabel}</span>
+          ${post.neighborhood ? `<span class="community-post__neighborhood">${post.neighborhood}</span>` : ''}
+        </div>
+        <h3 class="community-post__title">${post.title}</h3>
+        ${post.body ? `<p class="community-post__text">${post.body}</p>` : ''}
+        <footer class="community-post__footer">
+          <span class="community-post__author">${post.display_name}</span>
+          <span class="community-post__date">${date}</span>
+        </footer>
+      </div>
+    `;
+
+    grid.prepend(article);
+
+    // Update count
+    const countEl = document.querySelector('.community-feed__count');
+    if (countEl) {
+      const current = grid.querySelectorAll('.community-post').length;
+      countEl.textContent = `${current} conversation${current === 1 ? '' : 's'}`;
+    }
+
+    // Hide empty state if visible
+    const empty = document.querySelector('.community-empty') as HTMLElement | null;
+    if (empty) empty.style.display = 'none';
+  });
+</script>
+
+<style>
+  /* Hero */
+  .community-hero {
+    background: var(--forest);
+    padding: 5rem 1.5rem 4rem;
+    border-bottom: 3px solid var(--ochre);
+  }
+  .community-hero__h {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1; color: var(--cream); margin-bottom: 1rem;
+  }
+  .community-hero__sub {
+    font-family: 'Crimson Pro', serif; font-size: 1.15rem;
+    color: var(--sage); max-width: 560px; line-height: 1.65; margin-bottom: 2rem;
+  }
+
+  /* Feed */
+  .community-feed { background: var(--dark); padding: 3rem 1.5rem 5rem; }
+
+  .community-feed__toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .community-feed__count {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(122,158,126,0.6);
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(122,158,126,0.1);
+    border: 1px solid rgba(122,158,126,0.1);
+  }
+
+  .community-empty {
+    text-align: center; padding: 5rem 1.5rem;
+    font-family: 'Crimson Pro', serif; font-size: 1.3rem;
+    color: var(--sage);
+  }
+</style>

@@ -15,3 +15,18 @@ CREATE TABLE IF NOT EXISTS signups (
 
 CREATE INDEX IF NOT EXISTS signups_email_idx ON signups (email);
 CREATE INDEX IF NOT EXISTS signups_created_at_idx ON signups (created_at DESC);
+
+CREATE TABLE IF NOT EXISTS posts (
+  id           TEXT PRIMARY KEY,
+  type         TEXT NOT NULL DEFAULT 'discussion' CHECK (type IN ('discussion', 'update')),
+  title        TEXT NOT NULL,
+  body         TEXT,
+  image_url    TEXT,
+  display_name TEXT NOT NULL,
+  neighborhood TEXT,
+  created_at   TIMESTAMPTZ DEFAULT NOW(),
+  is_deleted   BOOLEAN DEFAULT FALSE
+);
+
+CREATE INDEX IF NOT EXISTS posts_created_at_idx ON posts (created_at DESC);
+CREATE INDEX IF NOT EXISTS posts_type_idx ON posts (type);

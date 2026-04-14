@@ -12,8 +12,10 @@
     "@astrojs/vercel": "^8.0.0",
     "@neondatabase/serverless": "^0.10.0",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^1.1.1",
     "astro": "^5.0.0",
     "marked": "^15.0.12",
-    "resend": "^6.4.2"
+    "resend": "^6.4.2",
+    "uuid": "^13.0.0"
   }
 }

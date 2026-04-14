@@ -1,0 +1,107 @@
+---
+interface Props {
+  id: string;
+  type: 'discussion' | 'update';
+  title: string;
+  body?: string | null;
+  image_url?: string | null;
+  display_name: string;
+  neighborhood?: string | null;
+  created_at: string;
+}
+
+const { type, title, body, image_url, display_name, neighborhood, created_at } = Astro.props;
+
+const date = new Date(created_at).toLocaleDateString('en-US', {
+  month: 'short', day: 'numeric', year: 'numeric',
+});
+---
+
+<article class={`community-post community-post--${type}`}>
+  {image_url && (
+    <div class="community-post__img">
+      <img src={image_url} alt={title} loading="lazy" />
+    </div>
+  )}
+  <div class="community-post__body">
+    <div class="community-post__meta">
+      <span class={`community-post__badge community-post__badge--${type}`}>
+        {type === 'update' ? 'Update' : 'Discussion'}
+      </span>
+      {neighborhood && <span class="community-post__neighborhood">{neighborhood}</span>}
+    </div>
+    <h3 class="community-post__title">{title}</h3>
+    {body && <p class="community-post__text">{body}</p>}
+    <footer class="community-post__footer">
+      <span class="community-post__author">{display_name}</span>
+      <span class="community-post__date">{date}</span>
+    </footer>
+  </div>
+</article>
+
+<style>
+.community-post {
+  background: var(--forest);
+  border: 1px solid rgba(122,158,126,0.15);
+  border-top: 3px solid transparent;
+  transition: border-top-color 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.community-post:hover { border-top-color: var(--ochre); transform: translateY(-3px); }
+.community-post--update { border-top-color: var(--gold); }
+
+.community-post__img img {
+  width: 100%; aspect-ratio: 16/9;
+  object-fit: cover; display: block;
+}
+
+.community-post__body {
+  padding: 1.5rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  flex: 1;
+}
+
+.community-post__meta {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+}
+
+.community-post__badge {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 0.2rem 0.55rem;
+}
+.community-post__badge--discussion { background: rgba(122,158,126,0.2); color: var(--sage); }
+.community-post__badge--update     { background: rgba(232,168,50,0.15); color: var(--gold); }
+
+.community-post__neighborhood {
+  font-size: 0.7rem; color: rgba(122,158,126,0.6);
+  font-family: 'Work Sans', sans-serif;
+}
+
+.community-post__title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; font-size: 1.2rem; color: var(--cream); line-height: 1.2;
+}
+
+.community-post__text {
+  font-family: 'Crimson Pro', serif; font-size: 1.05rem;
+  color: var(--sage); line-height: 1.6;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.community-post__footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: auto; padding-top: 0.75rem;
+  border-top: 1px solid rgba(122,158,126,0.1);
+}
+
+.community-post__author {
+  font-size: 0.8rem; font-weight: 600; color: var(--cream);
+  font-family: 'Work Sans', sans-serif;
+}
+.community-post__date {
+  font-size: 0.75rem; color: rgba(122,158,126,0.5);
+  font-family: 'Work Sans', sans-serif;
+}
+</style>

@@ -1,0 +1,312 @@
+---
+// No props — rendered once, controlled by JS
+---
+
+<dialog id="new-post-dialog" class="post-dialog">
+  <div class="post-dialog__inner">
+    <header class="post-dialog__header">
+      <h2 class="post-dialog__heading">Start a Conversation</h2>
+      <button type="button" id="close-dialog" class="post-dialog__close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </header>
+
+    <form id="new-post-form" class="post-form" novalidate>
+
+      <!-- Type selector -->
+      <div class="post-form__field">
+        <label class="post-form__label">Post type</label>
+        <div class="post-form__type-row">
+          <button type="button" class="post-type-btn post-type-btn--active" data-type="discussion">
+            Discussion
+          </button>
+          <button type="button" class="post-type-btn" data-type="update">
+            Update
+          </button>
+        </div>
+        <input type="hidden" name="type" value="discussion" />
+      </div>
+
+      <!-- Image upload -->
+      <div class="post-form__field">
+        <label class="post-form__label">
+          Photo <span class="post-form__optional">(optional)</span>
+        </label>
+        <div id="upload-zone" class="post-form__upload">
+          <div id="upload-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:rgba(122,158,126,0.4);margin-bottom:0.5rem;">
+              <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <p class="post-form__upload-hint">Click to upload a photo</p>
+            <p class="post-form__upload-sub">JPEG, PNG, WebP, HEIC · max 10 MB</p>
+          </div>
+          <img id="upload-preview" class="post-form__preview" src="" alt="Preview" style="display:none;" />
+        </div>
+        <input type="file" id="image-input" name="image"
+               accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif"
+               style="display:none;" />
+      </div>
+
+      <!-- Display name -->
+      <div class="post-form__field">
+        <label for="pf-name" class="post-form__label">Your name <span class="post-form__req">*</span></label>
+        <input type="text" id="pf-name" name="displayName" class="post-form__input"
+               placeholder="How you'd like to be known" maxlength="60" required />
+      </div>
+
+      <!-- Title -->
+      <div class="post-form__field">
+        <label for="pf-title" class="post-form__label">Title <span class="post-form__req">*</span></label>
+        <input type="text" id="pf-title" name="title" class="post-form__input"
+               placeholder="What's this about?" maxlength="150" required />
+      </div>
+
+      <!-- Body -->
+      <div class="post-form__field">
+        <label for="pf-body" class="post-form__label">
+          Message <span class="post-form__optional">(optional)</span>
+        </label>
+        <textarea id="pf-body" name="body" class="post-form__input post-form__textarea"
+                  rows="5" placeholder="Share more…" maxlength="5000"></textarea>
+      </div>
+
+      <!-- Neighborhood -->
+      <div class="post-form__field">
+        <label for="pf-neighborhood" class="post-form__label">
+          Neighborhood <span class="post-form__optional">(optional)</span>
+        </label>
+        <input type="text" id="pf-neighborhood" name="neighborhood" class="post-form__input"
+               placeholder="e.g. Montavilla, Stark St, SE Portland" maxlength="80" />
+      </div>
+
+      <!-- Honeypot -->
+      <div style="display:none;" aria-hidden="true">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <!-- Error -->
+      <div id="post-error" class="post-form__error" style="display:none;"></div>
+
+      <!-- Actions -->
+      <div class="post-form__actions">
+        <button type="button" id="cancel-post" class="post-form__cancel">Cancel</button>
+        <button type="submit" id="submit-post" class="post-form__submit">Post</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const dialog   = document.getElementById('new-post-dialog') as HTMLDialogElement;
+  const form     = document.getElementById('new-post-form')   as HTMLFormElement;
+  const typeInput = form.querySelector('input[name="type"]')  as HTMLInputElement;
+  const uploadZone = document.getElementById('upload-zone')!;
+  const fileInput  = document.getElementById('image-input')   as HTMLInputElement;
+  const preview    = document.getElementById('upload-preview') as HTMLImageElement;
+  const placeholder = document.getElementById('upload-placeholder')!;
+  const errorBox   = document.getElementById('post-error')!;
+  const submitBtn  = document.getElementById('submit-post')   as HTMLButtonElement;
+
+  // Open / close
+  document.addEventListener('open-new-post', () => dialog.showModal());
+  document.getElementById('close-dialog')!.addEventListener('click', () => dialog.close());
+  document.getElementById('cancel-post')!.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+
+  // Type toggle
+  document.querySelectorAll<HTMLButtonElement>('.post-type-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.post-type-btn').forEach(b => b.classList.remove('post-type-btn--active'));
+      btn.classList.add('post-type-btn--active');
+      typeInput.value = btn.dataset.type!;
+    });
+  });
+
+  // Image upload
+  uploadZone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files?.[0];
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      showError('Image must be under 10 MB.');
+      fileInput.value = '';
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      preview.src = e.target?.result as string;
+      preview.style.display = 'block';
+      placeholder.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+    clearError();
+  });
+
+  // Submit
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearError();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Posting…';
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('/api/community', { method: 'POST', body: data });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Something went wrong');
+
+      dialog.close();
+      form.reset();
+      resetImage();
+      // Notify the page to prepend the new post
+      document.dispatchEvent(new CustomEvent('post-created', { detail: json }));
+    } catch (err) {
+      showError(err instanceof Error ? err.message : 'Something went wrong');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Post';
+    }
+  });
+
+  dialog.addEventListener('close', () => {
+    form.reset();
+    resetImage();
+    clearError();
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Post';
+    document.querySelectorAll('.post-type-btn').forEach((b, i) => {
+      b.classList.toggle('post-type-btn--active', i === 0);
+    });
+    typeInput.value = 'discussion';
+  });
+
+  function resetImage() {
+    fileInput.value = '';
+    preview.src = '';
+    preview.style.display = 'none';
+    placeholder.style.display = '';
+  }
+  function showError(msg: string) {
+    errorBox.textContent = msg;
+    errorBox.style.display = 'block';
+  }
+  function clearError() {
+    errorBox.textContent = '';
+    errorBox.style.display = 'none';
+  }
+</script>
+
+<style>
+.post-dialog {
+  border: none; padding: 0;
+  background: transparent;
+  max-width: 100%; width: 100%;
+  max-height: 100%; height: 100%;
+  position: fixed; inset: 0;
+}
+.post-dialog::backdrop {
+  background: rgba(14,31,22,0.75);
+  backdrop-filter: blur(3px);
+}
+
+.post-dialog__inner {
+  background: var(--forest);
+  border: 1px solid rgba(122,158,126,0.2);
+  border-top: 3px solid var(--ochre);
+  width: min(540px, 94vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 5vh auto 0;
+  position: relative;
+}
+
+.post-dialog__header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(122,158,126,0.15);
+  position: sticky; top: 0;
+  background: var(--forest); z-index: 1;
+}
+
+.post-dialog__heading {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; font-size: 1.3rem; color: var(--cream);
+}
+
+.post-dialog__close {
+  background: none; border: none; color: var(--sage); cursor: pointer; padding: 0.25rem;
+  transition: color 0.15s;
+}
+.post-dialog__close:hover { color: var(--gold); }
+
+/* Form */
+.post-form { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+.post-form__label {
+  display: block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 0.4rem;
+  font-family: 'Work Sans', sans-serif;
+}
+.post-form__optional { font-weight: 400; text-transform: none; letter-spacing: 0; opacity: 0.6; }
+.post-form__req { color: var(--ochre); }
+
+.post-form__type-row { display: flex; gap: 0.5rem; }
+.post-type-btn {
+  flex: 1; padding: 0.55rem 0.75rem; border: 1.5px solid rgba(122,158,126,0.3);
+  background: transparent; color: var(--sage);
+  font-family: 'Work Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.15s;
+}
+.post-type-btn:hover { border-color: var(--sage); color: var(--cream); }
+.post-type-btn--active { background: var(--ochre); border-color: var(--ochre); color: white; }
+
+.post-form__upload {
+  border: 1.5px dashed rgba(122,158,126,0.3); cursor: pointer;
+  transition: border-color 0.15s; text-align: center; padding: 1.5rem 1rem;
+}
+.post-form__upload:hover { border-color: var(--sage); }
+.post-form__upload-hint { font-size: 0.9rem; color: var(--sage); margin-bottom: 0.25rem; }
+.post-form__upload-sub { font-size: 0.75rem; color: rgba(122,158,126,0.5); }
+
+.post-form__preview {
+  width: 100%; max-height: 260px; object-fit: cover; display: block;
+}
+
+.post-form__input {
+  width: 100%; background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(122,158,126,0.3);
+  color: var(--cream); font-family: 'Work Sans', sans-serif; font-size: 0.95rem;
+  padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s;
+}
+.post-form__input:focus { border-color: var(--gold); }
+.post-form__input::placeholder { color: rgba(122,158,126,0.45); }
+.post-form__textarea { resize: vertical; min-height: 100px; }
+
+.post-form__error {
+  background: rgba(168,76,26,0.15); border: 1px solid rgba(168,76,26,0.4);
+  color: #e8937a; font-size: 0.9rem; padding: 0.65rem 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.post-form__actions { display: flex; gap: 0.75rem; padding-top: 0.25rem; }
+
+.post-form__cancel {
+  flex: 1; padding: 0.85rem; background: transparent;
+  border: 1.5px solid rgba(122,158,126,0.3); color: var(--sage);
+  font-family: 'Work Sans', sans-serif; font-weight: 700; font-size: 0.8rem;
+  letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.15s;
+}
+.post-form__cancel:hover { border-color: var(--sage); color: var(--cream); }
+
+.post-form__submit {
+  flex: 2; padding: 0.85rem; background: var(--ochre); border: none; color: white;
+  font-family: 'Work Sans', sans-serif; font-weight: 700; font-size: 0.85rem;
+  letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.15s;
+}
+.post-form__submit:hover:not(:disabled) { background: var(--gold); color: var(--dark); }
+.post-form__submit:disabled { opacity: 0.6; cursor: default; }
+</style>

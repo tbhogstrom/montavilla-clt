@@ -17,5 +17,9 @@
     "marked": "^15.0.12",
     "resend": "^6.4.2",
     "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "tsx": "^4.21.0"
   }
 }

@@ -4,6 +4,7 @@ import Footer from '../../components/Footer.astro';
 import CommunityPost from '../../components/CommunityPost.astro';
 import NewPostForm from '../../components/NewPostForm.astro';
 import { getDb } from '../../lib/db';
+import '../../styles/global.css';
 
 let posts: any[] = [];
 try {
@@ -40,7 +41,9 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community — Montavilla Community Land Trust</title>
   <meta name="description" content="Join the conversation. Share stories, ideas, and updates about the Montavilla Community Land Trust effort." />
-  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
 <body>
   <Nav />

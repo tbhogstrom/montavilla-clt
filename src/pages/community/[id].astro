@@ -30,7 +30,7 @@ const [post] = await sql`
 if (!post) return Astro.redirect('/community');
 
 const comments = await sql`
-  SELECT id, display_name, body, created_at
+  SELECT id, display_name, body, image_url, created_at
   FROM comments
   WHERE post_id = ${id} AND is_deleted = FALSE
   ORDER BY created_at ASC
@@ -143,6 +143,11 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
                   })}
                 </span>
               </div>
+              {c.image_url && (
+                <div class="comment__img">
+                  <img src={c.image_url} alt={`Photo by ${c.display_name}`} loading="lazy" />
+                </div>
+              )}
               <p class="comment__body">{c.body}</p>
             </div>
           ))}
@@ -166,6 +171,25 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
             </label>
             <textarea id="cf-body" name="body" class="comment-form__input comment-form__textarea"
                       rows="5" placeholder="Share your thoughts…" maxlength="2000" required></textarea>
+          </div>
+
+          <div class="comment-form__field">
+            <label class="comment-form__label">
+              Photo <span class="comment-form__optional">(optional)</span>
+            </label>
+            <div id="cf-upload-zone" class="comment-form__upload">
+              <div id="cf-upload-placeholder">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:rgba(122,158,126,0.4);display:block;margin:0 auto 0.4rem;">
+                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <p class="comment-form__upload-hint">Click to attach a photo</p>
+                <p class="comment-form__upload-sub">JPEG, PNG, WebP, HEIC · max 10 MB · converted to WebP</p>
+              </div>
+              <img id="cf-upload-preview" src="" alt="Preview" style="display:none;width:100%;max-height:240px;object-fit:cover;" />
+            </div>
+            <input type="file" id="cf-image-input" name="image"
+                   accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif"
+                   style="display:none;" />
           </div>
 
           <!-- Honeypot -->
@@ -231,6 +255,31 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
     });
   }
 
+  // ── Comment image upload ─────────────────────────────────────────────────────
+  const uploadZone    = document.getElementById('cf-upload-zone');
+  const fileInput     = document.getElementById('cf-image-input');
+  const previewImg    = document.getElementById('cf-upload-preview');
+  const placeholder   = document.getElementById('cf-upload-placeholder');
+
+  uploadZone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files?.[0];
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      document.getElementById('comment-error').textContent = 'Image must be under 10 MB.';
+      document.getElementById('comment-error').style.display = 'block';
+      fileInput.value = '';
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      previewImg.src          = e.target.result;
+      previewImg.style.display = 'block';
+      placeholder.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  });
+
   // ── Comment form ─────────────────────────────────────────────────────────────
   const form      = document.getElementById('comment-form');
   const submitBtn = document.getElementById('comment-submit');
@@ -244,22 +293,16 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
     submitBtn.disabled     = true;
     submitBtn.textContent  = 'Posting…';
 
-    const data = {
-      displayName: form.displayName.value.trim(),
-      body:        form.body.value.trim(),
-      website:     form.website?.value || '',
-    };
+    const data = new FormData(form);
 
     try {
       const res  = await fetch(`/api/community/${postId}/comments`, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(data),
+        method: 'POST',
+        body:   data,
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || 'Something went wrong');
 
-      // Append comment to list
       const date = new Date(json.created_at).toLocaleDateString('en-US', {
         month: 'short', day: 'numeric', year: 'numeric',
       });
@@ -271,15 +314,18 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
           <span class="comment__author">${json.display_name}</span>
           <span class="comment__date">${date}</span>
         </div>
+        ${json.image_url ? `<div class="comment__img"><img src="${json.image_url}" alt="Photo by ${json.display_name}" loading="lazy"></div>` : ''}
         <p class="comment__body">${json.body}</p>
       `;
       list.appendChild(div);
 
-      // Update heading count
       const count = list.querySelectorAll('.comment').length;
       heading.textContent = `${count} ${count === 1 ? 'Reply' : 'Replies'}`;
 
       form.reset();
+      previewImg.style.display  = 'none';
+      previewImg.src            = '';
+      placeholder.style.display = '';
       div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (err) {
       errorBox.textContent   = err.message;
@@ -426,6 +472,14 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
   font-family: 'Work Sans', sans-serif; font-size: 0.75rem;
   color: rgba(122,158,126,0.5);
 }
+.comment__img {
+  margin: 0.75rem 0;
+}
+.comment__img img {
+  width: 100%; max-height: 400px;
+  object-fit: cover; display: block;
+}
+
 .comment__body {
   font-family: 'Crimson Pro', serif; font-size: 1.1rem;
   color: var(--sage); line-height: 1.65;
@@ -462,6 +516,22 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
 .comment-form__input:focus { border-color: var(--gold); }
 .comment-form__input::placeholder { color: rgba(122,158,126,0.45); }
 .comment-form__textarea { resize: vertical; min-height: 100px; }
+
+.comment-form__optional { font-weight: 400; text-transform: none; letter-spacing: 0; opacity: 0.6; }
+
+.comment-form__upload {
+  border: 1.5px dashed rgba(122,158,126,0.3); cursor: pointer;
+  text-align: center; padding: 1.25rem 1rem; transition: border-color 0.15s;
+}
+.comment-form__upload:hover { border-color: var(--sage); }
+.comment-form__upload-hint {
+  font-size: 0.88rem; color: var(--sage); margin-bottom: 0.2rem;
+  font-family: 'Work Sans', sans-serif;
+}
+.comment-form__upload-sub {
+  font-size: 0.72rem; color: rgba(122,158,126,0.5);
+  font-family: 'Work Sans', sans-serif;
+}
 
 .comment-form__error {
   background: rgba(168,76,26,0.15); border: 1px solid rgba(168,76,26,0.4);

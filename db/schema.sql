@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS comments (
   post_id      TEXT NOT NULL REFERENCES posts(id),
   display_name TEXT NOT NULL,
   body         TEXT NOT NULL,
+  image_url    TEXT,
   created_at   TIMESTAMPTZ DEFAULT NOW(),
   is_deleted   BOOLEAN DEFAULT FALSE
 );

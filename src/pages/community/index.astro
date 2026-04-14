@@ -18,15 +18,17 @@ try {
       image_url    TEXT,
       display_name TEXT NOT NULL,
       neighborhood TEXT,
+      likes        INTEGER NOT NULL DEFAULT 0,
       created_at   TIMESTAMPTZ DEFAULT NOW(),
       is_deleted   BOOLEAN DEFAULT FALSE
     )
   `;
+  await sql`ALTER TABLE posts ADD COLUMN IF NOT EXISTS likes INTEGER NOT NULL DEFAULT 0`;
   posts = await sql`
-    SELECT id, type, title, body, image_url, display_name, neighborhood, created_at
+    SELECT id, type, title, body, image_url, display_name, neighborhood, likes, created_at
     FROM posts
     WHERE is_deleted = FALSE
-    ORDER BY created_at DESC
+    ORDER BY likes DESC, created_at DESC
     LIMIT 100
   `;
 } catch (err) {
@@ -84,6 +86,7 @@ try {
             display_name={post.display_name}
             neighborhood={post.neighborhood}
             created_at={post.created_at}
+            likes={post.likes}
           />
         ))}
       </div>
@@ -105,13 +108,62 @@ try {
 </html>
 
 <script>
-  // All "open" buttons dispatch the same event the dialog listens for
+  // ── Open modal ──────────────────────────────────────────────────────────────
   document.querySelectorAll('#open-new-post, #open-new-post-2, #open-new-post-3')
     .forEach(btn => btn.addEventListener('click', () => {
       document.dispatchEvent(new CustomEvent('open-new-post'));
     }));
 
-  // Prepend a newly created post without a full reload
+  // ── Likes ───────────────────────────────────────────────────────────────────
+  const LIKED_KEY = 'mclt_liked_posts';
+
+  function getLiked(): Set<string> {
+    try { return new Set(JSON.parse(localStorage.getItem(LIKED_KEY) || '[]')); }
+    catch { return new Set(); }
+  }
+
+  function saveLiked(set: Set<string>) {
+    localStorage.setItem(LIKED_KEY, JSON.stringify([...set]));
+  }
+
+  // Restore liked state on page load
+  const liked = getLiked();
+  document.querySelectorAll<HTMLButtonElement>('.like-btn').forEach(btn => {
+    if (liked.has(btn.dataset.postId!)) btn.classList.add('liked');
+  });
+
+  // Event delegation — one listener for all current and future like buttons
+  document.getElementById('post-grid')!.addEventListener('click', async (e) => {
+    const btn = (e.target as Element).closest<HTMLButtonElement>('.like-btn');
+    if (!btn) return;
+
+    const postId = btn.dataset.postId!;
+    const liked  = getLiked();
+
+    if (liked.has(postId)) return; // already liked — no toggling
+
+    // Optimistic update
+    const countEl = btn.querySelector('.like-btn__count')!;
+    const current = parseInt(btn.dataset.likes || '0', 10);
+    btn.dataset.likes = String(current + 1);
+    countEl.textContent = String(current + 1);
+    btn.classList.add('liked');
+    liked.add(postId);
+    saveLiked(liked);
+
+    try {
+      const res  = await fetch(`/api/community/${postId}/like`, { method: 'POST' });
+      const json = await res.json();
+      if (res.ok) {
+        btn.dataset.likes   = String(json.likes);
+        countEl.textContent = String(json.likes);
+      }
+    } catch {
+      // Keep the optimistic value — not worth reverting for a like
+    }
+  });
+
+  // ── New post created ────────────────────────────────────────────────────────
   document.addEventListener('post-created', (e: Event) => {
     const post = (e as CustomEvent).detail;
     const grid = document.getElementById('post-grid')!;
@@ -120,11 +172,12 @@ try {
       month: 'short', day: 'numeric', year: 'numeric',
     });
 
-    const typeLabel = post.type === 'update' ? 'Update' : 'Discussion';
+    const typeLabel  = post.type === 'update' ? 'Update' : 'Discussion';
     const badgeClass = post.type === 'update' ? 'community-post__badge--update' : 'community-post__badge--discussion';
 
     const article = document.createElement('article');
     article.className = `community-post community-post--${post.type}`;
+    article.dataset.postId = post.id;
     article.innerHTML = `
       ${post.image_url ? `<div class="community-post__img"><img src="${post.image_url}" alt="${post.title}" loading="lazy"></div>` : ''}
       <div class="community-post__body">
@@ -135,29 +188,34 @@ try {
         <h3 class="community-post__title">${post.title}</h3>
         ${post.body ? `<p class="community-post__text">${post.body}</p>` : ''}
         <footer class="community-post__footer">
-          <span class="community-post__author">${post.display_name}</span>
-          <span class="community-post__date">${date}</span>
+          <div class="community-post__byline">
+            <span class="community-post__author">${post.display_name}</span>
+            <span class="community-post__date">${date}</span>
+          </div>
+          <button class="like-btn" data-post-id="${post.id}" data-likes="0" aria-label="Like this post">
+            <svg class="like-btn__heart" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <span class="like-btn__count">0</span>
+          </button>
         </footer>
       </div>
     `;
 
     grid.prepend(article);
 
-    // Update count
     const countEl = document.querySelector('.community-feed__count');
     if (countEl) {
       const current = grid.querySelectorAll('.community-post').length;
       countEl.textContent = `${current} conversation${current === 1 ? '' : 's'}`;
     }
 
-    // Hide empty state if visible
     const empty = document.querySelector('.community-empty') as HTMLElement | null;
     if (empty) empty.style.display = 'none';
   });
 </script>
 
 <style>
-  /* Hero */
   .community-hero {
     background: var(--forest);
     padding: 5rem 1.5rem 4rem;
@@ -173,7 +231,6 @@ try {
     color: var(--sage); max-width: 560px; line-height: 1.65; margin-bottom: 2rem;
   }
 
-  /* Feed */
   .community-feed { background: var(--dark); padding: 3rem 1.5rem 5rem; }
 
   .community-feed__toolbar {

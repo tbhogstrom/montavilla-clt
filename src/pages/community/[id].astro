@@ -20,6 +20,7 @@ await sql`
   )
 `;
 await sql`CREATE INDEX IF NOT EXISTS comments_post_id_idx ON comments (post_id, created_at)`;
+await sql`ALTER TABLE comments ADD COLUMN IF NOT EXISTS image_url TEXT`;
 
 const [post] = await sql`
   SELECT id, type, title, body, image_url, display_name, neighborhood, likes, created_at

@@ -31,3 +31,14 @@ CREATE TABLE IF NOT EXISTS posts (
 
 CREATE INDEX IF NOT EXISTS posts_created_at_idx ON posts (created_at DESC);
 CREATE INDEX IF NOT EXISTS posts_type_idx ON posts (type);
+
+CREATE TABLE IF NOT EXISTS comments (
+  id           TEXT PRIMARY KEY,
+  post_id      TEXT NOT NULL REFERENCES posts(id),
+  display_name TEXT NOT NULL,
+  body         TEXT NOT NULL,
+  created_at   TIMESTAMPTZ DEFAULT NOW(),
+  is_deleted   BOOLEAN DEFAULT FALSE
+);
+
+CREATE INDEX IF NOT EXISTS comments_post_id_idx ON comments (post_id, created_at);

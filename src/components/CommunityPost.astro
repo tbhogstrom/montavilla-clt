@@ -19,20 +19,24 @@ const date = new Date(created_at).toLocaleDateString('en-US', {
 ---
 
 <article class={`community-post community-post--${type}`} data-post-id={id}>
-  {image_url && (
-    <div class="community-post__img">
-      <img src={image_url} alt={title} loading="lazy" />
+  <a href={`/community/${id}`} class="community-post__link">
+    {image_url && (
+      <div class="community-post__img">
+        <img src={image_url} alt={title} loading="lazy" />
+      </div>
+    )}
+    <div class="community-post__body">
+      <div class="community-post__meta">
+        <span class={`community-post__badge community-post__badge--${type}`}>
+          {type === 'update' ? 'Update' : 'Discussion'}
+        </span>
+        {neighborhood && <span class="community-post__neighborhood">{neighborhood}</span>}
+      </div>
+      <h3 class="community-post__title">{title}</h3>
+      {body && <p class="community-post__text">{body}</p>}
     </div>
-  )}
-  <div class="community-post__body">
-    <div class="community-post__meta">
-      <span class={`community-post__badge community-post__badge--${type}`}>
-        {type === 'update' ? 'Update' : 'Discussion'}
-      </span>
-      {neighborhood && <span class="community-post__neighborhood">{neighborhood}</span>}
-    </div>
-    <h3 class="community-post__title">{title}</h3>
-    {body && <p class="community-post__text">{body}</p>}
+  </a>
+  <div class="community-post__footer-wrap">
     <footer class="community-post__footer">
       <div class="community-post__byline">
         <span class="community-post__author">{display_name}</span>
@@ -64,6 +68,11 @@ const date = new Date(created_at).toLocaleDateString('en-US', {
 }
 .community-post:hover { border-top-color: var(--ochre); transform: translateY(-3px); }
 .community-post--update { border-top-color: var(--gold); }
+
+.community-post__link {
+  display: flex; flex-direction: column; flex: 1;
+  text-decoration: none; color: inherit;
+}
 
 .community-post__img img {
   width: 100%; aspect-ratio: 16/9;
@@ -97,6 +106,7 @@ const date = new Date(created_at).toLocaleDateString('en-US', {
   font-family: 'Big Shoulders Display', sans-serif;
   font-weight: 700; font-size: 1.2rem; color: var(--cream); line-height: 1.2;
 }
+.community-post__link:hover .community-post__title { color: var(--gold); }
 
 .community-post__text {
   font-family: 'Crimson Pro', serif; font-size: 1.05rem;
@@ -104,9 +114,13 @@ const date = new Date(created_at).toLocaleDateString('en-US', {
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 
+.community-post__footer-wrap {
+  padding: 0 1.5rem 1.25rem;
+}
+
 .community-post__footer {
   display: flex; justify-content: space-between; align-items: center;
-  margin-top: auto; padding-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid rgba(122,158,126,0.1);
 }
 
@@ -123,7 +137,6 @@ const date = new Date(created_at).toLocaleDateString('en-US', {
   font-family: 'Work Sans', sans-serif;
 }
 
-/* Like button */
 .like-btn {
   display: flex; align-items: center; gap: 0.35rem;
   background: none; border: 1px solid rgba(122,158,126,0.25);
@@ -132,15 +145,11 @@ const date = new Date(created_at).toLocaleDateString('en-US', {
   font-family: 'Work Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
   transition: all 0.15s;
 }
-.like-btn:hover {
-  border-color: var(--ochre); color: var(--ochre);
-}
+.like-btn:hover { border-color: var(--ochre); color: var(--ochre); }
 .like-btn.liked {
   border-color: var(--ochre); color: var(--ochre);
   background: rgba(200,135,42,0.1);
 }
-.like-btn.liked .like-btn__heart {
-  fill: var(--ochre); stroke: var(--ochre);
-}
+.like-btn.liked .like-btn__heart { fill: var(--ochre); stroke: var(--ochre); }
 .like-btn__heart { flex-shrink: 0; transition: fill 0.15s, stroke 0.15s; }
 </style>

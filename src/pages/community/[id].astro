@@ -1,0 +1,486 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { getDb } from '../../lib/db';
+import '../../styles/global.css';
+
+const { id } = Astro.params;
+
+const sql = getDb();
+
+// Ensure comments table exists
+await sql`
+  CREATE TABLE IF NOT EXISTS comments (
+    id           TEXT PRIMARY KEY,
+    post_id      TEXT NOT NULL REFERENCES posts(id),
+    display_name TEXT NOT NULL,
+    body         TEXT NOT NULL,
+    created_at   TIMESTAMPTZ DEFAULT NOW(),
+    is_deleted   BOOLEAN DEFAULT FALSE
+  )
+`;
+await sql`CREATE INDEX IF NOT EXISTS comments_post_id_idx ON comments (post_id, created_at)`;
+
+const [post] = await sql`
+  SELECT id, type, title, body, image_url, display_name, neighborhood, likes, created_at
+  FROM posts
+  WHERE id = ${id} AND is_deleted = FALSE
+`;
+
+if (!post) return Astro.redirect('/community');
+
+const comments = await sql`
+  SELECT id, display_name, body, created_at
+  FROM comments
+  WHERE post_id = ${id} AND is_deleted = FALSE
+  ORDER BY created_at ASC
+`;
+
+const date = new Date(post.created_at).toLocaleDateString('en-US', {
+  month: 'long', day: 'numeric', year: 'numeric',
+});
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{post.title} — Montavilla Community Land Trust</title>
+  <meta name="description" content={post.body?.slice(0, 155) ?? 'A community conversation on the Montavilla Community Land Trust.'} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+  <Nav />
+
+  <div class="post-detail">
+    <div class="post-detail__inner">
+
+      <!-- Back -->
+      <a href="/community" class="post-detail__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Community
+      </a>
+
+      <!-- Post -->
+      <article class="post-detail__post">
+
+        <!-- Meta -->
+        <div class="post-detail__meta">
+          <span class={`post-detail__badge post-detail__badge--${post.type}`}>
+            {post.type === 'update' ? 'Update' : 'Discussion'}
+          </span>
+          {post.neighborhood && (
+            <span class="post-detail__neighborhood">{post.neighborhood}</span>
+          )}
+        </div>
+
+        <!-- Title -->
+        <h1 class="post-detail__title">{post.title}</h1>
+
+        <!-- Byline -->
+        <div class="post-detail__byline">
+          <span class="post-detail__author">{post.display_name}</span>
+          <span class="post-detail__dot">·</span>
+          <span class="post-detail__date">{date}</span>
+        </div>
+
+        <!-- Image -->
+        {post.image_url && (
+          <div class="post-detail__img">
+            <img src={post.image_url} alt={post.title} />
+          </div>
+        )}
+
+        <!-- Body -->
+        {post.body && (
+          <div class="post-detail__body">
+            {post.body.split('\n').filter((p: string) => p.trim()).map((p: string) => (
+              <p>{p}</p>
+            ))}
+          </div>
+        )}
+
+        <!-- Like -->
+        <div class="post-detail__actions">
+          <button
+            class="like-btn"
+            data-post-id={post.id}
+            data-likes={post.likes}
+            aria-label="Like this post"
+          >
+            <svg class="like-btn__heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <span class="like-btn__count">{post.likes}</span>
+            <span class="like-btn__label">
+              {post.likes === 1 ? 'person finds this valuable' : 'people find this valuable'}
+            </span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Comments -->
+      <section class="comments">
+        <h2 class="comments__heading">
+          {comments.length === 0
+            ? 'No replies yet'
+            : `${comments.length} ${comments.length === 1 ? 'Reply' : 'Replies'}`}
+        </h2>
+
+        <div id="comment-list" class="comment-list">
+          {comments.map(c => (
+            <div class="comment" id={`comment-${c.id}`}>
+              <div class="comment__header">
+                <span class="comment__author">{c.display_name}</span>
+                <span class="comment__date">
+                  {new Date(c.created_at).toLocaleDateString('en-US', {
+                    month: 'short', day: 'numeric', year: 'numeric',
+                  })}
+                </span>
+              </div>
+              <p class="comment__body">{c.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Comment form -->
+        <form id="comment-form" class="comment-form" novalidate>
+          <h3 class="comment-form__heading">Leave a Reply</h3>
+
+          <div class="comment-form__field">
+            <label for="cf-name" class="comment-form__label">
+              Your name <span class="comment-form__req">*</span>
+            </label>
+            <input type="text" id="cf-name" name="displayName" class="comment-form__input"
+                   placeholder="How you'd like to be known" maxlength="60" required />
+          </div>
+
+          <div class="comment-form__field">
+            <label for="cf-body" class="comment-form__label">
+              Reply <span class="comment-form__req">*</span>
+            </label>
+            <textarea id="cf-body" name="body" class="comment-form__input comment-form__textarea"
+                      rows="5" placeholder="Share your thoughts…" maxlength="2000" required></textarea>
+          </div>
+
+          <!-- Honeypot -->
+          <div style="display:none;" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div id="comment-error" class="comment-form__error" style="display:none;"></div>
+
+          <button type="submit" id="comment-submit" class="comment-form__submit">Post Reply</button>
+        </form>
+      </section>
+
+    </div>
+  </div>
+
+  <Footer />
+</body>
+</html>
+
+<script define:vars={{ postId: post.id }}>
+  // ── Like button ─────────────────────────────────────────────────────────────
+  const LIKED_KEY = 'mclt_liked_posts';
+
+  function getLiked() {
+    try { return new Set(JSON.parse(localStorage.getItem(LIKED_KEY) || '[]')); }
+    catch { return new Set(); }
+  }
+  function saveLiked(set) {
+    localStorage.setItem(LIKED_KEY, JSON.stringify([...set]));
+  }
+
+  const likeBtn = document.querySelector('.like-btn');
+  const liked   = getLiked();
+
+  if (likeBtn) {
+    if (liked.has(postId)) likeBtn.classList.add('liked');
+
+    likeBtn.addEventListener('click', async () => {
+      if (liked.has(postId)) return;
+
+      const countEl = likeBtn.querySelector('.like-btn__count');
+      const labelEl = likeBtn.querySelector('.like-btn__label');
+      const current = parseInt(likeBtn.dataset.likes || '0', 10);
+      const next    = current + 1;
+
+      likeBtn.dataset.likes   = String(next);
+      countEl.textContent     = String(next);
+      labelEl.textContent     = next === 1 ? 'person finds this valuable' : 'people find this valuable';
+      likeBtn.classList.add('liked');
+      liked.add(postId);
+      saveLiked(liked);
+
+      try {
+        const res  = await fetch(`/api/community/${postId}/like`, { method: 'POST' });
+        const json = await res.json();
+        if (res.ok) {
+          likeBtn.dataset.likes = String(json.likes);
+          countEl.textContent   = String(json.likes);
+          labelEl.textContent   = json.likes === 1 ? 'person finds this valuable' : 'people find this valuable';
+        }
+      } catch { /* keep optimistic value */ }
+    });
+  }
+
+  // ── Comment form ─────────────────────────────────────────────────────────────
+  const form      = document.getElementById('comment-form');
+  const submitBtn = document.getElementById('comment-submit');
+  const errorBox  = document.getElementById('comment-error');
+  const list      = document.getElementById('comment-list');
+  const heading   = document.querySelector('.comments__heading');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorBox.style.display = 'none';
+    submitBtn.disabled     = true;
+    submitBtn.textContent  = 'Posting…';
+
+    const data = {
+      displayName: form.displayName.value.trim(),
+      body:        form.body.value.trim(),
+      website:     form.website?.value || '',
+    };
+
+    try {
+      const res  = await fetch(`/api/community/${postId}/comments`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Something went wrong');
+
+      // Append comment to list
+      const date = new Date(json.created_at).toLocaleDateString('en-US', {
+        month: 'short', day: 'numeric', year: 'numeric',
+      });
+      const div = document.createElement('div');
+      div.className = 'comment';
+      div.id = `comment-${json.id}`;
+      div.innerHTML = `
+        <div class="comment__header">
+          <span class="comment__author">${json.display_name}</span>
+          <span class="comment__date">${date}</span>
+        </div>
+        <p class="comment__body">${json.body}</p>
+      `;
+      list.appendChild(div);
+
+      // Update heading count
+      const count = list.querySelectorAll('.comment').length;
+      heading.textContent = `${count} ${count === 1 ? 'Reply' : 'Replies'}`;
+
+      form.reset();
+      div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } catch (err) {
+      errorBox.textContent   = err.message;
+      errorBox.style.display = 'block';
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Post Reply';
+    }
+  });
+</script>
+
+<style>
+.post-detail {
+  background: var(--dark);
+  min-height: calc(100vh - 3.5rem);
+  padding: 3rem 1.5rem 5rem;
+}
+
+.post-detail__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.post-detail__back {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: 'Work Sans', sans-serif; font-size: 0.78rem;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--sage); text-decoration: none;
+  margin-bottom: 2rem; transition: color 0.15s;
+}
+.post-detail__back:hover { color: var(--gold); }
+
+/* Post */
+.post-detail__post {
+  background: var(--forest);
+  border: 1px solid rgba(122,158,126,0.15);
+  border-top: 3px solid var(--ochre);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.post-detail__meta {
+  display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;
+}
+
+.post-detail__badge {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 0.2rem 0.55rem;
+}
+.post-detail__badge--discussion { background: rgba(122,158,126,0.2); color: var(--sage); }
+.post-detail__badge--update     { background: rgba(232,168,50,0.15); color: var(--gold); }
+
+.post-detail__neighborhood {
+  font-size: 0.72rem; color: rgba(122,158,126,0.6);
+  font-family: 'Work Sans', sans-serif;
+}
+
+.post-detail__title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--cream); line-height: 1.05; margin-bottom: 0.75rem;
+}
+
+.post-detail__byline {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Work Sans', sans-serif; font-size: 0.82rem;
+  color: var(--sage); margin-bottom: 1.75rem;
+}
+.post-detail__dot { color: rgba(122,158,126,0.4); }
+.post-detail__author { font-weight: 600; color: var(--cream); }
+
+.post-detail__img {
+  margin-bottom: 1.75rem;
+}
+.post-detail__img img {
+  width: 100%; max-height: 480px;
+  object-fit: cover; display: block;
+}
+
+.post-detail__body {
+  display: flex; flex-direction: column; gap: 1rem;
+  margin-bottom: 2rem;
+}
+.post-detail__body p {
+  font-family: 'Crimson Pro', serif; font-size: 1.2rem;
+  color: var(--sage); line-height: 1.7;
+}
+
+.post-detail__actions {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(122,158,126,0.12);
+}
+
+/* Like button (shared with list page) */
+.like-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: none; border: 1px solid rgba(122,158,126,0.25);
+  color: var(--sage); cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-family: 'Work Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
+  transition: all 0.15s;
+}
+.like-btn:hover { border-color: var(--ochre); color: var(--ochre); }
+.like-btn.liked {
+  border-color: var(--ochre); color: var(--ochre);
+  background: rgba(200,135,42,0.1);
+}
+.like-btn.liked .like-btn__heart { fill: var(--ochre); stroke: var(--ochre); }
+.like-btn__heart { flex-shrink: 0; transition: fill 0.15s, stroke 0.15s; }
+.like-btn__count { font-weight: 700; }
+
+/* Comments */
+.comments {
+  display: flex; flex-direction: column; gap: 0;
+}
+
+.comments__heading {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; font-size: 1.1rem; letter-spacing: 0.04em;
+  color: var(--cream); text-transform: uppercase;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(122,158,126,0.15);
+  margin-bottom: 0;
+}
+
+.comment-list {
+  display: flex; flex-direction: column;
+}
+
+.comment {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(122,158,126,0.1);
+}
+
+.comment__header {
+  display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.5rem;
+}
+.comment__author {
+  font-family: 'Work Sans', sans-serif; font-size: 0.85rem;
+  font-weight: 700; color: var(--cream);
+}
+.comment__date {
+  font-family: 'Work Sans', sans-serif; font-size: 0.75rem;
+  color: rgba(122,158,126,0.5);
+}
+.comment__body {
+  font-family: 'Crimson Pro', serif; font-size: 1.1rem;
+  color: var(--sage); line-height: 1.65;
+}
+
+/* Comment form */
+.comment-form {
+  background: var(--forest);
+  border: 1px solid rgba(122,158,126,0.15);
+  padding: 2rem;
+  margin-top: 2rem;
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+
+.comment-form__heading {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; font-size: 1.2rem; color: var(--cream);
+}
+
+.comment-form__label {
+  display: block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 0.4rem;
+  font-family: 'Work Sans', sans-serif;
+}
+.comment-form__req { color: var(--ochre); }
+
+.comment-form__input {
+  width: 100%; background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(122,158,126,0.3);
+  color: var(--cream); font-family: 'Work Sans', sans-serif; font-size: 0.95rem;
+  padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s;
+}
+.comment-form__input:focus { border-color: var(--gold); }
+.comment-form__input::placeholder { color: rgba(122,158,126,0.45); }
+.comment-form__textarea { resize: vertical; min-height: 100px; }
+
+.comment-form__error {
+  background: rgba(168,76,26,0.15); border: 1px solid rgba(168,76,26,0.4);
+  color: #e8937a; font-size: 0.9rem; padding: 0.65rem 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.comment-form__submit {
+  align-self: flex-start;
+  background: var(--ochre); border: none; color: white;
+  font-family: 'Work Sans', sans-serif; font-weight: 700; font-size: 0.85rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.85rem 2rem; cursor: pointer; transition: background 0.15s;
+}
+.comment-form__submit:hover:not(:disabled) { background: var(--gold); color: var(--dark); }
+.comment-form__submit:disabled { opacity: 0.6; cursor: default; }
+
+@media (max-width: 720px) {
+  .post-detail__post { padding: 1.5rem; }
+  .comment-form { padding: 1.5rem; }
+}
+</style>

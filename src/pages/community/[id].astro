@@ -257,28 +257,64 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
   }
 
   // ── Comment image upload ─────────────────────────────────────────────────────
-  const uploadZone    = document.getElementById('cf-upload-zone');
-  const fileInput     = document.getElementById('cf-image-input');
-  const previewImg    = document.getElementById('cf-upload-preview');
-  const placeholder   = document.getElementById('cf-upload-placeholder');
+  const uploadZone  = document.getElementById('cf-upload-zone');
+  const fileInput   = document.getElementById('cf-image-input');
+  const previewImg  = document.getElementById('cf-upload-preview');
+  const placeholder = document.getElementById('cf-upload-placeholder');
+  const errorBox2   = document.getElementById('comment-error');
 
-  uploadZone.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', () => {
-    const file = fileInput.files?.[0];
-    if (!file) return;
+  function showPreview(file) {
+    if (!file || !file.type.startsWith('image/')) return;
     if (file.size > 10 * 1024 * 1024) {
-      document.getElementById('comment-error').textContent = 'Image must be under 10 MB.';
-      document.getElementById('comment-error').style.display = 'block';
-      fileInput.value = '';
+      errorBox2.textContent   = 'Image must be under 10 MB.';
+      errorBox2.style.display = 'block';
       return;
     }
     const reader = new FileReader();
     reader.onload = (e) => {
-      previewImg.src          = e.target.result;
-      previewImg.style.display = 'block';
+      previewImg.src            = e.target.result;
+      previewImg.style.display  = 'block';
       placeholder.style.display = 'none';
     };
     reader.readAsDataURL(file);
+  }
+
+  // Click to browse
+  uploadZone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => showPreview(fileInput.files?.[0]));
+
+  // Drag and drop
+  let dragDepth = 0;
+
+  uploadZone.addEventListener('dragenter', (e) => {
+    e.preventDefault();
+    dragDepth++;
+    uploadZone.classList.add('dragging');
+  });
+
+  uploadZone.addEventListener('dragover', (e) => {
+    e.preventDefault(); // required to allow drop
+  });
+
+  uploadZone.addEventListener('dragleave', () => {
+    dragDepth--;
+    if (dragDepth === 0) uploadZone.classList.remove('dragging');
+  });
+
+  uploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dragDepth = 0;
+    uploadZone.classList.remove('dragging');
+
+    const file = e.dataTransfer?.files?.[0];
+    if (!file) return;
+
+    // Assign to the file input so FormData picks it up on submit
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    fileInput.files = dt.files;
+
+    showPreview(file);
   });
 
   // ── Comment form ─────────────────────────────────────────────────────────────
@@ -522,9 +558,14 @@ const date = new Date(post.created_at).toLocaleDateString('en-US', {
 
 .comment-form__upload {
   border: 1.5px dashed rgba(122,158,126,0.3); cursor: pointer;
-  text-align: center; padding: 1.25rem 1rem; transition: border-color 0.15s;
+  text-align: center; padding: 1.25rem 1rem; transition: border-color 0.15s, background 0.15s;
 }
 .comment-form__upload:hover { border-color: var(--sage); }
+.comment-form__upload.dragging {
+  border-color: var(--gold);
+  background: rgba(232,168,50,0.06);
+}
+.comment-form__upload.dragging .comment-form__upload-hint { color: var(--gold); }
 .comment-form__upload-hint {
   font-size: 0.88rem; color: var(--sage); margin-bottom: 0.2rem;
   font-family: 'Work Sans', sans-serif;

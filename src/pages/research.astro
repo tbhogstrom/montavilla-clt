@@ -1,0 +1,901 @@
+---
+export const prerender = true;
+
+import '../styles/global.css';
+import Nav    from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLT Research — Montavilla Community Land Trust</title>
+  <meta name="description" content="A meta analysis of 308+ Community Land Trusts across the United States — national landscape, commercial CLT models, funding pathways, and lessons for the Montavilla CLT." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    /* ── Page-specific styles ── */
+    .research-hero {
+      background: var(--forest);
+      padding: 5rem 1.5rem 4rem;
+      border-bottom: 3px solid var(--ochre);
+    }
+    .research-hero .eyebrow { color: var(--gold); margin-bottom: 0.75rem; }
+    .research-hero h1 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .research-hero .lead {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.2rem;
+      color: var(--sage);
+      max-width: 660px;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .research-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(122,158,126,0.7);
+    }
+    .research-meta span { color: var(--gold); }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: var(--ochre);
+      padding: 2.5rem 1.5rem;
+    }
+    .stats-bar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: rgba(14,31,22,0.15);
+      border: 1px solid rgba(14,31,22,0.15);
+    }
+    .sbar-stat {
+      background: rgba(255,255,255,0.1);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+    .sbar-num {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 2.8rem;
+      color: var(--forest);
+      display: block;
+      line-height: 1;
+    }
+    .sbar-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dark);
+      opacity: 0.75;
+      display: block;
+      margin-top: 0.4rem;
+    }
+
+    /* ── Table of contents ── */
+    .toc-section {
+      background: var(--warm);
+      padding: 3rem 1.5rem;
+      border-bottom: 1px solid rgba(29,58,42,0.1);
+    }
+    .toc {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.4rem 2rem;
+    }
+    .toc a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--forest);
+      text-decoration: none;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(29,58,42,0.08);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toc a:hover { color: var(--ochre); }
+    .toc-num {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--ochre);
+      min-width: 1.6rem;
+    }
+    .toc-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ochre); margin-bottom: 0.6rem; }
+
+    /* ── Body sections ── */
+    .research-section {
+      padding: 4rem 1.5rem;
+    }
+    .research-section:nth-child(odd) { background: var(--cream); }
+    .research-section:nth-child(even) { background: var(--warm); }
+
+    .research-section.dark {
+      background: var(--forest);
+    }
+    .research-section.dark .section-h { color: var(--cream); }
+    .research-section.dark .eyebrow { color: var(--gold); }
+    .research-section.dark p,
+    .research-section.dark li { color: var(--sage); }
+    .research-section.dark h3 { color: var(--gold); }
+    .research-section.dark h4 { color: var(--cream); }
+    .research-section.dark a { color: var(--gold); }
+    .research-section.dark table { border-color: rgba(122,158,126,0.2); }
+    .research-section.dark th { color: var(--sage); background: rgba(255,255,255,0.05); border-bottom-color: var(--ochre); }
+    .research-section.dark td { color: var(--cream); border-bottom-color: rgba(122,158,126,0.1); }
+    .research-section.dark tr:hover td { background: rgba(255,255,255,0.04); }
+    .research-section.dark .callout { background: rgba(200,135,42,0.12); border-color: var(--gold); color: var(--cream); }
+
+    .prose p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .prose h3 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.45rem;
+      color: var(--forest);
+      margin: 2.5rem 0 0.75rem;
+    }
+    .prose h4 {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      margin: 2rem 0 0.5rem;
+    }
+    .prose strong { color: var(--forest); }
+    .prose a { color: var(--ochre); }
+    .prose ul, .prose ol {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      line-height: 1.65;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .prose li { margin-bottom: 0.35rem; }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 0.88rem;
+      border: 1px solid rgba(29,58,42,0.12);
+    }
+    th {
+      text-align: left;
+      padding: 0.7rem 1rem;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: rgba(29,58,42,0.06);
+      border-bottom: 2px solid var(--ochre);
+    }
+    td {
+      padding: 0.75rem 1rem;
+      color: var(--dark);
+      border-bottom: 1px solid rgba(29,58,42,0.08);
+      vertical-align: top;
+    }
+    tr:hover td { background: rgba(29,58,42,0.03); }
+
+    /* Callout block */
+    .callout {
+      border-left: 4px solid var(--ochre);
+      background: var(--warm);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem;
+      color: var(--forest);
+      line-height: 1.65;
+    }
+    .callout strong { color: var(--forest); }
+
+    /* Case study cards */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: rgba(122,158,126,0.15);
+      border: 1px solid rgba(122,158,126,0.15);
+      margin: 2rem 0;
+    }
+    .case-card {
+      background: rgba(255,255,255,0.04);
+      padding: 1.75rem 1.5rem;
+      border-top: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .case-card:hover { background: rgba(255,255,255,0.08); border-top-color: var(--ochre); }
+    .case-card .case-tag {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .case-card h3 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .case-card .case-location {
+      font-size: 0.75rem;
+      color: rgba(122,158,126,0.7);
+      margin-bottom: 0.75rem;
+    }
+    .case-card p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: var(--sage);
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+    }
+    .case-card .case-lesson {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      font-family: 'Work Sans', sans-serif;
+      border-top: 1px solid rgba(122,158,126,0.2);
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Funding grid */
+    .funding-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .funding-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(122,158,126,0.2);
+      padding: 1.5rem;
+    }
+    .funding-card h4 {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .funding-card ul {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.98rem;
+      color: var(--sage);
+      line-height: 1.6;
+      padding-left: 1.2rem;
+    }
+    .funding-card li { margin-bottom: 0.25rem; }
+
+    /* Resources table */
+    .resource-table td:first-child { font-weight: 600; color: var(--gold); white-space: nowrap; }
+
+    /* Section anchor offset */
+    .anchor { scroll-margin-top: 4.5rem; }
+
+    @media (max-width: 720px) {
+      .research-hero { padding: 3rem 1.25rem 2.5rem; }
+      .research-section { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <Nav />
+
+  <!-- Hero -->
+  <div class="research-hero">
+    <div class="wrap">
+      <p class="eyebrow">Primary Research</p>
+      <h1>U.S. Community Land Trust<br>Meta Analysis</h1>
+      <p class="lead">
+        A national inventory of 308+ CLTs across 48 states — with a focus on commercial, agricultural,
+        and mixed-use models most relevant to the Montavilla CLT's mission to permanently protect
+        7700 SE Stark Street.
+      </p>
+      <div class="research-meta">
+        <div>Prepared by <span>Montavilla Community Land Trust</span></div>
+        <div>Published <span>April 2026</span></div>
+        <div>Sources <span>30+ cited</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="sbar-stat">
+        <span class="sbar-num">308+</span>
+        <span class="sbar-label">Active CLTs in the U.S.</span>
+      </div>
+      <div class="sbar-stat">
+        <span class="sbar-num">48</span>
+        <span class="sbar-label">States with CLTs</span>
+      </div>
+      <div class="sbar-stat">
+        <span class="sbar-num">37%</span>
+        <span class="sbar-label">of CLTs are in the West</span>
+      </div>
+      <div class="sbar-stat">
+        <span class="sbar-num">43,931</span>
+        <span class="sbar-label">Units stewarded</span>
+      </div>
+      <div class="sbar-stat">
+        <span class="sbar-num">26%</span>
+        <span class="sbar-label">Incorporated after 2017</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table of contents -->
+  <div class="toc-section">
+    <div class="wrap">
+      <p class="toc-label">Contents</p>
+      <div class="toc">
+        <a href="#landscape"><span class="toc-num">I</span> National Landscape</a>
+        <a href="#typology"><span class="toc-num">II</span> CLT Typology &amp; Models</a>
+        <a href="#inventory"><span class="toc-num">III</span> National Inventory</a>
+        <a href="#funding"><span class="toc-num">IV</span> Funding Sources</a>
+        <a href="#analogs"><span class="toc-num">V</span> Closest Analogs to MCLT</a>
+        <a href="#lessons"><span class="toc-num">VI</span> Lessons Learned</a>
+        <a href="#resources"><span class="toc-num">VII</span> Resources for MCLT</a>
+        <a href="#findings"><span class="toc-num">VIII</span> Summary Findings</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part I: National Landscape -->
+  <section class="research-section" id="landscape">
+    <div class="wrap">
+      <p class="eyebrow">Part I</p>
+      <h2 class="section-h anchor">The National Landscape</h2>
+      <div class="prose">
+        <p>
+          As of the most recent data available, there are <strong>308 CLTs operating across 48 states,
+          Washington D.C., and Puerto Rico</strong> (2024 survey cited by the Lincoln Institute of Land Policy).
+          This figure represents dramatic growth over two decades.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Year</th><th>Number of CLTs</th></tr></thead>
+          <tbody>
+            <tr><td>2006</td><td>162</td></tr>
+            <tr><td>2018</td><td>225</td></tr>
+            <tr><td>2021</td><td>289</td></tr>
+            <tr><td>2022</td><td>314 (including shared equity entities)</td></tr>
+            <tr><td>2024</td><td>308+</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          The 2022 Census (conducted by Grounded Solutions Network in partnership with the University of Toronto,
+          published by the Lincoln Institute of Land Policy) is the most comprehensive study available.
+          Of 210 active CLTs with residential units studied, <strong>55 (26%) were incorporated after 2017</strong>,
+          indicating a rapid surge in recent years.
+        </p>
+
+        <h3>Geographic Distribution</h3>
+        <p>The West leads the country in CLT concentration — meaning MCLT is organizing in the most active CLT geography in the U.S.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Region</th><th># of Organizations</th><th>% of Total</th></tr></thead>
+          <tbody>
+            <tr><td><strong>West</strong></td><td>116</td><td>37%</td></tr>
+            <tr><td>Northeast</td><td>82</td><td>26%</td></tr>
+            <tr><td>Midwest</td><td>~63</td><td>~20%</td></tr>
+            <tr><td>South</td><td>~53</td><td>~17%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <p>
+          The 314 entities in the 2022 census steward an estimated <strong>43,931 residential units</strong>, composed of
+          15,606 shared equity homeownership units, 19,545 rental units, 925 manufactured homes,
+          and 933 lease-to-purchase units.
+        </p>
+        <p>
+          <strong>Washington state</strong> has 26 known CLTs — the most of any single state in the Northwest.
+          <strong>Oregon</strong> has at least 4 active CLTs. <strong>California</strong> has 50+ CLTs collectively
+          stewarding 1,600+ permanently affordable homes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part II: Typology -->
+  <section class="research-section" id="typology">
+    <div class="wrap">
+      <p class="eyebrow">Part II</p>
+      <h2 class="section-h anchor">CLT Typology &amp; Models</h2>
+
+      <div class="prose">
+        <h3>The Classic CLT Structure</h3>
+        <p>All CLTs share a core legal architecture:</p>
+        <ul>
+          <li>Nonprofit 501(c)(3) corporation holds land in perpetuity</li>
+          <li>Long-term (typically 99-year, renewable) ground lease separates land ownership from improvements ownership</li>
+          <li>Tripartite board: ⅓ CLT residents/leaseholders, ⅓ community members, ⅓ public interest representatives</li>
+          <li>Resale formula limits appreciation to maintain permanent affordability while allowing leaseholders to build equity</li>
+        </ul>
+        <p>
+          The first CLT in the U.S., <strong>New Communities Inc.</strong> (Albany, Georgia, 1969), was agricultural.
+          The first urban CLT is credited to <strong>Community Land Cooperative of Cincinnati</strong> (1981).
+        </p>
+
+        <h3>Focus Area Typology</h3>
+
+        <h4>Housing CLTs (majority)</h4>
+        <p>
+          Steward permanently affordable homeownership, rental, and cooperative housing.
+          Examples: Champlain Housing Trust, Proud Ground (Portland), Homestead CLT.
+        </p>
+
+        <h4>Agricultural CLTs</h4>
+        <p>
+          Hold farmland and lease it to farmers, removing land cost from startup burden.
+          Examples: New Communities Inc., Lopez Community Land Trust, Agrarian Commons network,
+          South of the Sound Community Land Trust (140 acres, Olympia WA).
+        </p>
+
+        <h4>Commercial / Mixed-Use CLTs (most relevant to MCLT)</h4>
+        <p>
+          Acquire commercial corridors or mixed-use buildings to anchor small businesses and community
+          institutions against displacement. The most emerging and directly relevant model for MCLT.
+        </p>
+        <ul>
+          <li><strong>Rondo CLT</strong> (St. Paul, MN) — Minnesota's first commercial CLT</li>
+          <li><strong>Crescent City CLT</strong> (New Orleans, LA) — commercial corridors + housing</li>
+          <li><strong>Africatown CLT</strong> (Seattle, WA) — mixed residential/commercial/cultural</li>
+          <li><strong>Urban Land Conservancy</strong> (Denver, CO) — 300,000 sq ft commercial/nonprofit space preserved</li>
+          <li><strong>Partnership in Property</strong> (Minneapolis, MN) — BIPOC small business focus</li>
+          <li><strong>Dudley Neighbors Inc.</strong> (Boston, MA) — urban farm, greenhouse, community facilities</li>
+        </ul>
+
+        <h4>Hybrid / Multi-Use CLTs</h4>
+        <p>
+          The majority of mature CLTs combine two or more of the above. Lopez Community Land Trust
+          (Lopez Island, WA) is the clearest Pacific Northwest example: 47 cooperatively owned homes + 100 acres of farmland.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part III: Inventory -->
+  <section class="research-section dark" id="inventory">
+    <div class="wrap">
+      <p class="eyebrow">Part III</p>
+      <h2 class="section-h anchor" style="color:var(--cream)">National CLT Inventory</h2>
+
+      <div class="prose">
+        <h3>Oregon CLTs</h3>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>City</th><th>Founded</th><th>Focus</th><th>Scale</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://www.proudground.org" target="_blank">Proud Ground</a></td><td>Portland</td><td>1999</td><td>Permanently affordable homeownership</td><td>740+ households, 6 counties</td></tr>
+            <tr><td>Sabin CDC</td><td>Portland</td><td>1992</td><td>Affordable housing, NE Portland</td><td>14 land trust properties, 116 units</td></tr>
+            <tr><td>DevNW</td><td>Springfield</td><td>~2010s</td><td>Affordable homeownership</td><td>18 units; 40+ planned</td></tr>
+            <tr><td>RootedHomes</td><td>Bend</td><td>2015</td><td>Sustainable affordable housing</td><td>~12 homes, 3 communities</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose" style="margin-top:2.5rem">
+        <h3>Washington State CLTs (26 total)</h3>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>City</th><th>Founded</th><th>Notable Features</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://www.africatownlandtrust.org" target="_blank">Africatown CLT</a></td><td>Seattle</td><td>2016</td><td>BIPOC community preservation; Liberty Bank Building (100+ units), Africatown Plaza (130 units)</td></tr>
+            <tr><td>Evergreen Land Trust</td><td>Deming</td><td>1974</td><td>Cooperative communities; oldest CLT in WA</td></tr>
+            <tr><td>Homestead Community Land Trust</td><td>Seattle</td><td>1992</td><td>Affordable housing, climate equity, energy efficiency</td></tr>
+            <tr><td>Kulshan Community Land Trust</td><td>Bellingham</td><td>1999</td><td>Affordable homeownership, housing counseling</td></tr>
+            <tr><td><a href="https://www.lopezclt.org" target="_blank">Lopez Community Land Trust</a></td><td>Lopez Island</td><td>1989</td><td>47 homes + 100 acres farmland; net-zero housing; model hybrid CLT</td></tr>
+            <tr><td>OPAL Community Land Trust</td><td>Orcas Island</td><td>1989</td><td>110 homes + 82 apartments</td></tr>
+            <tr><td>South of the Sound CLT</td><td>Olympia</td><td>1997</td><td>140 acres farmland, local food systems</td></tr>
+            <tr><td>Tahoma Community Land Trust</td><td>Tacoma</td><td>2021</td><td>BIPOC and low-income housing</td></tr>
+            <tr><td>Vashon HouseHold</td><td>Vashon Island</td><td>1990</td><td>127 units, island affordability</td></tr>
+            <tr><td colspan="4" style="font-style:italic;opacity:0.6">+ 17 additional Washington CLTs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose" style="margin-top:2.5rem">
+        <h3>National CLTs — Selected Inventory</h3>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Location</th><th>Founded</th><th>Focus</th><th>Scale / Notes</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://www.getahome.org" target="_blank">Champlain Housing Trust</a></td><td>Burlington, VT</td><td>1984</td><td>Housing + mixed-use</td><td>3,275 homes; largest CLT in U.S.; $223M+ assets</td></tr>
+            <tr><td><a href="https://www.rondoclt.org" target="_blank">Rondo CLT</a></td><td>St. Paul, MN</td><td>1993</td><td>Commercial + housing</td><td>Minnesota's first commercial CLT; 9,300 sq ft commercial space</td></tr>
+            <tr><td><a href="https://www.houstonclt.org" target="_blank">Houston CLT</a></td><td>Houston, TX</td><td>2018</td><td>Housing</td><td>200+ households; $52.7M city investment</td></tr>
+            <tr><td><a href="https://urbanlandc.org" target="_blank">Urban Land Conservancy</a></td><td>Denver, CO</td><td>2003</td><td>Commercial + mixed</td><td>300,000 sq ft commercial/nonprofit space preserved</td></tr>
+            <tr><td><a href="https://www.dudleyneighbors.org" target="_blank">Dudley Neighbors Inc.</a></td><td>Boston, MA</td><td>1988</td><td>Multi-use</td><td>60 acres; only U.S. community org with eminent domain; 225 homes + urban farm</td></tr>
+            <tr><td><a href="https://www.pipclt.org" target="_blank">Partnership in Property CLT</a></td><td>Minneapolis, MN</td><td>2021</td><td>Commercial (BIPOC)</td><td>Perpetually affordable commercial space for BIPOC business owners</td></tr>
+            <tr><td><a href="https://ehebclt.nyc" target="_blank">East Harlem/El Barrio CLT</a></td><td>New York, NY</td><td>2014</td><td>Housing + commercial</td><td>First NYC CLT to receive city land; $13M recent deal</td></tr>
+            <tr><td>Sawmill CLT</td><td>Albuquerque, NM</td><td>1996</td><td>Mixed-use</td><td>34 acres reclaimed industrial land; 93 affordable homes</td></tr>
+            <tr><td><a href="https://athenslandtrust.org" target="_blank">Athens Land Trust</a></td><td>Athens, GA</td><td>—</td><td>Ag + housing + market</td><td>Operated West Broad Farmers' Market; market on hiatus 2025 — no owned land</td></tr>
+            <tr><td><a href="https://www.newcommunitiesinc.com" target="_blank">New Communities Inc.</a></td><td>Albany, GA</td><td>1969</td><td>Agricultural</td><td>First CLT in the U.S.; 5,735 acres original holding</td></tr>
+            <tr><td><a href="https://www.agrariantrust.org" target="_blank">Agrarian Trust</a></td><td>National (ME HQ)</td><td>~2015</td><td>Agricultural</td><td>12 founding Agrarian Commons; 2,400 acres across 10 states</td></tr>
+            <tr><td>Berkshire CLT</td><td>Great Barrington, MA</td><td>1980</td><td>Housing + commercial + ag</td><td>Founded to include retail sites and Main Street properties from day one</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part IV: Funding -->
+  <section class="research-section" id="funding">
+    <div class="wrap">
+      <p class="eyebrow">Part IV</p>
+      <h2 class="section-h anchor">Common Funding Sources</h2>
+
+      <div class="prose">
+        <p>
+          CLTs use a layered capital stack. The proportions shift depending on whether the initial asset
+          is commercial/agricultural vs. residential.
+        </p>
+      </div>
+
+      <div class="funding-grid">
+        <div class="funding-card" style="background:var(--warm);border-color:rgba(29,58,42,0.15)">
+          <h4>Federal Programs</h4>
+          <ul>
+            <li>Community Development Block Grants (CDBG)</li>
+            <li>HOME Investment Partnerships</li>
+            <li>USDA Rural Development</li>
+            <li>HUD Choice Neighborhoods Initiative</li>
+            <li>ARPA funds (Houston: $52.7M)</li>
+          </ul>
+        </div>
+        <div class="funding-card" style="background:var(--warm);border-color:rgba(29,58,42,0.15)">
+          <h4>State &amp; Municipal</h4>
+          <ul>
+            <li>State housing trust funds</li>
+            <li>Tax Increment Financing (TIF)</li>
+            <li>City-owned land donation at nominal cost</li>
+            <li>Local housing trust funds</li>
+            <li>Metro/regional housing bonds</li>
+          </ul>
+        </div>
+        <div class="funding-card" style="background:var(--warm);border-color:rgba(29,58,42,0.15)">
+          <h4>CDFI &amp; Mission Finance</h4>
+          <ul>
+            <li>Community Development Loan Funds</li>
+            <li>CDFIs (Partners for the Common Good, Low Income Investment Fund)</li>
+            <li>Revolving loan funds</li>
+            <li>CDFI Fund awards</li>
+          </ul>
+        </div>
+        <div class="funding-card" style="background:var(--warm);border-color:rgba(29,58,42,0.15)">
+          <h4>Philanthropy</h4>
+          <ul>
+            <li>MacKenzie Scott ($20M to Champlain Housing Trust, 2023)</li>
+            <li>Ford, Kresge, Robert Wood Johnson Foundations</li>
+            <li>Local community foundations</li>
+            <li>Faith-based organizations</li>
+          </ul>
+        </div>
+        <div class="funding-card" style="background:var(--warm);border-color:rgba(29,58,42,0.15)">
+          <h4>Earned Revenue</h4>
+          <ul>
+            <li>Ground lease fees (Thistle CLT: ~$30/mo average covers ⅓ of operating costs)</li>
+            <li>Membership fees</li>
+            <li>Development fees</li>
+            <li>Commercial lease income</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Portland-specific opportunity:</strong> Portland Metro's $652.8M 2018 affordable housing bond
+        has funded Proud Ground and other Oregon CLT projects. CDBG via Multnomah County and Oregon Housing
+        and Community Services are additional well-established pathways.
+      </div>
+    </div>
+  </section>
+
+  <!-- Part V: Analogs -->
+  <section class="research-section dark" id="analogs">
+    <div class="wrap">
+      <p class="eyebrow">Part V</p>
+      <h2 class="section-h anchor">Closest Analogs to MCLT</h2>
+      <p style="font-family:'Crimson Pro',serif;font-size:1.1rem;color:var(--sage);margin-bottom:2rem;max-width:640px;line-height:1.65">
+        CLTs that started with a single commercial or market property — most directly relevant to MCLT's
+        situation acquiring a 0.84-acre farmers market lot as a founding property.
+      </p>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <span class="case-tag">Commercial Pioneer</span>
+          <h3>Rondo Community Land Trust</h3>
+          <p class="case-location">St. Paul, Minnesota · Founded 1993</p>
+          <p>
+            Developed its commercial wing when speculative investors targeted the Selby Avenue corridor.
+            Acquired two city-owned lots at nominal cost, then co-developed 34 affordable senior apartments + 9,300 sq ft
+            commercial space at ~$7/sq ft vs. $20–35 market rate. Later acquired the Golden Thyme Café — a beloved
+            Black-owned coffee shop — to preserve it when founders retired.
+          </p>
+          <p class="case-lesson">Lesson: Nominal city land transfer + mission-aligned development partners made commercial CLT viable.</p>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Farmers Market Analog</span>
+          <h3>Athens Land Trust</h3>
+          <p class="case-location">Athens, Georgia</p>
+          <p>
+            Operated the West Broad Farmers' Market for years on land it did not own (a school district site).
+            The market produced 13,000+ lbs of food in its first two years and drew 200+ weekly shoppers.
+            In 2025, the market went on hiatus specifically because it lacked a permanent home.
+          </p>
+          <p class="case-lesson">Lesson: Athens validates both the community value of a CLT-anchored farmers market AND the danger of not owning the underlying land.</p>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Mixed-Use from Day One</span>
+          <h3>Berkshire Community Land Trust</h3>
+          <p class="case-location">Great Barrington, Massachusetts · Founded 1980</p>
+          <p>
+            Founded by CLT movement pioneers Robert Swann and Susan Witt, BCLT was explicitly designed
+            from day one to hold land for workforce housing, productive farmland, retail sites,
+            appropriately scaled manufacturing sites, and Main Street character properties.
+          </p>
+          <p class="case-lesson">Lesson: Commercial CLT acquisitions work best when baked into organizational mission from the beginning.</p>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Single Property Catalyst</span>
+          <h3>Sawmill Community Land Trust</h3>
+          <p class="case-location">Albuquerque, New Mexico · Founded 1996</p>
+          <p>
+            Formed specifically to acquire and remediate a contaminated industrial site (former particleboard factory)
+            threatening the neighborhood. The acquisition itself was the founding act of the CLT.
+            From 27 initial acres (growing to 34), Sawmill built 93 affordable homes and 3 rental complexes.
+          </p>
+          <p class="case-lesson">Lesson: A CLT can be founded around a single opportunity property, with development following acquisition.</p>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Pilot-to-Independent</span>
+          <h3>Partnership in Property CLT</h3>
+          <p class="case-location">Minneapolis, Minnesota · Founded 2021</p>
+          <p>
+            Began as a pilot commercial CLT initiative housed within an established housing CLT (City of Lakes CLT) in 2017,
+            studied feasibility, formed an advisory board, and incorporated as an independent nonprofit in 2021.
+          </p>
+          <p class="case-lesson">Lesson: A nascent commercial CLT can incubate within an established housing CLT's infrastructure, gaining credibility before standing up independently.</p>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Capital Speed</span>
+          <h3>Urban Land Conservancy</h3>
+          <p class="case-location">Denver, Colorado · Founded 2003</p>
+          <p>
+            Has demonstrated that commercial CLTs require a distinct playbook: acquisition in strengthening markets
+            demands staff capacity, real estate expertise, and speed. 300,000+ sq ft of commercial and nonprofit space preserved.
+          </p>
+          <p class="case-lesson">Lesson: Pre-positioning capital before a specific property is identified is essential — "if capital isn't raised quickly enough, the land becomes too expensive."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part VI: Lessons -->
+  <section class="research-section" id="lessons">
+    <div class="wrap">
+      <p class="eyebrow">Part VI</p>
+      <h2 class="section-h anchor">Lessons Learned</h2>
+
+      <div class="prose">
+        <h3>1. Community organizing must precede or accompany land acquisition</h3>
+        <p>
+          CLT legitimacy depends on it being a genuine expression of community will, not an externally imposed solution.
+          The Dudley Street process, Rondo's Selby Avenue community engagement, and MCLT's own organizing process
+          around the farmers market lot all reflect this principle.
+        </p>
+
+        <h3>2. City land donation is often the difference-maker</h3>
+        <p>
+          Many successful CLTs received their first land free or at nominal cost from municipalities. Rondo CLT's
+          Selby Avenue lots, East Harlem/El Barrio CLT's city buildings, and Sawmill CLT's industrial land all
+          involved government transfers at below-market terms. Cultivating a City of Portland partnership
+          is worth pursuing in parallel with the community capital campaign.
+        </p>
+
+        <h3>3. Speed and pre-positioned capital are essential for commercial acquisitions</h3>
+        <p>
+          Unlike housing CLTs that often have longer development timelines, commercial CLT opportunities
+          (especially farmers markets, small commercial corridors) can evaporate quickly when speculative buyers
+          are competing. The pledge campaign is beginning to build this signal of organized intent.
+        </p>
+
+        <h3>4. The resale formula is a CLT's core covenant</h3>
+        <p>
+          Every CLT crafts its own resale formula, typically allowing leaseholders 10–50% of appreciation.
+          Commercial CLTs apply analogous formulas to building improvements, giving business tenants a stake
+          in improvements while keeping land permanently affordable.
+        </p>
+
+        <h3>5. Ground lease fees should cover operations over time</h3>
+        <p>
+          Thistle CLT's ground lease fees (~$30/month average) cover about ⅓ of program operating costs,
+          reducing dependence on grants. Building a ground lease revenue base creates long-term sustainability.
+        </p>
+
+        <h3>6. Startup incubation within established CLTs reduces risk</h3>
+        <p>
+          Partnership in Property Commercial Land Trust (Minneapolis) began as a 4-year pilot within City of Lakes CLT
+          before incorporating independently. A partnership with Proud Ground or another Oregon CLT is worth exploring
+          to reduce startup overhead.
+        </p>
+      </div>
+
+      <div class="callout">
+        <strong>26% of active CLTs were incorporated after 2017.</strong> The movement is actively expanding.
+        New CLTs can succeed in the current environment with the right organizational and technical support.
+      </div>
+    </div>
+  </section>
+
+  <!-- Part VII: Resources -->
+  <section class="research-section dark" id="resources">
+    <div class="wrap">
+      <p class="eyebrow">Part VII</p>
+      <h2 class="section-h anchor">Resources &amp; Technical Assistance</h2>
+
+      <div class="table-wrap">
+        <table class="resource-table">
+          <thead><tr><th>Resource</th><th>What It Offers</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><a href="https://groundedsolutions.org" target="_blank">Grounded Solutions Network</a></td>
+              <td>National CLT network; CLT Technical Manual; Startup CLT Hub; municipal partnership tools; 2022 census data</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.nwcltc.org" target="_blank">NW Community Land Trust Coalition</a></td>
+              <td>Regional network for WA, OR, ID, MT, AK, HI; peer learning; resources</td>
+            </tr>
+            <tr>
+              <td><a href="https://centerforneweconomics.org/apply/community-land-trust-program/" target="_blank">Schumacher Center for a New Economics</a></td>
+              <td>CLT directory, toolkit, legal documents (bylaws, articles of incorporation, ground lease templates)</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.agrariantrust.org" target="_blank">Agrarian Trust</a></td>
+              <td>Agricultural CLT support, Agrarian Commons model, next-gen farmer focus</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.lincolninst.edu" target="_blank">Lincoln Institute of Land Policy</a></td>
+              <td>Research, publications, CLT census data, Cities and CLTs toolkit</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.cltweb.org" target="_blank">International Center for CLTs</a></td>
+              <td>Global CLT map, case studies, academic research</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.proudground.org" target="_blank">Proud Ground</a> (Portland)</td>
+              <td>Local CLT peer; six-county operation in Oregon; potential mentor or incubator</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part VIII: Findings -->
+  <section class="research-section" id="findings">
+    <div class="wrap">
+      <p class="eyebrow">Part VIII</p>
+      <h2 class="section-h anchor">Summary Findings for MCLT</h2>
+
+      <div class="prose">
+        <h3>The national CLT movement is large, growing, and diversifying beyond housing</h3>
+        <p>
+          308+ CLTs in 48 states is a mature movement with deep institutional knowledge and a well-developed
+          network of technical assistance. The West region (37% of all CLTs) confirms MCLT is organizing in the
+          most active CLT geography in the country.
+        </p>
+
+        <h3>Commercial CLTs are a small but growing and increasingly celebrated niche</h3>
+        <p>
+          At least 30 CLTs have commercial portfolios as of the 2022 census. Rondo CLT, Crescent City CLT,
+          Urban Land Conservancy, Africatown CLT, and Partnership in Property are the leading case studies.
+          This is exactly the space MCLT is entering.
+        </p>
+
+        <h3>Starting with a single commercial property is validated by precedent</h3>
+        <p>
+          Sawmill CLT (single contaminated lot → 34-acre neighborhood), Rondo CLT (two Selby Ave lots → Minnesota's first
+          commercial CLT), Partnership in Property (pilot → independent CLT) — all began with a single or small set of
+          properties and grew from there.
+        </p>
+
+        <h3>Farmers market CLTs are rare but the need is validated</h3>
+        <p>
+          Athens Land Trust's experience is the closest analog: its market produced 13,000 lbs of produce,
+          drew 200+ shoppers weekly, and served as a community anchor — but lacked land ownership and ultimately
+          went on hiatus in 2025. MCLT's proposal to acquire the underlying lot directly addresses this vulnerability.
+        </p>
+
+        <h3>Oregon's CLT ecosystem is thin but supportive</h3>
+        <p>
+          With only 4 known Oregon CLTs, MCLT would be a pioneer in the commercial and agricultural CLT space
+          for the state. Proud Ground's track record and the Northwest Community Land Trust Coalition provide
+          a strong regional support base.
+        </p>
+
+        <h3>Funding pathways are well-established</h3>
+        <p>Most promising near-term sources for MCLT's 0.84-acre acquisition:</p>
+        <ol>
+          <li>Portland Metro affordable housing bond ecosystem (has funded Proud Ground projects)</li>
+          <li>CDBG via Multnomah County</li>
+          <li>CDFI bridge loan for acquisition (Partners for the Common Good has existing OR relationships)</li>
+          <li>Oregon Housing and Community Services state programs</li>
+          <li>Private philanthropy and community capital campaigns</li>
+          <li>Potential City of Portland land use partnership</li>
+        </ol>
+      </div>
+
+      <div class="callout" style="margin-top:2.5rem">
+        This research was compiled in April 2026 from the Grounded Solutions Network 2022 CLT Census,
+        Lincoln Institute of Land Policy publications, Schumacher Center CLT Directory, and 30+ primary
+        source CLT websites. <a href="https://github.com/tbhogstrom/montavilla-clt/blob/main/workspace/milestones/01-coalition/us-clt-meta-analysis.md" target="_blank" style="color:var(--ochre)">View full source document on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</body>
+</html>

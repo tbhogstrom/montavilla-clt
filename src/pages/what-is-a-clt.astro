@@ -1,0 +1,689 @@
+---
+export const prerender = true;
+import '../styles/global.css';
+import Nav    from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is a Community Land Trust? — Montavilla CLT</title>
+  <meta name="description" content="A community land trust permanently removes land from the speculative market. Here's how the model works, what the national landscape looks like, and why it's the right tool for Montavilla." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    /* ── Hero ── */
+    .wc-hero {
+      background: var(--forest);
+      padding: 5rem 1.5rem 4rem;
+      border-bottom: 3px solid var(--ochre);
+    }
+    .wc-hero .eyebrow { color: var(--gold); margin-bottom: 0.75rem; }
+    .wc-hero h1 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.92;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .wc-hero h1 em { color: var(--gold); font-style: normal; }
+    .wc-hero .lead {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      color: var(--sage);
+      max-width: 640px;
+      line-height: 1.65;
+    }
+
+    /* ── Sections ── */
+    .wc-section { padding: 4.5rem 1.5rem; }
+    .wc-section.cream  { background: var(--cream); }
+    .wc-section.warm   { background: var(--warm); }
+    .wc-section.forest { background: var(--forest); }
+    .wc-section.dark   { background: var(--dark); }
+    .wc-section.ochre  { background: var(--ochre); }
+
+    .wc-section .eyebrow { color: var(--ochre); }
+    .wc-section.forest .eyebrow { color: var(--gold); }
+    .wc-section.dark .eyebrow   { color: var(--gold); }
+    .wc-section.ochre .eyebrow  { color: var(--forest); }
+
+    .wc-section h2 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+      color: var(--forest);
+    }
+    .wc-section.forest h2,
+    .wc-section.dark h2 { color: var(--cream); }
+    .wc-section.ochre h2 { color: var(--forest); }
+
+    .prose p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      max-width: 680px;
+    }
+    .prose.light p { color: var(--sage); }
+    .prose p strong { color: var(--forest); }
+    .prose.light p strong { color: var(--cream); }
+    .prose a { color: var(--ochre); }
+    .prose.light a { color: var(--gold); }
+
+    /* ── Definition block ── */
+    .definition {
+      border-left: 5px solid var(--ochre);
+      background: var(--warm);
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      max-width: 680px;
+    }
+    .definition p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--forest);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .definition cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      font-style: normal;
+    }
+
+    /* ── Three-part model grid ── */
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: rgba(122,158,126,0.15);
+      border: 1px solid rgba(122,158,126,0.15);
+      margin: 2.5rem 0;
+    }
+    .model-card {
+      background: rgba(255,255,255,0.03);
+      padding: 2rem 1.5rem;
+      border-top: 4px solid transparent;
+      transition: background 0.2s;
+    }
+    .model-card:hover { background: rgba(255,255,255,0.07); }
+    .model-card .mc-num {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .model-card h3 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+      color: var(--cream);
+    }
+    .model-card p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: var(--sage);
+      line-height: 1.55;
+    }
+
+    /* ── Stat row ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1px;
+      background: rgba(29,58,42,0.1);
+      border: 1px solid rgba(29,58,42,0.1);
+      margin: 2.5rem 0;
+      max-width: 780px;
+    }
+    .stat-cell {
+      background: var(--cream);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+    .stat-cell .sc-num {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 2.8rem;
+      color: var(--ochre);
+      line-height: 1;
+      display: block;
+    }
+    .stat-cell .sc-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0.7;
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Three axis explainer ── */
+    .axis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .axis-card {
+      padding: 1.5rem;
+      border-top: 4px solid;
+    }
+    .axis-card h3 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .axis-card .ax-count {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .axis-card p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      margin-bottom: 0.5rem;
+    }
+    .axis-card .ax-examples {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* ── Analog cards ── */
+    .analog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .analog-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(122,158,126,0.2);
+      padding: 1.75rem;
+    }
+    .analog-tag {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .analog-card h3 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+    .analog-card .al-loc {
+      font-size: 0.72rem;
+      color: rgba(122,158,126,0.6);
+      margin-bottom: 0.75rem;
+    }
+    .analog-card p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.98rem;
+      color: var(--sage);
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+    }
+    .analog-lesson {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      font-family: 'Work Sans', sans-serif;
+      border-top: 1px solid rgba(122,158,126,0.2);
+      padding-top: 0.75rem;
+    }
+
+    /* ── Why Montavilla section ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    .why-item {
+      display: flex;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: 1.75rem;
+    }
+    .why-num {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: var(--ochre);
+      line-height: 1;
+      min-width: 2rem;
+    }
+    .why-item h3 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--forest);
+      margin-bottom: 0.3rem;
+    }
+    .why-item p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .wc-cta { text-align: center; }
+    .wc-cta h2 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      color: var(--forest);
+      line-height: 0.92;
+      margin-bottom: 1rem;
+    }
+    .wc-cta p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.2rem;
+      color: var(--dark);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+    .wc-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 720px) {
+      .why-grid { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <Nav />
+
+  <!-- Hero -->
+  <div class="wc-hero">
+    <div class="wrap">
+      <p class="eyebrow">Montavilla Community Land Trust</p>
+      <h1>WHAT IS A<br><em>COMMUNITY</em><br>LAND TRUST?</h1>
+      <p class="lead">
+        A CLT is a legal tool for permanently removing land from the speculative market.
+        It's been used in 48 states for over 50 years — to protect homes, farms, and community
+        institutions from displacement. Here's how it works, and why it's the right tool for Montavilla.
+      </p>
+    </div>
+  </div>
+
+  <!-- The core idea -->
+  <section class="wc-section cream">
+    <div class="wrap-sm">
+      <p class="eyebrow">The Core Idea</p>
+      <h2>Land is different from everything else.</h2>
+
+      <div class="definition">
+        <p>
+          "A community land trust is a nonprofit organization that acquires land and holds it
+          in trust permanently for the benefit of a community — separating ownership of the land
+          from ownership of the buildings or uses on top of it."
+        </p>
+        <cite>— Grounded Solutions Network</cite>
+      </div>
+
+      <div class="prose">
+        <p>
+          Most things you can buy depreciate. Land doesn't — especially in cities.
+          Land near farmers markets, transit, parks, and community infrastructure tends to appreciate
+          relentlessly, regardless of what's on it or who's using it.
+          That appreciation is why a 0.84-acre corner lot in Montavilla is listed at $4,999,000.
+        </p>
+        <p>
+          A CLT breaks the connection between land value and speculative returns.
+          The nonprofit holds the land — permanently, in trust — and issues long-term ground leases
+          (typically 99 years, renewable) to whoever uses the buildings above it.
+          Leaseholders can own, improve, and sell those buildings.
+          They just can't sell the land, because the land was never theirs to sell.
+        </p>
+        <p>
+          This one structural change makes permanent affordability possible
+          for homes, farms, markets, and community spaces — not just for one generation,
+          but for every generation after.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="wc-section forest">
+    <div class="wrap">
+      <p class="eyebrow">How It Works</p>
+      <h2>Three things that make a CLT a CLT.</h2>
+
+      <div class="model-grid">
+        <div class="model-card" style="border-top-color:var(--ochre)">
+          <div class="mc-num" style="color:var(--ochre)">01</div>
+          <h3>Nonprofit Land Ownership</h3>
+          <p>
+            A 501(c)(3) nonprofit acquires land and holds it permanently.
+            The land is never resold. It can never be flipped by a developer or
+            lost to foreclosure in the way private land can be.
+          </p>
+        </div>
+        <div class="model-card" style="border-top-color:var(--sage)">
+          <div class="mc-num" style="color:var(--sage)">02</div>
+          <h3>Long-Term Ground Lease</h3>
+          <p>
+            Leaseholders — homeowners, farmers, businesses, market vendors —
+            get a 99-year renewable lease on the land.
+            They own and control what's built on it. The CLT owns the ground beneath.
+          </p>
+        </div>
+        <div class="model-card" style="border-top-color:var(--gold)">
+          <div class="mc-num" style="color:var(--gold)">03</div>
+          <h3>Community Governance</h3>
+          <p>
+            CLT boards are tripartite: ⅓ leaseholders, ⅓ community members,
+            ⅓ public interest representatives. No single interest controls the land.
+            The community does — in perpetuity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- National landscape -->
+  <section class="wc-section warm">
+    <div class="wrap">
+      <p class="eyebrow">The National Landscape</p>
+      <h2>308 CLTs. 48 states. The model works.</h2>
+
+      <div class="stat-row">
+        <div class="stat-cell">
+          <span class="sc-num">308+</span>
+          <span class="sc-label">Active CLTs in the U.S.</span>
+        </div>
+        <div class="stat-cell">
+          <span class="sc-num">48</span>
+          <span class="sc-label">States with CLTs</span>
+        </div>
+        <div class="stat-cell">
+          <span class="sc-num">43,931</span>
+          <span class="sc-label">Units permanently stewarded</span>
+        </div>
+        <div class="stat-cell">
+          <span class="sc-num">26%</span>
+          <span class="sc-label">Incorporated since 2017</span>
+        </div>
+        <div class="stat-cell">
+          <span class="sc-num">37%</span>
+          <span class="sc-label">Are in the West — our region</span>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          The first CLT in the United States was <strong>New Communities Inc.</strong>,
+          founded in Albany, Georgia in 1969 by SNCC civil rights organizers — to protect
+          Black-owned farmland from a wave of speculative acquisition.
+          The model has expanded steadily since, accelerating dramatically after 2017.
+        </p>
+        <p>
+          The West has more CLTs than any other region. Oregon alone has four.
+          <strong>Proud Ground</strong>, Portland's largest, has helped 740+ households
+          own homes at 20–50% below market. They're a neighbor, a peer, and a potential partner.
+        </p>
+        <p>
+          <a href="/research">Read the full U.S. CLT meta analysis →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three axes -->
+  <section class="wc-section cream">
+    <div class="wrap">
+      <p class="eyebrow">Three Axes</p>
+      <h2>CLTs protect three kinds of land.</h2>
+
+      <div class="prose" style="margin-bottom:0">
+        <p>
+          Most people think of CLTs as a housing tool. That's because most CLTs are housing CLTs.
+          But the model works for any land use where permanent community ownership changes the outcome.
+        </p>
+      </div>
+
+      <div class="axis-grid">
+        <div class="axis-card" style="border-top-color:#7A9E7E;background:rgba(122,158,126,0.06)">
+          <div class="ax-count" style="color:#7A9E7E">~280</div>
+          <h3 style="color:#3D6147">Housing CLTs</h3>
+          <p>
+            Permanently affordable homeownership and rentals. Buyers purchase homes at below-market
+            rates and lease the land beneath them. When they sell, a resale formula keeps the home
+            affordable for the next buyer.
+          </p>
+          <p class="ax-examples">Examples: Proud Ground (Portland), Champlain Housing Trust (VT), Houston CLT</p>
+        </div>
+        <div class="axis-card" style="border-top-color:#A88B5A;background:rgba(168,139,90,0.06)">
+          <div class="ax-count" style="color:#A88B5A">~25</div>
+          <h3 style="color:#7A6040">Agricultural CLTs</h3>
+          <p>
+            Farmland held permanently for food production — removing land cost from the startup
+            burden that prevents new and BIPOC farmers from entering. Long-term leases make
+            multi-generational farming viable.
+          </p>
+          <p class="ax-examples">Examples: New Communities Inc. (GA), Lopez CLT (WA), Agrarian Trust (National)</p>
+        </div>
+        <div class="axis-card" style="border-top-color:#C8872A;background:rgba(200,135,42,0.06)">
+          <div class="ax-count" style="color:#C8872A">~30</div>
+          <h3 style="color:#A84C1A">Commercial CLTs</h3>
+          <p>
+            Markets, small businesses, and community institutions protected from speculative
+            displacement. The least common and fastest-growing CLT model — and the most directly
+            relevant to Montavilla.
+          </p>
+          <p class="ax-examples">Examples: Rondo CLT (MN), Urban Land Conservancy (CO), Partnership in Property (MN)</p>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:1rem">
+        <p>
+          Most mature CLTs are hybrids — they protect more than one kind of land.
+          Lopez Community Land Trust on Lopez Island, WA holds 47 cooperatively owned homes
+          <em>and</em> 100 acres of farmland. That's the model MCLT aspires to over time.
+        </p>
+        <p>
+          <a href="/clt-map">Explore where every CLT sits on the three-axis map →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closest analogs -->
+  <section class="wc-section forest">
+    <div class="wrap">
+      <p class="eyebrow">Closest Analogs to MCLT</p>
+      <h2>CLTs that started where we're starting.</h2>
+      <p style="font-family:'Crimson Pro',serif;font-size:1.1rem;color:var(--sage);max-width:600px;line-height:1.65;margin-bottom:2rem">
+        CLTs that acquired a single commercial or market property as their founding act —
+        the same position MCLT is in today.
+      </p>
+
+      <div class="analog-grid">
+        <div class="analog-card">
+          <span class="analog-tag">Farmers Market — Athens, GA</span>
+          <h3>Athens Land Trust</h3>
+          <p class="al-loc">Athens, Georgia</p>
+          <p>
+            Operated the West Broad Farmers' Market for years on land it didn't own —
+            13,000+ lbs of produce, 200+ weekly shoppers, a real community anchor.
+            In 2025 the market went on hiatus because it had no permanent home.
+          </p>
+          <p class="analog-lesson">The lesson: owning the land is the difference between a market that lasts and one that doesn't.</p>
+        </div>
+
+        <div class="analog-card">
+          <span class="analog-tag">Commercial Pioneer — St. Paul, MN</span>
+          <h3>Rondo Community Land Trust</h3>
+          <p class="al-loc">St. Paul, Minnesota · Founded 1993</p>
+          <p>
+            Acquired two city-owned lots on Selby Ave at nominal cost and built
+            34 affordable senior apartments + 9,300 sq ft of commercial space at ~$7/sq ft
+            vs. $20–35 market rate. Later acquired a beloved local café to preserve it.
+          </p>
+          <p class="analog-lesson">The lesson: a city land transfer at nominal cost unlocked a commercial CLT that wouldn't have been possible otherwise.</p>
+        </div>
+
+        <div class="analog-card">
+          <span class="analog-tag">Single Property Catalyst — Albuquerque, NM</span>
+          <h3>Sawmill CLT</h3>
+          <p class="al-loc">Albuquerque, New Mexico · Founded 1996</p>
+          <p>
+            Formed specifically to acquire one contaminated industrial site threatening a
+            neighborhood. That single acquisition became 34 acres, 93 affordable homes,
+            three rental complexes, parks, and a plaza.
+          </p>
+          <p class="analog-lesson">The lesson: a CLT can be founded around a single property — and grow from there.</p>
+        </div>
+
+        <div class="analog-card">
+          <span class="analog-tag">Hybrid Model — Lopez Island, WA</span>
+          <h3>Lopez Community Land Trust</h3>
+          <p class="al-loc">Lopez Island, Washington · Founded 1989</p>
+          <p>
+            After housing costs spiked 190% in a single year, neighbors organized.
+            Today Lopez CLT holds 47 cooperatively owned homes <em>and</em> 100 acres
+            of farmland — the Pacific Northwest hybrid model MCLT aspires to become.
+          </p>
+          <p class="analog-lesson">The lesson: housing, agriculture, and commercial protection can exist under one CLT roof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Montavilla -->
+  <section class="wc-section warm">
+    <div class="wrap">
+      <p class="eyebrow">Why Montavilla</p>
+      <h2>Why this model, why this lot, why now.</h2>
+
+      <div class="why-grid">
+        <div>
+          <div class="why-item">
+            <div class="why-num">1</div>
+            <div>
+              <h3>The land is for sale right now.</h3>
+              <p>
+                7700 SE Stark Street is listed at $4,999,000. A developer could close at any time.
+                The window to act is open — but CLT acquisitions require organized community intent
+                and pre-positioned capital. The time to organize is before a sale, not after.
+              </p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">2</div>
+            <div>
+              <h3>The market doesn't own its land.</h3>
+              <p>
+                The Montavilla Farmers Market has operated on this lot since 2007 without owning it.
+                Athens Land Trust showed what happens when a CLT-anchored market doesn't own
+                its site — it eventually loses it. We have a chance to solve that problem permanently.
+              </p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">3</div>
+            <div>
+              <h3>This neighborhood has already organized.</h3>
+              <p>
+                The petition, the pledges, the forum — hundreds of Montavilla neighbors have already
+                said they want this. That organized community intent is exactly what CLT funders,
+                city partners, and CDFIs need to see before they commit capital.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="why-item">
+            <div class="why-num">4</div>
+            <div>
+              <h3>Portland's CLT infrastructure exists.</h3>
+              <p>
+                Proud Ground, the Northwest Community Land Trust Coalition, Oregon Housing and
+                Community Services, and Portland Metro's affordable housing bond program are all
+                established. MCLT doesn't have to invent these pathways — just access them.
+              </p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">5</div>
+            <div>
+              <h3>26% of CLTs were incorporated after 2017.</h3>
+              <p>
+                The CLT movement is growing. Technical assistance, legal templates, and peer networks
+                are more available than at any point in history.
+                New CLTs are succeeding — especially in the West, where 37% of all U.S. CLTs operate.
+              </p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">6</div>
+            <div>
+              <h3>Nothing else solves the permanence problem.</h3>
+              <p>
+                Zoning protections change. Leases expire. Owner commitments transfer with the deed.
+                Only a CLT removes land from the speculative market permanently —
+                not for 10 years, not until the next sale, but forever.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="wc-section ochre wc-cta">
+    <div class="wrap">
+      <h2>THIS IS HOW<br>WE KEEP IT.</h2>
+      <p>
+        The Montavilla Farmers Market has been here for 19 years.
+        A CLT is how it stays for the next 100.
+        Sign the petition, make a founding pledge, and join the conversation.
+      </p>
+      <div class="wc-cta-btns">
+        <a href="/#petition" class="btn btn-primary" style="background:var(--forest);color:var(--cream)">Become a Founding Member</a>
+        <a href="/research" class="btn btn-ghost" style="border-color:var(--forest);color:var(--forest)">Read the Full Research →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</body>
+</html>

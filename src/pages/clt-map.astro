@@ -1,0 +1,737 @@
+---
+export const prerender = true;
+import '../styles/global.css';
+import Nav    from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLT Positioning Map — Montavilla Community Land Trust</title>
+  <meta name="description" content="Visualizing 30+ U.S. Community Land Trusts across three axes: housing, agriculture, and commercial." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .map-hero {
+      background: var(--forest);
+      padding: 3.5rem 1.5rem 2.5rem;
+      border-bottom: 3px solid var(--ochre);
+    }
+    .map-hero .eyebrow { color: var(--gold); margin-bottom: 0.6rem; }
+    .map-hero h1 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .map-hero p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem;
+      color: var(--sage);
+      max-width: 620px;
+      line-height: 1.6;
+    }
+    .map-hero .back-link {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      text-decoration: none;
+    }
+    .map-hero .back-link:hover { color: var(--gold); }
+
+    .chart-section {
+      background: #08140E;
+      padding: 2rem 1rem 3rem;
+    }
+    .chart-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+    #ternary-svg {
+      width: 100%;
+      display: block;
+    }
+
+    /* Tooltip */
+    #clt-tooltip {
+      position: fixed;
+      display: none;
+      background: #0E1F16;
+      border: 1px solid rgba(200,135,42,0.5);
+      padding: 0.85rem 1.1rem;
+      pointer-events: none;
+      z-index: 300;
+      max-width: 230px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .tt-name {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--cream);
+      margin-bottom: 0.15rem;
+    }
+    .tt-loc {
+      font-size: 0.72rem;
+      color: var(--sage);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.7rem;
+    }
+    .tt-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.82rem;
+      color: var(--cream);
+    }
+    .tt-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .tt-label { flex: 1; color: var(--sage); font-size: 0.78rem; }
+    .tt-pct {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .tt-bar-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .tt-bar-fill { height: 100%; border-radius: 2px; }
+
+    /* Legend */
+    .legend-strip {
+      background: #0E1F16;
+      padding: 1.5rem;
+      border-top: 1px solid rgba(122,158,126,0.15);
+    }
+    .legend-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      gap: 1.5rem 2.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .legend-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-note {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.85rem;
+      color: rgba(122,158,126,0.6);
+      font-style: italic;
+      margin-left: auto;
+    }
+
+    /* MCLT pulse ring */
+    @keyframes mclt-pulse {
+      0%   { r: 16; opacity: 0.6; }
+      50%  { r: 22; opacity: 0; }
+      100% { r: 16; opacity: 0; }
+    }
+    .mclt-ring { animation: mclt-pulse 2.2s ease-out infinite; }
+
+    /* MCLT readout bar */
+    #mclt-readout {
+      background: rgba(200,135,42,0.12);
+      border: 1px solid rgba(200,135,42,0.35);
+      padding: 0.9rem 1.25rem;
+      max-width: 860px;
+      margin: 0.75rem auto 0;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .readout-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .readout-vals {
+      display: flex;
+      gap: 1.25rem;
+      flex: 1;
+    }
+    .readout-val {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+    .readout-axis {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .readout-pct {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .readout-hint {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.82rem;
+      color: rgba(200,135,42,0.55);
+      font-style: italic;
+      white-space: nowrap;
+    }
+    #ternary-svg .mclt-drag { cursor: grab; }
+    #ternary-svg .mclt-drag:active { cursor: grabbing; }
+
+    @media (max-width: 600px) {
+      .legend-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <Nav />
+
+  <div class="map-hero">
+    <div class="wrap">
+      <p class="eyebrow">Research / Visualization</p>
+      <h1>CLT Positioning Map</h1>
+      <p>
+        30+ U.S. Community Land Trusts plotted across three axes — housing, agriculture, and commercial.
+        Most CLTs cluster near the housing vertex. MCLT is proposed in a sparsely occupied space:
+        predominantly commercial, with a significant agricultural dimension.
+      </p>
+      <a href="/research" class="back-link">← Back to CLT Meta Analysis</a>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <div class="chart-wrap">
+      <svg id="ternary-svg" viewBox="0 0 800 760" preserveAspectRatio="xMidYMid meet" aria-label="Ternary plot of U.S. Community Land Trusts">
+
+        <!-- ── Background ── -->
+        <rect width="800" height="760" fill="#08140E"/>
+
+        <!-- ── Gridlines at 25 / 50 / 75% ── -->
+        <!-- H gridlines (horizontal) -->
+        <line x1="152.5" y1="530" x2="647.5" y2="530" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="235"   y1="375" x2="565"   y2="375" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="317.5" y1="220" x2="482.5" y2="220" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+
+        <!-- A gridlines (parallel to H-C edge) -->
+        <line x1="317.5" y1="220" x2="565"   y2="685" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="235"   y1="375" x2="400"   y2="685" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="152.5" y1="530" x2="235"   y2="685" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+
+        <!-- C gridlines (parallel to H-A edge) -->
+        <line x1="482.5" y1="220" x2="235"   y2="685" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="565"   y1="375" x2="400"   y2="685" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="647.5" y1="530" x2="565"   y2="685" stroke="rgba(122,158,126,0.12)" stroke-width="1" stroke-dasharray="5,4"/>
+
+        <!-- ── Triangle outline ── -->
+        <polygon points="400,65 70,685 730,685"
+          fill="none"
+          stroke="rgba(122,158,126,0.45)"
+          stroke-width="1.5"/>
+
+        <!-- ── Gridline percentage labels ── -->
+        <!-- H% on left edge -->
+        <text x="142" y="217" text-anchor="end" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">75%</text>
+        <text x="225" y="372" text-anchor="end" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">50%</text>
+        <text x="142" y="527" text-anchor="end" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">25%</text>
+
+        <!-- C% on right edge -->
+        <text x="492" y="217" text-anchor="start" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">25%</text>
+        <text x="575" y="372" text-anchor="start" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">50%</text>
+        <text x="658" y="527" text-anchor="start" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">75%</text>
+
+        <!-- A% on bottom edge -->
+        <text x="235"  y="702" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">75%</text>
+        <text x="400"  y="702" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">50%</text>
+        <text x="565"  y="702" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="11" fill="rgba(122,158,126,0.45)">25%</text>
+
+        <!-- ── Vertex labels ── -->
+        <!-- Housing (top) -->
+        <text x="400" y="35" text-anchor="middle"
+          font-family="Big Shoulders Display,sans-serif" font-weight="900"
+          font-size="20" letter-spacing="0.1em" fill="#F5EED8">HOUSING</text>
+        <text x="400" y="52" text-anchor="middle"
+          font-family="Work Sans,sans-serif" font-size="10"
+          letter-spacing="0.07em" fill="rgba(122,158,126,0.6)">HOMES &amp; RENTALS</text>
+
+        <!-- Agriculture (bottom-left) -->
+        <text x="70" y="715" text-anchor="middle"
+          font-family="Big Shoulders Display,sans-serif" font-weight="900"
+          font-size="20" letter-spacing="0.1em" fill="#F5EED8">AGRICULTURE</text>
+        <text x="70" y="730" text-anchor="middle"
+          font-family="Work Sans,sans-serif" font-size="10"
+          letter-spacing="0.07em" fill="rgba(122,158,126,0.6)">FARMLAND &amp; FOOD</text>
+
+        <!-- Commercial (bottom-right) -->
+        <text x="730" y="715" text-anchor="middle"
+          font-family="Big Shoulders Display,sans-serif" font-weight="900"
+          font-size="20" letter-spacing="0.1em" fill="#F5EED8">COMMERCIAL</text>
+        <text x="730" y="730" text-anchor="middle"
+          font-family="Work Sans,sans-serif" font-size="10"
+          letter-spacing="0.07em" fill="rgba(122,158,126,0.6)">MARKETS &amp; COMMUNITY</text>
+
+        <!-- Axis direction arrows on edges (small tick marks) -->
+        <!-- H axis arrow (left edge, upward = more housing) -->
+        <path d="M 235,375 L 228,368 L 235,370 L 242,368 Z" fill="rgba(122,158,126,0.3)"/>
+        <!-- A axis arrow (right portion of bottom, leftward = more ag) -->
+        <path d="M 400,685 L 393,678 L 395,685 L 393,692 Z" fill="rgba(122,158,126,0.3)"/>
+        <!-- C axis arrow (right edge, downward = more commercial) -->
+        <path d="M 565,375 L 572,382 L 565,380 L 558,382 Z" fill="rgba(122,158,126,0.3)"/>
+
+        <!-- ── Data points layer (injected by JS) ── -->
+        <g id="clt-dots"></g>
+
+        <!-- ── MCLT pulse ring (behind dot, injected by JS) ── -->
+        <g id="mclt-rings"></g>
+
+      </svg>
+    </div>
+
+    <!-- MCLT live readout -->
+    <div id="mclt-readout">
+      <span class="readout-label">MCLT position</span>
+      <div class="readout-vals">
+        <div class="readout-val">
+          <span class="readout-axis" style="color:#7A9E7E">Housing</span>
+          <span class="readout-pct" id="ro-h" style="color:#7A9E7E">10%</span>
+        </div>
+        <div class="readout-val">
+          <span class="readout-axis" style="color:#A88B5A">Ag</span>
+          <span class="readout-pct" id="ro-a" style="color:#A88B5A">30%</span>
+        </div>
+        <div class="readout-val">
+          <span class="readout-axis" style="color:#C8872A">Commercial</span>
+          <span class="readout-pct" id="ro-c" style="color:#C8872A">60%</span>
+        </div>
+      </div>
+      <span class="readout-hint">drag the gold dot to explore</span>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend-strip">
+      <div class="legend-inner">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#7A9E7E"></div>
+          Housing-dominant
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#A88B5A"></div>
+          Agriculture-dominant
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#C8872A"></div>
+          Commercial-dominant
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#8899AA"></div>
+          Mixed
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#E8A832; border: 2px solid white; box-sizing:border-box"></div>
+          MCLT (proposed)
+        </div>
+        <span class="legend-note">Gridlines at 25% intervals · Hover a dot for details</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tooltip -->
+  <div id="clt-tooltip">
+    <div class="tt-name" id="tt-name"></div>
+    <div class="tt-loc"  id="tt-loc"></div>
+    <div class="tt-row">
+      <div class="tt-dot" style="background:#7A9E7E"></div>
+      <span class="tt-label">Housing</span>
+      <div class="tt-bar-track"><div class="tt-bar-fill" id="tt-hbar" style="background:#7A9E7E"></div></div>
+      <span class="tt-pct" id="tt-h" style="color:#7A9E7E"></span>
+    </div>
+    <div class="tt-row">
+      <div class="tt-dot" style="background:#A88B5A"></div>
+      <span class="tt-label">Agriculture</span>
+      <div class="tt-bar-track"><div class="tt-bar-fill" id="tt-abar" style="background:#A88B5A"></div></div>
+      <span class="tt-pct" id="tt-a" style="color:#A88B5A"></span>
+    </div>
+    <div class="tt-row">
+      <div class="tt-dot" style="background:#C8872A"></div>
+      <span class="tt-label">Commercial</span>
+      <div class="tt-bar-track"><div class="tt-bar-fill" id="tt-cbar" style="background:#C8872A"></div></div>
+      <span class="tt-pct" id="tt-c" style="color:#C8872A"></span>
+    </div>
+  </div>
+
+  <!-- CLT Directory Table -->
+  <section style="background:var(--forest);padding:4rem 1.5rem;">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--gold)">Directory</p>
+      <h2 class="section-h" style="color:var(--cream);margin-bottom:0.5rem">All CLTs in This Dataset</h2>
+      <p style="font-family:'Crimson Pro',serif;font-size:1rem;color:var(--sage);margin-bottom:2rem;font-style:italic">
+        Sorted by dominant axis. URLs marked — need verification.
+      </p>
+      <div style="overflow-x:auto">
+        <table id="clt-dir-table" style="width:100%;border-collapse:collapse;font-family:'Work Sans',sans-serif;font-size:0.85rem;border:1px solid rgba(122,158,126,0.2)">
+          <thead>
+            <tr style="background:rgba(255,255,255,0.06);border-bottom:2px solid var(--ochre)">
+              <th style="padding:0.65rem 1rem;text-align:left;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage)">Name</th>
+              <th style="padding:0.65rem 1rem;text-align:left;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage)">Location</th>
+              <th style="padding:0.65rem 0.5rem;text-align:center;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#7A9E7E">Housing</th>
+              <th style="padding:0.65rem 0.5rem;text-align:center;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#A88B5A">Ag</th>
+              <th style="padding:0.65rem 0.5rem;text-align:center;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C8872A">Comm.</th>
+              <th style="padding:0.65rem 1rem;text-align:left;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage)">Website</th>
+            </tr>
+          </thead>
+          <tbody id="clt-dir-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</body>
+
+<script>
+const CLTS = [
+  // ── Oregon ──
+  { name: "Proud Ground",        loc: "Portland, OR",        h: 94, a:  3, c:  3, url: "https://www.proudground.org" },
+  { name: "Sabin CDC",           loc: "Portland, OR",        h: 92, a:  3, c:  5, url: "https://www.sabincdc.org" },
+  { name: "RootedHomes",         loc: "Bend, OR",            h: 94, a:  4, c:  2, url: null },
+  { name: "DevNW",               loc: "Springfield, OR",     h: 94, a:  4, c:  2, url: "https://www.devnw.org" },
+
+  // ── Washington — housing ──
+  { name: "Homestead CLT",       loc: "Seattle, WA",         h: 93, a:  3, c:  4, url: "https://www.homesteadclt.org" },
+  { name: "Kulshan CLT",         loc: "Bellingham, WA",      h: 92, a:  5, c:  3, url: "https://www.kulshanclt.org" },
+  { name: "OPAL CLT",            loc: "Orcas Island, WA",    h: 93, a:  5, c:  2, url: "https://www.opalclt.org" },
+  { name: "Vashon HouseHold",    loc: "Vashon Island, WA",   h: 94, a:  4, c:  2, url: "https://www.vashonhousehold.org" },
+  { name: "Tahoma CLT",          loc: "Tacoma, WA",          h: 94, a:  3, c:  3, url: null },
+  { name: "Spokane CLT",         loc: "Spokane, WA",         h: 93, a:  4, c:  3, url: null },
+  { name: "San Juan Home Trust", loc: "Friday Harbor, WA",   h: 91, a:  6, c:  3, url: "https://www.sjcht.org" },
+
+  // ── Washington — mixed ──
+  { name: "Africatown CLT",           loc: "Seattle, WA",        h: 63, a:  2, c: 35, url: "https://www.africatownlandtrust.org" },
+  { name: "Lopez CLT",                loc: "Lopez Island, WA",   h: 55, a: 42, c:  3, url: "https://www.lopezclt.org" },
+  { name: "Bay Community Land Trust", loc: "Bellingham, WA",     h: 45, a: 40, c: 15, url: null },
+  { name: "Evergreen Land Trust",     loc: "Deming, WA",         h: 38, a: 47, c: 15, url: null },
+  { name: "Waldron CLT",              loc: "Waldron Island, WA", h: 35, a: 58, c:  7, url: null },
+
+  // ── Washington — agriculture ──
+  { name: "South of Sound CLT",           loc: "Olympia, WA",        h: 12, a: 85, c:  3, url: null },
+  { name: "Puget Sound Agrarian Commons", loc: "Whidbey Island, WA", h:  5, a: 92, c:  3, url: "https://www.agrariantrust.org" },
+
+  // ── National — housing ──
+  { name: "Champlain Housing Trust",   loc: "Burlington, VT",    h: 87, a:  3, c: 10, url: "https://www.getahome.org" },
+  { name: "Houston CLT",               loc: "Houston, TX",       h: 94, a:  2, c:  4, url: "https://www.houstonclt.org" },
+  { name: "Sawmill CLT",               loc: "Albuquerque, NM",   h: 78, a:  5, c: 17, url: "https://www.sawmillclt.org" },
+  { name: "City of Lakes CLT",         loc: "Minneapolis, MN",   h: 72, a:  3, c: 25, url: "https://www.clclt.org" },
+  { name: "East Harlem/El Barrio CLT", loc: "New York, NY",      h: 70, a:  3, c: 27, url: "https://ehebclt.nyc" },
+
+  // ── National — commercial ──
+  { name: "Rondo CLT",               loc: "St. Paul, MN",    h: 42, a:  5, c: 53, url: "https://www.rondoclt.org" },
+  { name: "Urban Land Conservancy",  loc: "Denver, CO",      h: 32, a:  5, c: 63, url: "https://urbanlandc.org" },
+  { name: "Crescent City CLT",       loc: "New Orleans, LA", h: 55, a:  3, c: 42, url: null },
+  { name: "Partnership in Property", loc: "Minneapolis, MN", h:  5, a:  5, c: 90, url: "https://www.pipclt.org" },
+
+  // ── National — mixed ──
+  { name: "Dudley Neighbors Inc.", loc: "Boston, MA",           h: 52, a: 22, c: 26, url: "https://www.dudleyneighbors.org" },
+  { name: "Berkshire CLT",         loc: "Great Barrington, MA", h: 42, a: 25, c: 33, url: "https://berkshirecommunitylandtrust.org" },
+
+  // ── National — agriculture ──
+  { name: "New Communities Inc.", loc: "Albany, GA", h: 15, a: 82, c:  3, url: "https://www.newcommunitiesinc.com" },
+  { name: "Agrarian Trust",       loc: "National",  h:  5, a: 92, c:  3, url: "https://www.agrariantrust.org" },
+  { name: "Athens Land Trust",    loc: "Athens, GA", h: 25, a: 52, c: 23, url: "https://athenslandtrust.org" },
+
+  // ── MCLT ──
+  { name: "Montavilla CLT", loc: "Portland, OR — proposed", h: 10, a: 30, c: 60, isMCLT: true, url: "https://www.montavillalandtrust.org" },
+];
+
+// ── Ternary layout ──
+const Hv = { x: 400, y: 65  };   // Housing  (top)
+const Av = { x:  70, y: 685 };   // Ag       (bottom-left)
+const Cv = { x: 730, y: 685 };   // Commerce (bottom-right)
+
+function toXY(h, a, c) {
+  const s = h + a + c || 100;
+  return {
+    x: (h * Hv.x + a * Av.x + c * Cv.x) / s,
+    y: (h * Hv.y + a * Av.y + c * Cv.y) / s,
+  };
+}
+
+function dotColor(clt) {
+  if (clt.isMCLT) return '#E8A832';
+  const { h, a, c } = clt;
+  const max = Math.max(h, a, c);
+  if (h === max) return '#7A9E7E';
+  if (a === max) return '#A88B5A';
+  return '#C8872A';
+}
+
+// ── Render ──
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const dotsLayer  = document.getElementById('clt-dots');
+const ringsLayer = document.getElementById('mclt-rings');
+const tooltip    = document.getElementById('clt-tooltip');
+
+// ── Non-MCLT dots ──
+CLTS.filter(clt => !clt.isMCLT).forEach(clt => {
+  const { x, y } = toXY(clt.h, clt.a, clt.c);
+  const color = dotColor(clt);
+  const r = 7;
+
+  const circle = document.createElementNS(SVG_NS, 'circle');
+  circle.setAttribute('cx', x);
+  circle.setAttribute('cy', y);
+  circle.setAttribute('r', r);
+  circle.setAttribute('fill', color);
+  circle.style.cursor = 'pointer';
+
+  circle.addEventListener('pointerenter', (e) => {
+    circle.setAttribute('r', r + 3);
+    showTooltip(clt, e.clientX, e.clientY);
+  });
+  circle.addEventListener('pointermove', (e) => posTooltip(e.clientX, e.clientY));
+  circle.addEventListener('pointerleave', () => {
+    circle.setAttribute('r', r);
+    hideTooltip();
+  });
+
+  dotsLayer.appendChild(circle);
+});
+
+// ── MCLT draggable dot ──
+const mclt     = CLTS.find(c => c.isMCLT);
+const mcltPos  = toXY(mclt.h, mclt.a, mclt.c);
+let mcltX = mcltPos.x;
+let mcltY = mcltPos.y;
+
+// Pulse ring
+const mcltRing = document.createElementNS(SVG_NS, 'circle');
+mcltRing.setAttribute('cx', mcltX);
+mcltRing.setAttribute('cy', mcltY);
+mcltRing.setAttribute('r', 16);
+mcltRing.setAttribute('fill', 'none');
+mcltRing.setAttribute('stroke', '#E8A832');
+mcltRing.setAttribute('stroke-width', '1.5');
+mcltRing.setAttribute('opacity', '0.6');
+mcltRing.classList.add('mclt-ring');
+ringsLayer.appendChild(mcltRing);
+dotsLayer.parentNode.insertBefore(ringsLayer, dotsLayer);
+
+// Dot
+const mcltCircle = document.createElementNS(SVG_NS, 'circle');
+mcltCircle.setAttribute('cx', mcltX);
+mcltCircle.setAttribute('cy', mcltY);
+mcltCircle.setAttribute('r', 11);
+mcltCircle.setAttribute('fill', '#E8A832');
+mcltCircle.setAttribute('stroke', '#fff');
+mcltCircle.setAttribute('stroke-width', '2');
+mcltCircle.classList.add('mclt-drag');
+dotsLayer.appendChild(mcltCircle);
+
+// Label
+const mcltLabel = document.createElementNS(SVG_NS, 'text');
+mcltLabel.setAttribute('x', mcltX + 15);
+mcltLabel.setAttribute('y', mcltY + 4);
+mcltLabel.setAttribute('font-family', 'Big Shoulders Display,sans-serif');
+mcltLabel.setAttribute('font-weight', '700');
+mcltLabel.setAttribute('font-size', '13');
+mcltLabel.setAttribute('fill', '#E8A832');
+mcltLabel.setAttribute('pointer-events', 'none');
+mcltLabel.textContent = 'MCLT';
+dotsLayer.appendChild(mcltLabel);
+
+// ── Ternary barycentric inverse: XY → (h, a, c) ──
+function toBarycentric(px, py) {
+  // Solve: px = h*Hv.x + a*Av.x + c*Cv.x,  py = h*Hv.y + a*Av.y + c*Cv.y,  h+a+c=1
+  const denom = (Av.y - Cv.y) * (Hv.x - Cv.x) + (Cv.x - Av.x) * (Hv.y - Cv.y);
+  let h = ((Av.y - Cv.y) * (px - Cv.x) + (Cv.x - Av.x) * (py - Cv.y)) / denom;
+  let a = ((Cv.y - Hv.y) * (px - Cv.x) + (Hv.x - Cv.x) * (py - Cv.y)) / denom;
+  let c = 1 - h - a;
+  // Clamp to triangle
+  h = Math.max(0, h); a = Math.max(0, a); c = Math.max(0, c);
+  const s = h + a + c;
+  return { h: h/s, a: a/s, c: c/s };
+}
+
+// ── Point-in-triangle clamp ──
+function clampToTriangle(px, py) {
+  const { h, a, c } = toBarycentric(px, py);
+  return toXY(h * 100, a * 100, c * 100);
+}
+
+function updateReadout(h, a, c) {
+  const sum = h + a + c || 1;
+  const hp = Math.round(h / sum * 100);
+  const ap = Math.round(a / sum * 100);
+  const cp = Math.round(c / sum * 100);
+  document.getElementById('ro-h').textContent = hp + '%';
+  document.getElementById('ro-a').textContent = ap + '%';
+  document.getElementById('ro-c').textContent = cp + '%';
+}
+
+function moveMCLT(svgX, svgY) {
+  const clamped = clampToTriangle(svgX, svgY);
+  mcltX = clamped.x;
+  mcltY = clamped.y;
+  mcltCircle.setAttribute('cx', mcltX);
+  mcltCircle.setAttribute('cy', mcltY);
+  mcltRing.setAttribute('cx', mcltX);
+  mcltRing.setAttribute('cy', mcltY);
+  mcltLabel.setAttribute('x', mcltX + 15);
+  mcltLabel.setAttribute('y', mcltY + 4);
+  const bc = toBarycentric(mcltX, mcltY);
+  updateReadout(bc.h, bc.a, bc.c);
+}
+
+// Convert pointer event to SVG coordinate space
+const svg = document.getElementById('ternary-svg');
+function clientToSVG(cx, cy) {
+  const pt = svg.createSVGPoint();
+  pt.x = cx; pt.y = cy;
+  return pt.matrixTransform(svg.getScreenCTM().inverse());
+}
+
+// Drag state
+let dragging = false;
+
+mcltCircle.addEventListener('pointerdown', (e) => {
+  dragging = true;
+  mcltCircle.setPointerCapture(e.pointerId);
+  mcltCircle.classList.remove('mclt-drag');
+  mcltCircle.style.cursor = 'grabbing';
+  hideTooltip();
+  e.preventDefault();
+});
+
+mcltCircle.addEventListener('pointermove', (e) => {
+  if (!dragging) return;
+  const { x, y } = clientToSVG(e.clientX, e.clientY);
+  moveMCLT(x, y);
+});
+
+mcltCircle.addEventListener('pointerup', () => {
+  dragging = false;
+  mcltCircle.classList.add('mclt-drag');
+  mcltCircle.style.cursor = 'grab';
+});
+
+// Initial readout
+updateReadout(mclt.h, mclt.a, mclt.c);
+
+// ── Tooltip ──
+function showTooltip(clt, cx, cy) {
+  document.getElementById('tt-name').textContent = clt.name;
+  document.getElementById('tt-loc').textContent  = clt.loc;
+  const sum = clt.h + clt.a + clt.c;
+  const hp  = Math.round(clt.h / sum * 100);
+  const ap  = Math.round(clt.a / sum * 100);
+  const cp  = Math.round(clt.c / sum * 100);
+  document.getElementById('tt-h').textContent = hp + '%';
+  document.getElementById('tt-a').textContent = ap + '%';
+  document.getElementById('tt-c').textContent = cp + '%';
+  document.getElementById('tt-hbar').style.width = hp + '%';
+  document.getElementById('tt-abar').style.width = ap + '%';
+  document.getElementById('tt-cbar').style.width = cp + '%';
+  tooltip.style.display = 'block';
+  posTooltip(cx, cy);
+}
+
+function posTooltip(cx, cy) {
+  const tw = tooltip.offsetWidth  || 230;
+  const th = tooltip.offsetHeight || 120;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  let left = cx + 16;
+  let top  = cy - 10;
+  if (left + tw > vw - 8) left = cx - tw - 16;
+  if (top  + th > vh - 8) top  = vh - th - 8;
+  if (top < 8) top = 8;
+  tooltip.style.left = left + 'px';
+  tooltip.style.top  = top  + 'px';
+}
+
+function hideTooltip() {
+  tooltip.style.display = 'none';
+}
+
+// ── Directory table ──
+const tbody = document.getElementById('clt-dir-body');
+const sorted = [...CLTS].sort((a, b) => {
+  // Sort by dominant axis: commercial first, then ag, then housing, MCLT last
+  if (a.isMCLT) return 1;
+  if (b.isMCLT) return -1;
+  const domA = a.c >= a.h && a.c >= a.a ? 0 : a.a >= a.h ? 1 : 2;
+  const domB = b.c >= b.h && b.c >= b.a ? 0 : b.a >= b.h ? 1 : 2;
+  if (domA !== domB) return domA - domB;
+  return b.c - a.c;
+});
+
+sorted.forEach(clt => {
+  const tr = document.createElement('tr');
+  const sum = clt.h + clt.a + clt.c;
+  const hp = Math.round(clt.h / sum * 100);
+  const ap = Math.round(clt.a / sum * 100);
+  const cp = Math.round(clt.c / sum * 100);
+  const color = clt.isMCLT ? '#E8A832' : dotColor(clt);
+  const rowBg = clt.isMCLT ? 'rgba(200,135,42,0.1)' : 'transparent';
+
+  const urlCell = clt.url
+    ? `<a href="${clt.url}" target="_blank" rel="noopener"
+         style="color:var(--gold);text-decoration:none;font-size:0.8rem;word-break:break-all"
+         onmouseover="this.style.textDecoration='underline'"
+         onmouseout="this.style.textDecoration='none'"
+       >${clt.url.replace('https://', '')}</a>`
+    : `<span style="color:rgba(122,158,126,0.35);font-style:italic;font-size:0.78rem">— needs verification</span>`;
+
+  tr.innerHTML = `
+    <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(122,158,126,0.1);font-weight:600;color:${color}">
+      ${clt.name}${clt.isMCLT ? ' <span style="font-size:0.6rem;background:rgba(200,135,42,0.2);color:var(--gold);padding:0.1rem 0.4rem;vertical-align:middle">PROPOSED</span>' : ''}
+    </td>
+    <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(122,158,126,0.1);color:rgba(122,158,126,0.7);font-size:0.82rem">${clt.loc}</td>
+    <td style="padding:0.7rem 0.5rem;border-bottom:1px solid rgba(122,158,126,0.1);text-align:center;color:#7A9E7E;font-family:'Big Shoulders Display',sans-serif;font-weight:700">${hp}%</td>
+    <td style="padding:0.7rem 0.5rem;border-bottom:1px solid rgba(122,158,126,0.1);text-align:center;color:#A88B5A;font-family:'Big Shoulders Display',sans-serif;font-weight:700">${ap}%</td>
+    <td style="padding:0.7rem 0.5rem;border-bottom:1px solid rgba(122,158,126,0.1);text-align:center;color:#C8872A;font-family:'Big Shoulders Display',sans-serif;font-weight:700">${cp}%</td>
+    <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(122,158,126,0.1)">${urlCell}</td>
+  `;
+  tr.style.background = rowBg;
+  tr.addEventListener('mouseover', () => { if (!clt.isMCLT) tr.style.background = 'rgba(255,255,255,0.04)'; });
+  tr.addEventListener('mouseout',  () => { tr.style.background = rowBg; });
+  tbody.appendChild(tr);
+});
+</script>
+</html>

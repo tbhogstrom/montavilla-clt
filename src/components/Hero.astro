@@ -3,43 +3,383 @@
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Montavilla Community Land Trust · montavillalandtrust.org</p>
-    <h1>
-      SAVE<br>
-      <em>THIS</em><br>
-      LOT.
-    </h1>
-    <p class="hero-body">
-      The property beneath the Montavilla Farmers Market is for sale.
-      We're organizing our neighborhood to buy it — and protect it forever —
-      through a Community Land Trust.
-    </p>
+
+    <h1>WHAT IS<br><em>A CLT?</em></h1>
+
+    <div class="hero-body">
+      <p class="clt-def">
+        A <strong>Community Land Trust</strong> is a nonprofit that permanently removes land
+        from the speculative market — holding it in trust for the community, forever.
+        Buildings on the land can be bought, sold, or leased. The land beneath them cannot be flipped.
+      </p>
+      <p class="clt-def" style="margin-top:0.9rem">
+        Most CLTs focus on <strong style="color:var(--sage)">affordable housing</strong>.
+        A few protect <strong style="color:#A88B5A">farmland</strong>.
+        A small handful anchor <strong style="color:var(--ochre)">commercial corridors</strong> —
+        markets, small businesses, community institutions.
+      </p>
+      <p class="clt-def mclt-pitch" style="margin-top:0.9rem">
+        <strong style="color:var(--gold)">Montavilla CLT</strong> would be one of the only CLTs
+        in the country positioned at the intersection of commercial and agricultural —
+        protecting the farmers market lot, its vendors, and the community it feeds.
+        That's the gold dot.
+      </p>
+    </div>
+
     <div class="hero-btns">
       <a href="#petition" class="btn btn-primary">Become a Founding Member</a>
-      <a href="#building" class="btn btn-ghost">See the Vision</a>
+      <a href="#situation" class="btn btn-ghost">The Full Story</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-stats">
-      <div class="stat-box featured">
-        <span class="num">19</span>
-        <span class="label">Years at SE Stark</span>
-        <span class="sub">Home since 2007</span>
-      </div>
-      <div class="stat-box">
-        <span class="num">70<span class="unit">+</span></span>
-        <span class="label">Local Vendors</span>
-        <span class="sub">Farmers, bakers, makers</span>
-      </div>
-      <div class="stat-box">
-        <span class="num">.84</span>
-        <span class="label">Acres to Protect</span>
-        <span class="sub">Corner lot, fully assembled</span>
-      </div>
-      <div class="stat-box">
-        <span class="num">∞</span>
-        <span class="label">Years Protected</span>
-        <span class="sub">If we act now</span>
+
+  <div class="hero-right hero-right--viz">
+    <!-- Compact ternary chart -->
+    <div class="hero-viz-wrap">
+      <svg id="hero-ternary" viewBox="0 0 500 470" preserveAspectRatio="xMidYMid meet"
+           aria-label="Ternary diagram showing MCLT's unique position among U.S. CLTs">
+
+        <rect width="500" height="470" fill="transparent"/>
+
+        <!-- Gridlines at 50% -->
+        <line x1="125" y1="327" x2="375" y2="327" stroke="rgba(122,158,126,0.1)" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="250" y1="110" x2="375" y2="327" stroke="rgba(122,158,126,0.1)" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="250" y1="110" x2="125" y2="327" stroke="rgba(122,158,126,0.1)" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <!-- Triangle -->
+        <polygon points="250,30 40,420 460,420"
+          fill="none"
+          stroke="rgba(122,158,126,0.4)"
+          stroke-width="1.5"/>
+
+        <!-- Vertex labels -->
+        <text x="250" y="18" text-anchor="middle"
+          font-family="Big Shoulders Display,sans-serif" font-weight="900"
+          font-size="13" letter-spacing="0.12em" fill="rgba(245,238,216,0.7)">HOUSING</text>
+
+        <text x="40" y="442" text-anchor="middle"
+          font-family="Big Shoulders Display,sans-serif" font-weight="900"
+          font-size="13" letter-spacing="0.12em" fill="rgba(245,238,216,0.7)">AGRICULTURE</text>
+
+        <text x="460" y="442" text-anchor="middle"
+          font-family="Big Shoulders Display,sans-serif" font-weight="900"
+          font-size="13" letter-spacing="0.12em" fill="rgba(245,238,216,0.7)">COMMERCIAL</text>
+
+        <!-- Data dots (rendered by JS) -->
+        <g id="hero-dots"></g>
+
+        <!-- MCLT pulse ring -->
+        <circle id="hero-mclt-ring" cx="0" cy="0" r="13"
+          fill="none" stroke="#E8A832" stroke-width="1.5" opacity="0.7"
+          class="hero-mclt-ring"/>
+
+        <!-- MCLT dot -->
+        <circle id="hero-mclt-dot" cx="0" cy="0" r="9"
+          fill="#E8A832" stroke="white" stroke-width="2"/>
+
+        <!-- MCLT label -->
+        <text id="hero-mclt-label" x="0" y="0"
+          font-family="Big Shoulders Display,sans-serif" font-weight="700"
+          font-size="11" fill="#E8A832" pointer-events="none">MCLT</text>
+
+        <!-- "308+ CLTs" annotation near housing cluster -->
+        <text x="253" y="68"
+          font-family="Work Sans,sans-serif" font-size="9"
+          fill="rgba(122,158,126,0.55)" text-anchor="middle">308+ CLTs</text>
+        <text x="253" y="79"
+          font-family="Work Sans,sans-serif" font-size="9"
+          fill="rgba(122,158,126,0.4)" text-anchor="middle">cluster here</text>
+        <line x1="253" y1="83" x2="253" y2="95"
+          stroke="rgba(122,158,126,0.25)" stroke-width="1"/>
+
+      </svg>
+
+      <!-- Viz explainer -->
+      <p class="viz-explainer">
+        Each dot is a real U.S. CLT, plotted by what it protects.
+        Nearly all cluster at the top — housing.
+        The gold dot is MCLT: drag it to explore where we might land.
+        <a href="/research">Full CLT meta analysis →</a>
+      </p>
+
+      <!-- Live axis readout -->
+      <div class="hero-viz-readout">
+        <div class="hvr-item">
+          <span class="hvr-axis" style="color:#7A9E7E">Housing</span>
+          <span class="hvr-pct" id="hvr-h" style="color:#7A9E7E">10%</span>
+        </div>
+        <div class="hvr-sep">·</div>
+        <div class="hvr-item">
+          <span class="hvr-axis" style="color:#A88B5A">Ag</span>
+          <span class="hvr-pct" id="hvr-a" style="color:#A88B5A">30%</span>
+        </div>
+        <div class="hvr-sep">·</div>
+        <div class="hvr-item">
+          <span class="hvr-axis" style="color:#C8872A">Commercial</span>
+          <span class="hvr-pct" id="hvr-c" style="color:#C8872A">60%</span>
+        </div>
+        <span class="hvr-hint">drag the dot</span>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .hero-right--viz {
+    padding: 2rem 2.5rem 2rem 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-viz-wrap {
+    width: 100%;
+    max-width: 420px;
+  }
+  #hero-ternary {
+    width: 100%;
+    display: block;
+  }
+  .hero-mclt-ring {
+    animation: hero-pulse 2.2s ease-out infinite;
+  }
+  @keyframes hero-pulse {
+    0%   { r: 13; opacity: 0.7; }
+    60%  { r: 20; opacity: 0; }
+    100% { r: 13; opacity: 0; }
+  }
+  .hero-viz-readout {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .hvr-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+  }
+  .hvr-axis {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hvr-pct {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+  .hvr-sep { color: rgba(122,158,126,0.3); font-size: 0.9rem; }
+  .viz-explainer {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.88rem;
+    color: rgba(122,158,126,0.6);
+    line-height: 1.55;
+    text-align: center;
+    margin-top: 0.6rem;
+    padding: 0 0.5rem;
+  }
+  .viz-explainer a {
+    color: var(--ochre);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .viz-explainer a:hover { color: var(--gold); }
+  .hvr-hint {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.75rem;
+    color: rgba(122,158,126,0.4);
+    font-style: italic;
+    margin-left: 0.5rem;
+  }
+  .clt-def {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem;
+    color: var(--sage);
+    line-height: 1.6;
+  }
+  .clt-def strong { color: var(--cream); }
+  .mclt-pitch { border-left: 3px solid var(--ochre); padding-left: 0.9rem; }
+  #hero-ternary .mclt-drag { cursor: grab; }
+  #hero-ternary .mclt-drag:active { cursor: grabbing; }
+
+  @media (max-width: 720px) {
+    /* Remove fixed viewport height — stacked layout sets its own height */
+    :global(.hero) { min-height: auto; }
+
+    /* Copy section */
+    :global(.hero-left) { padding: 2.5rem 1.25rem 1.5rem; }
+    :global(.hero h1) { font-size: clamp(2.4rem, 11vw, 3.5rem); }
+    :global(.hero-eyebrow) { margin-bottom: 0.75rem; }
+    .clt-def { font-size: 0.98rem; }
+    .mclt-pitch { font-size: 0.95rem; }
+
+    /* Full-width stacked CTA buttons */
+    :global(.hero-btns) { flex-direction: column; gap: 0.6rem; }
+    :global(.hero-btns .btn) { text-align: center; }
+
+    /* Viz section */
+    .hero-right--viz { padding: 0.5rem 1.25rem 2.5rem; }
+    .hero-viz-wrap { max-width: 100%; }
+
+    /* Shrink dot hit target hint on small screens */
+    .hvr-hint { display: none; }
+    .viz-explainer { font-size: 0.82rem; }
+  }
+</style>
+
+<script>
+(function() {
+  const HERO_CLTS = [
+    { h: 94, a: 3,  c: 3  }, { h: 92, a: 3,  c: 5  }, { h: 94, a: 4,  c: 2  },
+    { h: 93, a: 3,  c: 4  }, { h: 92, a: 5,  c: 3  }, { h: 93, a: 5,  c: 2  },
+    { h: 94, a: 4,  c: 2  }, { h: 94, a: 3,  c: 3  }, { h: 93, a: 4,  c: 3  },
+    { h: 91, a: 6,  c: 3  }, { h: 87, a: 3,  c: 10 }, { h: 94, a: 2,  c: 4  },
+    { h: 78, a: 5,  c: 17 }, { h: 72, a: 3,  c: 25 }, { h: 70, a: 3,  c: 27 },
+    { h: 63, a: 2,  c: 35 }, { h: 55, a: 42, c: 3  }, { h: 45, a: 40, c: 15 },
+    { h: 38, a: 47, c: 15 }, { h: 35, a: 58, c: 7  }, { h: 12, a: 85, c: 3  },
+    { h: 5,  a: 92, c: 3  }, { h: 42, a: 5,  c: 53 }, { h: 32, a: 5,  c: 63 },
+    { h: 55, a: 3,  c: 42 }, { h: 5,  a: 5,  c: 90 }, { h: 52, a: 22, c: 26 },
+    { h: 42, a: 25, c: 33 }, { h: 15, a: 82, c: 3  }, { h: 5,  a: 92, c: 3  },
+    { h: 25, a: 52, c: 23 },
+  ];
+
+  const Hv = { x: 250, y: 30  };
+  const Av = { x:  40, y: 420 };
+  const Cv = { x: 460, y: 420 };
+
+  function toXY(h, a, c) {
+    const s = h + a + c || 100;
+    return {
+      x: (h * Hv.x + a * Av.x + c * Cv.x) / s,
+      y: (h * Hv.y + a * Av.y + c * Cv.y) / s,
+    };
+  }
+
+  function toBarycentric(px, py) {
+    const denom = (Av.y - Cv.y) * (Hv.x - Cv.x) + (Cv.x - Av.x) * (Hv.y - Cv.y);
+    let h = ((Av.y - Cv.y) * (px - Cv.x) + (Cv.x - Av.x) * (py - Cv.y)) / denom;
+    let a = ((Cv.y - Hv.y) * (px - Cv.x) + (Hv.x - Cv.x) * (py - Cv.y)) / denom;
+    let c = 1 - h - a;
+    h = Math.max(0, h); a = Math.max(0, a); c = Math.max(0, c);
+    const s = h + a + c;
+    return { h: h/s, a: a/s, c: c/s };
+  }
+
+  function dotColor(h, a, c) {
+    const max = Math.max(h, a, c);
+    if (h === max) return '#7A9E7E';
+    if (a === max) return '#A88B5A';
+    return '#C8872A';
+  }
+
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const dotsLayer = document.getElementById('hero-dots');
+
+  // Background dots
+  HERO_CLTS.forEach(({ h, a, c }) => {
+    const { x, y } = toXY(h, a, c);
+    const circle = document.createElementNS(SVG_NS, 'circle');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.setAttribute('r', 4.5);
+    circle.setAttribute('fill', dotColor(h, a, c));
+    circle.setAttribute('opacity', '0.75');
+    dotsLayer.appendChild(circle);
+  });
+
+  // MCLT dot — draggable
+  let mcltH = 10, mcltA = 30, mcltC = 60;
+  let pos = toXY(mcltH, mcltA, mcltC);
+  let mcltX = pos.x, mcltY = pos.y;
+
+  const ring  = document.getElementById('hero-mclt-ring');
+  const dot   = document.getElementById('hero-mclt-dot');
+  const label = document.getElementById('hero-mclt-label');
+
+  function placeMCLT(x, y) {
+    ring.setAttribute('cx', x);  ring.setAttribute('cy', y);
+    dot.setAttribute('cx', x);   dot.setAttribute('cy', y);
+    label.setAttribute('x', x + 12);
+    label.setAttribute('y', y + 4);
+  }
+  placeMCLT(mcltX, mcltY);
+
+  function updateHeroReadout(h, a, c) {
+    const sum = h + a + c || 1;
+    document.getElementById('hvr-h').textContent = Math.round(h/sum*100) + '%';
+    document.getElementById('hvr-a').textContent = Math.round(a/sum*100) + '%';
+    document.getElementById('hvr-c').textContent = Math.round(c/sum*100) + '%';
+  }
+  updateHeroReadout(mcltH, mcltA, mcltC);
+
+  const svg = document.getElementById('hero-ternary');
+  dot.classList.add('mclt-drag');
+  let dragging = false;
+
+  // Larger invisible hit area for touch
+  const hitArea = document.createElementNS(SVG_NS, 'circle');
+  hitArea.setAttribute('cx', dot.getAttribute('cx'));
+  hitArea.setAttribute('cy', dot.getAttribute('cy'));
+  hitArea.setAttribute('r', 22);
+  hitArea.setAttribute('fill', 'transparent');
+  hitArea.style.cursor = 'grab';
+  dot.parentNode.insertBefore(hitArea, dot);
+
+  function syncHitArea() {
+    hitArea.setAttribute('cx', dot.getAttribute('cx'));
+    hitArea.setAttribute('cy', dot.getAttribute('cy'));
+  }
+
+  function startDrag(e) {
+    dragging = true;
+    hitArea.setPointerCapture(e.pointerId);
+    hitArea.style.cursor = 'grabbing';
+    e.preventDefault();
+  }
+  function onDragMove(e) {
+    if (!dragging) return;
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const bc = toBarycentric(svgPt.x, svgPt.y);
+    const clamped = toXY(bc.h * 100, bc.a * 100, bc.c * 100);
+    mcltX = clamped.x; mcltY = clamped.y;
+    placeMCLT(mcltX, mcltY);
+    syncHitArea();
+    updateHeroReadout(bc.h, bc.a, bc.c);
+  }
+  function endDrag() {
+    dragging = false;
+    hitArea.style.cursor = 'grab';
+  }
+  hitArea.addEventListener('pointerdown', startDrag);
+  hitArea.addEventListener('pointermove', onDragMove);
+  hitArea.addEventListener('pointerup', endDrag);
+
+  dot.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    dot.setPointerCapture(e.pointerId);
+    dot.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+
+  dot.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const svgPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const bc = toBarycentric(svgPt.x, svgPt.y);
+    const clamped = toXY(bc.h * 100, bc.a * 100, bc.c * 100);
+    mcltX = clamped.x; mcltY = clamped.y;
+    placeMCLT(mcltX, mcltY);
+    updateHeroReadout(bc.h, bc.a, bc.c);
+  });
+
+  dot.addEventListener('pointerup', () => {
+    dragging = false;
+    dot.style.cursor = 'grab';
+  });
+})();
+</script>

@@ -31,6 +31,8 @@ The lesson that keeps coming up: **the difference between a community institutio
 
 ---
 
+![What Is a CLT — Montavilla Community Land Trust](https://dalx68vem3mjujov.public.blob.vercel-storage.com/what-is-a-clt-screenshot.png)
+
 ### 2. CLT Positioning Map
 **montavillalandtrust.org/clt-map**
 

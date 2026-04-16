@@ -98,8 +98,7 @@ data/
 ```
 requests==2.32.3
 beautifulsoup4==4.12.3
-lxml==5.3.0
-psycopg[binary]==3.2.3
+psycopg[binary]==3.2.10
 python-dotenv==1.0.1
 jupyterlab==4.3.4
 pytest==8.3.4
@@ -1050,7 +1049,7 @@ def _same_host(a: str, b: str) -> bool:
 
 def find_contact_links(html: str, base_url: str) -> list[tuple[str, str]]:
     """Return up to MAX_CONTACT_LINKS (url, page_kind) tuples, deduped."""
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
     seen: dict[str, str] = {}
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
@@ -1412,7 +1411,7 @@ def _snippet(text: str, start: int, end: int) -> str:
 
 def extract_emails(html: str) -> list[dict]:
     """Return a list of {email, source, context} dicts. Deduped by (email, source)."""
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
     found: dict[tuple[str, str], dict] = {}
 
     # 1) mailto: links
@@ -2394,7 +2393,7 @@ def parse_grounded_solutions(html: str) -> list[dict]:
     Selectors are filled in based on the captured fixture (see Task 14 step 2).
     The parser is defensive: missing fields → None.
     """
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
     rows: list[dict] = []
     for card in soup.select("div.member-card, article.member"):
         name_el = card.select_one(".member-name, h3, h2")
@@ -2474,7 +2473,7 @@ def parse_center_clt(html: str) -> list[dict]:
 
     Selectors are filled in based on the captured fixture (see Task 14 step 6b).
     """
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
     rows: list[dict] = []
     for card in soup.select("div.directory-entry, li.member, article.member"):
         name_el = card.select_one("h3, h2, .name")

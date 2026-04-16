@@ -4,3 +4,13 @@ dist/
 .env
 .vercel/
 *.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# CLT inventory pipeline raw data (local-only)
+data/

@@ -1,0 +1,722 @@
+---
+export const prerender = true;
+import '../styles/global.css';
+import Nav    from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Larping for Land — Montavilla Community Land Trust</title>
+  <meta name="description" content="36,590 sq ft of open gravel in the heart of Portland. Join us at 7700 SE Stark for Larping for Land — and help decide what happens on this lot." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    /* ── Hero ── */
+    .larp-hero {
+      background: var(--forest);
+      padding: 3.5rem 1.5rem 2.5rem;
+      border-bottom: 3px solid var(--ochre);
+    }
+    .larp-hero .eyebrow { color: var(--gold); margin-bottom: 0.6rem; }
+    .larp-hero h1 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .larp-hero p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.2rem;
+      color: var(--sage);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.2rem;
+    }
+    .hero-stat-value {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    /* ── Why this lot ── */
+    .lot-case {
+      background: var(--dark);
+      padding: 3.5rem 1.5rem;
+      border-bottom: 1px solid rgba(122,158,126,0.15);
+    }
+    .lot-case .eyebrow { color: var(--gold); margin-bottom: 0.5rem; }
+    .lot-case h2 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      line-height: 1.05;
+    }
+    .lot-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 860px;
+    }
+    .lot-feature {
+      border-left: 3px solid var(--ochre);
+      padding-left: 1.1rem;
+    }
+    .lot-feature-title {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 0.35rem;
+    }
+    .lot-feature p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.98rem;
+      color: var(--sage);
+      line-height: 1.55;
+    }
+
+    /* ── Map section ── */
+    .map-section {
+      background: #08140E;
+      padding: 2.5rem 1rem 0;
+    }
+    .map-intro {
+      max-width: 920px;
+      margin: 0 auto 1.5rem;
+      padding: 0 0.5rem;
+    }
+    .map-intro p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: rgba(122,158,126,0.65);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .map-intro strong {
+      color: var(--gold);
+      font-style: normal;
+    }
+    .map-wrap { max-width: 920px; margin: 0 auto; }
+    #lot-svg { width: 100%; display: block; }
+
+    .zone-rect { cursor: pointer; }
+    .zone-label-main {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      pointer-events: none;
+      fill: rgba(245,238,216,0.9);
+    }
+    .zone-label-sub {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      pointer-events: none;
+      fill: rgba(245,238,216,0.4);
+    }
+
+    /* ── Detail panel ── */
+    .detail-wrap {
+      background: #0E1F16;
+      border-top: 2px solid var(--ochre);
+    }
+    #zone-panel {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1.75rem 2rem;
+      min-height: 130px;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    #zone-panel.empty {
+      justify-content: center;
+      align-items: center;
+    }
+    .panel-hint {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: rgba(122,158,126,0.35);
+      font-style: italic;
+    }
+    .panel-bar {
+      width: 4px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      align-self: stretch;
+      min-height: 80px;
+    }
+    .panel-name {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .panel-subtitle {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.9rem;
+    }
+    .panel-desc {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.05rem;
+      color: var(--cream);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 0.75rem;
+    }
+    .panel-proposed {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(200,135,42,0.15);
+      color: var(--gold);
+      padding: 0.2rem 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .panel-input-cta {
+      font-size: 0.82rem;
+      color: var(--ochre);
+      font-weight: 600;
+    }
+    .panel-input-cta a {
+      color: var(--gold);
+      text-underline-offset: 3px;
+    }
+
+    /* ── Why LARPers should care ── */
+    .why-section {
+      background: var(--forest);
+      padding: 4rem 1.5rem;
+      border-top: 3px solid var(--ochre);
+    }
+    .why-section .eyebrow { color: var(--gold); margin-bottom: 0.5rem; }
+    .why-section h2 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      line-height: 1.05;
+    }
+    .why-section .lede {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.15rem;
+      color: var(--sage);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 860px;
+    }
+    .why-card {
+      background: rgba(0,0,0,0.25);
+      padding: 1.4rem 1.5rem;
+      border-top: 2px solid var(--ochre);
+    }
+    .why-card-title {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .why-card p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.98rem;
+      color: var(--sage);
+      line-height: 1.6;
+    }
+
+    /* ── Legend ── */
+    .legend-strip {
+      background: #0E1F16;
+      border-top: 1px solid rgba(122,158,126,0.12);
+    }
+    .legend-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      gap: 1rem 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .legend-swatch { width: 12px; height: 12px; flex-shrink: 0; }
+    .legend-note {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.82rem;
+      color: rgba(122,158,126,0.4);
+      font-style: italic;
+      margin-left: auto;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--dark);
+      padding: 3.5rem 1.5rem;
+      border-top: 1px solid rgba(122,158,126,0.15);
+    }
+    .cta-inner { max-width: 600px; }
+    .cta-inner h2 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+    .cta-inner p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.05rem;
+      color: var(--sage);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--ochre);
+      color: var(--forest);
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.6rem;
+      text-decoration: none;
+      transition: background 0.15s;
+      margin-right: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .btn:hover { background: var(--gold); }
+    .btn-outline {
+      background: transparent;
+      color: var(--ochre);
+      border: 2px solid var(--ochre);
+    }
+    .btn-outline:hover { background: var(--ochre); color: var(--forest); }
+
+    @media (max-width: 600px) {
+      #zone-panel { flex-direction: column; gap: 1rem; }
+      .panel-bar { width: 100%; min-height: 4px; height: 4px; align-self: auto; }
+      .panel-name { font-size: 1.7rem; }
+      .legend-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <Nav />
+
+  <!-- ── Hero ── -->
+  <div class="larp-hero">
+    <div class="wrap">
+      <p class="eyebrow">Community Event · Portland, OR · 7700 SE Stark</p>
+      <h1>Larping for Land</h1>
+      <p>
+        This is a blank plan. 36,590 square feet of open gravel in the heart of Montavilla —
+        and we want the Portland LARP community to help us decide what happens on it.
+        Show up in armor. Show up with ideas. Help us claim this space through play.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-label">Location</span>
+          <span class="hero-stat-value">7700 SE Stark</span>
+        </div>
+        <div>
+          <span class="hero-stat-label">Date</span>
+          <span class="hero-stat-value">TBD 2026</span>
+        </div>
+        <div>
+          <span class="hero-stat-label">Open lot</span>
+          <span class="hero-stat-value">36,590 sq ft</span>
+        </div>
+        <div>
+          <span class="hero-stat-label">Zoning</span>
+          <span class="hero-stat-value">CM2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Why this lot for combat arts ── -->
+  <div class="lot-case">
+    <div class="wrap">
+      <p class="eyebrow">The Venue</p>
+      <h2>Why 7700 SE Stark Is Built for Combat Arts</h2>
+      <div class="lot-features">
+        <div class="lot-feature">
+          <div class="lot-feature-title">Gravel Surface</div>
+          <p>
+            Unlike grass, compacted gravel doesn't turn to mud, doesn't hide ankle traps, and holds its footing
+            through a full day of boffer combat. This lot has hosted 70+ vendor stalls every week for 19 years.
+            It can handle a skirmish.
+          </p>
+        </div>
+        <div class="lot-feature">
+          <div class="lot-feature-title">Open Sight Lines</div>
+          <p>
+            Flat, unobstructed, corner-lot exposure on two streets. No trees to dodge, no blind corners.
+            You can run a full-field melee or a dozen simultaneous duels and everyone can see what's happening.
+          </p>
+        </div>
+        <div class="lot-feature">
+          <div class="lot-feature-title">Scale</div>
+          <p>
+            At 36,590 sq ft — roughly two-thirds of a city block — this lot is large enough to run dedicated
+            combat, a market, a gathering hall, and a rest zone simultaneously without crowding any of them.
+          </p>
+        </div>
+        <div class="lot-feature">
+          <div class="lot-feature-title">Corner Visibility</div>
+          <p>
+            SE Stark and SE 77th Ave is a high-traffic intersection. A visible LARP event here isn't a
+            backyard game — it's a public statement. Pedestrians, drivers, and neighbors will see it.
+            That's the point.
+          </p>
+        </div>
+        <div class="lot-feature">
+          <div class="lot-feature-title">CM2 Zoning</div>
+          <p>
+            Commercial Mixed-Use 2 zoning explicitly allows community gatherings, markets, and public events.
+            No rezoning fights. No park permit lottery. The land is already classified for exactly this use.
+          </p>
+        </div>
+        <div class="lot-feature">
+          <div class="lot-feature-title">Transit Access</div>
+          <p>
+            SE Stark is a major bus corridor. The lot is walkable from multiple neighborhoods and accessible
+            without a car — which means a bigger turnout and a broader community showing up.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Map ── -->
+  <div class="map-section">
+    <div class="map-wrap">
+      <div class="map-intro">
+        <p>
+          <strong>This is a draft.</strong> The zones below are proposals — not a finalized event plan.
+          Click any zone to read what's been proposed for it, then weigh in on
+          <a href="https://www.reddit.com/r/larping/" target="_blank" rel="noopener" style="color:var(--gold)">r/larping</a>
+          or reach out directly. This map will be updated to reflect community input as it comes in.
+        </p>
+      </div>
+
+      <!--
+        Lot: 36,590 sq ft · approx 270 × 135 ft · corner of SE 77th & Stark
+        SVG viewBox: 0 0 880 500
+        Lot rect: origin (130, 85), width 620, height 310
+        3-column split: left=150, center=300, right=170
+        2-row split: top=160, bottom=150
+      -->
+      <svg id="lot-svg" viewBox="0 0 880 500"
+           preserveAspectRatio="xMidYMid meet"
+           aria-label="Draft LARP event map of 7700 SE Stark Street, Portland OR">
+
+        <rect width="880" height="500" fill="#08140E"/>
+
+        <!-- Street labels -->
+        <text x="440" y="68" text-anchor="middle"
+          font-family="Work Sans,sans-serif" font-size="11" font-weight="700"
+          letter-spacing="0.16em" fill="rgba(122,158,126,0.45)">SE STARK ST</text>
+
+        <text transform="rotate(-90,108,240)" x="108" y="240"
+          text-anchor="middle"
+          font-family="Work Sans,sans-serif" font-size="11" font-weight="700"
+          letter-spacing="0.16em" fill="rgba(122,158,126,0.45)">SE 77TH AVE</text>
+
+        <text transform="rotate(90,772,240)" x="772" y="240"
+          text-anchor="middle"
+          font-family="Work Sans,sans-serif" font-size="11" font-weight="700"
+          letter-spacing="0.16em" fill="rgba(122,158,126,0.45)">SE 78TH AVE</text>
+
+        <!-- Lot outer boundary -->
+        <rect x="130" y="80" width="620" height="310"
+          fill="none" stroke="rgba(122,158,126,0.35)" stroke-width="1.5"/>
+
+        <!-- ── Zone rects ── -->
+        <rect id="zone-keep"         class="zone-rect" x="130" y="80"  width="150" height="160" fill="#9B5A14"/>
+        <rect id="zone-battleground" class="zone-rect" x="280" y="80"  width="300" height="160" fill="#5C2208"/>
+        <rect id="zone-hall"         class="zone-rect" x="580" y="80"  width="170" height="160" fill="#7A5828"/>
+        <rect id="zone-grove"        class="zone-rect" x="130" y="240" width="150" height="150" fill="#254D30"/>
+        <rect id="zone-market"       class="zone-rect" x="280" y="240" width="300" height="150" fill="#3D5E3D"/>
+        <rect id="zone-healer"       class="zone-rect" x="580" y="240" width="170" height="150" fill="#2E4D5C"/>
+
+        <!-- ── Dividers ── -->
+        <line x1="280" y1="80"  x2="280" y2="390" stroke="rgba(0,0,0,0.5)" stroke-width="1.5"/>
+        <line x1="580" y1="80"  x2="580" y2="390" stroke="rgba(0,0,0,0.5)" stroke-width="1.5"/>
+        <line x1="130" y1="240" x2="750" y2="240" stroke="rgba(0,0,0,0.5)" stroke-width="1.5"/>
+
+        <!-- ── Zone labels ── -->
+        <text x="205" y="152" text-anchor="middle" class="zone-label-main" font-size="13">Commander's</text>
+        <text x="205" y="167" text-anchor="middle" class="zone-label-main" font-size="13">Keep</text>
+        <text x="205" y="182" text-anchor="middle" class="zone-label-sub">PROPOSED</text>
+
+        <text x="430" y="154" text-anchor="middle" class="zone-label-main" font-size="20">The Battleground</text>
+        <text x="430" y="172" text-anchor="middle" class="zone-label-sub">PROPOSED · OPEN FIELD</text>
+
+        <text x="665" y="152" text-anchor="middle" class="zone-label-main" font-size="14">The Great</text>
+        <text x="665" y="168" text-anchor="middle" class="zone-label-main" font-size="14">Hall</text>
+        <text x="665" y="183" text-anchor="middle" class="zone-label-sub">PROPOSED</text>
+
+        <text x="205" y="307" text-anchor="middle" class="zone-label-main" font-size="14">The Grove</text>
+        <text x="205" y="323" text-anchor="middle" class="zone-label-sub">PROPOSED</text>
+
+        <text x="430" y="308" text-anchor="middle" class="zone-label-main" font-size="17">The Market Row</text>
+        <text x="430" y="325" text-anchor="middle" class="zone-label-sub">PROPOSED · OPEN TO INPUT</text>
+
+        <text x="665" y="303" text-anchor="middle" class="zone-label-main" font-size="13">Healer's</text>
+        <text x="665" y="319" text-anchor="middle" class="zone-label-main" font-size="13">Quarter</text>
+        <text x="665" y="335" text-anchor="middle" class="zone-label-sub">PROPOSED</text>
+
+        <!-- ── North arrow ── -->
+        <g transform="translate(820, 116)">
+          <circle cx="0" cy="0" r="17"
+            fill="none" stroke="rgba(122,158,126,0.25)" stroke-width="1"/>
+          <path d="M0,-13 L5,6 L0,2 L-5,6 Z" fill="#7A9E7E" opacity="0.8"/>
+          <text x="0" y="27" text-anchor="middle"
+            font-family="Work Sans,sans-serif" font-size="9" font-weight="700"
+            letter-spacing="0.1em" fill="rgba(122,158,126,0.5)">N</text>
+        </g>
+
+        <!-- ── Scale bar ── -->
+        <g transform="translate(165,430)">
+          <line x1="0" y1="0" x2="133" y2="0"
+            stroke="rgba(122,158,126,0.35)" stroke-width="1.5"/>
+          <line x1="0"   y1="-4" x2="0"   y2="4"
+            stroke="rgba(122,158,126,0.35)" stroke-width="1.5"/>
+          <line x1="133" y1="-4" x2="133" y2="4"
+            stroke="rgba(122,158,126,0.35)" stroke-width="1.5"/>
+          <text x="66" y="16" text-anchor="middle"
+            font-family="Work Sans,sans-serif" font-size="9"
+            fill="rgba(122,158,126,0.45)">~135 ft</text>
+        </g>
+
+      </svg>
+
+      <!-- Detail panel -->
+      <div class="detail-wrap">
+        <div id="zone-panel" class="empty">
+          <span class="panel-hint">Click a zone to see what's been proposed — and how to weigh in</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div style="background:#08140E; padding-bottom:2rem;">
+    <div class="legend-strip">
+      <div class="legend-inner">
+        <div class="legend-item"><div class="legend-swatch" style="background:#9B5A14"></div>Commander's Keep</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#5C2208"></div>Battleground</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#7A5828"></div>Great Hall</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#254D30"></div>The Grove</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#3D5E3D"></div>Market Row</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#2E4D5C"></div>Healer's Quarter</div>
+        <span class="legend-note">All zones are proposals — subject to change</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Why LARPers Should Care ── -->
+  <section class="why-section">
+    <div class="wrap">
+      <p class="eyebrow">Why It Matters</p>
+      <h2>LARPers Need Community Land More Than Anyone</h2>
+      <p class="lede">
+        Portland LARPers have no permanent home. Every event is a permit fight, a park lottery,
+        a landlord negotiation, or a favor from someone with a big backyard.
+        A community land trust changes that permanently — and Larping for Land is how we make the case.
+      </p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-card-title">No More Permit Roulette</div>
+          <p>
+            Community-controlled land means recurring events happen by right — not by luck.
+            No annual permit applications. No competing with soccer leagues and wedding rentals.
+            The space is yours because the community owns it.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-title">A Permanent Practice Ground</div>
+          <p>
+            Workshops, armor-making, prop-building, sparring circles, game design sessions —
+            all of it becomes possible when you have a space that can't be sold out from under you.
+            A CLT removes the land from the speculative market forever.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-title">LARPers Get a Seat at the Table</div>
+          <p>
+            CLT boards are elected by community members. If Portland's LARP community shows up —
+            literally and organizationally — they have a real voice in how this land is used.
+            This isn't asking permission. It's building ownership.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-title">Play Is a Form of Claiming</div>
+          <p>
+            When a neighborhood imagines its land through play, it asserts something.
+            Larping for Land isn't just an event — it's a visible, joyful, public argument that this corner of
+            Montavilla belongs to the people who live and gather here.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="cta-inner">
+        <h2>Help Fill in the Plan</h2>
+        <p>
+          The map above is a starting point. We want the Portland LARP community to push back on it,
+          improve it, and show up for it. All skill levels welcome. Costumes encouraged, not required.
+          The date isn't set yet — your input shapes when and how this happens.
+        </p>
+        <a href="https://www.reddit.com/r/larping/" target="_blank" rel="noopener" class="btn">
+          Weigh in on r/larping →
+        </a>
+        <a href="mailto:manager@montavillamarket.org" class="btn btn-outline">
+          Contact the Coalition
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</body>
+
+<script>
+const ZONES = {
+  keep: {
+    name: "Commander's Keep",
+    subtitle: "Proposed · Event HQ & Registration",
+    color: '#C8872A',
+    description: "The proposed entry and registration zone — where new arrivals check in, get their character scroll, and find out what's happening. First-timer orientation and loaner gear would live here.",
+    input: "Should this also be the faction recruitment zone? Where do new players go first? Tell us."
+  },
+  battleground: {
+    name: "The Battleground",
+    subtitle: "Proposed · Open Combat Field",
+    color: '#C84A1A',
+    description: "The heart of the event. The bulk of this open gravel lot is proposed as the primary combat field — large enough for full-field melees, simultaneous skirmishes, and organized scenarios. Boffer combat only; marshals on field.",
+    input: "What combat formats do you want to run here? What rules system? How do we structure the day? This is the most open question on the map."
+  },
+  hall: {
+    name: "The Great Hall",
+    subtitle: "Proposed · Feast & Gathering Space",
+    color: '#C8A032',
+    description: "A covered gathering area proposed for community feast, music, in-character diplomacy, and general socializing. The social and narrative center of the event — where alliances form and stories get told.",
+    input: "What should happen in the Great Hall? Live music? Faction councils? A communal potluck? Weigh in."
+  },
+  grove: {
+    name: "The Grove",
+    subtitle: "Proposed · Lore & Storytelling",
+    color: '#4A9E5A',
+    description: "A quiet, no-combat zone proposed for storytelling, lore sessions, roleplay, and all-ages participation. The idea is a sanctuary corner — somewhere you can be in character without worrying about combat.",
+    input: "Should this be structured (scheduled sessions) or open? Who runs it? Is there a shared lore for this event, or is it freeform?"
+  },
+  market: {
+    name: "The Market Row",
+    subtitle: "Proposed · Crafters & Vendors",
+    color: '#7A9E7E',
+    description: "A vendor strip proposed along the interior of the lot — artisans, armor-smiths, prop-makers, food vendors, in-character traders. Free vendor spots. The market is the most open-ended zone on the plan and the one most needing community input.",
+    input: "What vendors do you want here? Should it be in-character only, or mixed? How do we organize stall assignments? This zone is especially open to your ideas."
+  },
+  healer: {
+    name: "Healer's Quarter",
+    subtitle: "Proposed · Rest & First Aid",
+    color: '#5A8A9E',
+    description: "The in-game healing sanctuary proposed as the real-world rest and first aid station. A quiet zone where stepping out of character is always welcome. Shade, water, and first aid on site.",
+    input: "What do you need in a rest zone to make the event accessible and safe? What's missing from this proposal?"
+  },
+};
+
+let active = null;
+
+Object.keys(ZONES).forEach(id => {
+  const el = document.getElementById('zone-' + id);
+  if (!el) return;
+  el.addEventListener('click', () => selectZone(id));
+  el.addEventListener('pointerenter', () => { if (id !== active) el.setAttribute('opacity', '0.75'); });
+  el.addEventListener('pointerleave', () => { if (id !== active) el.setAttribute('opacity', '1'); });
+});
+
+function selectZone(id) {
+  if (active) {
+    const prev = document.getElementById('zone-' + active);
+    if (prev) { prev.setAttribute('opacity', '1'); prev.removeAttribute('stroke'); prev.removeAttribute('stroke-width'); }
+  }
+  active = id;
+  const el = document.getElementById('zone-' + id);
+  if (el) { el.setAttribute('stroke', 'rgba(255,255,255,0.6)'); el.setAttribute('stroke-width', '2'); }
+
+  const z = ZONES[id];
+  const panel = document.getElementById('zone-panel');
+  panel.classList.remove('empty');
+  panel.innerHTML = `
+    <div class="panel-bar" style="background:${z.color}"></div>
+    <div>
+      <div class="panel-name" style="color:${z.color}">${z.name}</div>
+      <div class="panel-subtitle">${z.subtitle}</div>
+      <p class="panel-desc">${z.description}</p>
+      <div class="panel-input-cta">
+        <strong style="color:var(--ochre)">Your input:</strong> ${z.input}
+        <br><a href="https://www.reddit.com/r/larping/" target="_blank" rel="noopener">Weigh in on r/larping →</a>
+      </div>
+    </div>
+  `;
+}
+</script>
+</html>

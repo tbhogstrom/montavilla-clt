@@ -1,10 +1,13 @@
 """Seed candidate CLTs from existing JSON and SerpAPI state sweeps."""
 from __future__ import annotations
 
+import csv
 import json
 import re
 import unicodedata
 from pathlib import Path
+
+from bs4 import BeautifulSoup
 
 from pipeline.discover import is_plausible_clt_domain
 
@@ -97,4 +100,110 @@ def parse_state_sweep_results(serp_payload: dict, state: str) -> list[dict]:
             "status": "url_found",
             "notes": None,
         })
+    return rows
+
+
+def parse_grounded_solutions(html: str) -> list[dict]:
+    """Extract CLT rows from the Grounded Solutions Network member directory page.
+
+    Defensive selectors — the live page is JS-rendered so the static HTML has no
+    member data. Returns empty list in that case; implementation is kept so that
+    a future fixture (e.g., from a headless-browser capture) can be parsed without
+    code changes. Manual-CSV seeding (parse_manual_csv) is the recommended path.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    rows: list[dict] = []
+    for card in soup.select("div.member-card, article.member, li.member"):
+        name_el = card.select_one(".member-name, h3, h2, .name")
+        city_el = card.select_one(".member-city, .city, .location")
+        state_el = card.select_one(".member-state, .state")
+        url_el = card.select_one("a[href^='http']")
+        if not name_el:
+            continue
+        name = name_el.get_text(strip=True)
+        state = (state_el.get_text(strip=True) if state_el else "")[:2].upper() or None
+        url = url_el["href"] if url_el else None
+        rows.append({
+            "id": slugify(name),
+            "name": name,
+            "city": city_el.get_text(strip=True) if city_el else None,
+            "state": state,
+            "url": url,
+            "source": "grounded-solutions",
+            "status": "url_found" if url else "discovered",
+            "notes": None,
+        })
+    return rows
+
+
+def parse_center_clt(html: str) -> list[dict]:
+    """Extract CLT rows from the Center for CLT & Cooperative Innovation directory.
+
+    Same caveat as parse_grounded_solutions — page is JS-rendered, parser is a
+    placeholder that exercises a set of plausible selectors.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    rows: list[dict] = []
+    for card in soup.select("div.directory-entry, li.member, article.member"):
+        name_el = card.select_one("h3, h2, .name")
+        city_el = card.select_one(".city, .location")
+        state_el = card.select_one(".state")
+        url_el = card.select_one("a[href^='http']")
+        if not name_el:
+            continue
+        name = name_el.get_text(strip=True)
+        rows.append({
+            "id": slugify(name),
+            "name": name,
+            "city": city_el.get_text(strip=True) if city_el else None,
+            "state": (state_el.get_text(strip=True) if state_el else "")[:2].upper() or None,
+            "url": url_el["href"] if url_el else None,
+            "source": "center-clt-innovation",
+            "status": "url_found" if url_el else "discovered",
+            "notes": None,
+        })
+    return rows
+
+
+_STATE_NAME_TO_CODE = {v.upper(): k for k, v in US_STATES.items()}
+
+
+def _normalize_state(raw: str) -> str | None:
+    """Accept 'OR', 'or', 'Oregon', 'OREGON' → 'OR'. Returns None for blank input."""
+    s = (raw or "").strip().upper()
+    if not s:
+        return None
+    if s in US_STATES:
+        return s
+    if s in _STATE_NAME_TO_CODE:
+        return _STATE_NAME_TO_CODE[s]
+    return s[:2] or None
+
+
+def parse_manual_csv(csv_path: Path) -> list[dict]:
+    """Read a manually-curated CSV with columns: name, city, state, url (url optional).
+
+    Used when a third-party directory is JS-rendered or blocked. The user
+    drops a CSV into data/seed/<source>.csv and points this function at it.
+
+    ``encoding="utf-8-sig"`` handles the BOM that Excel writes by default when
+    saving as UTF-8 CSV.
+    """
+    rows: list[dict] = []
+    with Path(csv_path).open(newline="", encoding="utf-8-sig") as f:
+        for entry in csv.DictReader(f):
+            name = (entry.get("name") or "").strip()
+            if not name:
+                continue
+            url = (entry.get("url") or "").strip() or None
+            rows.append({
+                "id": slugify(name),
+                "name": name,
+                "city": (entry.get("city") or "").strip() or None,
+                "state": _normalize_state(entry.get("state") or ""),
+                "url": url,
+                "source": "manual-csv",
+                "status": "url_found" if url else "discovered",
+                "notes": None,
+            })
     return rows

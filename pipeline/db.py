@@ -45,7 +45,8 @@ CREATE TABLE IF NOT EXISTS inv_emails (
   email           text NOT NULL,
   source          text NOT NULL,
   context         text,
-  extracted_at    timestamptz NOT NULL DEFAULT now()
+  extracted_at    timestamptz NOT NULL DEFAULT now(),
+  UNIQUE (clt_id, page_id, email, source)
 );
 CREATE INDEX IF NOT EXISTS inv_emails_clt_idx   ON inv_emails (clt_id);
 CREATE INDEX IF NOT EXISTS inv_emails_email_idx ON inv_emails (email);

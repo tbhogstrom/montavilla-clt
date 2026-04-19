@@ -1,5 +1,3 @@
-days5-6-7.md
-
 
 **Subject**(No farmers market today) Campaign updates - Days 5,6,7 - MCLT 
 

@@ -207,3 +207,49 @@ def parse_manual_csv(csv_path: Path) -> list[dict]:
                 "notes": None,
             })
     return rows
+
+
+def parse_freddie_mac(html: str) -> list[dict]:
+    """Parse the Freddie Mac CLT database table at sf.freddiemac.com/general/fre-clt-database.
+
+    The page renders one <table> with columns: CLT Name, Address, Contact, County, State,
+    Ground Lease Type. Address is a concatenated string like "123 Main St.City, ST 12345";
+    we don't try to split it — we only use it as a city/location hint. The CLT's website is
+    NOT listed here, so returned rows have url=None and status='discovered' — the pipeline's
+    discover stage will resolve URLs.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.find("table")
+    if table is None:
+        return []
+    rows: list[dict] = []
+    trs = table.find_all("tr")
+    for tr in trs[1:]:  # skip header
+        cells = [c.get_text(strip=True) for c in tr.find_all(["td", "th"])]
+        if len(cells) < 5:
+            continue
+        name = cells[0]
+        address = cells[1]
+        state = cells[4][:2].upper() if len(cells) > 4 else ""
+        if not name or not state:
+            continue
+        # Address format is "123 Main St.City, ST 12345" — extract the city by grabbing
+        # the segment before the last comma before the state code.
+        city = None
+        if "," in address:
+            before_comma = address.rsplit(",", 1)[0]
+            # Take the final uppercase-initial word cluster; imprecise but acceptable.
+            parts = re.split(r"(?<=[a-z])(?=[A-Z])", before_comma)
+            city = parts[-1].strip() or None
+        notes = f"Freddie Mac CLT Database: {cells[5]}" if len(cells) >= 6 and cells[5] else None
+        rows.append({
+            "id": slugify(name),
+            "name": name,
+            "city": city,
+            "state": state,
+            "url": None,
+            "source": "freddie-mac",
+            "status": "discovered",
+            "notes": notes,
+        })
+    return rows

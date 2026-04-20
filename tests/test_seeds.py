@@ -132,3 +132,25 @@ def test_parse_manual_csv_strips_utf8_bom_from_excel_exports():
         assert rows[0]["state"] == "WA"
     finally:
         os.unlink(path)
+
+
+FM_FIXTURE = Path(__file__).parent / "fixtures" / "freddie_mac_clt.html"
+
+
+def test_parse_freddie_mac_extracts_most_rows():
+    from pipeline.seeds import parse_freddie_mac
+    if not FM_FIXTURE.exists():
+        import pytest; pytest.skip("freddie_mac_clt.html fixture not present")
+    rows = parse_freddie_mac(FM_FIXTURE.read_text(encoding="utf-8"))
+    assert len(rows) >= 200
+    sample = rows[0]
+    assert sample["source"] == "freddie-mac"
+    assert sample["status"] == "discovered"
+    assert sample["url"] is None
+    assert sample["state"] and len(sample["state"]) == 2
+    assert sample["name"]
+
+
+def test_parse_freddie_mac_handles_missing_table():
+    from pipeline.seeds import parse_freddie_mac
+    assert parse_freddie_mac("<html><body>no table here</body></html>") == []

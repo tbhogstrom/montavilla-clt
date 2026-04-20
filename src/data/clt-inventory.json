@@ -1,0 +1,2637 @@
+{
+  "generated_at": "2026-04-20T20:05:37.454Z",
+  "rows": [
+    {
+      "id": "anchorage-community-land-trust",
+      "name": "Anchorage Community Land Trust",
+      "city": "3701 Mountain View Dr. Suite 100Anchorage",
+      "state": "AK",
+      "url": "https://anchoragelandtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "sitka-community-land-trust",
+      "name": "Sitka Community Land Trust",
+      "city": "P.O. Box 6461Sitka",
+      "state": "AK",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "dynamite-hill-smithfield-community-land-trust",
+      "name": "Dynamite Hill - Smithfield Community Land Trust",
+      "city": "2024 3rd Avenue North, Suite 314Alabama",
+      "state": "AL",
+      "url": "https://dynamitehillclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "arizona-community-land-trust",
+      "name": "Arizona Community Land Trust",
+      "city": null,
+      "state": "AZ",
+      "url": "https://www.arizonacommunitylandtrust.org/",
+      "status": "rescue_failed"
+    },
+    {
+      "id": "city-of-flagstaff-community-land-trust-program",
+      "name": "City of Flagstaff Community Land Trust Program",
+      "city": "Flagstaff",
+      "state": "AZ",
+      "url": "https://www.flagstaff.az.gov/DocumentCenter/View/78944/HSNA-Home-Ownership-Application---2024",
+      "status": "extracted"
+    },
+    {
+      "id": "community-homes-of-patagonia-temporarily-closed",
+      "name": "Community Homes of Patagonia (temporarily closed)",
+      "city": "PO Box 1063Patagonia",
+      "state": "AZ",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "flagstaff-townsite-historic-properties-community-land-trust",
+      "name": "Flagstaff Townsite Historic Properties Community Land Trust",
+      "city": "PO Box 234Flagstaff",
+      "state": "AZ",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "hfh-tucson-tucson-clt",
+      "name": "HFH Tucson; Tucson CLT",
+      "city": "3501 N. Mountain Ave.Tucson",
+      "state": "AZ",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "hfh-of-flagstaff-flagstaff-clt",
+      "name": "HFH of Flagstaff; Flagstaff CLT",
+      "city": "PO Box 3783Flagstaff",
+      "state": "AZ",
+      "url": "https://www.habitatflagstaff.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "newtown-community-development",
+      "name": "Newtown Community Development",
+      "city": "2106 E Apache Blvd Ste 112Tempe",
+      "state": "AZ",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "pima-county-community-land-trust",
+      "name": "Pima County Community Land Trust",
+      "city": "Tucson",
+      "state": "AZ",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "townsite-community-land-trust-tclt",
+      "name": "Townsite Community Land Trust TCLT",
+      "city": null,
+      "state": "AZ",
+      "url": "https://townsiteclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "bay-area-community-land-trust",
+      "name": "Bay Area Community Land Trust",
+      "city": "P. O. Box 2652Berkeley",
+      "state": "CA",
+      "url": "https://www.bayareaclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "beverly-vermont-community-land-trust",
+      "name": "Beverly Vermont Community Land Trust",
+      "city": "Los Angeles",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "bolinas-community-land-trust",
+      "name": "Bolinas Community Land Trust",
+      "city": "PO Box 805 Bolinas",
+      "state": "CA",
+      "url": "https://www.bolinascommunitylandtrust.org/terms-of-service",
+      "status": "extracted"
+    },
+    {
+      "id": "burbank-housing-corporation",
+      "name": "Burbank Housing Corporation",
+      "city": "1819 Grismer Ave.Burbank",
+      "state": "CA",
+      "url": "https://www.burbankhousingcorp.org/post/2024-waiting-list-update",
+      "status": "extracted"
+    },
+    {
+      "id": "california-community-foundation-land-trust",
+      "name": "California Community Foundation Land Trust",
+      "city": "221 S FIGUEROA ST #400LOS ANGELES",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "california-community-land-trust-network",
+      "name": "California Community Land Trust Network",
+      "city": null,
+      "state": "CA",
+      "url": "https://www.cacltnetwork.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "chaffee-housing-trust",
+      "name": "Chaffee Housing Trust",
+      "city": "PO Box 692Buena Vista",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "commonspace-community-land-trust",
+      "name": "Commonspace Community Land Trust",
+      "city": "Sebastopol",
+      "state": "CA",
+      "url": "https://commonspaceclt.org/faq/",
+      "status": "extracted"
+    },
+    {
+      "id": "community-land-trust-association-of-west-marin-clam",
+      "name": "Community Land Trust Association of West Marin (CLAM)",
+      "city": "P.O. Box 273Point Reyes Station,",
+      "state": "CA",
+      "url": "https://www.clam-ptreyes.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "elevation-community-land-trust",
+      "name": "Elevation Community Land Trust",
+      "city": "1114 W. 7th Ave., Ste. 101Denver",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "ges-coalition-community-land-trust-tierra-collective-clt",
+      "name": "GES Coalition Community Land Trust (Tierra Collective CLT)",
+      "city": "P.O. Box 16132Denver",
+      "state": "CA",
+      "url": "https://www.gescoalition.com/community-land-trust",
+      "status": "extracted"
+    },
+    {
+      "id": "goose-creek-community-land-trust",
+      "name": "Goose Creek Community Land Trust",
+      "city": "Boulder",
+      "state": "CA",
+      "url": "http://goosecreekclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "habitat-for-humanity-greater-san-francisco",
+      "name": "Habitat for Humanity Greater San Francisco",
+      "city": "300 Montgomery St Ste 450San Francisco",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-metro-denver-inc-colorado-community-land-trust",
+      "name": "Habitat for Humanity Metro Denver Inc., Colorado Community Land Trust",
+      "city": "Denver",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "hello-housing",
+      "name": "Hello Housing",
+      "city": "121 San Anselmo Ave # 2440San Anselmo",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "housing-land-trust-of-north-bay",
+      "name": "Housing Land Trust of North Bay",
+      "city": "PO Box 5431 755 Baywood Dr Suite 330, Petaluma",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "humboldt-bay-housing-development-corporation-rural-community-housing",
+      "name": "Humboldt Bay Housing Development Corporation/Rural Community Housing",
+      "city": "PO Box 4655Arcata",
+      "state": "CA",
+      "url": "https://www.housinghumboldt.org/index.htm",
+      "status": "extracted"
+    },
+    {
+      "id": "inland-empire-community-land-trust",
+      "name": "Inland Empire Community Land Trust",
+      "city": "Redlands",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "inland-equity-community-land-trust",
+      "name": "Inland Equity Community Land Trust",
+      "city": "Riverside",
+      "state": "CA",
+      "url": "https://inlandequityclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "irvine-community-land-trust",
+      "name": "Irvine Community Land Trust",
+      "city": "Irvine",
+      "state": "CA",
+      "url": "https://irvineclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "northern-california-land-trust",
+      "name": "Northern California Land Trust",
+      "city": "3122 Shattuck Ave.Berkeley",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "oakland-community-land-trust",
+      "name": "Oakland Community Land Trust",
+      "city": "Oakland",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "preserving-affordable-housing-assets-longterm-inc-pahali",
+      "name": "Preserving Affordable Housing Assets Longterm, Inc (PAHALI)",
+      "city": "East Palo Alto",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "rocky-mountain-community-land-trust",
+      "name": "Rocky Mountain Community Land Trust",
+      "city": "Colorado Springs",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "sacramento-community-land-trust",
+      "name": "Sacramento Community Land Trust",
+      "city": "P.O. Box 188709Sacramento",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "san-diego-community-land-trust",
+      "name": "San Diego Community Land Trust",
+      "city": "10620 Treena Street, Suite 230San Diego",
+      "state": "CA",
+      "url": "https://jcfsandiego.org/wp-content/uploads/JCF-Form-990-Public-Copy.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "san-francisco-community-land-trust",
+      "name": "San Francisco Community Land Trust",
+      "city": "44 Page St, Ste 401San Francisco",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "south-bay-community-land-trust",
+      "name": "South Bay Community Land Trust",
+      "city": "San Jose",
+      "state": "CA",
+      "url": "https://southbayclt.org/index.html",
+      "status": "extracted"
+    },
+    {
+      "id": "st-joseph-clt",
+      "name": "St. Joseph CLT",
+      "city": "1041 Lyons Ave.South Lake, CA",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "t-r-u-s-t-south-l-a",
+      "name": "T.R.U.S.T. South L.A.",
+      "city": "4331 S. Main St.Los Angeles",
+      "state": "CA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "thrive-santa-ana",
+      "name": "THRIVE Santa Ana",
+      "city": null,
+      "state": "CA",
+      "url": "https://www.thrivesantaana.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "thistle-community-housing",
+      "name": "Thistle Community Housing",
+      "city": "Boulder",
+      "state": "CA",
+      "url": "https://www.thistlecommunityhousing.org/ournwafamily",
+      "status": "extracted"
+    },
+    {
+      "id": "urban-land-conservancy",
+      "name": "Urban Land Conservancy",
+      "city": "1600 Downing Street Suite 300Denver",
+      "state": "CA",
+      "url": "https://urbanlandc.org",
+      "status": "extracted"
+    },
+    {
+      "id": "colorado-community-land-trust",
+      "name": "Colorado Community Land Trust",
+      "city": "7535 E Hampden Ave, Ste 600Denver",
+      "state": "CO",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "elevation-community-land-trust-home",
+      "name": "Elevation Community Land Trust: Home",
+      "city": null,
+      "state": "CO",
+      "url": "https://elevationclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "habitat-for-humanity-of-eastern-connecticut",
+      "name": "Habitat for Humanity of Eastern Connecticut",
+      "city": "New London",
+      "state": "CT",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "litchfield-housing-trust",
+      "name": "Litchfield Housing Trust",
+      "city": "PO Box 1121Litchfield",
+      "state": "CT",
+      "url": "https://litchfieldhousingtrust.com/",
+      "status": "extracted"
+    },
+    {
+      "id": "naugatuck-valley-housing-development-corporation",
+      "name": "Naugatuck Valley Housing Development Corporation",
+      "city": "26 Ludlow St.Waterbury",
+      "state": "CT",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "north-hartford-community-land-trust",
+      "name": "North Hartford Community Land Trust",
+      "city": "Hartford",
+      "state": "CT",
+      "url": "https://www.northhartfordpartnership.org/about-us",
+      "status": "extracted"
+    },
+    {
+      "id": "southeastern-connecticut-community-land-trust-equity-trust",
+      "name": "Southeastern Connecticut Community Land Trust (Equity Trust)",
+      "city": "Voluntown",
+      "state": "CT",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "washington-community-housing-trust",
+      "name": "Washington Community Housing Trust",
+      "city": "Washington",
+      "state": "CT",
+      "url": "https://washingtonhousingtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "cityfirst-enterprises",
+      "name": "CityFirst Enterprises",
+      "city": "1 Thomas Circle, NW Suite 700Washington",
+      "state": "DC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "diamond-state-clt",
+      "name": "Diamond State CLT",
+      "city": "PO Box 1484Dover",
+      "state": "DC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "douglass-community-land-trust",
+      "name": "Douglass Community Land Trust",
+      "city": "1231 Good Hope Rd SEWashington",
+      "state": "DC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "douglass-community-land-trust-douglass-clt",
+      "name": "Douglass Community Land Trust (Douglass CLT)",
+      "city": null,
+      "state": "DC",
+      "url": "https://douglassclt.org/home/",
+      "status": "extracted"
+    },
+    {
+      "id": "new-columbia-community-land-trust",
+      "name": "New Columbia Community Land Trust",
+      "city": "1419 V St NWWashington",
+      "state": "DC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "west-rehoboth-land-trust",
+      "name": "West Rehoboth Land Trust",
+      "city": "PO Box 633Rehoboth Beach",
+      "state": "DC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "diamond-state-community-land-trust",
+      "name": "Diamond State Community Land Trust",
+      "city": null,
+      "state": "DE",
+      "url": "https://www.diamondstateclt.com/",
+      "status": "extracted"
+    },
+    {
+      "id": "bright-community-trust",
+      "name": "Bright Community Trust",
+      "city": "2561 Nursery Rd, Suite DClearwater",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "collier-county-community-land-trust",
+      "name": "Collier County Community Land Trust",
+      "city": "3200 Bailey LNNaples",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "community-housing-trust-of-sarasota-county",
+      "name": "Community Housing Trust of Sarasota County",
+      "city": "Sarasota",
+      "state": "FL",
+      "url": "https://www.flhousing.org/wp-content/uploads/2012/12/Community-Land-Trusts-are-Springing-up-in-FloridaCommunity-Land-Trusts-are-Springing-up-in-Florida.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "delray-beach-clt",
+      "name": "Delray Beach CLT",
+      "city": "Delray Beach",
+      "state": "FL",
+      "url": "https://www.delraybeachlandtrust.org/about-us/board-of-directors",
+      "status": "extracted"
+    },
+    {
+      "id": "florida-keys-community-land-trust",
+      "name": "Florida Keys Community Land Trust",
+      "city": "PPO Box 343529Florida City",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "hfh-of-key-west-and-the-lower-keys-florida-keys-community-housing-and-land-trust",
+      "name": "HFH of Key West and the Lower Keys; Florida Keys Community Housing and Land Trust",
+      "city": "471 Overseas Highway, Suite 102Big Coppitt Key",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "hfh-of-pinellas-county-pinellas-county-clt",
+      "name": "HFH of Pinellas County; Pinellas County CLT",
+      "city": "14010 Roosevelt BLD # 704Clearwater",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "housd-central-florida-regional-housing-trust",
+      "name": "HOUSD (Central Florida Regional Housing Trust)",
+      "city": "800 North Magnolia Avenue, Suite 1200Orlando",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-marion-county-community-land-trust",
+      "name": "Habitat for Humanity Marion County Community Land Trust",
+      "city": "Ocala",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-of-marion-county",
+      "name": "Habitat for Humanity of Marion County",
+      "city": "1321 SE 25th Loop Suite 103Ocala",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-of-pinellas-county",
+      "name": "Habitat for Humanity of Pinellas County",
+      "city": "Clearwater",
+      "state": "FL",
+      "url": "https://habitattbg.org/wp-content/uploads/2024/09/Habitat-for-Humanity-of-Pinellas-County_2023-FR_Final.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "hannibal-square-community-land-trust",
+      "name": "Hannibal Square Community Land Trust",
+      "city": "PO Box 364Winter Park",
+      "state": "FL",
+      "url": "https://hannibalsquareclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "heartfelt-florida-housing",
+      "name": "Heartfelt Florida Housing",
+      "city": "Delray Beach",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "neighborhood-renaissance-community-land-trust",
+      "name": "Neighborhood Renaissance Community Land Trust",
+      "city": "510 24th Street, Suite AWest Palm Beach",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "peace-river-community-land-trust",
+      "name": "Peace River Community Land Trust",
+      "city": "Port Charlotte",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "residential-options-of-florida-roof",
+      "name": "Residential Options of Florida (ROOF)",
+      "city": "3050 Horseshoe Dr N, Suite 285Naples",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "south-florida-community-land-trust",
+      "name": "South Florida Community Land Trust",
+      "city": "300 SW 2nd Street, Suite 8Fort Lauderdale",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "south-florida-community-land-trust-home",
+      "name": "South Florida Community Land Trust: Home",
+      "city": null,
+      "state": "FL",
+      "url": "https://southfloridaclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "struggle-for-miamis-affordable-and-sustainable-housing-smash",
+      "name": "Struggle for Miami’s Affordable and Sustainable Housing (SMASH)",
+      "city": "Miami",
+      "state": "FL",
+      "url": "https://smash.miami/about-us/",
+      "status": "extracted"
+    },
+    {
+      "id": "tallahassee-lenders-consortium",
+      "name": "Tallahassee Lenders Consortium",
+      "city": "Tallahassee",
+      "state": "FL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "the-community-land-trust-of-palm-beach-county",
+      "name": "The Community Land Trust of Palm Beach County",
+      "city": "Lake Worth",
+      "state": "FL",
+      "url": "https://community-land-trust-of-palm-beach-county-inc-656690.square.site/",
+      "status": "extracted"
+    },
+    {
+      "id": "athens-land-trust",
+      "name": "Athens Land Trust",
+      "city": "Athens",
+      "state": "GA",
+      "url": "https://athenslandtrust.org",
+      "status": "extracted"
+    },
+    {
+      "id": "atlanta-land-trust",
+      "name": "Atlanta Land Trust",
+      "city": "245 North Highland Avenue NE Suite 230-724Atlanta",
+      "state": "GA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "decatur-land-trust",
+      "name": "Decatur Land Trust",
+      "city": "Decatur",
+      "state": "GA",
+      "url": "https://decaturlandtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "h-e-l-p-organization-incorporated",
+      "name": "H.E.L.P. Organization Incorporated",
+      "city": "54110th Street No. 312Atlanta",
+      "state": "GA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "new-communities-inc",
+      "name": "New Communities Inc.",
+      "city": "Albany",
+      "state": "GA",
+      "url": "https://newcommunitiescp.com/",
+      "status": "extracted"
+    },
+    {
+      "id": "savannah-community-land-trust-inc",
+      "name": "Savannah Community Land Trust Inc.",
+      "city": "Savannah",
+      "state": "GA",
+      "url": "https://savannahclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "hhoc-housing-and-land-trust-hhlt",
+      "name": "HHOC Housing and Land Trust (HHLT)",
+      "city": "1259 Aala Street, #201Honolulu",
+      "state": "HI",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-hawai-i-island",
+      "name": "Habitat for Humanity Hawai'i Island",
+      "city": "P.O. Box 4619Kailua-Kona",
+      "state": "HI",
+      "url": "https://www.habitathawaiiisland.org/uploads/1/3/1/3/131387935/applicationpkt111220.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "hawai-i-land-trust",
+      "name": "Hawai'i Land Trust",
+      "city": "126 Queen St., Suite 306Honolulu",
+      "state": "HI",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "land-trust-pal-hawaii",
+      "name": "Land Trust — PAL Hawaiʻi",
+      "city": null,
+      "state": "HI",
+      "url": "https://pal-hawaii.org/land-trust",
+      "status": "extracted"
+    },
+    {
+      "id": "moloka-i-land-trust",
+      "name": "Moloka'I Land Trust",
+      "city": "PO Box 1884Kaunakakaki",
+      "state": "HI",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "na-hale-o-maui",
+      "name": "Nā Hale O Maui",
+      "city": "P.O. Box 1829Wailuku",
+      "state": "HI",
+      "url": "https://www.nahaleomaui.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "who-we-are-lahaina-community-land-trust",
+      "name": "Who We Are — Lahaina Community Land Trust",
+      "city": null,
+      "state": "HI",
+      "url": "https://lahainacommunitylandtrust.org/whoweare",
+      "status": "extracted"
+    },
+    {
+      "id": "story-county-community-housing-corporation",
+      "name": "Story County Community Housing Corporation",
+      "city": "130 S Sheldon #307Ames",
+      "state": "IA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "arch-community-housing-trust",
+      "name": "ARCH Community Housing Trust",
+      "city": "PO Box 1292Ketchum",
+      "state": "ID",
+      "url": "https://archbc.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "hills-and-rivers-housing-trust",
+      "name": "Hills and Rivers Housing Trust",
+      "city": null,
+      "state": "ID",
+      "url": "https://www.moscowhousingtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "leap-housing-trust",
+      "name": "Leap Housing Trust",
+      "city": "Boise",
+      "state": "ID",
+      "url": "https://www.leaphousing.org/housing-trust",
+      "status": "extracted"
+    },
+    {
+      "id": "moscow-affordable-housing-trust",
+      "name": "Moscow Affordable Housing Trust",
+      "city": "Moscow",
+      "state": "ID",
+      "url": "https://www.moscowhousingtrust.org/about",
+      "status": "extracted"
+    },
+    {
+      "id": "chicago-housing-trust",
+      "name": "Chicago Housing Trust",
+      "city": "121 N La Salle St. #1003AChicago",
+      "state": "IL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "community-partners-for-affordable-housing",
+      "name": "Community Partners for Affordable Housing",
+      "city": "800 S Milwaukee Ave #201Libertyville",
+      "state": "IL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "first-clt-of-chicago-west-humboldt-park-development-council",
+      "name": "First CLT of Chicago (West Humboldt Park Development Council)",
+      "city": "Chicago",
+      "state": "IL",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "here-to-stay-community-land-trust",
+      "name": "Here to Stay Community Land Trust",
+      "city": "2840 N. Milwaukee Ave.Libertyville",
+      "state": "IL",
+      "url": "https://heretostayclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "indianapolis-community-land-trust",
+      "name": "Indianapolis Community Land Trust",
+      "city": "P.O. Box 88856Indianapolis",
+      "state": "IL",
+      "url": "https://indianapolisrecorder.com/community-land-trust-a-proven-model-to-address-indys-housing-crisis/",
+      "status": "crawl_failed"
+    },
+    {
+      "id": "acres-land-trust",
+      "name": "Acres Land Trust",
+      "city": "1802 Chapman Road; PO Box 665Hunertown",
+      "state": "IN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "near-east-area-renewal",
+      "name": "Near East Area Renewal",
+      "city": "Indianapolis",
+      "state": "IN",
+      "url": "https://www.nearindy.org/antidisplacement",
+      "status": "extracted"
+    },
+    {
+      "id": "tenants-to-homeowners",
+      "name": "Tenants to Homeowners",
+      "city": "Lawrence",
+      "state": "KS",
+      "url": "https://tenants-to-homeowners.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "lexington-community-land-trust",
+      "name": "Lexington Community Land Trust",
+      "city": "P.O. Box 171Lexington",
+      "state": "KY",
+      "url": "https://lexingtonclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "crescent-city-clt",
+      "name": "Crescent City Community Land Trust",
+      "city": "New Orleans",
+      "state": "LA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "crescent-city-community-land-trust",
+      "name": "Crescent City Community Land Trust",
+      "city": "300 N. Broad St, Suite 208New Orleans",
+      "state": "LA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "jane-place-neighborhood-sustainability-initiative",
+      "name": "Jane Place Neighborhood Sustainability Initiative",
+      "city": "2533 Columbus Street, Suite 104New Orleans",
+      "state": "LA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "northshore-housing-initiative-community-land-trust",
+      "name": "Northshore Housing Initiative Community Land Trust",
+      "city": "769 Robert Blvd., Ste. 201CSlidell",
+      "state": "LA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "amherst-community-land-trust",
+      "name": "Amherst Community Land Trust",
+      "city": "P.O. Box 395Amherst",
+      "state": "MA",
+      "url": "https://www.amherstcommunitylandtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "andover-community-trust",
+      "name": "Andover Community Trust",
+      "city": "P.O. Box 5038Andover",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "berkshire-community-land-trust",
+      "name": "Berkshire Community Land Trust",
+      "city": "PO Box 276Great Barrington",
+      "state": "MA",
+      "url": "https://berkshirecommunitylandtrust.org/newsletters",
+      "status": "extracted"
+    },
+    {
+      "id": "berkshire-clt",
+      "name": "Berkshire Community Land Trust",
+      "city": "Great Barrington",
+      "state": "MA",
+      "url": "https://berkshirecommunitylandtrust.org",
+      "status": "extracted"
+    },
+    {
+      "id": "boston-farms-community-land-trust-inc",
+      "name": "Boston Farms Community Land Trust Inc.",
+      "city": "Mattapan",
+      "state": "MA",
+      "url": "https://www.boston.gov/sites/default/files/buildinghousing/project/115-123-bird-st-urban-farm/attachment/document/0698b00000WXKXPAA5.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "boston-neighborhood-clt",
+      "name": "Boston Neighborhood CLT",
+      "city": "1803 Dorchester Ave.Dorchester",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "boston-neighborhood-community-land-trust",
+      "name": "Boston Neighborhood Community Land Trust",
+      "city": "Boston",
+      "state": "MA",
+      "url": "https://www.ujimaboston.com/post/ujima-members-approve-300k-investment-in-boston-neighborhood-community-land-trust",
+      "status": "extracted"
+    },
+    {
+      "id": "bread-and-roses-community-land-trust",
+      "name": "Bread and Roses Community Land Trust",
+      "city": "15 Union St. Suite 401Lawrence",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "chinatown-community-land-trust",
+      "name": "Chinatown Community Land Trust",
+      "city": "28 Ash St.Boston",
+      "state": "MA",
+      "url": "https://chinatowncollections.library.northeastern.edu/en/organizations.html",
+      "status": "extracted"
+    },
+    {
+      "id": "community-land-trust-in-the-southern-berkshires",
+      "name": "Community Land Trust in the Southern Berkshires",
+      "city": "P.O. Box 276Great Barrington",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "comunidades-enraizadas-community-land-trust",
+      "name": "Comunidades Enraizadas Community Land Trust",
+      "city": "Chelsea",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "dudley-neighbors",
+      "name": "Dudley Neighbors Inc.",
+      "city": "Boston",
+      "state": "MA",
+      "url": "https://www.dudleyneighbors.org",
+      "status": "extracted"
+    },
+    {
+      "id": "dudley-neighbors-inc",
+      "name": "Dudley Neighbors, Inc.",
+      "city": "6504 Dudley St.Roxbury",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "island-housing-trust",
+      "name": "Island Housing Trust",
+      "city": "P.O. Box 779West Tisbury",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "island-housing-trust-corporation",
+      "name": "Island Housing Trust Corporation",
+      "city": "Vineyard Haven",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "somerville-community-land-trust",
+      "name": "Somerville Community Land Trust",
+      "city": "Somerville",
+      "state": "MA",
+      "url": "https://www.somervillecommunitylandtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "valley-community-land-trust",
+      "name": "Valley Community Land Trust",
+      "city": "PO Box 1552Greenfield",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "westborough-community-land-trust",
+      "name": "Westborough Community Land Trust",
+      "city": null,
+      "state": "MA",
+      "url": "https://westboroughlandtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "worcester-common-ground",
+      "name": "Worcester Common Ground",
+      "city": "Worcester",
+      "state": "MA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "building-bright-communities-inc",
+      "name": "Building Bright Communities Inc.",
+      "city": "P.O. Box 6200Silver Springs",
+      "state": "MD",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "charm-city-land-trusts",
+      "name": "Charm City Land Trusts",
+      "city": "2500 Maryland Ave.Baltimore",
+      "state": "MD",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "frederick-county-affordable-housing-land-trust-under-habitat-for-humanity-of-frederick-county-maryland",
+      "name": "Frederick County Affordable Housing Land Trust (under Habitat for Humanity of Frederick County Maryland)",
+      "city": "24 S. Wisner Street, Suite 130Frederick",
+      "state": "MD",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "north-east-housing-initiative",
+      "name": "North East Housing Initiative",
+      "city": "Baltimore",
+      "state": "MD",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "south-baltimore-community-land-trust-inc",
+      "name": "South Baltimore Community Land Trust Inc",
+      "city": "PO Box 19762Baltimore",
+      "state": "MD",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "commonterra-community-land-trust-partial-farm",
+      "name": "Commonterra Community Land Trust/Partial Farm",
+      "city": "129 Stovepipe Alley Monroe",
+      "state": "ME",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "covenant-community-land-trust",
+      "name": "Covenant Community Land Trust",
+      "city": "P.O. Box 8Orland",
+      "state": "ME",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "greater-portland-community-land-trust",
+      "name": "Greater Portland Community Land Trust",
+      "city": "PO Box 8223Portland",
+      "state": "ME",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "island-housing-trust-me",
+      "name": "Island Housing Trust (ME)",
+      "city": "1366 Maine 102Bar Harbor",
+      "state": "ME",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "land-in-common",
+      "name": "Land in Common",
+      "city": null,
+      "state": "ME",
+      "url": "https://landincommon.org/",
+      "status": "rescue_failed"
+    },
+    {
+      "id": "waterville-community-land-trust",
+      "name": "Waterville Community Land Trust",
+      "city": "P.O. Box 1834Waterville",
+      "state": "ME",
+      "url": "https://watervilleclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "dwelling-place-regional-community-land-trust",
+      "name": "Dwelling Place Regional Community Land Trust",
+      "city": "101 Sheldon Blvd. Suite 2Grand Rapids",
+      "state": "MI",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "grand-haven-community-land-trust",
+      "name": "Grand Haven Community Land Trust",
+      "city": "Grand Haven",
+      "state": "MI",
+      "url": "https://grandhaven.org/downloads/minutes/city-council/07062021cm.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "michigan-community-land-trust-coalition",
+      "name": "Michigan Community Land Trust Coalition",
+      "city": null,
+      "state": "MI",
+      "url": "https://micltcoalition.my.canva.site/",
+      "status": "extracted"
+    },
+    {
+      "id": "northern-homes-community-development-corporation",
+      "name": "Northern Homes Community Development Corporation",
+      "city": "Boyne City",
+      "state": "MI",
+      "url": "https://www.northernhomes.org/homeownership/buying-guide/community-land-trust",
+      "status": "extracted"
+    },
+    {
+      "id": "the-storehouse-of-hope",
+      "name": "The Storehouse of Hope",
+      "city": "Detroit",
+      "state": "MI",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "cannon-river-clt",
+      "name": "Cannon River CLT",
+      "city": "Northfield",
+      "state": "MN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "carver-county-community-land-trust",
+      "name": "Carver County Community Land Trust",
+      "city": "705 Walnut St. NChasla",
+      "state": "MN",
+      "url": "https://www.carvercda.org/media/userfiles/subsite_275/files/Board%20Packets/December%20Board%20Packet%20Revised.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "central-mn-housing-partnership-central-mn-clt",
+      "name": "Central MN Housing Partnership/Central MN CLT",
+      "city": "810 West St. Germain St., #303.St. Cloud",
+      "state": "MN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "city-of-lakes-community-land-trust",
+      "name": "City of Lakes Community Land Trust",
+      "city": "1930 Glenwood Ave.Minneapolis",
+      "state": "MN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "city-of-lakes-clt",
+      "name": "City of Lakes Community Land Trust",
+      "city": "Minneapolis",
+      "state": "MN",
+      "url": "https://www.clclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "first-homes-community-land-trust",
+      "name": "First Homes Community Land Trust",
+      "city": "400 South Broadway Ste. 300Rochester",
+      "state": "MN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "homes-within-reach-west-hennepin-affordable-housing-land-trust",
+      "name": "Homes Within Reach: West Hennepin Affordable Housing Land Trust",
+      "city": "5101 Thimson Ave. Suite 202Minnetonka",
+      "state": "MN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "one-roof-community-housing",
+      "name": "One Roof Community Housing",
+      "city": "12 E. 4th St.Duluth",
+      "state": "MN",
+      "url": "https://1roofhousing.org/tenants-landlords/landlords/landlord-workshops/",
+      "status": "extracted"
+    },
+    {
+      "id": "partnership-community-land-trust",
+      "name": "Partnership Community Land Trust",
+      "city": "Slayton",
+      "state": "MN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "partnership-in-property",
+      "name": "Partnership in Property CLT",
+      "city": "Minneapolis",
+      "state": "MN",
+      "url": "https://www.pipclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "rondo-clt",
+      "name": "Rondo Community Land Trust",
+      "city": "St. Paul",
+      "state": "MN",
+      "url": "https://www.rondoclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "scott-county-community-land-trust",
+      "name": "Scott County Community Land Trust",
+      "city": "Shakopee",
+      "state": "MN",
+      "url": "https://scottcda.org/resource/community-land-trust/",
+      "status": "extracted"
+    },
+    {
+      "id": "two-rivers-community-land-trust",
+      "name": "Two Rivers Community Land Trust",
+      "city": "Woodbuiry",
+      "state": "MN",
+      "url": "https://www.tworiversclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "west-central-community-land-trust",
+      "name": "West Central Community Land Trust",
+      "city": "1910 Aga Drive - Suite 206Alexandria",
+      "state": "MN",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "24-1-community-land-trust",
+      "name": "24:1 Community Land Trust",
+      "city": "4156 Manchester Ave.St. Louis",
+      "state": "MO",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "africatown-community-land-trust-st-louis",
+      "name": "Africatown Community Land Trust-St. Louis",
+      "city": null,
+      "state": "MO",
+      "url": "https://africatown-stl.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "bear-creek-community-land-trust",
+      "name": "Bear Creek Community Land Trust",
+      "city": null,
+      "state": "MO",
+      "url": "https://bearcreekcommunitylandtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "columbia-community-land-trust",
+      "name": "Columbia Community Land Trust",
+      "city": "500 E. Walnut Street Suite 108Columbia",
+      "state": "MO",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "marlborough-community-land-trust",
+      "name": "Marlborough Community Land Trust",
+      "city": "Kansas City",
+      "state": "MO",
+      "url": "https://wearemarlborough.org/healthy-housing-resources-in-marlborough",
+      "status": "extracted"
+    },
+    {
+      "id": "red-earth-farms",
+      "name": "Red Earth Farms",
+      "city": "Rutledge",
+      "state": "MO",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "springfield-community-land-trust",
+      "name": "Springfield Community Land Trust",
+      "city": "P.O. Box 8975330 N. Jefferson Ave. Springfield",
+      "state": "MO",
+      "url": "https://springfieldclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "north-gulfport-community-land-trust",
+      "name": "North Gulfport Community Land Trust",
+      "city": "8208 Ohio Ave.Gulfport",
+      "state": "MS",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "rosemont-community-land-trust",
+      "name": "Rosemont Community Land Trust",
+      "city": "Jackson",
+      "state": "MS",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "big-sky-community-housing-trust",
+      "name": "Big Sky Community Housing Trust",
+      "city": "Big Sky",
+      "state": "MT",
+      "url": "https://bigskyhousingtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "habitat-for-humanity-of-missoula",
+      "name": "Habitat for Humanity of Missoula",
+      "city": "Montana 200East Missoula",
+      "state": "MT",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "headwaters-community-housing-trust",
+      "name": "Headwaters Community Housing Trust",
+      "city": "Bozeman",
+      "state": "MT",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "north-missoula-cdc",
+      "name": "North Missoula CDC",
+      "city": "Missoula",
+      "state": "MT",
+      "url": "https://missoulaparks.org/DocumentCenter/View/70894",
+      "status": "extracted"
+    },
+    {
+      "id": "northwest-montana-community-land-trust",
+      "name": "Northwest Montana Community Land Trust",
+      "city": "214 Main Street, P.O. BOX 8300Kalispell",
+      "state": "MT",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "southwest-montana-community-housing-trust",
+      "name": "Southwest Montana Community Housing Trust",
+      "city": null,
+      "state": "MT",
+      "url": "https://www.swmthousingtrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "trust-montana",
+      "name": "Trust Montana",
+      "city": "PO Box 8791Missoula",
+      "state": "MT",
+      "url": "https://trustmontanaclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "asheville-buncombe-community-land-trust",
+      "name": "Asheville-Buncombe Community Land Trust",
+      "city": "825 C Merrimon, PMB #141Asheville",
+      "state": "NC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "cape-fear-community-land-trust",
+      "name": "Cape Fear Community Land Trust",
+      "city": "PO Box 1143Wilmington",
+      "state": "NC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "cape-fear-community-land-trust-inc",
+      "name": "Cape Fear Community Land Trust, Inc.",
+      "city": "PO Box 12424Wilmington",
+      "state": "NC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "community-home-trust",
+      "name": "Community Home Trust",
+      "city": "P.O. Box 2315Chapel Hill",
+      "state": "NC",
+      "url": "https://communityhometrust.org/dowling-home-maintenance-fund-2025/",
+      "status": "extracted"
+    },
+    {
+      "id": "community-home-trust-clt",
+      "name": "Community Home Trust CLT",
+      "city": "P.O. Box 307Carrboro",
+      "state": "NC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "durham-community-land-trust",
+      "name": "Durham Community Land Trust",
+      "city": "1208 West Chapel Hill St.Durham",
+      "state": "NC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "raleigh-area-land-trust",
+      "name": "Raleigh Area Land Trust",
+      "city": "311 New Bern Avenue #28363Raleigh",
+      "state": "NC",
+      "url": "https://raleighforward.org/community-prosperity/raleigh-area-land-trust-shared-equity-homeownership-and-building-generational-wealth",
+      "status": "extracted"
+    },
+    {
+      "id": "watauga-community-housing-trust",
+      "name": "Watauga Community Housing Trust",
+      "city": "Deep Gap",
+      "state": "NC",
+      "url": "https://www.wataugademocrat.com/news/local/year-in-review-2024-in-watauga-county/article_fe782580-b0ff-11ef-885b-e71e24d9469c.html",
+      "status": "extracted"
+    },
+    {
+      "id": "west-side-community-land-trust",
+      "name": "West Side Community Land Trust",
+      "city": "PO Box 668023Charlotte",
+      "state": "NC",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "cass-clay-community-land-trust",
+      "name": "Cass Clay Community Land Trust",
+      "city": "Fargo",
+      "state": "ND",
+      "url": "https://cassclayclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "grand-forks-community-land-trust",
+      "name": "Grand Forks Community Land Trust",
+      "city": "Grand Forks",
+      "state": "ND",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "meet-the-north-star-neighbors-community-land-trust-team",
+      "name": "Meet the North Star Neighbors Community Land Trust Team",
+      "city": null,
+      "state": "ND",
+      "url": "https://northstarneighbors.org/our-team/",
+      "status": "extracted"
+    },
+    {
+      "id": "minot-area-community-land-trust",
+      "name": "Minot Area Community Land Trust",
+      "city": "PO Box 2024Minot",
+      "state": "ND",
+      "url": "https://www.minotclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "cold-pond-community-land-trust",
+      "name": "Cold Pond Community Land Trust",
+      "city": "P.O. Box 212Acworth",
+      "state": "NH",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "monadnock-community-land-trust",
+      "name": "Monadnock Community Land Trust",
+      "city": "Wiltyon",
+      "state": "NH",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "sawmill-community-land-trust",
+      "name": "Sawmill Community Land Trust",
+      "city": "Albuquerque",
+      "state": "NH",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "essex-community-land-trust",
+      "name": "Essex Community Land Trust",
+      "city": null,
+      "state": "NJ",
+      "url": "https://www.essexclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "sawmill-clt",
+      "name": "Sawmill Community Land Trust",
+      "city": "Albuquerque",
+      "state": "NM",
+      "url": "https://www.sawmillclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "tierra-madre",
+      "name": "Tierra Madre",
+      "city": "Sunland Park",
+      "state": "NM",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "community-housing-land-trust-llc",
+      "name": "Community Housing Land Trust, LLC",
+      "city": "50 Washington Street, Suite 300Reno",
+      "state": "NV",
+      "url": "https://nvhousingcoalition.org/wp-content/uploads/2022/12/Community-Foundation-of-Northern-Nevada.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "nevco-west-community-land-trust-nevco-west-clt",
+      "name": "NevCo West Community Land Trust: Nevco West CLT",
+      "city": null,
+      "state": "NV",
+      "url": "https://www.nevcowestclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "fka-community-land-trust-of-schenectady-better-community-neighborhoods",
+      "name": "(FKA Community Land Trust of Schenectady) BETTER COMMUNITY NEIGHBORHOODS",
+      "city": "Schenectady",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "adirondack-community-housing-trust",
+      "name": "Adirondack Community Housing Trust",
+      "city": "103 Hand Avenue P.O. Box 157Elizabethtown",
+      "state": "NY",
+      "url": "https://adirondackroots.org/our-services/for-homebuyers/",
+      "status": "extracted"
+    },
+    {
+      "id": "albany-community-land-trust",
+      "name": "Albany Community Land Trust",
+      "city": "Albany",
+      "state": "NY",
+      "url": "https://www.albanyclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "broome-community-land-trust",
+      "name": "Broome Community Land Trust",
+      "city": "Binghamton",
+      "state": "NY",
+      "url": "https://broomelandbank.org/wp-content/uploads/2023/05/BCLBC-Minutes-11.16.2021_FINAL.pdf",
+      "status": "extracted"
+    },
+    {
+      "id": "brownsville-community-land-trust",
+      "name": "Brownsville Community Land Trust",
+      "city": "Brooklyn",
+      "state": "NY",
+      "url": "https://unitedforbrownsville.org/brownsvillepartnership/",
+      "status": "extracted"
+    },
+    {
+      "id": "city-roots-clt",
+      "name": "City Roots CLT",
+      "city": "1441 Parsells Ave.Rochester",
+      "state": "NY",
+      "url": "https://www.cityrootsclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "cooper-square-community-land-trust",
+      "name": "Cooper Square Community Land Trust",
+      "city": "New York",
+      "state": "NY",
+      "url": "https://www.coopersquareclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "east-harlem-el-barrio-clt",
+      "name": "East Harlem/El Barrio CLT",
+      "city": "Bronx",
+      "state": "NY",
+      "url": "https://ehebclt.nyc",
+      "status": "extracted"
+    },
+    {
+      "id": "east-new-york-community-land-trust",
+      "name": "East New York Community Land Trust",
+      "city": "Brooklyn",
+      "state": "NY",
+      "url": "https://www.eastnewyorkclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "fruit-belt-community-land-trust",
+      "name": "Fruit Belt Community Land Trust",
+      "city": "P.O. Box 262Buffalo",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "fund-community-land-trust",
+      "name": "Fund Community Land Trust",
+      "city": "Hauppauge",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "hfh-of-suffolk-south-country-clt-south-country-clt",
+      "name": "HFH of Suffolk; South Country CLT; South Country CLT",
+      "city": "Bellport",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-of-tompkins-cortland-counties",
+      "name": "Habitat for Humanity of Tompkins & Cortland Counties",
+      "city": "PO Box 4683Ithaca",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "interboro-community-land-trust",
+      "name": "Interboro Community Land Trust",
+      "city": "17 Battery Place, Suite 728New York",
+      "state": "NY",
+      "url": "https://www.interboroclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "northern-manhattan-clt",
+      "name": "Northern Manhattan CLT",
+      "city": "45 Wadsworth Ave, New York",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "northwest-bronx-community-clergy-coalition-clt",
+      "name": "Northwest Bronx Community & Clergy Coalition CLT",
+      "city": "103 E 196th St.Bronx",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "southern-door-community-land-trust",
+      "name": "Southern Door Community Land Trust",
+      "city": "Binghamton",
+      "state": "NY",
+      "url": "https://www.southerndoorclt.com/",
+      "status": "extracted"
+    },
+    {
+      "id": "the-village-of-hempstead",
+      "name": "The Village of Hempstead",
+      "city": "50 Clinton Street, Suite 504 Hempstead",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "western-queens-community-land-trust-uniondale-community-land-trust",
+      "name": "Western Queens Community Land Trust (Uniondale Community Land Trust)",
+      "city": "589 Newton Ave.Uniondale",
+      "state": "NY",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "central-ohio-community-land-trust",
+      "name": "Central Ohio Community Land Trust",
+      "city": "Columbus",
+      "state": "OH",
+      "url": "https://www.ohiocltnetwork.org/our-members-2",
+      "status": "extracted"
+    },
+    {
+      "id": "community-land-cooperative-of-cincinnati-the-neighborhood-house",
+      "name": "Community Land Cooperative of Cincinnati/ The Neighborhood House",
+      "city": "Cincinnati",
+      "state": "OH",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "neighbor-housing-services-of-greater-cleveland-the-land-trust-now-part-of-chn-housing-partners",
+      "name": "Neighbor Housing Services of Greater Cleveland: The Land Trust (now part of CHN Housing Partners)",
+      "city": "Cleveland",
+      "state": "OH",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "oberlin-community-land-trust",
+      "name": "Oberlin Community Land Trust",
+      "city": "Oberlin",
+      "state": "OH",
+      "url": "https://www.oberlinclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "ohio-community-land-trust-network",
+      "name": "Ohio Community Land Trust Network",
+      "city": null,
+      "state": "OH",
+      "url": "https://www.ohiocltnetwork.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "yellow-springs-home",
+      "name": "Yellow Springs Home",
+      "city": "P.O. Box 503Yellow Springs",
+      "state": "OH",
+      "url": "https://www.yshome.org/your-community-land-trust.html",
+      "status": "extracted"
+    },
+    {
+      "id": "oklahoma-community-land-consortium",
+      "name": "Oklahoma Community Land Consortium",
+      "city": null,
+      "state": "OK",
+      "url": "https://ok-community-land-consortium.squarespace.com/",
+      "status": "extracted"
+    },
+    {
+      "id": "ashland-clt",
+      "name": "Ashland CLT",
+      "city": "Ashland",
+      "state": "OR",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "bend-redmond-habitat-for-humanity",
+      "name": "Bend-Redmond Habitat for Humanity",
+      "city": "Bend",
+      "state": "OR",
+      "url": "https://bendredmondhabitat.org/about/",
+      "status": "extracted"
+    },
+    {
+      "id": "corvallis-neighborhood-housing-services-clt",
+      "name": "Corvallis Neighborhood Housing Services CLT",
+      "city": "Springfield",
+      "state": "OR",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "devnw",
+      "name": "DevNW",
+      "city": "Springfield",
+      "state": "OR",
+      "url": "https://www.devnw.org",
+      "status": "extracted"
+    },
+    {
+      "id": "habitat-for-humanity-portland-metro-east",
+      "name": "Habitat for Humanity Portland/Metro East",
+      "city": "Portland",
+      "state": "OR",
+      "url": "https://habitatportlandregion.org/land-bank/",
+      "status": "extracted"
+    },
+    {
+      "id": "junction-city-harrisburg-monroe-habitat-for-humanity",
+      "name": "Junction City/Harrisburg/Monroe Habitat for Humanity",
+      "city": "PO BOX 171 Junction City",
+      "state": "OR",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "kor-community-land-trust",
+      "name": "Kôr Community Land Trust",
+      "city": "1384 NW Saginaw Ave.Bend",
+      "state": "OR",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "montavilla-clt",
+      "name": "Montavilla Community Land Trust",
+      "city": "Portland",
+      "state": "OR",
+      "url": "https://www.montavillalandtrust.org",
+      "status": "extracted"
+    },
+    {
+      "id": "proud-ground",
+      "name": "Proud Ground",
+      "city": "5288 N Interstate Ave.Portland",
+      "state": "OR",
+      "url": "https://www.proudground.org",
+      "status": "extracted"
+    },
+    {
+      "id": "rootedhomes",
+      "name": "RootedHomes",
+      "city": "Bend",
+      "state": "OR",
+      "url": "https://rootedhomes.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "sabin-cdc",
+      "name": "Sabin CDC",
+      "city": "1488 NE Alberta St.Portland",
+      "state": "OR",
+      "url": "https://sabincdc.us/",
+      "status": "extracted"
+    },
+    {
+      "id": "west-tuality-habitat-for-humanity",
+      "name": "West Tuality Habitat for Humanity",
+      "city": "Forest Grove",
+      "state": "OR",
+      "url": "https://www.westtualityhabitat.org/donations",
+      "status": "extracted"
+    },
+    {
+      "id": "allegheny-valley-habitat-for-humanity",
+      "name": "Allegheny Valley Habitat for Humanity",
+      "city": "New Kensington",
+      "state": "PA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "centre-county-housing-land-trust",
+      "name": "Centre County Housing & Land Trust",
+      "city": "PO BOX 141State College",
+      "state": "PA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "city-of-bridges-community-land-trust",
+      "name": "City of Bridges Community Land Trust",
+      "city": "100 43rd, Suite 106Pittsburgh",
+      "state": "PA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "community-justice-land-trust",
+      "name": "Community Justice Land Trust",
+      "city": "100 West Oxford Street Suite E-2300Philadelphia",
+      "state": "PA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "garfield-land-trust",
+      "name": "Garfield Land Trust",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "url": "https://garfieldlandtrust.groups.io/g/main/topics",
+      "status": "extracted"
+    },
+    {
+      "id": "grow-pittsburgh",
+      "name": "Grow Pittsburgh",
+      "city": "26587 Hamilton Ave #2WPittsburgh",
+      "state": "PA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-of-bucks-county",
+      "name": "Habitat for Humanity of Bucks County",
+      "city": "Warminster",
+      "state": "PA",
+      "url": "https://www.habitatbucks.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "lehigh-valley-community-land-trust",
+      "name": "Lehigh Valley Community Land Trust",
+      "city": "Bethlehem",
+      "state": "PA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "mosaic-community-land-trust",
+      "name": "Mosaic Community Land Trust",
+      "city": "Pottstown",
+      "state": "PA",
+      "url": "https://mosaicclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "state-college-community-land-trust",
+      "name": "State College Community Land Trust",
+      "city": "1315 S. Allen Street Ste. 306State College",
+      "state": "PA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "womens-community-revitalization-project",
+      "name": "Women’s Community Revitalization Project",
+      "city": "100 West Oxford Street, Suite E-2300Philadelphia",
+      "state": "PA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "cano-martin-pena-community-land-trust",
+      "name": "Caño Martín Peña Community Land Trust",
+      "city": "PMB 1838, 243 París St.San Juan",
+      "state": "PR",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "fideicomiso-de-la-tierra",
+      "name": "Fideicomiso de la Tierra",
+      "city": "San Juan",
+      "state": "PR",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "church-community-housing-corporation-clt",
+      "name": "Church Community Housing Corporation CLT",
+      "city": "50 Washington Square Newport",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "community-housing-land-trust-of-rhode-island-network-of-clt-s-in-ri",
+      "name": "Community Housing Land Trust of Rhode Island (network of CLT's in RI)",
+      "city": "1070 Main St.Pawtucket",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "community-works-ri",
+      "name": "Community Works RI",
+      "city": "Providence",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "east-bay-community-development-ebcdc",
+      "name": "East Bay Community Development (EBCDC)",
+      "city": "Bristol",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "habitat-for-humanity-of-south-county-hsc",
+      "name": "Habitat for Humanity of South County (HSC)",
+      "city": "25 West Independence Way, Kingston",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "neighborworks-blackstone-river-valley-nwbrv",
+      "name": "NeighborWorks Blackstone River Valley (NWBRV)",
+      "city": "Woonsocket",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "one-neighborhood-builders",
+      "name": "One Neighborhood Builders",
+      "city": "Providence",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "southside-community-land-trust",
+      "name": "Southside Community Land Trust",
+      "city": "Providence",
+      "state": "RI",
+      "url": "https://www.southsideclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "westbay-community-action-program-inc-wbcap",
+      "name": "Westbay Community Action Program Inc. (WBCAP)",
+      "city": "Providence",
+      "state": "RI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "palmetto-community-land-trust",
+      "name": "Palmetto Community Land Trust",
+      "city": "75 Calhoun Street, Suite 3200Charleston",
+      "state": "SC",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "sterling-land-trust",
+      "name": "Sterling Land Trust",
+      "city": "Greeneville",
+      "state": "SC",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "dakota-land-trust",
+      "name": "Dakota Land Trust",
+      "city": "Deadwood",
+      "state": "SD",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "binghampton-community-land-trust",
+      "name": "Binghampton Community Land Trust",
+      "city": "Memphis",
+      "state": "TN",
+      "url": "https://www.binghamptonclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "nashville-community-land-trust-at-the-housing-fund",
+      "name": "Nashville Community Land Trust at the Housing Fund",
+      "city": "50 Vantage Way Suite 201Nashville",
+      "state": "TN",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "woodland-community-land-trust",
+      "name": "Woodland Community Land Trust",
+      "city": "469 Roses Creek Rd.Cklairfield",
+      "state": "TN",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "guadalupe-neighborhood-development-corporation",
+      "name": "Guadalupe Neighborhood Development Corporation",
+      "city": "13 East 8th St.Austin",
+      "state": "TX",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "harris-county-community-land-trust-management-corporation",
+      "name": "Harris County Community Land Trust Management Corporation",
+      "city": "Houston",
+      "state": "TX",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "houston-clt",
+      "name": "Houston Community Land Trust",
+      "city": "Houston",
+      "state": "TX",
+      "url": "https://www.houstonclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "houston-community-land-trust",
+      "name": "Houston Community Land Trust",
+      "city": "Gowen Street, Suite 220Houston",
+      "state": "TX",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "moab-area-community-land-trust",
+      "name": "Moab Area Community Land Trust",
+      "city": "Moab",
+      "state": "UT",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "utah-community-land-trusts",
+      "name": "Utah Community Land Trusts",
+      "city": null,
+      "state": "UT",
+      "url": "https://www.utahclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "habitat-for-humanity-of-washington-dc-and-northern-virginia",
+      "name": "Habitat for Humanity of Washington DC and Northern Virginia",
+      "city": "Alexandria",
+      "state": "VA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "huntington-community-land-trust",
+      "name": "Huntington Community Land Trust",
+      "city": "Newport News",
+      "state": "VA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "maggie-walker-community-land-trust",
+      "name": "Maggie Walker Community Land Trust",
+      "city": "Richmond",
+      "state": "VA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "piedmont-community-land-trust-kfa-thomas-jefferson-clt",
+      "name": "Piedmont Community Land Trust (KFA Thomas Jefferson CLT)",
+      "city": "PO Box 1606Charlottesville",
+      "state": "VA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "virginia-statewide-clt",
+      "name": "Virginia Statewide CLT",
+      "city": "6295 Edsall Road, Suite 120Alexandria",
+      "state": "VA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "addison-county-community-land-trust",
+      "name": "Addison County Community Land Trust",
+      "city": "P.O. Box 311Vergennes",
+      "state": "VT",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "champlain-housing-trust",
+      "name": "Champlain Housing Trust",
+      "city": "Burlington",
+      "state": "VT",
+      "url": "https://www.getahome.org",
+      "status": "extracted"
+    },
+    {
+      "id": "earth-bridge-community-land-trust",
+      "name": "Earth Bridge Community Land Trust",
+      "city": "PO Box 553Putney",
+      "state": "VT",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "headwaters-community-trust",
+      "name": "Headwaters Community Trust",
+      "city": null,
+      "state": "VT",
+      "url": "https://www.headwatersnek.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "two-pines-housing-trust",
+      "name": "Two Pines Housing Trust",
+      "city": "226 Holiday Drive, Suite 20White River Junction",
+      "state": "VT",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "windham-windsor-housing-trust",
+      "name": "Windham & Windsor Housing Trust",
+      "city": "Brattleboro",
+      "state": "VT",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "africatown-clt",
+      "name": "Africatown Community Land Trust",
+      "city": "Seattle",
+      "state": "WA",
+      "url": "https://www.africatownlandtrust.org",
+      "status": "extracted"
+    },
+    {
+      "id": "bay-clt",
+      "name": "Bay Community Land Trust",
+      "city": "Bellingham",
+      "state": "WA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "big-river-community-land-trust",
+      "name": "Big River Community Land Trust",
+      "city": "PO Box 2634White Salmon",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "common-ground-community-housing-trust",
+      "name": "Common Ground Community Housing Trust",
+      "city": "Wenatchee",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "common-roots-housing-trust",
+      "name": "Common Roots Housing Trust",
+      "city": "PO box 2936Walla Walla",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "evergreen-habitat-for-humanity",
+      "name": "Evergreen Habitat for Humanity",
+      "city": "PO Box 871570Vancouver",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "evergreen-land-trust",
+      "name": "Evergreen Land Trust",
+      "city": "Deming",
+      "state": "WA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "habitat-for-humanity-spokane",
+      "name": "Habitat for Humanity Spokane",
+      "city": "Spokane",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "habitat-for-humanity-of-east-jefferson-county",
+      "name": "Habitat for Humanity of East Jefferson County",
+      "city": "PO Box 658Port Townsend",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "habitat-for-humanity-of-island-county",
+      "name": "Habitat for Humanity of Island County",
+      "city": "Oak Harbor",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "home-trust-of-skagit",
+      "name": "Home Trust of Skagit",
+      "city": "Mount Vernon",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "homes-and-hope-clt",
+      "name": "Homes and Hope CLT",
+      "city": "10224 53rd Ave WMukilteo",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "homestead-community-land-trust",
+      "name": "Homestead Community Land Trust",
+      "city": "412 Maynard Ave. South #201Seattle",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "homestead-clt",
+      "name": "Homestead Community Land Trust",
+      "city": "Seattle",
+      "state": "WA",
+      "url": "https://www.homesteadclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "homeward-bound-clt",
+      "name": "Homeward Bound CLT",
+      "city": "Port Angelas",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "housing-resources-bainbridge",
+      "name": "Housing Resources Bainbridge",
+      "city": "730 Ericksen Ave NE Suite 100Bainbridge Island",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "housing-for-all-spokane-clt",
+      "name": "Housing for all - Spokane CLT",
+      "city": null,
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "island-affordable-housing-trust-dba-saratoga-community-housing",
+      "name": "Island Affordable Housing Trust dba Saratoga Community Housing",
+      "city": "PO Box 1002Freeland",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "kulshan-clt",
+      "name": "Kulshan Community Land Trust",
+      "city": "Bellingham",
+      "state": "WA",
+      "url": "https://www.kulshanclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "lopez-community-land-trust",
+      "name": "Lopez Community Land Trust",
+      "city": "PO Box 25Lopez Island",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "lopez-clt",
+      "name": "Lopez Community Land Trust",
+      "city": "Lopez Island",
+      "state": "WA",
+      "url": "https://www.lopezclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "methow-housing-trust",
+      "name": "Methow Housing Trust",
+      "city": "Winthrop",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "northwest-community-land-trust-coalition",
+      "name": "Northwest Community Land Trust Coalition",
+      "city": null,
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "opal-clt",
+      "name": "OPAL Community Land Trust",
+      "city": "Orcas Island",
+      "state": "WA",
+      "url": "https://www.opalclt.org",
+      "status": "extracted"
+    },
+    {
+      "id": "of-people-and-land-opal-community-land-trust",
+      "name": "Of People And Land (OPAL) Community Land Trust",
+      "city": "286 Enchanted Forest Rd.P.O. Box 1133Eastsound",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "olympic-housing-trust-fka-homeward-bound-clt",
+      "name": "Olympic Housing Trust fka Homeward Bound CLT",
+      "city": "616 Polk St.Port Townsend",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "s-h-a-r-e-community-land-trust",
+      "name": "S.H.A.R.E. Community Land Trust",
+      "city": "P.O. Box 772 347 Division St.Leavenworth",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "san-juan-community-home-trust",
+      "name": "San Juan Community Home Trust",
+      "city": "P.O. Box 2603Friday Harbor",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "san-juan-home-trust",
+      "name": "San Juan Community Home Trust",
+      "city": "Friday Harbor",
+      "state": "WA",
+      "url": "https://www.hometrust.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "south-of-the-sound-clt",
+      "name": "South of the Sound CLT",
+      "city": "4735 5th Ave. NWOlympia",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "south-of-sound-clt",
+      "name": "South of the Sound Community Land Trust",
+      "city": "Olympia",
+      "state": "WA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "spokane-community-land-trust",
+      "name": "Spokane Community Land Trust",
+      "city": "315 W. Mission Suite 22Spokane",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "spokane-clt",
+      "name": "Spokane Community Land Trust",
+      "city": "Spokane",
+      "state": "WA",
+      "url": "https://spokaneclt.weebly.com/",
+      "status": "rescue_failed"
+    },
+    {
+      "id": "tahoma-clt",
+      "name": "Tahoma Community Land Trust",
+      "city": "Tacoma",
+      "state": "WA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "thurston-housing-land-trust",
+      "name": "Thurston Housing Land Trust",
+      "city": "PO BOX 303Olympia",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "upper-valley-mend-share-community-land-trust",
+      "name": "Upper Valley MEND/SHARE Community Land Trust",
+      "city": "Leavenworth",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "vashon-household",
+      "name": "Vashon Household",
+      "city": "PO Box 413Vason",
+      "state": "WA",
+      "url": "https://www.vashonhousehold.org",
+      "status": "extracted"
+    },
+    {
+      "id": "waldron-community-land-trust",
+      "name": "Waldron Community Land Trust",
+      "city": "PO Box 11Waldron Island",
+      "state": "WA",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "waldron-clt",
+      "name": "Waldron Community Land Trust",
+      "city": "Waldron Island",
+      "state": "WA",
+      "url": null,
+      "status": "url_not_found"
+    },
+    {
+      "id": "cheqbuilt",
+      "name": "CheqBUILT",
+      "city": null,
+      "state": "WI",
+      "url": "https://www.cheqbuilt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "coulee-cap-clt",
+      "name": "Coulee Cap CLT",
+      "city": "Westby",
+      "state": "WI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "coulee-community-land-trust",
+      "name": "Coulee Community Land Trust",
+      "city": null,
+      "state": "WI",
+      "url": "https://couleecap.org/need-help/buying-a-home/coulee-community-land-trust/",
+      "status": "extracted"
+    },
+    {
+      "id": "door-county-housing-partnership",
+      "name": "Door County Housing Partnership",
+      "city": "P. O. Box 342Baileys Harbor",
+      "state": "WI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "madison-area-community-land-trust",
+      "name": "Madison Area Community Land Trust",
+      "city": "1501 Williamson St.Madison",
+      "state": "WI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "milwaukee-community-land-trust",
+      "name": "Milwaukee Community Land Trust",
+      "city": "PO Box 510781Milwaukee",
+      "state": "WI",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "jackson-hole-community-housing-trust",
+      "name": "Jackson Hole Community Housing Trust",
+      "city": "P.O. Box 4498Jackson",
+      "state": "WY",
+      "url": null,
+      "status": "discovered"
+    },
+    {
+      "id": "sheridan-community-land-trust",
+      "name": "Sheridan Community Land Trust",
+      "city": null,
+      "state": "WY",
+      "url": "https://sheridanclt.org/",
+      "status": "extracted"
+    },
+    {
+      "id": "agrarian-trust",
+      "name": "Agrarian Trust",
+      "city": null,
+      "state": null,
+      "url": "https://www.agrariantrust.org",
+      "status": "extracted"
+    }
+  ]
+}

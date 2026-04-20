@@ -1,6 +1,6 @@
 # Day 8 — All the CLTs — April 20, 2026
 
-**To:** Every public contact we could find across 329 U.S. community land trusts (131 with verified emails on day of send)
+**To:** Every public contact we could find across 329 U.S. community land trusts (131 with verified emails on day of send) | All Position Holders
 **From:** Tyler Falcon / info@montavillalandtrust.org
 **Subject:** Anyone there? We found you — and our community needs help.
 
@@ -24,13 +24,13 @@ Since then I've put together an inventory of every CLT I could find in the Unite
 
 **Why I built it:**
 
-On April 12 the Montavilla Farmers Market lot in my neighborhood — 7700 SE Stark — went up for sale at $5M. I'd never heard of a community land trust before I started reading. Eight days later, I've read every page I could find, written to seven neighbors who signed a petition, and started asking the harder question underneath all of it: *has anyone actually done this before?*
+After operating for 19 years, the Montavilla Farmers Market lot — 7700 SE Stark — went up for sale at $5M. I decided to do something about it. Eight days later, I've read every page I could find on CLTs, started running campaigns, and started asking the harder question underneath all of it: *has anyone actually done this before?*
 
-Turns out: yes. Hundreds of you. In 48 states. That's humbling, and it's also the reason I'm writing.
+Turns out: yes. Hundreds of you. In 48 states. It's the reason I'm writing.
 
 **Why I'm writing you:**
 
-Montavilla sits at a rare intersection — a commercial / agricultural CLT centered on a farmers market. Most CLTs are housing. A smaller number hold ag land. Fewer still do commercial. I have not found many peers.
+Montavilla CLT sits at the intersection of commercial / agricultural community space centered on a farmers market. Most CLTs are housing. A smaller number hold ag land. Fewer still do commercial. I may have found some peers, but I haven't met them yet.
 
 So I'm reaching out to all of you, at once, because I don't know which of you has already solved the problem I'm about to trip over. If any of the following describes your CLT, I would be grateful for 10 minutes of your email:
 

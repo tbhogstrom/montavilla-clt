@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/dump-clt-inventory.mjs && astro build",
     "preview": "astro preview",
     "db:setup": "node --import tsx/esm db/setup.ts"
   },

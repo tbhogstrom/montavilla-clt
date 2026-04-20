@@ -1,0 +1,341 @@
+---
+export const prerender = true;
+import '../styles/global.css';
+import Nav    from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import inventory from '../data/clt-inventory.json';
+
+const { generated_at, rows } = inventory as {
+  generated_at: string;
+  rows: Array<{
+    id: string;
+    name: string;
+    city: string | null;
+    state: string | null;
+    url: string | null;
+    status: string;
+  }>;
+};
+
+type StatusMeta = { label: string; tone: 'live' | 'pending' | 'missing' };
+const STATUS: Record<string, StatusMeta> = {
+  extracted:     { label: 'Live',          tone: 'live' },
+  url_found:     { label: 'Crawling',      tone: 'pending' },
+  crawled:       { label: 'Crawling',      tone: 'pending' },
+  discovered:    { label: 'Pending',       tone: 'pending' },
+  url_not_found: { label: 'No site found', tone: 'missing' },
+  rescue_failed: { label: 'No site found', tone: 'missing' },
+  crawl_failed:  { label: 'Crawl failed',  tone: 'missing' },
+};
+
+const statusMeta = (s: string): StatusMeta =>
+  STATUS[s] ?? { label: s, tone: 'pending' };
+
+const liveCount = rows.filter(r => r.status === 'extracted' && r.url).length;
+const formattedDate = generated_at
+  ? new Date(generated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  : '';
+
+const hostname = (url: string | null): string => {
+  if (!url) return '';
+  try { return new URL(url).hostname.replace(/^www\./, ''); }
+  catch { return url; }
+};
+
+const locationOf = (r: { city: string | null; state: string | null }): string => {
+  if (r.city && r.state) return `${r.city}, ${r.state}`;
+  return r.state ?? r.city ?? '';
+};
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLT Inventory — Montavilla Community Land Trust</title>
+  <meta name="description" content={`Directory of ${rows.length} U.S. Community Land Trusts with verified websites and known-but-unresolved entries.`} />
+  <meta property="og:title" content="CLT Inventory — Montavilla Community Land Trust" />
+  <meta property="og:description" content={`${rows.length} U.S. Community Land Trusts tracked, ${liveCount} with live websites.`} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .inv-hero {
+      background: var(--forest);
+      padding: 3.5rem 1.5rem 2.5rem;
+      border-bottom: 3px solid var(--ochre);
+    }
+    .inv-hero .inner { max-width: 1100px; margin: 0 auto; }
+    .inv-hero .eyebrow { color: var(--gold); margin-bottom: 0.6rem; }
+    .inv-hero h1 {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .inv-hero p.lead {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem;
+      color: var(--sage);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+    .inv-hero .meta {
+      margin-top: 1rem;
+      font-family: 'Crimson Pro', serif;
+      color: var(--sage);
+      font-size: 0.95rem;
+    }
+    .inv-hero .back-link {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      text-decoration: none;
+    }
+    .inv-hero .back-link:hover { color: var(--gold); }
+
+    .inv-body { background: var(--cream); padding: 2.5rem 1.5rem 4rem; }
+    .inv-body .inner { max-width: 1100px; margin: 0 auto; }
+
+    .inv-controls {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+    .inv-search {
+      flex: 1;
+      min-width: 240px;
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid rgba(29, 58, 42, 0.25);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--dark);
+    }
+    .inv-search:focus { outline: 2px solid var(--ochre); outline-offset: 1px; }
+    .inv-count {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.95rem;
+      color: var(--moss);
+      white-space: nowrap;
+    }
+
+    .inv-table-wrap { overflow-x: auto; }
+    table.inv {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Crimson Pro', serif;
+      background: #fff;
+      border: 1px solid rgba(29, 58, 42, 0.15);
+    }
+    table.inv th, table.inv td {
+      padding: 0.65rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(29, 58, 42, 0.08);
+      vertical-align: top;
+    }
+    table.inv th {
+      background: var(--warm);
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      color: var(--forest);
+      cursor: pointer;
+      user-select: none;
+      position: sticky;
+      top: 0;
+      white-space: nowrap;
+    }
+    table.inv th[aria-sort="ascending"]::after  { content: ' ▲'; color: var(--ochre); }
+    table.inv th[aria-sort="descending"]::after { content: ' ▼'; color: var(--ochre); }
+    table.inv tbody tr:hover { background: var(--cream); }
+    table.inv .col-name { font-weight: 600; color: var(--forest); }
+    table.inv .col-state { color: var(--moss); font-variant: small-caps; letter-spacing: 0.03em; }
+    table.inv .col-website a {
+      color: var(--ochre);
+      text-decoration: none;
+      font-size: 0.95rem;
+      word-break: break-all;
+    }
+    table.inv .col-website a:hover { text-decoration: underline; }
+    table.inv .col-website .muted { color: rgba(29, 58, 42, 0.4); }
+
+    .status {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: 'Big Shoulders Display', sans-serif;
+    }
+    .status.live    { background: rgba(122, 158, 126, 0.25); color: #2d5a3d; }
+    .status.pending { background: rgba(200, 135, 42, 0.18); color: var(--ochre); }
+    .status.missing { background: rgba(29, 58, 42, 0.1);    color: rgba(29, 58, 42, 0.5); }
+
+    .inv-empty {
+      padding: 2rem;
+      text-align: center;
+      font-style: italic;
+      color: rgba(29, 58, 42, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <Nav />
+
+  <section class="inv-hero">
+    <div class="inner">
+      <p class="eyebrow">Inventory</p>
+      <h1>U.S. Community Land Trusts</h1>
+      <p class="lead">
+        Every CLT we've catalogued — from organizations with staffed websites to listings in
+        industry directories we haven't yet tracked down. Emails and internal contact data are
+        kept private; this page shows only what's public-facing.
+      </p>
+      <p class="meta">
+        {rows.length} tracked · {liveCount} with verified sites{formattedDate && <> · updated {formattedDate}</>}
+      </p>
+      <a class="back-link" href="/">← Back to home</a>
+    </div>
+  </section>
+
+  <section class="inv-body">
+    <div class="inner">
+      <div class="inv-controls">
+        <input
+          id="inv-search"
+          class="inv-search"
+          type="search"
+          placeholder="Filter by name, city, or state…"
+          aria-label="Filter the inventory"
+        />
+        <span id="inv-count" class="inv-count">{rows.length} of {rows.length}</span>
+      </div>
+
+      <div class="inv-table-wrap">
+        <table class="inv" id="inv-table">
+          <thead>
+            <tr>
+              <th data-sort="name"     aria-sort="ascending">Name</th>
+              <th data-sort="location">Location</th>
+              <th data-sort="website">Website</th>
+              <th data-sort="status">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => {
+              const meta = statusMeta(r.status);
+              return (
+                <tr
+                  data-name={r.name.toLowerCase()}
+                  data-city={(r.city ?? '').toLowerCase()}
+                  data-state={(r.state ?? '').toLowerCase()}
+                  data-location={locationOf(r).toLowerCase()}
+                  data-website={hostname(r.url).toLowerCase()}
+                  data-status={meta.label.toLowerCase()}
+                >
+                  <td class="col-name">{r.name}</td>
+                  <td>
+                    {r.city ? <>{r.city}{r.state && <>, <span class="col-state">{r.state}</span></>}</> : <span class="col-state">{r.state ?? '—'}</span>}
+                  </td>
+                  <td class="col-website">
+                    {r.url
+                      ? <a href={r.url} target="_blank" rel="noopener noreferrer">{hostname(r.url)}</a>
+                      : <span class="muted">—</span>}
+                  </td>
+                  <td><span class={`status ${meta.tone}`}>{meta.label}</span></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p id="inv-empty" class="inv-empty" hidden>No CLTs match your filter.</p>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script is:inline>
+    (function () {
+      const table  = document.getElementById('inv-table');
+      const tbody  = table.querySelector('tbody');
+      const search = document.getElementById('inv-search');
+      const count  = document.getElementById('inv-count');
+      const empty  = document.getElementById('inv-empty');
+      const rows   = Array.from(tbody.querySelectorAll('tr'));
+      const total  = rows.length;
+
+      function applyFilter() {
+        const q = search.value.trim().toLowerCase();
+        let visible = 0;
+        for (const tr of rows) {
+          const hay =
+            tr.dataset.name + ' ' +
+            tr.dataset.location + ' ' +
+            tr.dataset.website;
+          const match = !q || hay.includes(q);
+          tr.hidden = !match;
+          if (match) visible++;
+        }
+        count.textContent = `${visible} of ${total}`;
+        empty.hidden = visible > 0;
+      }
+
+      function sortBy(key, dir) {
+        const mult = dir === 'descending' ? -1 : 1;
+        const get = (tr) => {
+          switch (key) {
+            case 'name':     return tr.dataset.name;
+            case 'location': return tr.dataset.location;
+            case 'website':  return tr.dataset.website;
+            case 'status':   return tr.dataset.status;
+          }
+          return '';
+        };
+        const sorted = [...rows].sort((a, b) => {
+          const av = get(a), bv = get(b);
+          // Empty values always go last, regardless of direction.
+          if (!av && bv) return 1;
+          if (av && !bv) return -1;
+          if (av < bv) return -1 * mult;
+          if (av > bv) return  1 * mult;
+          return 0;
+        });
+        for (const tr of sorted) tbody.appendChild(tr);
+      }
+
+      search.addEventListener('input', applyFilter);
+
+      for (const th of table.querySelectorAll('th[data-sort]')) {
+        th.addEventListener('click', () => {
+          const key = th.dataset.sort;
+          const current = th.getAttribute('aria-sort');
+          const next = current === 'ascending' ? 'descending' : 'ascending';
+          for (const other of table.querySelectorAll('th[data-sort]')) {
+            other.removeAttribute('aria-sort');
+          }
+          th.setAttribute('aria-sort', next);
+          sortBy(key, next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

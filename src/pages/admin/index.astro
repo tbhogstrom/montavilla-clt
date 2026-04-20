@@ -125,11 +125,17 @@ const count = petitionCount + cltCount;
           </div>
           <div class="b-actions">
             <a href={`/emails/${b.id}`} target="_blank" class="btn btn-sm btn-outline">Preview</a>
-            {!b.sent_at && (
-              <button class="btn btn-sm btn-send" data-id={b.id} data-subject={b.subject}>
-                Send to {count}
-              </button>
-            )}
+            {!b.sent_at
+              ? (
+                <button class="btn btn-sm btn-send" data-id={b.id} data-subject={b.subject}>
+                  Send to {count}
+                </button>
+              ) : (
+                <button class="btn btn-sm btn-danger btn-resend" data-id={b.id} data-subject={b.subject}>
+                  Resend
+                </button>
+              )
+            }
           </div>
         </div>
       ))}
@@ -186,6 +192,30 @@ const count = petitionCount + cltCount;
           btn.textContent = `✓ Sent to ${data.sent}`;
           btn.style.background = '#3D6147';
           setTimeout(() => window.location.reload(), 1500);
+        } else {
+          btn.textContent = `Error: ${data.error}`;
+          btn.disabled = false;
+        }
+      });
+    });
+
+    // Resend (force) broadcast
+    document.querySelectorAll<HTMLButtonElement>('.btn-resend').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id      = btn.dataset.id;
+        const subject = btn.dataset.subject;
+        if (!confirm(`Resend "${subject}" to ALL subscribers? This will send again to everyone.`)) return;
+
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        const res  = await fetch(`/api/admin/send/${id}?force=true`, { method: 'POST' });
+        const data = await res.json();
+
+        if (res.ok) {
+          btn.textContent = `✓ Sent to ${data.sent} of ${data.total}`;
+          btn.style.color = '#3D6147';
+          setTimeout(() => window.location.reload(), 2000);
         } else {
           btn.textContent = `Error: ${data.error}`;
           btn.disabled = false;

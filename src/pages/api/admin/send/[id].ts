@@ -2,33 +2,42 @@ import type { APIRoute } from 'astro';
 import { getDb } from '../../../../lib/db';
 import { getResend } from '../../../../lib/email';
 
-export const POST: APIRoute = async ({ params, cookies }) => {
+const BATCH_SIZE = 50; // Resend batch limit is 100; stay conservative
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
+export const POST: APIRoute = async ({ params, cookies, request }) => {
   if (cookies.get('admin_token')?.value !== import.meta.env.ADMIN_PASSWORD) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 
   const { id } = params;
+  const url = new URL(request.url);
+  const force = url.searchParams.get('force') === 'true';
 
   try {
     const sql = getDb();
     const [broadcast] = await sql`SELECT * FROM broadcasts WHERE id = ${id!}`;
 
     if (!broadcast) return err('Broadcast not found.');
-    if (broadcast.sent_at) return err('Already sent.');
+    if (broadcast.sent_at && !force) return err('Already sent. Add ?force=true to resend.');
 
-    const petitionEmails = await sql`SELECT DISTINCT email FROM signups   WHERE email IS NOT NULL AND email != ''`;
-    const cltEmails      = await sql`SELECT DISTINCT email FROM inv_emails WHERE email IS NOT NULL AND email != ''`;
+    const petitionEmails = await sql`SELECT DISTINCT email FROM signups    WHERE email IS NOT NULL AND email != ''`;
+    const cltEmails      = await sql`SELECT DISTINCT email FROM inv_emails  WHERE email IS NOT NULL AND email != ''`;
 
     const allEmails = [...new Set([
       ...petitionEmails.map((r: { email: string }) => r.email),
       ...cltEmails.map((r: { email: string }) => r.email),
     ])];
 
-    const subscribers = allEmails.map(email => ({ email }));
-    if (!subscribers.length) return err('No subscribers found.');
+    if (!allEmails.length) return err('No subscribers found.');
 
-    const FROM   = import.meta.env.FROM_EMAIL  ?? 'noreply@montavillalandtrust.org';
-    const resend = getResend();
+    const FROM      = import.meta.env.FROM_EMAIL ?? 'noreply@montavillalandtrust.org';
+    const resend    = getResend();
     const previewUrl = `https://montavillalandtrust.org/emails/${id}`;
 
     const emailHtml = `<!DOCTYPE html>
@@ -72,19 +81,28 @@ export const POST: APIRoute = async ({ params, cookies }) => {
 </body>
 </html>`;
 
-    const results = await Promise.allSettled(
-      subscribers.map(({ email }) =>
-        resend.emails.send({
+    const batches = chunk(allEmails, BATCH_SIZE);
+    let sent = 0;
+    let failed = 0;
+
+    for (const batch of batches) {
+      const results = await resend.batch.send(
+        batch.map(email => ({
           from:    `Montavilla Land Trust <${FROM}>`,
           to:      email,
           subject: broadcast.subject,
           html:    emailHtml,
-        })
-      )
-    );
+        }))
+      );
 
-    const sent = results.filter(r => r.status === 'fulfilled').length;
-    const failed = results.filter(r => r.status === 'rejected').length;
+      // resend.batch.send returns { data: [...] | null, error }
+      if (results.error) {
+        console.error('Batch error:', results.error);
+        failed += batch.length;
+      } else {
+        sent += results.data?.length ?? batch.length;
+      }
+    }
 
     await sql`
       UPDATE broadcasts
@@ -92,7 +110,7 @@ export const POST: APIRoute = async ({ params, cookies }) => {
       WHERE id = ${id!}
     `;
 
-    return new Response(JSON.stringify({ sent, failed }), {
+    return new Response(JSON.stringify({ sent, failed, total: allEmails.length }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

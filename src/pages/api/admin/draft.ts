@@ -24,7 +24,10 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     const mdRes = await fetch(rawUrl);
     if (!mdRes.ok) return err(`Could not fetch markdown: ${mdRes.status} from ${rawUrl}`);
 
-    const markdown = await mdRes.text();
+    const raw = await mdRes.text();
+    // Strip document header — keep only what follows "## Email Body"
+    const bodyMarker = raw.indexOf('\n## Email Body');
+    const markdown = bodyMarker !== -1 ? raw.slice(bodyMarker + '\n## Email Body'.length).trimStart() : raw;
     const htmlBody = await marked.parse(markdown);
 
     const sql = getDb();
@@ -68,7 +71,9 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
     const mdRes = await fetch(rawUrl);
     if (!mdRes.ok) return err(`Could not fetch markdown: ${mdRes.status}`);
 
-    const markdown = await mdRes.text();
+    const raw = await mdRes.text();
+    const bodyMarker = raw.indexOf('\n## Email Body');
+    const markdown = bodyMarker !== -1 ? raw.slice(bodyMarker + '\n## Email Body'.length).trimStart() : raw;
     const htmlBody = await marked.parse(markdown);
 
     const sql = getDb();

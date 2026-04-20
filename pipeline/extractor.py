@@ -39,7 +39,8 @@ MAX_SNIPPET = 200
 
 
 def normalize_email(raw: str) -> str:
-    return raw.strip().rstrip(".,;:").lower()
+    # Strip NUL bytes — Postgres text columns reject them.
+    return raw.replace("\x00", "").strip().rstrip(".,;:").lower()
 
 
 def _domain(email: str) -> str:
@@ -56,7 +57,8 @@ def _is_blocked(email: str) -> bool:
 def _snippet(text: str, start: int, end: int) -> str:
     lo = max(0, start - CONTEXT_RADIUS)
     hi = min(len(text), end + CONTEXT_RADIUS)
-    return text[lo:hi].replace("\n", " ").strip()[:MAX_SNIPPET]
+    # Strip NUL bytes (some pages embed them in noise); Postgres text rejects 0x00.
+    return text[lo:hi].replace("\x00", "").replace("\n", " ").strip()[:MAX_SNIPPET]
 
 
 def extract_emails(html: str) -> list[dict]:

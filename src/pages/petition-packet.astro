@@ -1,0 +1,635 @@
+---
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petition Packet — Montavilla Community Land Trust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .print-hint {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.82rem;
+    color: #555;
+    text-align: center;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+  .print-hint strong { color: #111; }
+  .print-hint a { color: #C8872A; }
+
+  /* ── Each sheet: 8.5×11 portrait ── */
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    background: white;
+    padding: 0.55in 0.6in 0.45in;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── Shared header ── */
+  .pg-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 3px solid #000;
+    padding-bottom: 0.15in;
+    margin-bottom: 0.2in;
+  }
+  .pg-org {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 15pt;
+    letter-spacing: 0.03em;
+    color: #000;
+    line-height: 1;
+  }
+  .pg-org span { color: #C8872A; }
+  .pg-url {
+    font-size: 7.5pt;
+    color: #555;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ── Cover sheet ── */
+  .cover-eyebrow {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.08in;
+  }
+
+  .cover-headline {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 52pt;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: #000;
+    margin-bottom: 0.18in;
+  }
+
+  .cover-headline s {
+    text-decoration-thickness: 4px;
+    text-decoration-color: #C8872A;
+    color: #bbb;
+  }
+
+  .cover-rule { width: 100%; height: 2px; background: #000; margin-bottom: 0.2in; }
+
+  .section-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.06in;
+  }
+
+  .cover-how {
+    background: #f5f5f5;
+    border-left: 3px solid #C8872A;
+    padding: 0.15in 0.18in;
+    margin-bottom: 0.2in;
+  }
+  .cover-how p {
+    font-size: 8.5pt;
+    line-height: 1.55;
+    color: #222;
+  }
+  .cover-how p + p { margin-top: 0.08in; }
+  .cover-how strong { color: #000; }
+
+  .cover-section { margin-bottom: 0.18in; }
+  .cover-section p {
+    font-size: 8.5pt;
+    line-height: 1.6;
+    color: #222;
+  }
+  .cover-section p + p { margin-top: 0.08in; }
+  .cover-section strong { color: #000; font-weight: 700; }
+
+  .cover-footer {
+    margin-top: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 0.12in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .cover-footer-left { font-size: 7pt; color: #777; line-height: 1.7; }
+  .cover-footer-right {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    color: #000;
+    letter-spacing: 0.05em;
+    text-align: right;
+  }
+
+  /* ── Petition sheet ── */
+  .petition-title {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 22pt;
+    letter-spacing: 0.01em;
+    color: #000;
+    margin-bottom: 0.04in;
+    line-height: 1;
+  }
+  .petition-address {
+    font-size: 8pt;
+    color: #666;
+    margin-bottom: 0.18in;
+    letter-spacing: 0.04em;
+  }
+
+  .petition-statement {
+    font-size: 8pt;
+    line-height: 1.6;
+    color: #222;
+    margin-bottom: 0.04in;
+  }
+  .petition-statement strong { color: #000; }
+
+  .petition-asks {
+    margin: 0.1in 0 0.18in 0.15in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.07in;
+  }
+  .petition-ask {
+    display: grid;
+    grid-template-columns: 0.22in 1fr;
+    gap: 0.06in;
+    font-size: 8pt;
+    line-height: 1.5;
+    color: #222;
+  }
+  .petition-ask-num {
+    font-weight: 700;
+    color: #000;
+  }
+  .petition-ask strong { color: #000; }
+
+  .petition-close {
+    font-size: 8pt;
+    line-height: 1.6;
+    color: #222;
+    margin-bottom: 0.18in;
+    font-style: italic;
+  }
+
+  .consent-box {
+    border: 1.5px solid #000;
+    padding: 0.1in 0.14in;
+    font-size: 7.5pt;
+    line-height: 1.5;
+    color: #111;
+    margin-bottom: 0.18in;
+  }
+  .consent-box strong { font-weight: 700; }
+
+  /* ── Signature table ── */
+  .sig-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.5pt;
+    margin-bottom: 0.14in;
+    flex-shrink: 0;
+  }
+  .sig-table th {
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #000;
+    padding: 0.05in 0.07in;
+    text-align: left;
+    border: 1px solid #000;
+  }
+  .sig-table td {
+    border: 1px solid #aaa;
+    padding: 0.06in 0.07in;
+    height: 0.3in;
+    color: #333;
+    vertical-align: middle;
+  }
+  .sig-table tr:nth-child(even) td { background: #fafafa; }
+  .col-num  { width: 0.22in; text-align: center; color: #999; font-size: 6.5pt; }
+  .col-name { width: 2in; }
+  .col-addr { width: 1.9in; }
+  .col-zip  { width: 1.1in; }
+  .col-email { width: 1.5in; }
+  .col-date { width: 0.7in; }
+
+  /* ── Street captain line ── */
+  .captain-line {
+    border-top: 2px solid #000;
+    padding-top: 0.1in;
+    display: grid;
+    grid-template-columns: 2.2in 2.4in 1.4in;
+    gap: 0.15in;
+    margin-bottom: 0.08in;
+  }
+  .captain-field label {
+    display: block;
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.03in;
+  }
+  .captain-field .field-line {
+    border-bottom: 1.5px solid #000;
+    height: 0.22in;
+    width: 100%;
+  }
+
+  .petition-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 6.5pt;
+    color: #999;
+    line-height: 1.6;
+    margin-top: auto;
+    border-top: 1px solid #ddd;
+    padding-top: 0.08in;
+  }
+  .petition-footer em { font-style: normal; color: #bbb; }
+
+  /* ── Continuation sheet ── */
+  .cont-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0.1in;
+    margin-bottom: 0.12in;
+  }
+  .cont-org {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 12pt;
+    letter-spacing: 0.03em;
+    color: #000;
+  }
+  .cont-org span { color: #C8872A; }
+  .cont-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .cont-consent {
+    font-size: 7pt;
+    color: #555;
+    margin-bottom: 0.1in;
+    line-height: 1.5;
+    border-left: 2px solid #ddd;
+    padding-left: 0.1in;
+  }
+  .cont-consent strong { color: #000; }
+
+  .sig-table-cont {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.5pt;
+    flex: 1;
+  }
+  .sig-table-cont th {
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #000;
+    padding: 0.05in 0.07in;
+    text-align: left;
+    border: 1px solid #000;
+  }
+  .sig-table-cont td {
+    border: 1px solid #aaa;
+    padding: 0.06in 0.07in;
+    height: 0.33in;
+    vertical-align: middle;
+  }
+  .sig-table-cont tr:nth-child(even) td { background: #fafafa; }
+
+  /* ── Print ── */
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    .print-hint { display: none; }
+    .sheet {
+      page-break-after: always;
+    }
+    .sheet:last-child { page-break-after: avoid; }
+    @page {
+      size: 8.5in 11in portrait;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-hint">
+  <strong>To save as PDF:</strong> File → Print → "Save as PDF" → Paper: Letter → Orientation: Portrait → Scale: 100% → No margins. Four pages: cover + petition + 2 continuation sheets.
+  <br>Street Captains: print one cover sheet + as many petition/continuation sheets as you need.
+  Completed sheets return to <a href="mailto:info@montavillalandtrust.org">info@montavillalandtrust.org</a> or drop off at the farmers market info table.
+</div>
+
+<!-- ══════════════════════════════════════════
+     SHEET 1 — COVER SHEET
+     ══════════════════════════════════════════ -->
+<div class="sheet">
+
+  <div class="pg-header">
+    <div class="pg-org">MONTAVILLA <span>LAND TRUST</span></div>
+    <div class="pg-url">montavillalandtrust.org<br>info@montavillalandtrust.org</div>
+  </div>
+
+  <p class="cover-eyebrow">Neighbor-to-Neighbor Petition Campaign</p>
+
+  <div class="cover-headline"><s>TRAGEDY</s><br>OF THE<br>COMMONS.</div>
+
+  <div class="cover-rule"></div>
+
+  <!-- How it works -->
+  <div class="cover-how">
+    <p class="section-label">How This Works</p>
+    <p>This petition travels <strong>neighbor to neighbor, door to door</strong>. Each block has a <strong>Street Captain</strong> — a neighbor who circulates the signature sheet on their street, answers questions, and returns completed sheets to MCLT.</p>
+    <p>If someone handed you this sheet, they live near you and they think this matters. <strong>Want to be a Street Captain for your block?</strong> Email info@montavillalandtrust.org.</p>
+  </div>
+
+  <!-- Who we are -->
+  <div class="cover-section">
+    <p class="section-label">Who We Are</p>
+    <p>We're your neighbors. The Montavilla Community Land Trust is a volunteer-led effort started by residents of the 97215 zip code who want the neighborhood — not a developer — to decide the future of <strong>7700 SE Stark Street</strong>.</p>
+    <p>We're not a company. We're not funded by the city. We're people who showed up at the farmers market and decided to do something about it.</p>
+  </div>
+
+  <!-- Why it matters -->
+  <div class="cover-section">
+    <p class="section-label">Why This Matters</p>
+    <p><strong>The Montavilla Farmers Market's home is for sale.</strong> Since 2007, the market has operated on a 0.84-acre parcel at 7700 SE Stark — growing from 17 vendors to more than 70. In late 2024, the owners notified the market they intend to sell. The property is listed at <strong>$4,999,000</strong>. The zoning allows up to four stories of development. A developer could close at any time.</p>
+    <p><strong>A Community Land Trust is how communities protect land permanently.</strong> A CLT acquires land and removes it from the speculative market — forever. The land stays in community hands, governed by a board of the people who live and work here. This model has been used in 308 CLTs across 48 states to protect farmers markets, commercial districts, housing, and neighborhood institutions.</p>
+    <p><strong>The petition tells the city, sellers, and funders that Montavilla is organized.</strong> Every signature is a neighbor saying: this neighborhood has a stake in what happens here, and we want a seat at the table.</p>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-left">
+      montavillalandtrust.org/what-is-a-clt — learn more<br>
+      Montavilla, Portland OR 97215
+    </div>
+    <div class="cover-footer-right">
+      #MontavillaLandTrust
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SHEET 2 — PETITION SIGNATURE PAGE
+     ══════════════════════════════════════════ -->
+<div class="sheet">
+
+  <div class="pg-header">
+    <div class="pg-org">MONTAVILLA <span>LAND TRUST</span></div>
+    <div class="pg-url">montavillalandtrust.org<br>info@montavillalandtrust.org</div>
+  </div>
+
+  <p class="petition-title">COMMUNITY PETITION</p>
+  <p class="petition-address">7700 SE Stark Street · Portland OR 97215 · Parcel R198852</p>
+
+  <p class="petition-statement">
+    We, the undersigned residents and community members of Montavilla and the surrounding Portland neighborhoods,
+    call on the <strong>City of Portland, Multnomah County, and all relevant stakeholders</strong> to:
+  </p>
+
+  <div class="petition-asks">
+    <div class="petition-ask">
+      <span class="petition-ask-num">1.</span>
+      <span><strong>Recognize the community interest</strong> in the 0.84-acre parcel at 7700 SE Stark Street — home of the Montavilla Farmers Market since 2007 — and treat any transfer of ownership as a matter of public concern.</span>
+    </div>
+    <div class="petition-ask">
+      <span class="petition-ask-num">2.</span>
+      <span><strong>Support community-led acquisition efforts</strong>, including formation of a Community Land Trust, that would permanently protect this site for neighborhood use and remove it from speculative development.</span>
+    </div>
+    <div class="petition-ask">
+      <span class="petition-ask-num">3.</span>
+      <span><strong>Engage transparently</strong> with neighborhood residents, market vendors, and community organizations throughout any sale or development process.</span>
+    </div>
+  </div>
+
+  <p class="petition-close">
+    We believe communities should have a meaningful role in the future of the places that define them.
+    We are not opposed to change — we are asking for a voice in shaping it.
+  </p>
+
+  <div class="consent-box">
+    <strong>By signing below,</strong> I add my name to the Montavilla Community Land Trust founding petition and authorize MCLT
+    to use my signature in materials presented to the City of Portland, elected officials, and potential funding partners.
+  </div>
+
+  <table class="sig-table">
+    <thead>
+      <tr>
+        <th class="col-num">#</th>
+        <th class="col-name">First &amp; Last Name</th>
+        <th class="col-addr">Street Address</th>
+        <th class="col-zip">Neighborhood / ZIP</th>
+        <th class="col-email">Email (optional)</th>
+        <th class="col-date">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[1,2,3,4,5,6,7,8,9,10].map(n => (
+        <tr>
+          <td class="col-num">{n}</td>
+          <td class="col-name"></td>
+          <td class="col-addr"></td>
+          <td class="col-zip"></td>
+          <td class="col-email"></td>
+          <td class="col-date"></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div class="captain-line">
+    <div class="captain-field">
+      <label>Street Captain Name</label>
+      <div class="field-line"></div>
+    </div>
+    <div class="captain-field">
+      <label>Street / Block</label>
+      <div class="field-line"></div>
+    </div>
+    <div class="captain-field">
+      <label>Date Returned to MCLT</label>
+      <div class="field-line"></div>
+    </div>
+  </div>
+
+  <div class="petition-footer">
+    <span>Street Captains: return completed sheets to info@montavillalandtrust.org or drop off at the farmers market info table.</span>
+    <em>Do not submit entries with blank address fields.</em>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     SHEET 3 — CONTINUATION SHEET A
+     ══════════════════════════════════════════ -->
+<div class="sheet">
+
+  <div class="cont-header">
+    <div class="cont-org">MONTAVILLA <span>LAND TRUST</span> — Community Petition</div>
+    <div class="cont-label">Continuation Sheet · Page ___ of ___</div>
+  </div>
+
+  <p class="cont-consent">
+    <strong>Signers:</strong> By signing below, I add my name to the Montavilla Community Land Trust founding petition and authorize MCLT to use my signature in materials presented to the City of Portland, elected officials, and potential funding partners. · <strong>7700 SE Stark Street, Portland OR 97215</strong>
+  </p>
+
+  <table class="sig-table-cont">
+    <thead>
+      <tr>
+        <th class="col-num">#</th>
+        <th class="col-name">First &amp; Last Name</th>
+        <th class="col-addr">Street Address</th>
+        <th class="col-zip">Neighborhood / ZIP</th>
+        <th class="col-email">Email (optional)</th>
+        <th class="col-date">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30].map(n => (
+        <tr>
+          <td class="col-num">{n}</td>
+          <td class="col-name"></td>
+          <td class="col-addr"></td>
+          <td class="col-zip"></td>
+          <td class="col-email"></td>
+          <td class="col-date"></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div class="captain-line">
+    <div class="captain-field">
+      <label>Street Captain Name</label>
+      <div class="field-line"></div>
+    </div>
+    <div class="captain-field">
+      <label>Street / Block</label>
+      <div class="field-line"></div>
+    </div>
+    <div class="captain-field">
+      <label>Date Returned to MCLT</label>
+      <div class="field-line"></div>
+    </div>
+  </div>
+
+  <div class="petition-footer">
+    <span>montavillalandtrust.org · info@montavillalandtrust.org · Montavilla Community Land Trust</span>
+    <em>Do not submit entries with blank address fields.</em>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SHEET 4 — CONTINUATION SHEET B
+     ══════════════════════════════════════════ -->
+<div class="sheet">
+
+  <div class="cont-header">
+    <div class="cont-org">MONTAVILLA <span>LAND TRUST</span> — Community Petition</div>
+    <div class="cont-label">Continuation Sheet · Page ___ of ___</div>
+  </div>
+
+  <p class="cont-consent">
+    <strong>Signers:</strong> By signing below, I add my name to the Montavilla Community Land Trust founding petition and authorize MCLT to use my signature in materials presented to the City of Portland, elected officials, and potential funding partners. · <strong>7700 SE Stark Street, Portland OR 97215</strong>
+  </p>
+
+  <table class="sig-table-cont">
+    <thead>
+      <tr>
+        <th class="col-num">#</th>
+        <th class="col-name">First &amp; Last Name</th>
+        <th class="col-addr">Street Address</th>
+        <th class="col-zip">Neighborhood / ZIP</th>
+        <th class="col-email">Email (optional)</th>
+        <th class="col-date">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50].map(n => (
+        <tr>
+          <td class="col-num">{n}</td>
+          <td class="col-name"></td>
+          <td class="col-addr"></td>
+          <td class="col-zip"></td>
+          <td class="col-email"></td>
+          <td class="col-date"></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div class="captain-line">
+    <div class="captain-field">
+      <label>Street Captain Name</label>
+      <div class="field-line"></div>
+    </div>
+    <div class="captain-field">
+      <label>Street / Block</label>
+      <div class="field-line"></div>
+    </div>
+    <div class="captain-field">
+      <label>Date Returned to MCLT</label>
+      <div class="field-line"></div>
+    </div>
+  </div>
+
+  <div class="petition-footer">
+    <span>montavillalandtrust.org · info@montavillalandtrust.org · Montavilla Community Land Trust</span>
+    <em>Do not submit entries with blank address fields.</em>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -16,7 +16,15 @@ export const POST: APIRoute = async ({ params, cookies }) => {
     if (!broadcast) return err('Broadcast not found.');
     if (broadcast.sent_at) return err('Already sent.');
 
-    const subscribers = await sql`SELECT DISTINCT email FROM signups WHERE email IS NOT NULL AND email != '' ORDER BY email`;
+    const petitionEmails = await sql`SELECT DISTINCT email FROM signups   WHERE email IS NOT NULL AND email != ''`;
+    const cltEmails      = await sql`SELECT DISTINCT email FROM inv_emails WHERE email IS NOT NULL AND email != ''`;
+
+    const allEmails = [...new Set([
+      ...petitionEmails.map((r: { email: string }) => r.email),
+      ...cltEmails.map((r: { email: string }) => r.email),
+    ])];
+
+    const subscribers = allEmails.map(email => ({ email }));
     if (!subscribers.length) return err('No subscribers found.');
 
     const FROM   = import.meta.env.FROM_EMAIL  ?? 'noreply@montavillalandtrust.org';

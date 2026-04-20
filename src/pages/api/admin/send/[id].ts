@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getDb } from '../../../../lib/db';
 import { getResend } from '../../../../lib/email';
 
-const BATCH_SIZE = 50; // Resend batch limit is 100; stay conservative
+const BATCH_SIZE = 10;
 
 function chunk<T>(arr: T[], size: number): T[][] {
   const out: T[][] = [];

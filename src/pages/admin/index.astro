@@ -22,8 +22,7 @@ await sql`
 
 const broadcasts = await sql`SELECT id, subject, github_url, created_at, sent_at, sent_count FROM broadcasts ORDER BY created_at DESC`;
 const [{ count: petitionCount }] = await sql`SELECT COUNT(DISTINCT email)::int AS count FROM signups WHERE email IS NOT NULL AND email != ''`;
-const [{ count: cltCount }]      = await sql`SELECT COUNT(DISTINCT email)::int AS count FROM inv_emails WHERE email IS NOT NULL AND email != ''`;
-const count = petitionCount + cltCount;
+const count = petitionCount;
 ---
 
 <!doctype html>
@@ -79,7 +78,7 @@ const count = petitionCount + cltCount;
 <body>
   <nav>
     <div class="brand">MONTAVILLA <span>LAND TRUST</span> · Admin</div>
-    <span class="sub-count">{petitionCount} petition · {cltCount} CLT contacts · {count} total</span>
+    <span class="sub-count">{count} members</span>
   </nav>
 
   <main>

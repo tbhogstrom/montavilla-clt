@@ -26,13 +26,8 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
     if (!broadcast) return err('Broadcast not found.');
     if (broadcast.sent_at && !force) return err('Already sent. Add ?force=true to resend.');
 
-    const petitionEmails = await sql`SELECT DISTINCT email FROM signups    WHERE email IS NOT NULL AND email != ''`;
-    const cltEmails      = await sql`SELECT DISTINCT email FROM inv_emails  WHERE email IS NOT NULL AND email != ''`;
-
-    const allEmails = [...new Set([
-      ...petitionEmails.map((r: { email: string }) => r.email),
-      ...cltEmails.map((r: { email: string }) => r.email),
-    ])];
+    const petitionEmails = await sql`SELECT DISTINCT email FROM signups WHERE email IS NOT NULL AND email != ''`;
+    const allEmails = petitionEmails.map((r: { email: string }) => r.email);
 
     if (!allEmails.length) return err('No subscribers found.');
 

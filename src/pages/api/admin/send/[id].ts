@@ -35,6 +35,15 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
     const resend    = getResend();
     const previewUrl = `https://montavillalandtrust.org/emails/${id}`;
 
+    // Public-comment broadcasts go from Tyler Falcon and add the relevant city body to the recipient list.
+    const isPublicComment = broadcast.subject.startsWith('Public Comment');
+    const fromHeader = isPublicComment
+      ? 'Tyler Falcon <info@montavillalandtrust.org>'
+      : `Montavilla Land Trust <${FROM}>`;
+    const recipients = isPublicComment
+      ? [...allEmails, 'CleanEnergyFund@portlandoregon.gov']
+      : allEmails;
+
     const emailHtml = `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
@@ -76,14 +85,14 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
 </body>
 </html>`;
 
-    const batches = chunk(allEmails, BATCH_SIZE);
+    const batches = chunk(recipients, BATCH_SIZE);
     let sent = 0;
     let failed = 0;
 
     for (const batch of batches) {
       const results = await resend.batch.send(
         batch.map(email => ({
-          from:    `Montavilla Land Trust <${FROM}>`,
+          from:    fromHeader,
           to:      email,
           subject: broadcast.subject,
           html:    emailHtml,
@@ -105,7 +114,7 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
       WHERE id = ${id!}
     `;
 
-    return new Response(JSON.stringify({ sent, failed, total: allEmails.length }), {
+    return new Response(JSON.stringify({ sent, failed, total: recipients.length }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

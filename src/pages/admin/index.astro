@@ -19,6 +19,11 @@ await sql`
     sent_count INTEGER
   )
 `;
+await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS extra_recipients     TEXT[] DEFAULT '{}'`;
+await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS attachment_urls      TEXT[] DEFAULT '{}'`;
+await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS attachment_filenames TEXT[] DEFAULT '{}'`;
+await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS from_name            TEXT`;
+await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS from_email           TEXT`;
 
 const broadcasts = await sql`SELECT id, subject, github_url, created_at, sent_at, sent_count FROM broadcasts ORDER BY created_at DESC`;
 const [{ count: petitionCount }] = await sql`SELECT COUNT(DISTINCT email)::int AS count FROM signups WHERE email IS NOT NULL AND email != ''`;
@@ -97,6 +102,24 @@ const count = petitionCount;
           <input type="text" id="github-url" placeholder="https://github.com/tbhogstrom/montavilla-clt/blob/main/workspace/emails/...md">
         </div>
       </div>
+      <div class="form-row">
+        <div>
+          <label for="from-name">From Name (optional)</label>
+          <input type="text" id="from-name" placeholder="e.g. Tyler Falcon">
+        </div>
+        <div>
+          <label for="from-email">From Email (optional)</label>
+          <input type="text" id="from-email" placeholder="e.g. info@montavillalandtrust.org">
+        </div>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="extra-recipients">Extra Recipients (comma-separated, optional)</label>
+        <input type="text" id="extra-recipients" placeholder="e.g. membership@nwcltc.org, CleanEnergyFund@portlandoregon.gov">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="attachments">Attachments (optional)</label>
+        <input type="file" id="attachments" multiple>
+      </div>
       <button class="btn btn-gold" id="fetch-btn">Fetch &amp; Save Draft</button>
       <p id="form-msg"></p>
     </div>
@@ -144,21 +167,31 @@ const count = petitionCount;
   <script>
     // Fetch & save draft
     document.getElementById('fetch-btn')?.addEventListener('click', async () => {
-      const subject   = (document.getElementById('subject') as HTMLInputElement).value.trim();
-      const githubUrl = (document.getElementById('github-url') as HTMLInputElement).value.trim();
-      const msg       = document.getElementById('form-msg')!;
-      const btn       = document.getElementById('fetch-btn') as HTMLButtonElement;
+      const subject         = (document.getElementById('subject') as HTMLInputElement).value.trim();
+      const githubUrl       = (document.getElementById('github-url') as HTMLInputElement).value.trim();
+      const fromName        = (document.getElementById('from-name') as HTMLInputElement).value.trim();
+      const fromEmail       = (document.getElementById('from-email') as HTMLInputElement).value.trim();
+      const extraRecipients = (document.getElementById('extra-recipients') as HTMLInputElement).value.trim();
+      const fileInput       = document.getElementById('attachments') as HTMLInputElement;
+      const msg             = document.getElementById('form-msg')!;
+      const btn             = document.getElementById('fetch-btn') as HTMLButtonElement;
 
-      if (!subject || !githubUrl) { msg.textContent = 'Both fields are required.'; return; }
+      if (!subject || !githubUrl) { msg.textContent = 'Subject and GitHub URL are required.'; return; }
 
       btn.textContent = 'Fetching…';
       btn.disabled = true;
 
-      const res  = await fetch('/api/admin/draft', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ subject, githubUrl }),
-      });
+      const form = new FormData();
+      form.set('subject', subject);
+      form.set('githubUrl', githubUrl);
+      form.set('fromName', fromName);
+      form.set('fromEmail', fromEmail);
+      form.set('extraRecipients', extraRecipients);
+      if (fileInput.files) {
+        for (const file of Array.from(fileInput.files)) form.append('attachments', file);
+      }
+
+      const res  = await fetch('/api/admin/draft', { method: 'POST', body: form });
       const data = await res.json();
 
       if (res.ok) {

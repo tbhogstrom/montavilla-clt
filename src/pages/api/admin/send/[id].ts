@@ -29,20 +29,37 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
     const petitionEmails = await sql`SELECT DISTINCT email FROM signups WHERE email IS NOT NULL AND email != ''`;
     const allEmails = petitionEmails.map((r: { email: string }) => r.email);
 
-    if (!allEmails.length) return err('No subscribers found.');
-
-    const FROM      = import.meta.env.FROM_EMAIL ?? 'noreply@montavillalandtrust.org';
-    const resend    = getResend();
+    const FROM       = import.meta.env.FROM_EMAIL ?? 'noreply@montavillalandtrust.org';
+    const resend     = getResend();
     const previewUrl = `https://montavillalandtrust.org/emails/${id}`;
 
-    // Public-comment broadcasts go from Tyler Falcon and add the relevant city body to the recipient list.
-    const isPublicComment = broadcast.subject.startsWith('Public Comment');
-    const fromHeader = isPublicComment
-      ? 'Tyler Falcon <info@montavillalandtrust.org>'
-      : `Montavilla Land Trust <${FROM}>`;
-    const recipients = isPublicComment
-      ? [...allEmails, 'CleanEnergyFund@portlandoregon.gov']
-      : allEmails;
+    // Public-comment broadcasts default to a hardcoded extra recipient + Tyler's
+    // From header. Newer broadcasts can also override these explicitly via the
+    // extra_recipients / from_name / from_email columns set at draft time.
+    const isPublicComment = (broadcast.subject as string).startsWith('Public Comment');
+    const extraRecipients: string[] = broadcast.extra_recipients ?? [];
+    const recipients = Array.from(new Set([
+      ...allEmails,
+      ...(isPublicComment ? ['CleanEnergyFund@portlandoregon.gov'] : []),
+      ...extraRecipients,
+    ]));
+
+    if (!recipients.length) return err('No recipients found.');
+
+    const fromName  = (broadcast.from_name  as string | null) ?? null;
+    const fromEmail = (broadcast.from_email as string | null) ?? null;
+    const fromHeader = (fromName && fromEmail)
+      ? `${fromName} <${fromEmail}>`
+      : isPublicComment
+        ? 'Tyler Falcon <info@montavillalandtrust.org>'
+        : `Montavilla Land Trust <${FROM}>`;
+
+    const attachmentUrls:      string[] = broadcast.attachment_urls      ?? [];
+    const attachmentFilenames: string[] = broadcast.attachment_filenames ?? [];
+    const attachments = attachmentUrls.map((url, i) => ({
+      filename: attachmentFilenames[i] ?? `attachment-${i + 1}`,
+      path: url,
+    }));
 
     const emailHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -96,6 +113,7 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
           to:      email,
           subject: broadcast.subject,
           html:    emailHtml,
+          ...(attachments.length ? { attachments } : {}),
         }))
       );
 

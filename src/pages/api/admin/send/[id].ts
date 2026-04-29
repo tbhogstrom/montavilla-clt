@@ -63,10 +63,24 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
 
     const attachmentUrls:      string[] = broadcast.attachment_urls      ?? [];
     const attachmentFilenames: string[] = broadcast.attachment_filenames ?? [];
-    const attachments = attachmentUrls.map((url, i) => ({
-      filename: attachmentFilenames[i] ?? `attachment-${i + 1}`,
-      path: url,
-    }));
+    console.log(`[send ${id}] attachment_urls count=${attachmentUrls.length}`, attachmentUrls);
+
+    // Fetch attachments ourselves and inline as base64 — Resend's batch endpoint
+    // does not reliably fetch attachments by URL.
+    const attachments = await Promise.all(
+      attachmentUrls.map(async (attachmentUrl, i) => {
+        const res = await fetch(attachmentUrl);
+        if (!res.ok) {
+          throw new Error(`Failed to fetch attachment ${attachmentUrl}: ${res.status}`);
+        }
+        const buf = Buffer.from(await res.arrayBuffer());
+        return {
+          filename: attachmentFilenames[i] ?? `attachment-${i + 1}`,
+          content: buf.toString('base64'),
+        };
+      })
+    );
+    console.log(`[send ${id}] attachments resolved count=${attachments.length}`);
 
     const emailHtml = `<!DOCTYPE html>
 <html lang="en">

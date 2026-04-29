@@ -25,7 +25,7 @@ await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS attachment_filenames T
 await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS from_name            TEXT`;
 await sql`ALTER TABLE broadcasts ADD COLUMN IF NOT EXISTS from_email           TEXT`;
 
-const broadcasts = await sql`SELECT id, subject, github_url, created_at, sent_at, sent_count FROM broadcasts ORDER BY created_at DESC`;
+const broadcasts = await sql`SELECT id, subject, github_url, created_at, sent_at, sent_count, attachment_filenames, extra_recipients FROM broadcasts ORDER BY created_at DESC`;
 const [{ count: petitionCount }] = await sql`SELECT COUNT(DISTINCT email)::int AS count FROM signups WHERE email IS NOT NULL AND email != ''`;
 const count = petitionCount;
 ---
@@ -143,6 +143,12 @@ const count = petitionCount;
                 ? <span class="b-sent">✓ Sent to {b.sent_count} subscribers</span>
                 : <span class="b-draft">Draft</span>
               }
+              {b.attachment_filenames && b.attachment_filenames.length > 0 && (
+                <span>&nbsp;·&nbsp;📎 {b.attachment_filenames.join(', ')}</span>
+              )}
+              {b.extra_recipients && b.extra_recipients.length > 0 && (
+                <span>&nbsp;·&nbsp;+ {b.extra_recipients.join(', ')}</span>
+              )}
             </div>
           </div>
           <div class="b-actions">

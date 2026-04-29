@@ -6,8 +6,6 @@ import Nav        from '../components/Nav.astro';
 import Footer     from '../components/Footer.astro';
 import Analytics  from '@vercel/analytics/astro';
 
-const GOAL = 4_999_000;
-
 let pledges: { name: string; amount: number; created_at: Date }[] = [];
 let total  = 0;
 let count  = 0;
@@ -32,9 +30,6 @@ try {
 } catch (e) {
   console.error('Calculator page DB error:', e);
 }
-
-const pct     = total > 0 ? Math.min(100, (total / GOAL) * 100) : 0;
-const pctStr  = pct < 0.1 && pct > 0 ? '< 0.1' : pct.toFixed(1);
 
 function anonymize(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -78,7 +73,7 @@ function fmtDate(d: Date | string) {
         <p class="calc-subhead">
           Pledges are non-binding expressions of community financial support.
           Every dollar shown here tells grant makers and lenders that Montavilla
-          is serious about owning this land.
+          is organized.
         </p>
 
         <div class="calc-stats">
@@ -90,22 +85,7 @@ function fmtDate(d: Date | string) {
             <span class="calc-num">{count > 0 ? count.toLocaleString() : '—'}</span>
             <span class="calc-label">Neighbors In</span>
           </div>
-          <div class="calc-stat">
-            <span class="calc-num">{fmt(GOAL)}</span>
-            <span class="calc-label">Acquisition Goal</span>
-          </div>
         </div>
-
-        {total > 0 && (
-          <div class="calc-progress-wrap">
-            <div class="calc-progress-bar">
-              <div class="calc-progress-fill" style={`width:${Math.max(pct, 0.5)}%`}></div>
-            </div>
-            <p class="calc-progress-label">
-              {pctStr}% of goal in community pledges — plus grants, CDFIs, and anchor donors close the gap.
-            </p>
-          </div>
-        )}
       </div>
     </section>
 

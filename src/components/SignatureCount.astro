@@ -12,13 +12,13 @@
       const bar   = document.getElementById('sig-bar');
       const inner = document.getElementById('sig-inner');
       if (!bar || !inner) return;
-      const label = count === 1 ? 'Montavilla neighbor likes' : 'Montavilla neighbors like';
+      const label = count === 1 ? 'Montavilla neighbor has joined' : 'Montavilla neighbors have joined';
       const fmt = (n: number) =>
         new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
       const pledgePart = pledgeTotal > 0
         ? ` &nbsp;·&nbsp; <strong>${fmt(pledgeTotal)}</strong> pledged`
         : '';
-      inner.innerHTML = `<strong>${count.toLocaleString()}</strong> ${label} this idea${pledgePart}`;
+      inner.innerHTML = `<strong>${count.toLocaleString()}</strong> ${label} the coalition${pledgePart}`;
       bar.classList.add('sig-bar--visible');
     })
     .catch(() => {/* stay hidden */});

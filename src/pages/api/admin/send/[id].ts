@@ -123,27 +123,48 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
 </body>
 </html>`;
 
-    const batches = chunk(recipients, BATCH_SIZE);
     let sent = 0;
     let failed = 0;
+    const errors: string[] = [];
 
-    for (const batch of batches) {
-      const results = await resend.batch.send(
-        batch.map(email => ({
+    if (attachments.length > 0) {
+      // Resend's batch endpoint silently drops the attachments field, so when
+      // we have attachments we send each email individually via emails.send.
+      for (const email of recipients) {
+        const result = await resend.emails.send({
           from:    fromHeader,
           to:      email,
           subject: broadcast.subject,
           html:    emailHtml,
-          ...(attachments.length ? { attachments } : {}),
-        }))
-      );
+          attachments,
+        });
+        if (result.error) {
+          console.error(`Send error for ${email}:`, result.error);
+          errors.push(`${email}: ${result.error.message ?? 'unknown error'}`);
+          failed++;
+        } else {
+          sent++;
+        }
+      }
+    } else {
+      const batches = chunk(recipients, BATCH_SIZE);
+      for (const batch of batches) {
+        const results = await resend.batch.send(
+          batch.map(email => ({
+            from:    fromHeader,
+            to:      email,
+            subject: broadcast.subject,
+            html:    emailHtml,
+          }))
+        );
 
-      // resend.batch.send returns { data: [...] | null, error }
-      if (results.error) {
-        console.error('Batch error:', results.error);
-        failed += batch.length;
-      } else {
-        sent += results.data?.length ?? batch.length;
+        if (results.error) {
+          console.error('Batch error:', results.error);
+          errors.push(`batch: ${results.error.message ?? 'unknown error'}`);
+          failed += batch.length;
+        } else {
+          sent += results.data?.length ?? batch.length;
+        }
       }
     }
 
@@ -155,7 +176,7 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
       `;
     }
 
-    return new Response(JSON.stringify({ sent, failed, total: recipients.length, test: isTest }), {
+    return new Response(JSON.stringify({ sent, failed, total: recipients.length, test: isTest, errors }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

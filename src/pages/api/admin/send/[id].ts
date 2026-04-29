@@ -18,16 +18,15 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
   const { id } = params;
   const url = new URL(request.url);
   const force = url.searchParams.get('force') === 'true';
+  const testEmail = url.searchParams.get('test')?.trim() || '';
+  const isTest = testEmail.includes('@');
 
   try {
     const sql = getDb();
     const [broadcast] = await sql`SELECT * FROM broadcasts WHERE id = ${id!}`;
 
     if (!broadcast) return err('Broadcast not found.');
-    if (broadcast.sent_at && !force) return err('Already sent. Add ?force=true to resend.');
-
-    const petitionEmails = await sql`SELECT DISTINCT email FROM signups WHERE email IS NOT NULL AND email != ''`;
-    const allEmails = petitionEmails.map((r: { email: string }) => r.email);
+    if (broadcast.sent_at && !force && !isTest) return err('Already sent. Add ?force=true to resend.');
 
     const FROM       = import.meta.env.FROM_EMAIL ?? 'noreply@montavillalandtrust.org';
     const resend     = getResend();
@@ -38,11 +37,19 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
     // extra_recipients / from_name / from_email columns set at draft time.
     const isPublicComment = (broadcast.subject as string).startsWith('Public Comment');
     const extraRecipients: string[] = broadcast.extra_recipients ?? [];
-    const recipients = Array.from(new Set([
-      ...allEmails,
-      ...(isPublicComment ? ['CleanEnergyFund@portlandoregon.gov'] : []),
-      ...extraRecipients,
-    ]));
+
+    let recipients: string[];
+    if (isTest) {
+      recipients = [testEmail];
+    } else {
+      const petitionEmails = await sql`SELECT DISTINCT email FROM signups WHERE email IS NOT NULL AND email != ''`;
+      const allEmails = petitionEmails.map((r: { email: string }) => r.email);
+      recipients = Array.from(new Set([
+        ...allEmails,
+        ...(isPublicComment ? ['CleanEnergyFund@portlandoregon.gov'] : []),
+        ...extraRecipients,
+      ]));
+    }
 
     if (!recipients.length) return err('No recipients found.');
 
@@ -126,13 +133,15 @@ export const POST: APIRoute = async ({ params, cookies, request }) => {
       }
     }
 
-    await sql`
-      UPDATE broadcasts
-      SET sent_at = NOW(), sent_count = ${sent}
-      WHERE id = ${id!}
-    `;
+    if (!isTest) {
+      await sql`
+        UPDATE broadcasts
+        SET sent_at = NOW(), sent_count = ${sent}
+        WHERE id = ${id!}
+      `;
+    }
 
-    return new Response(JSON.stringify({ sent, failed, total: recipients.length }), {
+    return new Response(JSON.stringify({ sent, failed, total: recipients.length, test: isTest }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

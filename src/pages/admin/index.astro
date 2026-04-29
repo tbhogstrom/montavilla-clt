@@ -147,6 +147,9 @@ const count = petitionCount;
           </div>
           <div class="b-actions">
             <a href={`/emails/${b.id}`} target="_blank" class="btn btn-sm btn-outline">Preview</a>
+            <button class="btn btn-sm btn-outline btn-test" data-id={b.id} data-subject={b.subject}>
+              Test
+            </button>
             {!b.sent_at
               ? (
                 <button class="btn btn-sm btn-send" data-id={b.id} data-subject={b.subject}>
@@ -227,6 +230,31 @@ const count = petitionCount;
         } else {
           btn.textContent = `Error: ${data.error}`;
           btn.disabled = false;
+        }
+      });
+    });
+
+    // Test send — sends only to the address you enter, doesn't mark broadcast sent
+    document.querySelectorAll<HTMLButtonElement>('.btn-test').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id      = btn.dataset.id;
+        const subject = btn.dataset.subject;
+        const testEmail = prompt(`Test send "${subject}" to which email?`, 'tbhogstrom@gmail.com');
+        if (!testEmail) return;
+
+        const original = btn.textContent;
+        btn.textContent = 'Testing…';
+        btn.disabled = true;
+
+        const res  = await fetch(`/api/admin/send/${id}?test=${encodeURIComponent(testEmail)}`, { method: 'POST' });
+        const data = await res.json();
+
+        if (res.ok) {
+          btn.textContent = `✓ Sent test`;
+          setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 3000);
+        } else {
+          btn.textContent = `Error: ${data.error}`;
+          setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 4000);
         }
       });
     });

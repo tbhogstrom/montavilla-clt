@@ -1,9 +1,9 @@
 # Public Comment — Portland Clean Energy Fund Committee
 
 **Date:** 2026-04-29 (for PCEF meeting tonight)
-**From:** Tyler Falcon / info@montavillalandtrust.org
 **Recipient:** CleanEnergyFund@portlandoregon.gov
 **Subject line:** Public Comment — Community Land Trust + PCEF priorities, Montavilla
+**Status:** DRAFT — fill in name/title before sending
 
 ---
 
@@ -23,10 +23,10 @@ We intend to apply to the **2026 Community Grant cycle (deadline May 27)** for a
 1. **Continued accessibility of the Community Grant program to small, emerging, neighborhood-rooted applicants** using fiscal sponsorship — these are exactly the groups PCEF was created to fund.
 2. **Clarity in Strategic Program 9 about eligibility for community land ownership models** as the land-acquisition vehicle for urban-agriculture and food-systems work.
 
-We would welcome a site visit from PCEF staff and any Committee members. Please reach me at info@montavillalandtrust.org
+We would welcome a site visit from PCEF staff and any Committee members. Please reach me at tfalcon@sfwconstruction.com.
 
 Thank you for your service.
 
-**Tyler Falcon**
-**Coordinator, Montavilla Community Land Trust**
-info@montavillalandtrust.org
+**[Your name]**
+**[Title, e.g., Coordinator, Montavilla Community Land Trust]**
+tfalcon@sfwconstruction.com

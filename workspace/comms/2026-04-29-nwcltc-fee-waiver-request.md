@@ -1,3 +1,6 @@
+# DRAFT — Fee Waiver Request to NWCLTC
+
+**Status:** DRAFT — awaiting review before sending
 **To:** membership@nwcltc.org
 **From:** Tyler Falcon, info@montavillalandtrust.org
 **Subject:** Montavilla CLT Membership Application — Fee Waiver/Deferral Request
@@ -23,7 +26,7 @@ We would be grateful for either a full waiver of first-year dues or a deferral u
 
 Thank you for considering this request. We're looking forward to being part of the NWCLTC community.
 
-With love for community,
+Sincerely,
 
 Tyler Falcon
 Coordinator, Montavilla Community Land Trust

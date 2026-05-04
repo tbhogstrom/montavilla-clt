@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCLT — Fiscal Sponsorship Request to Proud Ground · May 1, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400..600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #faf6ec;
+    --paper-edge:   #f3eddc;
+    --ink:          #1a1714;
+    --ink-soft:     #4a4640;
+    --ink-faint:    #8b8579;
+    --rule:         #2b2723;
+    --rule-soft:    #cdc5b4;
+    --accent:       #3a4724;   /* moss/olive */
+    --accent-soft:  #6c7a4d;
+    --aside:        #f0e9d6;   /* warmer aside fill */
+  }
+
+  @page {
+    size: letter;
+    margin: 0.55in 0.65in 0.55in 0.65in;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    font-feature-settings: "onum" 1, "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* On screen, simulate a sheet of paper. In print this collapses to flow. */
+  .sheet {
+    max-width: 7.3in;
+    margin: 0.5in auto;
+    padding: 0.7in 0.75in;
+    background: var(--paper);
+    box-shadow: 0 1px 0 var(--paper-edge), 0 30px 60px -20px rgba(40,30,15,0.18), 0 0 0 1px var(--paper-edge);
+  }
+
+  @media print {
+    .sheet {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+    body { background: white; }
+  }
+
+  /* ---------- Typography ---------- */
+
+  h1, h2, h3, .display { font-family: "Fraunces", "Source Serif 4", Georgia, serif; }
+
+  h1 {
+    font-weight: 500;
+    font-size: 22pt;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.18em 0;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    color: var(--ink);
+  }
+
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 22pt 0 6pt 0;
+    color: var(--accent);
+    font-feature-settings: "lnum" 1;
+  }
+
+  h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 36, "SOFT" 50;
+    font-weight: 500;
+    font-size: 12pt;
+    line-height: 1.25;
+    margin: 0 0 6pt 0;
+    color: var(--ink);
+  }
+
+  p { margin: 0 0 9pt 0; }
+
+  ul { margin: 0 0 10pt 0; padding-left: 16pt; }
+  ul li { margin: 0 0 4pt 0; }
+  ul li::marker { color: var(--accent); }
+
+  em { font-style: italic; color: var(--ink-soft); }
+  strong { font-weight: 600; color: var(--ink); }
+
+  /* ---------- Document header ---------- */
+
+  .doc-header {
+    border-bottom: 0.5pt solid var(--rule);
+    padding-bottom: 14pt;
+    margin-bottom: 18pt;
+  }
+
+  .eyebrow {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 7.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14pt 0;
+    display: flex;
+    align-items: center;
+    gap: 10pt;
+  }
+  .eyebrow::after {
+    content: "";
+    flex: 1;
+    height: 0.5pt;
+    background: var(--rule-soft);
+  }
+
+  .doc-meta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16pt;
+    align-items: end;
+    margin-top: 12pt;
+  }
+
+  .doc-meta .left {
+    font-size: 9.5pt;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .doc-meta .left .stamp {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 24, "SOFT" 80;
+    color: var(--ink);
+  }
+
+  .doc-meta .right {
+    text-align: right;
+    font-size: 8.5pt;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  /* ---------- Hero ask ---------- */
+
+  .hero-ask {
+    margin: 12pt 0 22pt 0;
+    padding: 14pt 0 14pt 18pt;
+    border-left: 1.5pt solid var(--accent);
+    page-break-inside: avoid;
+  }
+  .hero-ask .hero-label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6pt;
+  }
+  .hero-ask .hero-text {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 72, "SOFT" 50;
+    font-weight: 400;
+    font-size: 14.5pt;
+    line-height: 1.34;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .hero-ask .hero-text em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ---------- Section construction ---------- */
+
+  section { page-break-inside: auto; }
+
+  .lede {
+    font-size: 10pt;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Tables (editorial style: horizontal rules only) ---------- */
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4pt 0 4pt 0;
+    font-size: 9.5pt;
+  }
+  table caption {
+    text-align: left;
+    font-style: italic;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    padding: 4pt 0;
+    caption-side: bottom;
+  }
+  th, td {
+    text-align: left;
+    padding: 6.5pt 8pt 6.5pt 0;
+    vertical-align: top;
+    border-bottom: 0.4pt solid var(--rule-soft);
+  }
+  th {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 8.5pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  tr:last-child td { border-bottom: 0; }
+  td.label {
+    color: var(--ink-soft);
+    width: 42%;
+    font-feature-settings: "lnum" 1;
+  }
+  td.value {
+    color: var(--ink);
+    font-feature-settings: "lnum" 1, "tnum" 1;
+  }
+  td.amount {
+    text-align: right;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    width: 22%;
+    color: var(--ink);
+  }
+
+  /* Compact two-column metadata table for "current status" */
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 22pt;
+    row-gap: 0;
+    margin-top: 6pt;
+    border-top: 0.4pt solid var(--rule-soft);
+    border-bottom: 0.4pt solid var(--rule-soft);
+  }
+  .status-grid .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10pt;
+    padding: 6pt 0;
+    border-bottom: 0.4pt solid var(--rule-soft);
+    font-size: 9.5pt;
+  }
+  .status-grid .row:nth-last-child(-n+2) { border-bottom: 0; }
+  .status-grid .row .k { color: var(--ink-soft); }
+  .status-grid .row .v { color: var(--ink); font-variant-numeric: tabular-nums lining-nums; text-align: right; }
+
+  /* ---------- The ASK / NOT-ASK two-column moment ---------- */
+
+  .boundary {
+    display: grid;
+    grid-template-columns: 1fr 0.5pt 1fr;
+    gap: 22pt;
+    margin: 10pt 0 4pt 0;
+    page-break-inside: avoid;
+  }
+  .boundary .divider {
+    background: var(--rule-soft);
+    width: 0.5pt;
+  }
+  .boundary h3 {
+    font-size: 10pt;
+    margin-bottom: 8pt;
+  }
+  .boundary .header-tag {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+  .boundary .col-yes .header-tag { color: var(--accent); }
+  .boundary .col-no  .header-tag { color: #8a3d1f; }
+
+  .boundary ul {
+    margin: 0;
+    padding-left: 14pt;
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+  .boundary .col-no ul li::marker { color: #8a3d1f; }
+
+  /* ---------- Inline aside (after sponsorship) ---------- */
+
+  .aside-note {
+    background: var(--aside);
+    border-left: 1.5pt solid var(--accent);
+    padding: 11pt 14pt 9pt 14pt;
+    margin: 6pt 0 6pt 0;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    page-break-inside: avoid;
+  }
+  .aside-note h3 {
+    font-size: 10pt;
+    margin-bottom: 4pt;
+    color: var(--accent);
+  }
+  .aside-note p:last-child { margin-bottom: 0; }
+
+  /* ---------- Decision point box ---------- */
+
+  .decision {
+    margin-top: 16pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 26pt;
+    page-break-inside: avoid;
+  }
+  .decision .deadline {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    font-weight: 500;
+    font-size: 22pt;
+    line-height: 1;
+    color: var(--accent);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .decision .deadline-label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 4pt 0 8pt 0;
+  }
+  .decision p { font-size: 9.5pt; line-height: 1.5; margin: 0; }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    margin-top: 26pt;
+    padding-top: 12pt;
+    border-top: 0.5pt solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 18pt;
+    font-size: 8.5pt;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+  footer .name {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 24, "SOFT" 50;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 10pt;
+    color: var(--ink);
+    letter-spacing: 0;
+  }
+  footer .contact {
+    text-align: right;
+    line-height: 1.55;
+  }
+  footer .contact a { color: inherit; text-decoration: none; }
+
+  /* ---------- Print-only adjustments ---------- */
+
+  @media print {
+    h2 { page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .hero-ask, .boundary, .aside-note, .decision, footer { page-break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  /* ---------- Subtle rules between sections ---------- */
+
+  .rule-soft {
+    border: 0;
+    border-top: 0.3pt solid var(--rule-soft);
+    margin: 14pt 0;
+  }
+
+  /* ---------- Two-column section layouts where helpful ---------- */
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26pt;
+  }
+  .two-col p { margin-bottom: 0; }
+
+  .small { font-size: 9pt; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<article class="sheet">
+
+  <header class="doc-header">
+    <div class="eyebrow">Confidential · Working Draft · For Internal Review</div>
+
+    <h1>Fiscal&nbsp;Sponsorship Request to Proud&nbsp;Ground</h1>
+
+    <div class="doc-meta">
+      <div class="left">
+        A one-page brief on behalf of the
+        <span class="stamp">Montavilla Community Land Trust</span>,
+        addressed to the Executive Director and Finance &amp; Grants lead at Proud Ground.
+      </div>
+      <div class="right">
+        May 1, 2026<br>
+        Portland, Oregon
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-ask">
+    <div class="hero-label">The Ask, in One Sentence</div>
+    <div class="hero-text">
+      Short-term fiscal sponsorship for MCLT's PCEF planning grant application
+      and short-term donation handling — <em>ending when MCLT obtains its own 501(c)(3) determination,</em>
+      at which point the relationship transitions to technical assistance only.
+    </div>
+  </section>
+
+  <section>
+    <h2>What MCLT Is</h2>
+    <p>
+      A neighborhood-led coalition forming a community land trust in Portland's Montavilla
+      neighborhood, anchored to a 0.84-acre commercial site at <strong>7700 SE Stark Street</strong>
+      and the existing Montavilla Farmers Market. The site sits in the 82nd Avenue corridor —
+      a documented environmental justice priority area where no community land trust currently
+      has a presence.
+    </p>
+
+    <div class="status-grid" aria-label="MCLT current status">
+      <div class="row"><span class="k">Coalition formation</span><span class="v">~2 weeks active</span></div>
+      <div class="row"><span class="k">Petition signatures</span><span class="v">~40</span></div>
+      <div class="row"><span class="k">Member signups</span><span class="v">~20</span></div>
+      <div class="row"><span class="k">Individual pledges</span><span class="v">~$1,175</span></div>
+      <div class="row"><span class="k">Legal entity</span><span class="v">Pre-incorporation</span></div>
+      <div class="row"><span class="k">Coordinator</span><span class="v">Tyler Falcon</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What MCLT Is Applying For</h2>
+
+    <table>
+      <colgroup>
+        <col style="width:32%">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr><td class="label">Funder</td><td class="value">Portland Clean Energy Community Benefits Fund (PCEF)</td></tr>
+        <tr><td class="label">Program</td><td class="value">2026 Community Grant — Planning Grant</td></tr>
+        <tr><td class="label">Funding area</td><td class="value">Regenerative Agriculture &amp; Green Infrastructure</td></tr>
+        <tr><td class="label">Award size</td><td class="value">$200,000</td></tr>
+        <tr><td class="label">Length</td><td class="value">1 year (per 2025 cycle precedent at the $200K cap)</td></tr>
+        <tr><td class="label">Deadline</td><td class="value">May 27, 2026</td></tr>
+        <tr><td class="label">Decision timeline</td><td class="value">Awards announced fall 2026; funds disbursed Q1 2027 (est.)</td></tr>
+        <tr><td class="label">Concurrent applications</td><td class="value">USDA Local Food Promotion + Farmers Market Promotion programs (June 5 deadlines) — sponsorship for these is open for discussion</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:14pt">Planning grant scope, at a glance</h3>
+    <p class="lede">
+      Site assessment, infrastructure analysis, regenerative agriculture and green-infrastructure
+      feasibility, community-led scenario design, and MCLT organizational formation
+      (bylaws, governance, 501(c)(3) filing). Community engagement is the methodology
+      that drives the technical decisions.
+    </p>
+
+    <h3 style="margin-top:14pt">Indicative budget shape ($200K, 1 year)</h3>
+    <table>
+      <colgroup>
+        <col>
+        <col style="width:14%">
+      </colgroup>
+      <tbody>
+        <tr><td class="value">Technical assessment — environmental, infrastructure, design concepts</td><td class="amount">~30%</td></tr>
+        <tr><td class="value">Community engagement — sessions, charrettes, stipends</td><td class="amount">~20%</td></tr>
+        <tr><td class="value">Organizational development — legal formation, governance, board</td><td class="amount">~12%</td></tr>
+        <tr><td class="value">Project coordination — PCEF-compliant staff at $27.81+/hr</td><td class="amount">~25%</td></tr>
+        <tr><td class="value">Overhead + sponsor fee — within PCEF's 25% combined cap</td><td class="amount">~13%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>The Boundary of the Ask</h2>
+    <div class="boundary">
+      <div class="col-yes">
+        <div class="header-tag">What we are asking</div>
+        <ul>
+          <li>Serve as the formal <strong>grantee of record</strong> for the PCEF planning grant — sign the grant agreement, hold legal responsibility for funds and deliverables.</li>
+          <li><strong>Hold short-term donations</strong> in MCLT's name during the pre-incorporation period (currently ~$1,175 and slowly growing).</li>
+          <li>Provide what PCEF requires from any fiscal sponsor: EIN, three years of audited financial statements, description of financial management practices, and a designated signatory contact.</li>
+        </ul>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="col-no">
+        <div class="header-tag">What we are not asking</div>
+        <ul>
+          <li><strong>No property acquisition or title-holding.</strong> Proud Ground does not need to acquire, hold, or carry real-estate liability for 7700 SE Stark. When MCLT pursues land control, MCLT — not Proud Ground — holds the parcel.</li>
+          <li><strong>No staffing or programmatic absorption</strong> of MCLT into Proud Ground's organization.</li>
+          <li><strong>No long-term sponsorship commitment</strong> beyond the period needed for MCLT to obtain its own 501(c)(3) determination.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Proposed Terms</h2>
+    <table>
+      <colgroup>
+        <col style="width:32%">
+        <col>
+      </colgroup>
+      <tbody>
+        <tr><td class="label">Sponsor fee</td><td class="value">Up to PCEF's allowed maximum of 10% ($20,000 on a $200,000 award). Actual rate negotiable.</td></tr>
+        <tr><td class="label">Donation handling fee</td><td class="value">Per Proud Ground's standard practice.</td></tr>
+        <tr><td class="label">Financial reporting to PCEF</td><td class="value">Proud Ground (quarterly).</td></tr>
+        <tr><td class="label">Programmatic / performance reporting</td><td class="value">MCLT, with joint review before submission.</td></tr>
+        <tr><td class="label">Mutual termination</td><td class="value">Clean off-ramp for either party with reasonable transition language for any open grant funds.</td></tr>
+        <tr><td class="label">End of arrangement</td><td class="value">Upon MCLT receiving its own IRS 501(c)(3) determination letter — anticipated within 12–18 months of grant award; this is one of the planning grant's named deliverables.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>After Sponsorship Ends</h2>
+    <div class="aside-note">
+      <h3>Technical assistance partner, not parent organization</h3>
+      <p>
+        Once MCLT has its own 501(c)(3), fiscal sponsorship terminates by mutual agreement.
+        Proud Ground continues as a technical assistance partner — peer in the regional CLT
+        ecosystem, advisor on governance and operations, formally not a parent or sponsor.
+        That is the long-term relationship MCLT seeks regardless of how the sponsorship
+        question resolves.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why the Alignment Is Genuine</h2>
+    <ul>
+      <li>
+        <strong>Extends a model PCEF already trusts.</strong>
+        Proud Ground's 2024 PCEF&nbsp;3 ($2.5M) and 2025 Net Zero Homes ($2.65M) awards have
+        established the CLT framework with PCEF reviewers. Adding Montavilla as the next
+        CLT-model project in PCEF's planning-grant pipeline extends that work into a new
+        East Portland geography.
+      </li>
+      <li>
+        <strong>New geography, priority corridor.</strong>
+        Montavilla sits on the 82nd Avenue corridor — a documented environmental justice
+        priority area where Proud Ground does not currently have a project. This expands
+        Proud Ground's footprint into terrain that PCEF actively prioritizes.
+      </li>
+      <li>
+        <strong>Bounded scope, low operational drag.</strong>
+        Planning-grant fiscal sponsorship — without property acquisition or programmatic
+        staffing — is a contained obligation. MCLT is committed to being a low-friction
+        sponsored entity: clear deliverables, on-time reporting, no scope creep into Proud
+        Ground's own work.
+      </li>
+    </ul>
+  </section>
+
+  <section class="decision">
+    <div>
+      <p class="deadline">May 10</p>
+      <p class="deadline-label">Internal Decision Target</p>
+    </div>
+    <div>
+      <p>
+        To leave realistic drafting and review runway before PCEF's <strong>May 27</strong>
+        submission deadline, MCLT's internal target for sponsor confirmation is
+        <strong>May&nbsp;10</strong>. A 30-minute call with the Executive Director and
+        the finance &amp; grants lead at any time during <strong>May&nbsp;4–8</strong>
+        would let us walk through specifics and answer any questions Proud Ground's
+        team has.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <span class="name">Tyler Falcon</span><br>
+      Coordinator, Montavilla Community Land Trust
+    </div>
+    <div class="contact">
+      info@montavillalandtrust.org<br>
+      montavillalandtrust.org
+    </div>
+  </footer>
+
+</article>
+</body>
+</html>

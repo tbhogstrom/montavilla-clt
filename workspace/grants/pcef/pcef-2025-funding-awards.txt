@@ -1,0 +1,2464 @@
+PORTLAND CLEAN ENERGY
+COMMUNITY BENEFITS FUND
+
+2025 Community Grants Funding Awards
+
+                                                       Introduction
+
+                                                                      This report presents the Portland Clean
+                                                                      Energy Community Benefits Fund's (PCEF)
+                                                                      funding awards for the 2025 Community
+                                                                      Grants cycle, as approved by City
+                                                                      Administrator Jordan. Guided by
+                                                                      experience from previous funding rounds,
+                                                                      input from community partners, guidance
+                                                                      from City Council, and priorities outlined in
+                                                                      the Climate Investment Plan, this year's
+                                                                      process reflects PCEF's continued
+                                                                      commitment to community-driven climate
+                                                                      solutions. We are grateful to the
+                                                                      Portlanders who shared their ideas and to
+                                                                      the organizations leading this work across
+                                                                      the city. Together, these community-led
+                                                                      projects demonstrate the power of
+                                                                      collective action to advance the City's
+                                                                      climate goals while creating lasting benefits
+                                                                      for Portland's communities.
+
+                                                                                  - Sam Baraso, PCEF Program Manager
+
+PCEF 2025 Community Grants Funding Awards  Page 1 of 81
+Table of Contents
+
+Introduction....................................................................................................................................................... 3
+Climate Investment Plan and Community Grants ...................................................................................4
+
+      Renewable Energy and Energy Efficiency ............................................................................................. 4
+      Transportation Decarbonization........................................................................................................... 4
+      Climate Jobs, Workforce, and Contractor Development ...................................................................... 5
+      Green Infrastructure ............................................................................................................................. 5
+      Regenerative Agriculture ...................................................................................................................... 5
+      Other Carbon Reducing Projects........................................................................................................... 5
+2025 Community Grants Funding Cycle..................................................................................................... 7
+      Outreach and applicant support ........................................................................................................... 7
+      Types of grants...................................................................................................................................... 7
+Application review process............................................................................................................................7
+      Eligibility screening ............................................................................................................................... 7
+      Technical project feasibility review....................................................................................................... 8
+      Applicant vetting ................................................................................................................................... 8
+      Scoring criteria ...................................................................................................................................... 8
+      Scoring panel evaluations ..................................................................................................................... 9
+      Recommended portfolio development ................................................................................................ 9
+      GHG calculations ................................................................................................................................... 9
+Recommended portfolio .............................................................................................................................. 12
+      Summary of grant applications recommended for funding: .............................................................. 14
+      ENERGY EFFICIENCY AND RENEWABLE ENERGY GRANTS................................................................... 17
+      WORKFORCE DEVELOPMENT AND CONTRACTOR SUPPORT GRANTS ............................................... 31
+      REGENERATIVE AGRICULTURE AND GREEN INFRASTRUCTURE GRANTS .......................................... 44
+      TRANSPORTATION DECARBONIZATION GRANTS................................................................................ 59
+      OTHER GRANTS .................................................................................................................................. 70
+      PLANNING GRANTS ............................................................................................................................. 72
+
+PCEF 2025 Community Grants Funding Awards  Page 2 of 81
+Introduction                                                         PCEF priority populations:
+
+The Portland Clean Energy Community Benefits Fund (PCEF)             PCEF Priority Population means
+supports community-driven efforts that reduce carbon emissions,      groups that are under-resourced by
+expand economic opportunity, and strengthen Portland's               sustainability, climate action, and
+resilience to climate change. Guided by the Climate Investment       clean energy programs, and
+Plan (CIP), a five-year funding plan, PCEF will direct $1.6 billion  therefore are centered in PCEF's
+through 2029 toward clean energy and climate solutions that help     investments to ensure equitable
+those most affected by climate impacts prepare for the future.       climate action. These may include,
+                                                                     but are not limited to, people with
+Through the CIP, PCEF funds projects such as energy efficiency       low incomes, people with
+improvements that make multi-dwelling housing safer and more         disabilities, and people of color.
+comfortable during extreme heat, energy saving solutions for         Priority populations often have less
+income-qualifying single-family homes, e-bike rebate programs,       access to the benefits of
+and tree planting initiatives that expand shade in areas with        environmental investments while
+limited canopy coverage, and many more. Each project is              facing greater vulnerability to
+reviewed through PCEF's equity and climate framework, which          climate-related harms such as
+emphasizes benefits for frontline communities, community             extreme heat, wildfire smoke,
+leadership, feasibility, reductions in greenhouse gas (GHG)          vector-borne diseases, and flooding.
+emissions, and accountability.
+
+The Community Grants program supports community-based, nonprofit-led projects. The 2025
+Community Grants cycle drew a strong response, reflecting how local organizations have continued to
+strengthen their capacity and maintain their ambition in recent years. This report provides an overview
+of the CIP's structure, funding categories, program processes, and staff recommendations.
+
+Empowering our community to lead and participate in meaningful climate action is essential to
+achieving our goals. Together, we share a responsibility to foster a more just and climate-resilient
+Portland.
+
+PCEF 2025 Community Grants Funding Awards                            Page 3 of 81
+Climate Investment Plan and Community Grants
+
+The Climate Investment Plan (CIP) is the Portland Clean Energy Community Benefits Fund (PCEF) five-
+year plan that guides the program's investments. The CIP includes 37 Strategic Programs and the
+Community Grants program. All programs in the CIP are evaluated within PCEF's equity and climate
+framework, which considers benefits to frontline communities, community leadership, implementation
+feasibility, greenhouse gas (GHG) emissions reductions, and accountability.
+
+The 2025 Community Grants funding cycle is part of the inaugural CIP and is aimed at supporting
+nonprofit-led, planning, and implementation projects that reduce GHGs and improve climate resilience
+equitably. The CIP includes five-year funding allocations for each of PCEF's funding areas for the
+Community Grants program. Below are details of each of the funding areas, their five-year Community
+Grants allocations in the CIP, and examples of the types of projects that are eligible for funding.
+
+              Renewable Energy and Energy Efficiency
+
+                  Five-year Community Grants funding allocation: $156,000,000
+                  Energy efficiency and renewable energy-focused Community Grants are intended to
+                  capture investments in:
+
+    · Targeted/culturally responsive single-family home clean energy upgrades.
+    · Clean energy upgrades in existing regulated multifamily affordable housing.
+    · Clean energy improvements in nonprofit owned/occupied commercial buildings.
+    · Community solar.
+    · Other renewable energy and energy efficiency investments that equitably reduce GHG
+
+         emissions and will not be served by a strategic program defined in the CIP.
+
+               Transportation Decarbonization
+
+                   Five-year Community Grants funding allocation: $59,000,000
+                   Transportation decarbonization, the newest funding category for PCEF, is intended to
+                   capture investments in:
+
+    · Programming, including education and outreach, that expands access to and promotes
+         sustainable transportation modes. These include walking, biking, public transportation,
+         carpooling, and electric vehicle usage.
+
+    · Electric vehicle car share program at an affordable housing site or bike-sharing program at a
+         community center.
+
+    · Switching an organization's high-mileage, shared vehicles to electric vehicles (e.g., vans for after
+         school programs serving low-income youth or community transportation services for priority
+         populations).
+
+    · Charging infrastructure that is equitable, convenient, reliable, affordable, safe, and accessible.
+    · Community-centered transportation planning processes that focus on the needs of priority
+
+         populations.
+    · Other transportation decarbonization projects that equitably reduce GHG emissions and will not
+
+         be served by a strategic program defined in the CIP.
+
+PCEF 2025 Community Grants Funding Awards  Page 4 of 81
+              Climate Jobs, Workforce, and Contractor Development
+
+                  Five-year Community Grants funding allocation: $41,000,000 (adult), $7,000,000
+                  (youth)
+
+Workforce and contractor development-focused Community Grants are intended to prioritize
+investments in:
+
+    · Oregon Bureau of Labor & Industries (BOLI)-registered pre-apprenticeship programs: HVAC
+         technicians, weatherization technicians, electricians, plumbers, and other trades that work on
+         climate action.
+
+    · BOLI-registered apprenticeship programs: residential heat pump technicians and weatherization
+         technicians.
+
+    · Certifications: for arborists, solar panel installers, wind technicians, HVAC technicians,
+         weatherization technicians, and energy auditors.
+
+    · Youth climate career education and exposure initiatives: for programs in fields like renewable
+         energy, sustainable agriculture, or transportation planning; and internships with companies that
+         are at the forefront of the sustainable economy.
+
+    · Contractor development: for mentorship and training, access to capital, and business and
+         technical assistance to increase climate action related product and service offerings.
+
+              Green Infrastructure
+
+                  Five-year Community Grants funding allocation: $8,000,000
+                  This includes a $2.2 million allocation for green infrastructure projects located within
+                  0.25 mile west and 0.5 mile east of the 82nd Avenue. Green infrastructure focused
+    Community Grants are intended to capture investments in:
+
+    · Urban tree canopy expansion efforts.
+    · Building and maintenance of bioswales.
+    · Removal of impervious surfaces (depaving) and creation of permeable gardens and community
+
+         spaces.
+    · Other projects that use vegetation, soils, and other elements to sequester carbon emissions.
+
+              Regenerative Agriculture
+
+                  Five-year Community Grants funding allocation: $24,000,000
+                  Regenerative agriculture focused Community Grants will support community-led projects
+                  that:
+
+   · Expand opportunities for cultivation of local food, fibers, and materials on urban farms,
+
+         backyard gardens, and community gardens.
+
+   · Increase the use of public and private land for growing food and materials.
+
+              Other Carbon Reducing Projects
+
+                  Five-year Community Grants funding allocation: $2,000,000
+                  Other carbon reducing/sequestering community responsive grant projects include
+                  projects that do not fall under other PCEF code funding categories but provide
+
+PCEF 2025 Community Grants Funding Awards  Page 5 of 81
+meaningful and measurable carbon reduction or sequestration, prioritizing those that provide benefits
+to PCEF priority populations. Examples may include projects that promote sustainable materials
+management that results in reduced lifecycle carbon emissions and increased recycled materials.
+
+PCEF 2025 Community Grants Funding Awards  Page 6 of 81
+2025 Community Grants Funding Cycle
+
+Outreach and applicant support
+
+PCEF staff hosted 7 virtual information and office hour sessions during regular work hours, evenings, and
+weekends to answer questions from prospective applicants. More than 180 individuals attended PCEF-
+hosted application support sessions. Staff and contracted technical assistance providers delivered
+trainings focused on grant writing and budget development; multifamily, commercial, and single-family
+residential energy efficiency and renewable energy; workforce and contractor development, and
+regenerative agriculture and green infrastructure. These sessions were recorded and uploaded to the
+PCEF YouTube account and have collectively received more than 400 video views.
+
+Additionally, staff contracted with consultants to provide an additional 25 meetings where they
+provided grant writing and budget development support, prioritizing small and emerging organizations,
+and energy efficiency consultations to help inform and support project proposals. The funding
+application period opened on March 26, 2025, and closed on May 27, 2025.
+
+Types of grants
+
+There were two types of grants available: Planning Grants and Implementation Grants. Planning Grants
+support organizations in conducting assessments or planning needed to develop a full project proposal,
+with eligible activities including research and learning, feasibility evaluations, community outreach,
+partnership building, and curriculum development.
+
+Implementation Grants were designed for projects that advance economic, social, and climate justice,
+including physical improvements like weatherization and planting trees and non-physical activities like
+workforce training. These funds could be used for staff time, contracted work, purchasing equipment,
+materials, and supplies, fulfilling program requirements, and other project needs.
+
+The 2025 Community Grants funding cycle also offered general operating support as the second year of
+a pilot program, available for eligible organizations whose primary focus is local food production using
+regenerative agricultural practices. The amount covered is capped at 25% of operating costs or $200,000
+annually, whichever is less. This general operating support is for three-year grants and applies only to
+organizations that pay their entire staff wages at or above the PCEF minimum wage.
+
+Application review process
+
+The application review process included eligibility screening, technical review, financial review, and
+reference checks. Scoring panels then reviewed all eligible applications to determine the recommended
+portfolio. Each of these steps is outlined below.
+
+Eligibility screening
+
+Program staff reviewed each application to ensure the organization and project are eligible for funding.
+Eligibility criteria are informed by PCEF legislation as well as City contracting and legal requirements. All
+applications must be submitted by eligible nonprofits for climate mitigation and adaptation projects
+within one of the PCEF funding areas: energy efficiency, renewable energy, transportation
+
+PCEF 2025 Community Grants Funding Awards  Page 7 of 81
+decarbonization, regenerative agriculture,                Applications by the numbers
+green infrastructure, workforce and contractor
+development, and other GHG-reducing                         216 applications, $261+ million in
+projects.                                                   funding requests
+
+Applicants with existing PCEF funding                             164 implementation, 52 planning
+underwent a further eligibility review to
+assess their performance and fund expenditure                         37% energy efficiency and
+progress on their current grant. All reviews were                     renewable energy applications
+documented, and PCEF staff communicated with
+applicants deemed ineligible to inform them of the
+decision.
+
+Technical project feasibility review                                 25% workforce and contractor
+                                                                     development applications
+Applications for projects that include a physical
+improvement were reviewed for technical feasibility if              20% regenerative agriculture
+they passed the eligibility screen. The technical review            and green infrastructure apps
+determines whether the project is possible to execute.
+The review does not count toward the project score;             12% transportation
+rather, it serves as a screen to eliminate projects             decarbonization applications
+that are not technically feasible. Projects do not
+need to be fully designed to pass the technical           5% other GHG-reducing projects
+review, but they must be technically feasible.            applications
+During this review phase, there is opportunity
+for reviewers to seek clarification or other
+information from the applicant to improve their
+understanding of the project.
+
+Applicant vetting
+
+All eligible applicants underwent a vetting process that included reference checks and a review of
+organizational financials. Applications that raised questions during preliminary review, or that requested
+funding exceeding twice their average annual revenue or proposed work outside the organization's prior
+experience, received additional scrutiny.
+
+Reference checks. Staff requested up to three external references to verify an applicant's prior work,
+timeliness, and successful completion of projects comparable in scale and complexity to the proposed
+effort. References were asked to comment on the organization's ability to carry out projects effectively
+and to note any concerns about its capacity.
+
+Financial review. The financial review examined the past three years of financial statements and related
+narrative responses in the application to assess the organization's financial stability and governance.
+Newer organizations with fewer than three years of records were required to submit all available
+financial documentation.
+
+Scoring criteria
+
+Applications were scored on criteria specific to their project type. Applications that included a workforce
+and contractor development (WCD) component, along with implementation of energy efficiency,
+
+PCEF 2025 Community Grants Funding Awards                 Page 8 of 81
+renewable energy, green infrastructure, regenerative agriculture, and/or transportation decarbonization
+components were scored on all relevant criteria, with scores weighted based on the share of the budget
+allocated to each area of work. The scoring criteria includes weights so that different criteria impact the
+final score to a different extent, based on prioritizations that were established through community
+input. Each application had an opportunity to receive up to 100 points. PCEF staff made all scoring
+criteria and information publicly available online and encouraged applicants to review the materials
+thoroughly when preparing their applications.
+
+Scoring panel evaluations
+
+Applications that passed eligibility screening and technical review were assigned to a scoring panel. Each
+panel included three members drawn from PCEF Committee members, program staff, community
+representatives, and subject matter experts, ensuring diverse perspectives and relevant expertise. Staff
+reviewed potential conflicts of interest when forming panels, and all panelists completed a conflict-of-
+interest disclosure form and received training on scoring criteria and bias awareness. Panelists were
+instructed not to communicate with applicants during the review process. The scoring process included
+five steps:
+
+    1. Each reviewer independently scored applications using the provided criteria.
+    2. PCEF staff compiled the individual draft scores and calculated the average for each criterion.
+    3. Panels met to discuss scores and applicant responses, after which reviewers could adjust their
+
+         ratings. A final average score was then assigned to each application.
+    4. Final scores were weighted based on the scoring criteria, and PCEF staff added a greenhouse gas
+
+         (GHG) impact score to produce the overall score.
+    5. Applications were required to meet a minimum score threshold to advance for funding
+
+         consideration.
+
+Recommended portfolio development
+
+The recommended portfolio was developed based on several factors, including application type, ranking
+of application scores, funding allocations for each program area, and overall proposal strength. Several
+projects were awarded partial funding based on evaluation of implementation feasibility and eligibility
+of measures.
+
+Partial funding decisions were based on considerations such as an organization's capacity to complete
+the project, inclusion of ineligible expenses, adjustments to project scope, and other relevant factors.
+The goal of these awards is to set organizations and their projects up for success while maintaining
+alignment with PCEF program requirements. PCEF staff will work with these organizations during the
+grant agreement drafting process to refine project scopes and budgets, maximizing greenhouse gas
+reductions and community benefits while allowing necessary adjustments.
+
+GHG calculations
+
+GHG reduction estimates are based on information provided by applicants on planned physical
+improvements and behavior change results. When needed, supplemental values were sourced from
+regional studies, adopted standards, or similar programs. Emissions reductions were conservatively
+calculated and used the assumed lifetime of the measure or mix of measures for projects that include
+physical infrastructure or technologies. Emissions factors were used to convert electricity and fuel
+savings into CO2e values. These were generated with utility emissions factors from the Department of
+
+PCEF 2025 Community Grants Funding Awards  Page 9 of 81
+Environmental Quality and annual sales from utility reporting. The electricity emissions factors were
+then assumed to linearly reduce to zero by 2040, as per HB 2021, and they are adjusted to account for
+line loss using values published by the Energy Information Administration.
+
+PCEF 2025 Community Grants Funding Awards  Page 10 of 81
+              Eligibility Screening & Technical Review
+
+216 applications         650+ hours reviewing  2 staff/subject matter
+   submitted                                   experts per application
+
+              Financial Review & Applicant Vetting
+
+204 applications         3 references per      300+ hours reviewing
+    reviewed                application
+
+                         Scoring Panels
+
+     189      19 panels  3 members         20 external   1,100+ hours
+applications              per panel        and 21 staff    reviewing
+                                            reviewers
+   scored
+
+                  Final Recommendation
+
+60 grants         $64.4M in funding        76,204 lifetime GHG reduction
+                                                  (metric tons CO2e)
+
+PCEF 2025 Community Grants Funding Awards                Page 11 of 81
+Recommended portfolio
+
+PCEF staff recommended a portfolio consisting of 60 grants totaling $64,353,695 in funding: 51
+implementation and nine planning grants. These grants meet the program's objective of addressing
+climate change equitably. The estimated lifetime reduction in GHG emissions for projects is estimated to
+be roughly 76,200 metric tons CO2e. This estimate does not include regenerative agriculture projects as
+there are no reliable models for estimating impact at the urban farming scale. This yields an average
+cost of $730/metric ton CO2e for clean energy focused implementation grants1.
+
+Of the 60 organizations
+
+recommended for funding, 59                                    Recommended allocation by funding area
+
+accepted their awards and will         100%                    Other, $884,297
+
+now begin our grantee                                                RAGI,        Other, 3
+                                                                 $7,552,967
+onboarding process. One                90%
+
+organization from the "Other"
+
+funding category, declined their       80%                        WCD ,           RAGI, 15
+                                                               $9,319,135
+award due to staffing changes
+
+that required delaying project                                 Transport
+implementation to an unspecified 70%                             Decarb,
+                                                               $8,142,530
+future date.                                                                      WCD , 15
+
+                                                          60%
+
+The recommended portfolio
+
+features robust representation         50%
+
+from culturally specific groups,
+
+implementing projects that             40%                                          Transport
+                                                                                   Decarb, 12
+provide a multitude of benefits to                             Energy Efficiency
+                                                               and Renewable          Energy
+all of PCEF's priority populations. 30%                                           Efficiency and
+                                                                    Energy ,
+Project benefits provided to                                     $33,687,827       Renewable
+                                                                                   Energy , 15
+households and individual              20%
+
+community members goes well
+
+beyond greenhouse gas reduction 10%
+
+and includes improved indoor air
+
+quality and comfort in homes,          0%
+
+climate resilience, reduced utility                            Funding ($)        Number of Grants
+
+bills, training, connection to living
+
+wage jobs, access to high quality                                          *WCD: workforce and contractor development
+                                                               *RAGI: regenerative agriculture and green infrastructure
+
+1 In attempting to contextualize $/MT CO2e estimate, is important to (1) acknowledge the wide range of values associated with
+the social cost of carbon, which reflects varying estimates of the economic damages associated with an incremental increase in
+carbon emissions; these values are inherently greater for frontline communities who bear the greatest impact from the impacts
+of climate change; and (2) recognize these values do not disaggregate localized community benefits such as addressing deferred
+maintenance, creating jobs, improving air quality, etc. These are important outcomes that result in tangible community benefits
+beyond the GHG reductions. As electric utilities implement HB 2021 to get to a 100% clean energy supply by 2040, energy
+efficiency projects will yield lower direct emissions reductions over time. However, they will continue to result in net benefits to
+ratepayers by managing load growth and contributing to a more resilient electrical grid.
+
+PCEF 2025 Community Grants Funding Awards                                         Page 12 of 81
+fresh foods, and connection to community.
+
+The nine recommended planning grants represent planning efforts across all funding areas (e.g., energy
+efficiency, transportation decarbonization, regenerative agriculture and green infrastructure, workforce
+development, and other GHG-reducing projects).
+
+Clean energy projects include energy efficiency and renewable energy improvements to single-family,
+multifamily, and commercial properties with an emphasis on deep energy retrofits. Regenerative
+agriculture and green infrastructure projects include gardening, food production, and food sovereignty.
+Workforce development projects will train both existing and new workers in climate-related
+technologies, trades, and practices, preparing them for jobs in the green economy. Contractor support
+projects will resource and credential disadvantaged contractors to pivot towards climate-related
+contracting opportunities. Transportation decarbonization projects include those focused on promoting
+increased active transportation through incentives and education as well as electric vehicle (EV)
+conversation of internal combustion engine fleets.
+
+Estimated distribution of recommended grant funding by geographic district:
+
+The table below provides an approximate distribution of recommended grant funding across Portland's
+four geographic districts, expressed in both total dollars and percentage of overall investment. These
+estimates are based on information provided by applicants, who identified the proportion of their
+proposed project activities occurring within each district. PCEF staff used these self-reported
+percentages to model and estimate the geographic allocation of the recommended portfolio.
+
+District 1 ($)  District 2 ($)             District 3 ($)  District 4 ($)
+$17,449,565     $28,340,147                 $7,683,872      $5,458,414
+District 1 (%)  District 2 (%)             District 3 (%)  District 4 (%)
+
+     30%             48%                        13%              9%
+
+Total requested funding for recommended portfolio:
+
+The table below summarizes total grant funding awards, an additional 8% contingency allocation, and
+the combined total. Contingency funds are reserved for unanticipated project costs, such as inflation or
+unforeseen construction challenges, and are used only as needed to support successful project
+completion.
+
+2025 Community Grants Awards               $59,586,754
+Contingency funds (8%)                     $4,766,940
+Total requested funding approval           $64,353,695
+
+PCEF 2025 Community Grants Funding Awards                                  Page 13 of 81
+Summary of grant applications recommended for funding:
+
+Applications are available to view on PCEF's public application portal: link to portal
+
+App    Applicant                           Application title                       Recommended
+                                                                                   funding amount
+ID     organization
+
+Energy Efficiency and Renewable Energy Grants
+
+9342   CityTeam                 CityTeam Portland Solar Project                          $75,782
+9118   Community for Positive                                                            $595,068
+9962   Aging                    Resilience Hub for Low-Income Seniors                   $2,958,393
+9277   Earth Advantage Inc.                                                             $2,046,178
+       Fora Health              Over-the-Sill Heat Pump Installation Project
+9993                            Expanding Excellence in Addiction Care with             $1,526,915
+       LatinoBuilt Foundation   Energy-Efficient Supportive Housing
+9087                            LatinoBuilt Foundation Nuestro Hogar Home               $3,284,070
+       Meals on Wheels People   Energy Retrofits
+8953   Portland YouthBuilders   Meals on Wheels People Eastside Resource                $2,512,260
+9982   (PYB)                    Center                                                  $2,652,794
+9312   Proud Ground                                                                     $2,583,605
+9023   Sabin CDC                PYB's Clean Energy Campus                               $4,999,999
+10047                                                                                   $2,157,214
+9335   Self Enhancement, Inc.   Proud Ground 2025 - Net Zero Homes                      $2,902,861
+8810   Spark Northwest          EcoLivability for All: Building Housing Stability       $4,999,999
+                                Through Climate Resilience
+       Taking Ownership PDX     NE 13TH Ave Homeownership Project
+       Williams & Russell CDC   Energize the Land Trust
+                                Power & Preservation: Maintaining Black
+                                Homeownership Through Energy Efficiency
+                                Black Business Hub
+
+Transportation Decarbonization Grants
+
+10005  African Youth and        Shifa Healing Transportation Initiative                  $630,513
+9470   Community Organization                                                            $895,000
+9794   (AYCO World)             Expanding and Evaluating Bike Buses                      $248,339
+9981   Bike Bus                 Clean Mobility for Climate Resilience and               $2,000,000
+9284                            Youth Leadership                                         $459,826
+       Bird Alliance of Oregon  Electrify & Empower - Green Fleets
+10009                                                                                    $658,145
+       Black American Chamber   Cycling Basics for Priority Populations
+8925   of Commerce                                                                       $297,000
+9465   Community Cycling        EECRC Eco-Transport Access & Education                   $662,563
+       Center                   Project
+       Ethiopian and Eritrean   Launching Iron Tribe Network's First Climate
+       Cultural and Resource    Resilient Operations
+       Center                   OHSU E-bike Loaner Program Expansion
+
+       Iron Tribe Network
+
+       Oregon Health and
+       Science University
+
+PCEF 2025 Community Grants Funding Awards                                               Page 14 of 81
+9265 P:ear                      Empowering Sustainable Mobility: Expanding    $1,837,403
+9965 The Street Trust           E-Bike Access and Infrastructure in East       $253,743
+                                Portland
+                                Ride 2 Own Ebikes for East Portland            $999,349
+                                Disadvantaged Youth
+                                                                               $999,904
+Regenerative Agriculture and Green Infrastructure Grants                       $588,430
+                                                                               $670,723
+8847 Columbia Land Trust        Expanding Backyard Habitat to Increase         $259,938
+                                Access to Nature and Healthy Environments      $708,689
+         De Rose Community      for PCEF Priority Communities                  $359,206
+9770 Bridge & Holistic                                                          $8,882
+                                Better Together women Rainbow                  $198,000
+         Wellness               Regenerative Program.                          $976,800
+                                                                               $137,610
+8837 Ecotrust                   Early Roots, Clean Routes: Zero-Emissions      $419,786
+                                Food Recovery for ECE Families                 $825,894
+9985  Feed'em Freedom           The Black Agrarian Food Waste Reduction        $199,756
+      Foundation                Program
+                                Growing equitable access to our urban green   $1,500,000
+9811 Friends of Trees           spaces
+                                Zenger Farm Regenerative Agriculture           $509,846
+9490 Friends of Zenger Farm     Implementation Grant
+                                General Operating: Regenerative Agriculture    $496,558
+9963 Grow Portland              Connecting Generations: The Japanese
+                                Kitchen Garden / Yasai Hata
+9862  Japanese Ancestral        Community Activation at Rosewood
+      Society/ Ikoi no Kai      Initiative's Food Forest
+                                Prismid Sanctuary Regenerative Agriculture
+10000 Peace Village Global      Implementation Project
+                                Deep Mulch Community Gathering Space +
+8830 Prismid, Inc.              Infrastructure
+                                Rooted in Rosewood: Cultivating Community
+10012 Rhythm Seed Farm          Through Green Spaces
+                                Feed Our People: Centering Accessibility and
+9057 The Rosewood Initiative    Ancestral Wisdom in Land Stewardship and
+                                Regenerative Agriculture
+9974 The UPRISE Collective      Northeast Portland Urban Habitat
+9978 Verde
+
+Workforce Development and Contractor Support Grants
+
+9286 Portland YouthBuilders     Portland YouthBuilders: Pathways to a
+                                Diverse Climate Workforce
+8951  Portland Opportunities
+9331  Industrialization Center  Workforce Training in Advanced
+      & Rosemary Anderson       Manufacturing
+      High School
+      Home Performance          Strengthening Portland's Home Performance
+      Guild of Oregon           Contractor Community
+
+PCEF 2025 Community Grants Funding Awards                                     Page 15 of 81
+8947 Enercity Collaborative       Portland's First Hands-On Home Energy           $1,013,968
+                                  Efficiency Training And Certification Center     $377,883
+9231   Girls Build                Girls Build Summer Camps                         $336,821
+10044                             Residential Construction Career Accelerator      $226,164
+       Earth Advantage Inc.                                                       $1,469,956
+9031   Portland Workforce         PWA Pathways to Climate Careers
+       Alliance                                                                    $400,000
+                                  Workforce and Contractor Development:           $1,000,000
+9783 PBDG Foundation              Advancing Climate Equity Through Inclusive       $710,322
+                                  Business Support                                $1,000,000
+9955 P:ear                        p:ear gardens: Homeless Youth Exposure/
+                                  Workforce Development (Regenerative              $290,214
+10002 LatinoBuilt Association     Agriculture)
+10014 Latino Founder              LatinoBuilt Association Contractor               $198,000
+                                  Development 2026-2027                            $78,876
+          Pacific Northwest       Latino Founders Climate Accelerator              $200,000
+9975 Pollution Prevention         Portland Electric Landscaping Initiative:        $100,000
+                                  Supporting Small Landscape Contractors in
+          Resource Center         the Transition from Gas-Powered to Electric      $98,740
+                                  Leaf Blowers to Reduce Environmental Impact      $192,690
+                                                                                   $99,998
+Other Grants                                                                       $199,997
+                                                                                   $100,000
+9488   Community Warehouse        Community Warehouse: Expanding Mattress
+                                  Reuse and Redistribution Through Strategic
+                                  Staffing Support
+
+Planning Grants
+
+8898   Albina Vision Trust, Inc.  Planning for Energy, Restoration & Justice in
+9026   Enercity Collaborative     Lower Albina
+9980   Indigenous Health Equity   Tomorrow's Workforce: Engaging Youth in
+9858   Institute                  Home Energy Efficiency Careers
+       Latino Network             Assessing the Climate Health Impacts of
+8991                              Indigenous Foodways
+       Love is Stronger GV        Latino Network Youth EV Pathways Feasibility
+9128                              Study
+9319   Neighborhood House         YOT YOT (Youth Organizing for
+9792   Trash for Peace            Transformation Young-adults Organizing for
+9853   Upstream Access            Transition): Leading the Way to Just, Green
+       Verde                      Futures
+
+                                  The Neighborhood House Barber Project
+
+                                  Pedal Power: Community Bike Hubs & Youth
+                                  Repair Training for Climate Justice
+                                  Resilient Communities: Inclusive Solutions for
+                                  Emergency Readiness for Disabled People
+                                  Planning for Green Workforce Development
+                                  Programs
+
+PCEF 2025 Community Grants Funding Awards                                         Page 16 of 81
+ENERGY EFFICIENCY
+AND RENEWABLE
+ENERGY GRANTS
+
+Estimated lifetime GHG reduction estimate (metric tons CO2e): 29,543
+Installed renewable energy capacity (kw): 630
+Storage capacity (kwh): 1,050
+Number of buildings with energy efficiency upgrades: 85
+Green infrastructure installed (sq ft): 280,962
+Number of trees planted/maintained: 92
+Number of training participants: 20
+Number of businesses estimated to be served: 10
+Estimated hours of assistance per business: 600
+Residential units with energy efficiency upgrades: 2,005
+Estimated total annual electricity savings from energy efficiency (kwh): 1,241,622
+Estimated total annual natural gas savings from energy efficiency (therms): 28,382
+
+PCEF 2025 Community Grants Funding Awards                                           Page 17 of 81
+Application title: Black Business Hub
+
+Applicant organization: Williams & Russell CDC
+
+APPLICATION #:  8810
+
+FUNDING AREA:   Energy efficiency ­ Non-residential
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $4,999,999
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project seeks to advance economic growth and community resilience through programming and the
+construction of an environmentally efficient facility. Key milestones include constructing the facility
+using mass timber, pursuing LEED Gold certification, and meeting clean energy goals through solar
+power, above-code insulation, LED lighting, and low-flow fixtures. The project's major goals include
+improving indoor air quality, enhancing local ecology and water management through stormwater
+planters, bioswales, and native landscaping, and creating a model for equitable, environmentally
+responsible development that supports long-term community and economic resilience.
+
+PCEF 2025 Community Grants Funding Awards            Page 18 of 81
+Application title: PYB's Clean Energy Campus
+
+Applicant organization: Portland YouthBuilders (PYB)
+
+APPLICATION #:  8953
+
+FUNDING AREA:   Energy efficiency ­ Non-residential
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,512,260
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to add energy efficiency, renewable energy, and green infrastructure measures to
+improve Portland YouthBuilders' (PYB) campus and enhance the daily learning and teaching
+environment for staff and over 200 students. Key milestones include upgrading solar panels with battery
+storage, replacing gas HVAC units with heat pump systems, weatherizing buildings, installing energy-
+efficient appliances, and removing invasive plants while adding native trees/plants to create a biodiverse
+space. Major goals include establishing PYB's campus serving as a resilience hub, reducing energy
+consumption and greenhouse gas emissions, and creating opportunities for clean-energy trade
+education.
+
+PCEF 2025 Community Grants Funding Awards             Page 19 of 81
+Application title: Meals on Wheels People Eastside Resource Center
+
+Applicant organization: Meals on Wheels People
+
+APPLICATION #:  9087
+
+FUNDING AREA:   Energy efficiency ­ Non-residential
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $3,284,070
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to complete the final phase of a multi-year clean energy and climate resilience
+initiative at the grantee's 82nd Avenue Service Center. Key milestones include upgrading commercial
+kitchen equipment to energy-efficient, all-electric models; procuring long-lead equipment, including a
+PV and battery storage system; starting site preparation and foundation work; installing wall and roof
+insulation, commissioning clean energy systems, and activating all systems to operational form,
+including ensuring the community emergency response functionality is in place. Major project goals
+include generating 401,836 kWh in annual energy savings, translating to approximately $52,238 in utility
+savings, or the equivalent of 5,460 additional meals annually for PCEF priority populations, delivering
+lasting environmental and health outcomes for the community.
+
+PCEF 2025 Community Grants Funding Awards            Page 20 of 81
+Application title: EcoLivability for All: Building Housing Stability
+Through Climate Resilience
+
+Applicant organization: Sabin Community Development Corporation
+
+APPLICATION #:  9312
+
+FUNDING AREA:   Energy efficiency ­ Multi-dwelling
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,583,605
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to enhance community resilience, housing stability, and climate readiness through
+energy efficiency and renewable energy upgrades across four Sabin Community Development
+Corporation's affordable housing properties, while securing up to $40,000 in incentives per building. In
+partnership with Verde, key milestones include resident engagement and site planning, installing
+weatherization measures, high-efficiency heat pumps, solar panels, and battery storage, hosting
+resident workshops and listening sessions throughout the process, and assigning staff roles for
+emergency response, as well as distributing safety guides to residents upon completion of construction.
+Major goals include producing enough energy to fully cover each building's utility costs, which could
+support the hiring of an additional Resent Services Coordinator, improving resident well-being,
+strengthening operational stability, and supporting workforce development in the green energy sector.
+
+PCEF 2025 Community Grants Funding Awards           Page 21 of 81
+Application title: Over-the-Sill Heat Pump Installation Project
+
+Applicant organization: Earth Advantage Inc.
+
+APPLICATION #:  9962
+
+FUNDING AREA:   Energy efficiency ­ Multi-dwelling
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,958,393
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to install up to 405 over-the-sill heat pumps in eligible affordable housing units across
+Portland, providing permanent, energy-efficient heating and cooling for residents within PCEF priority
+populations. These innovative, easy-to-install systems offer a cost-effective solution for multifamily
+buildings where traditional energy-efficient HVAC retrofits are technically challenging or cost-
+prohibitive. Key milestones include collaborating with community-based partners, identifying eligible
+sites, completing heat pump installations, tracking energy savings, and conducting regular quality-
+control checks on installed units. The project's major goals include reducing energy costs, replacing
+inefficient systems, and ensuring safe, reliable cooling for vulnerable households as Portland
+experiences increasingly higher temperatures.
+
+PCEF 2025 Community Grants Funding Awards                        Page 22 of 81
+Application title: Expanding Excellence in Addiction Care with
+Energy-Efficient Supportive Housing
+
+Applicant organization: Fora Health
+
+APPLICATION #:  9277
+
+FUNDING AREA:   Energy efficiency ­ Multi-dwelling
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,046,178
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to incorporate energy-efficient heating and cooling in the construction of a new 46-
+bed recovery housing facility, which would increase the number of patients served from about 2,000 to
+5,000 per year, with over 50% from PCEF priority populations. Key milestones include issuing the final
+construction set with incorporated changes, receiving building permits, mobilizing for and completing
+construction utilizing a Dedicated Outdoor Air System for cooling and electric heating, paired with an
+enhanced building envelope. Major goals include providing six-month recovery housing at no cost to
+patients, optimizing energy and maintenance costs, increasing energy efficiency and operational
+resiliency, and enhancing residential and outpatient completion rates.
+
+PCEF 2025 Community Grants Funding Awards           Page 23 of 81
+Application title: NE 13TH Ave Homeownership Project
+
+Applicant organization: Self Enhancement, Inc.
+
+APPLICATION #:  9023
+
+FUNDING AREA:   Energy efficiency ­ Single Family
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $4,999,999
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to address housing affordability and displacement by creating 31 net-zero homes,
+which will produce as much energy as they consume through efficiency and on-site renewable power,
+for households earning up to 80% of the Area Median Income. The project intends to use the
+Community Land Trust model to ensure permanent affordability. Key milestones include collaborating
+with partners to provide financial education, homebuyer readiness programs, and one-on-one
+homeownership counseling; adding elevated walkways, trails, and green spaces to support flood
+resilience and preserve wetlands and mature trees; constructing cottages, duplexes, and townhomes
+using offsite methods such as componentized and modular construction. Major goals include creating
+clear, supported paths to homeownership, stability, and generational wealth.
+
+PCEF 2025 Community Grants Funding Awards             Page 24 of 81
+Application title: Proud Ground 2025 - Net Zero Homes
+
+Applicant organization: PROUDGROUND
+
+APPLICATION #:  9982
+
+FUNDING AREA:   Energy efficiency ­ Single family
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,652,794
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+The project aims to expand its Net Zero CLT Homes Program through the construction of 16
+permanently affordable, energy-efficient net-zero homes, which will produce as much energy as they
+consume through efficiency and on-site renewable power, serving first-time and income-qualified
+homebuyers in Portland. Key milestones include identifying site and development partners, completing
+net-zero energy modeling, design, and construction of the homes, and establishing the homebuying
+process in partnership with Proud Ground. This project's major goals include reducing carbon impacts,
+increasing homeowner cost savings, enhancing community health and climate resiliency, and providing a
+supportive path to homeownership, thereby deepening climate impact outcomes for Portland residents,
+particularly households from PCEF priority populations.
+
+PCEF 2025 Community Grants Funding Awards              Page 25 of 81
+Application title: Power & Preservation: Maintaining Black
+Homeownership Through Energy Efficiency
+
+Applicant organization: Taking Ownership PDX
+
+APPLICATION #:  9335
+
+FUNDING AREA:   Energy efficiency ­ Single family
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,902,861
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to support 45 homeowners from PCEF priority populations in making their homes
+safer, more energy efficient, and comfortable through energy upgrades, solar assessments, and clean
+energy education. Key milestones include conducting Home Energy Score pre-screenings and Home
+Energy Audits for 120 homes housing approximately 240 residents; completing deferred maintenance
+and necessary construction; implementing energy efficiency upgrades such as insulation, air sealing, and
+appliance replacement, completing whole-home retrofits for 45 homeowners and delivering clean
+energy education to up to 120 households. Major goals include achieving an average 30% reduction in
+energy use and costs, helping priority population Portlanders in their homes through critical repairs and
+efficiency improvements, and developing a scalable, replicable model for future projects.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                   Page 26 of 81
+Application title: LatinoBuilt Foundation Nuestro Hogar Home Energy
+Retrofits
+
+Applicant organization: LatinoBuiltFoundation
+
+APPLICATION #:  9993
+
+FUNDING AREA:   Energy efficiency ­ Single family
+
+FUNDING AREA RANK: 4
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $1,526,915
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project seeks to expand a pilot program into a comprehensive electrification initiative by providing
+28 home energy retrofits for low-income households and families. Key milestones include developing
+assessment protocols and quality standards, launching community outreach to recruit and screen
+participants, completing home energy audits, implementing whole-home retrofits, and conducting
+comprehensive program evaluations. Major goals include creating healthier homes for PCEF priority
+populations, reducing greenhouse gas emissions, helping develop a skilled workforce in the clean energy
+sector, and planning for program sustainability and expansion.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards          Page 27 of 81
+Application title: Energize the Land Trust
+
+Applicant organization: Spark Northwest
+
+APPLICATION #:  10047
+
+FUNDING AREA:   Renewable energy
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,157,214
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project seeks to expand the 2021 PCEF-funded Solarize initiative through a pilot that reduces
+climate impacts for PCEF priority populations. Key milestones include conducting approximately 50
+home energy audits, completing up to 10 whole-home electrification upgrades, installing 25 solar
+systems, training up to 20 individuals and supporting 10 small businesses in obtaining certification in
+energy auditing and building performance skills, and hosting workshops for homeowners to build energy
+literacy and community awareness of electrification pathways. Major goals include laying the foundation
+to electrify Portland over time and ensuring that investments benefit those most impacted by
+displacement and energy burdens.
+
+PCEF 2025 Community Grants Funding Awards   Page 28 of 81
+Application title: CityTeam Portland Solar Project
+
+Applicant organization: CityTeam
+
+APPLICATION #:  9342
+
+FUNDING AREA:   Renewable energy
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $75,782
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This project seeks to transform CityTeam's newly acquired building into an energy-efficient 124-bed
+residential program and long-term supportive housing facility for unhoused individuals in addiction
+recovery, primarily serving PCEF priority populations. Key milestones include receiving final permitting,
+installing a rooftop 33.92-kW solar PV array with 120 kWh of battery storage, and completing final
+inspections. Major goals include reducing greenhouse gas emissions, improving energy resilience and
+reliability for essential systems, and achieving a lifetime financial benefit over 30 years exceeding
+$300,000, enabling reinvestment into critical services such as meals, shelter, and recovery programs.
+
+PCEF 2025 Community Grants Funding Awards           Page 29 of 81
+Application title: Resilience Hub for Low-Income Seniors
+
+Applicant organization: Community for Positive Aging
+
+APPLICATION #:  9118
+
+FUNDING AREA:   Renewable energy
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $595,068
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This project seeks to transform the Community for Positive Aging's community space, which serves PCEF
+priority populations, into a more energy efficient and resilient hub for times of crisis. Key milestones
+include conducting energy modeling to inform design, evaluating bids, and installing solar, HVAC, and
+other non-mechanical energy efficient upgrades such as energy-efficient windows and exterior doors,
+high-efficiency LED lighting, and an electric heat pump water heater. Major goals include creating a safe,
+reliable, and welcoming space that supports community health, promotes environmental sustainability,
+and strengthens resilience to climate-related and other emergencies, while also expanding capacity to
+provide disaster preparedness, management and mitigation training.
+
+PCEF 2025 Community Grants Funding Awards                 Page 30 of 81
+WORKFORCE
+DEVELOPMENT AND
+CONTRACTOR
+SUPPORT GRANTS
+
+Green infrastructure installed (sq ft): 32,670                      Page 31 of 81
+Number of adult workforce training participants: 1,098
+Number of youth career exposure and education participants: 17,440
+Number of businesses estimated to be served: 650
+Hours of support provided to businesses and contractors: 12,400
+
+PCEF 2025 Community Grants Funding Awards
+Application title: Strengthening Portland's Home Performance
+Contractor Community
+
+Applicant organization: Home Performance Guild of Oregon
+
+APPLICATION #:  9331
+
+FUNDING AREA:   Contractor development
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $496,558
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to provide assistance to new and existing contractors, with a focus on those from PCEF
+priority populations, in the home energy efficiency industry. Key milestones include providing
+mentorship from experienced business owners, offering worksite training and additional instruction on
+construction skills and business development, developing a tool lending library system allowing 25
+contractors to check out up to $30,000 in home performance gear, hosting wellness, peer support, and
+networking meetings for over 60 contractors each month, and establishing an advisory group of eight
+local experts. The major goal of the project is to expand long-term climate-related contractor capacity
+through recruitment and training.
+
+PCEF 2025 Community Grants Funding Awards  Page 32 of 81
+Application title: Workforce and Contractor Development: Advancing
+Climate Equity Through Inclusive Business Support
+
+Applicant organization: PBDG Foundation
+
+APPLICATION #:  9783
+
+FUNDING AREA:   Contractor development
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $1,469,956
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+The project seeks to expand and launch programming to help construction businesses owned by
+members of PCEF priority populations gain greater access to lead clean energy projects. Key milestones
+include growing the organization's Joint Check Lending and low-interest credit programs, offering
+certifications through the Sustainable Homes Professional and Building Performance Institute,
+partnering with workforce organizations, connecting contractors to job-ready workers, and delivering
+technical assistance in bidding, compliance, and financial literacy. The major goals involve engaging
+more than 550 existing businesses to help them gain the skills, capital, and workforce support needed to
+compete and thrive in Portland's clean energy economy.
+
+PCEF 2025 Community Grants Funding Awards  Page 33 of 81
+Application title: LatinoBuilt Association Contractor Development
+2026-2027
+
+Applicant organization: LatinoBuilt Foundation
+
+APPLICATION #:  10002
+
+FUNDING AREA:   Contractor development
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $1,000,000
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+The project seeks to expand the grantee's Contractor Development program to support 50 contractors,
+both those interested in starting or expanding their business in green construction and energy
+efficiency, and those already working in these fields who need additional capacity-building support. Key
+milestones include training participants in energy-efficient building techniques, home performance
+assessment, renewable energy installation, offering technical and financial guidance for obtaining
+necessary specialized equipment, providing ongoing mentorship support regarding technical assistance,
+business scaling, and marketing and client development. Major goals include supporting participating
+contractors expand from serving only single-family homes to entering the multifamily market and
+developing a varied and skilled labor pool to meet Oregon's long-term climate-related workforce equity
+goals.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards  Page 34 of 81
+Application title: Latino Founders Climate Accelerator
+
+Applicant organization: Latino Founder
+
+APPLICATION #:  10014
+
+FUNDING AREA:   Contractor development
+
+FUNDING AREA RANK: 4
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $710,322
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to establish a 10-week, cohort-based program for entrepreneurs working in sectors
+such as technology, energy, cleantech, and transportation. Key milestones include publishing annual
+reports on outcomes, learnings, and impacts, launching and refining the curriculum and training
+infrastructure, recruiting mentors and entrepreneurs, expanding regional partnerships, delivering two
+full cycles of programming, and sustaining engagement through mentorship and alumni programming.
+Major goals involve supporting 100 qualifying scalable businesses over five years, in turn helping them
+achieve $1M in annual recurring revenue, creating quality climate-related jobs, and building long-term
+generational wealth.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards               Page 35 of 81
+Application title: Portland Electric Landscaping Initiative: Supporting
+Small Landscape Contractors in the Transition from Gas-Powered to
+Electric Leaf Blowers to Reduce Environmental Impact
+
+Applicant organization: Pacific Northwest Pollution Prevention Resource Center
+
+APPLICATION #:  9975
+
+FUNDING AREA:   Contractor development
+
+FUNDING AREA RANK: 5
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $1,000,000
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+The project aims to reduce community and individual exposure to localized air pollution from gas-
+powered leaf blowers and support micro landscaping businesses (with five or fewer employees). Key
+milestones include conducting community outreach and recruitment through social media and
+presentations to community and business groups, delivering a training curriculum, recruiting trainees to
+share their experiences at future sessions, assisting landscapers in purchasing electric or battery-
+powered equipment and issuing rebates, and producing a training video tailored to micro-landscapers.
+Major goals include supporting participating businesses achieve EcoBiz Certification to further reduce
+environmental impacts, lowering air pollution, increasing the adoption of electric landscaping
+equipment, generating estimated savings of $500 per business annually, and improving community
+health.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards  Page 36 of 81
+Application title: Portland YouthBuilders: Pathways to a Diverse
+Climate Workforce
+
+Applicant organization: Portland YouthBuilders (PYB)
+
+APPLICATION #:  9286
+
+FUNDING AREA:   Workforce training
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $1,500,000
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+The project aims to expand the climate workforce through the grantee's Bridge to Construction pre-
+apprenticeship program, delivering clean energy training and career development to 100 young adults
+per year from PCEF priority populations. Key milestones include establishing a new Building Science
+Principles certification pathway in partnership with Earth Advantage, expanding training to a second
+site, and delivering clean energy training and career development to 100 young adults each project year.
+Major goals include ensuring young adults from underrepresented communities can enter and thrive in
+family-wage climate careers, increasing access to technical skills and job pathways in the clean energy
+and trades sectors, and generating lasting benefits for both individuals and the broader community.
+
+PCEF 2025 Community Grants Funding Awards  Page 37 of 81
+Application title: Workforce Training in Advanced Manufacturing
+
+Applicant organization: Portland Opportunities Industrialization Center and Rosemary Anderson
+High School
+
+APPLICATION #:  8951
+
+FUNDING AREA:   Workforce training
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $509,846
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+The project aims to establish a hands-on workforce development initiative that equips 120 young adults
+with essential technical, safety, and professional skills. Key milestones include providing comprehensive
+workforce readiness training, educating trainees on potential climate-related career pathways,
+conducting up to two years of one-on-one career coaching for each trainee, placing participants in
+degree/certificate programs at community college partners, and delivering wraparound supports such
+as childcare, mental health counseling, rent, utility, and tuition assistance. The major goal is to expand
+the climate workforce by enabling trainees to apply new skills and knowledge in greenhouse gas
+reduction sectors, including solar energy, electric vehicles, robotics, AI, and semiconductors.
+
+PCEF 2025 Community Grants Funding Awards  Page 38 of 81
+Application title: Portland's First Hands-On Home Energy Efficiency
+Training And Certification Center
+
+Applicant organization: Enercity Collaborative
+
+APPLICATION #:  8947
+
+FUNDING AREA:   Workforce training
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $1,013,968
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+The project seeks to lease and retrofit a warehouse to serve as a hands-on home energy efficiency
+training center. The project includes plans for the facility to house training structures, a tiny home for
+practice, and areas for credentialing programs and mentorship with experienced contractors. Key
+milestones include launching a mentorship program, hiring a lead trainer, implementing a train-the-
+trainer model to expand instructional capacity, and training at least 200 community members in home
+energy diagnostics and weatherization installation, including National Renewable Energy Laboratory
+(NREL) micro-credentials. The major goal involves establishing the center as a community hub for home
+energy efficiency education.
+
+PCEF 2025 Community Grants Funding Awards  Page 39 of 81
+Application title: Residential Construction Career Accelerator
+
+Applicant organization: Earth Advantage Inc.
+
+APPLICATION #:  10044
+
+FUNDING AREA:   Workforce training
+
+FUNDING AREA RANK: 4
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $336,821
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+The project aims to connect 160-300 jobseekers from PCEF priority populations with real-world
+opportunities in energy-efficient residential construction. Key milestones include hosting a quarterly
+series of accelerator events that provide career mapping, employer panels, mentorship, credential
+access, and job navigation; hosting Intro to Sustainable Homes & Careers trainings held at partner sites
+to build awareness and recruit participants; supporting approximately 25% of participants in pursuing
+Career Navigation Support Services and Certification Scholarships for the industry-recognized Building
+Performance Institute's Building Science Principles (BSP) certificate of knowledge or Earth Advantage
+Sustainable Homes Professional (SHP) certification; expanding and promoting the Residential
+Construction Career Hub as a centralized workforce resource. Major goals include creating a
+coordinated workforce pathway with trainers and community-based workforce organizations,
+supporting participants beyond the scope of this project, providing scholarships for industry-recognized
+certifications, and expanding online resources.
+
+PCEF 2025 Community Grants Funding Awards  Page 40 of 81
+Application title: Girls Build Summer Camps
+
+Applicant organization: Girls Build
+
+APPLICATION #:  9231
+
+FUNDING AREA:   Workforce training - youth
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $377,883
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to provide summer camp programming and an internship program on building trades
+and climate-focused jobs for over 300 youth, ages 14-24. The program will prioritize enrollment for
+youth in foster care and/or from PCEF priority populations. Key milestones include educating campers
+on solar installation, pervious concrete, gray water retention, sustainable roofing, and the use of
+salvaged, recycled, and reused materials, as well as introducing participants to the trades, including
+carpentry, electrical, sheet metal, plumbing, roofing, blacksmithing, painting, and concrete. The major
+goal of the project is to increase awareness of and access to climate-focused jobs for a subset of youth
+who are often underrepresented.
+
+PCEF 2025 Community Grants Funding Awards    Page 41 of 81
+Application title: PWA Pathways to Climate Careers
+
+Applicant organization: Portland Workforce Alliance
+
+APPLICATION #:  9031
+
+FUNDING AREA:   Workforce training - youth
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $226,164
+
+LENGTH OF GRANT: 4 year(s)
+
+PROJECT SUMMARY
+This project seeks to introduce more youth to climate careers and training pathways through the
+expansion of two volunteer-driven, climate-focused career mentorship programs. The project aims for
+at least 75% of youth involved in the mentorship programs to come from PCEF priority populations. Key
+milestones include providing mentorship and training opportunities to over 4,000 youth through the
+trades, sustainable construction, energy efficiency, transit-centered construction, and decarbonization,
+as well as connecting educators and employers with participants. Major goals include connecting youth
+from PCEF priority populations to higher-paying green jobs in the built environment.
+
+PCEF 2025 Community Grants Funding Awards            Page 42 of 81
+Application title: p:ear gardens: Homeless Youth Exposure/
+Workforce Development (Regenerative Agriculture)
+
+Applicant organization: P:ear
+
+APPLICATION #:  9955
+
+FUNDING AREA:   Workforce training - youth
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $400,000
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aim to expand p:ear's workforce development initiative by launching p:ear Gardens, a
+hands-on training program that equips homeless and unstably housed youth with skills in regenerative
+agriculture. Based at p:ear's one-acre community garden in East Portland's Rosewood neighborhood,
+the program addresses food insecurity, youth unemployment, and climate resilience in an under-
+resourced area. Key milestones include hiring a community garden coordinator and educator, recruiting
+participants for seasonal paid cohorts, and establishing new externships with local urban farms. Youth
+participants will gain experience in sustainable food production, native plant care, greenhouse
+management, and rainwater harvesting. The project will yield up to 15,000 pounds of organic, culturally
+relevant produce annually while preparing youth for future employment in Portland's growing green
+economy. Major goals include building pathways to green careers, strengthening food security, and
+fostering environmental stewardship among youth.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                   Page 43 of 81
+REGENERATIVE
+AGRICULTURE
+AND GREEN
+INFRASTRUCTURE
+GRANTS
+
+Estimated lifetime GHG reduction estimate (metric tons CO2e): 42,196  Page 44 of 81
+Number of buildings with energy efficiency upgrades: 1
+Green infrastructure installed (sq ft): 3,924,756
+Number of trees planted/maintained: 2,550
+Vehicle miles shifted to clean transportation options: 12,000
+Number of training participants: 30
+
+PCEF 2025 Community Grants Funding Awards
+Application title: Northeast Portland Urban Habitat
+
+Applicant organization: Verde
+
+APPLICATION #:  9978
+
+FUNDING AREA:   Green Infrastructure
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $199,756
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project seeks to support the planning, installation, and maintenance of naturescapes and rain
+gardens in North and Northeast Portland. The project aims to enhance environmental sustainability and
+provide valuable workforce development opportunities through the creation of these green spaces. Key
+milestones include engaging with community partners to identify potential planting sites, planting 2,400
+native plants, installing 39 naturescapes and rain gardens, and training youth and young adults with
+hands-on green jobs skills in landscaping, environmental stewardship, and sustainable practices. Major
+goals include an increase in carbon sequestration, reduced stormwater runoff and wastewater utility
+costs for homeowners, enhanced soil quality, and the development of a future green youth workforce.
+
+PCEF 2025 Community Grants Funding Awards            Page 45 of 81
+Application title: Rooted in Rosewood: Cultivating Community
+Through Green Spaces
+
+Applicant organization: The Rosewood Initiative
+
+APPLICATION #:  9057
+
+FUNDING AREA:   Green Infrastructure
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $419,786
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+The project seeks to redevelop a wrap-around public green space to connect with an active PCEF-funded
+community food forest garden. Key milestones include demolishing a 920-square-foot garage and its
+foundation, and depaving an additional 2,974-square-feet from adjacent areas to transform them with
+permeable pavers, rain gardens, and street trees, preparing spaces for planting, installing 150 native
+plants, and constructing an outdoor structure for community use, such as outdoor education. Major
+goals include connecting East Portland communities to native and natural infrastructure, fostering a
+sense of belonging in the outdoors, and establishing the space as a hub for community events centered
+on health and wellness, collective healing, and placemaking activities, such as music and dance.
+
+PCEF 2025 Community Grants Funding Awards  Page 46 of 81
+Application title: Growing equitable access to our urban green spaces
+
+Applicant organization: Friends of Trees
+
+APPLICATION #:  9811
+
+FUNDING AREA:   Green Infrastructure
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $259,938
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to increase equitable access to the benefits of healthy tree canopies and urban green
+spaces in Portland by engaging community members and partners to improve green spaces in priority
+areas such as those with lower canopy counts and higher urban heat in North, Northeast, Southeast,
+and East Portland. Key milestones include conducting multi-faceted community outreach, including
+targeted mailings to priority neighborhoods, providing accessible educational materials, and hosting
+community activities like tree walks and planting events during which more than 4,000 native trees and
+plants will be planted; distributing more than 1,500 native trees and shrubs to community members in
+priority areas; maintaining and monitoring over 4,000 plantings across all green space planning projects.
+Major goals include placing resources and power into the hands of PCEF priority communities to enable
+them to create spaces that provide access to nature and contribute to regional climate and habitat
+goals.
+
+PCEF 2025 Community Grants Funding Awards  Page 47 of 81
+Application title: Deep Mulch Community Gathering Space +
+Infrastructure
+
+Applicant organization: Rhythm Seed Farm
+
+APPLICATION #:  10012
+
+FUNDING AREA:   Green Infrastructure
+
+FUNDING AREA RANK: 4
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $137,610
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project plans to support the building of a new community gathering space and improvement of
+farm infrastructure at Deep Mulch Dry Farm at Your Bible Speaks SDA Church. Key milestones include
+depaving 1,000 sq ft. of parking lot and refinishing the pavement, building a 250 sq ft. community
+gathering space, planting native and pollinator-friendly plants, purchasing garden tools and soil
+monitoring probes, hosting community educational workshops and community gatherings,
+implementing rainwater catchment systems and installing a greenhouse and improving existing garden
+infrastructure. Major goals include increased carbon sequestration, reduced water usage, regenerative
+agriculture education, and strengthened community connections.
+
+PCEF 2025 Community Grants Funding Awards                  Page 48 of 81
+Application title: Expanding Backyard Habitat to Increase Access to
+Nature and Healthy Environments for PCEF Priority Communities
+
+Applicant organization: Columbia Land Trust
+
+APPLICATION #:  8847
+
+FUNDING AREA:   Green Infrastructure
+
+FUNDING AREA RANK: 5
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $999,349
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+The project aims to create carbon-sequestering habitats that provide shade, stormwater capture, and
+climate resilience for 420 PCEF priority population households and community spaces. Key milestones
+include engaging community, nursery, and landscaping partners to distribute 1,890 native trees and
+51,240 plants through workshops and giveaways; providing over $150,000 worth of free landscaping
+services such as removing plants that disrupt the local ecosystem, improving soil, and installing plants;
+restoring 60 acres of habitat and focusing outreach on areas experiencing the greatest burdens from
+heat island impacts, air pollution, and low tree canopy. Major goals include contributing to cleaner
+rivers, improving air quality, reducing summer temperatures, sequestering carbon, enhancing climate
+resiliency and wildlife habitat connectivity, and increasing accessibility to nature.
+
+PCEF 2025 Community Grants Funding Awards  Page 49 of 81
+Application title: Prismid Sanctuary Regenerative Agriculture
+Implementation Project
+
+Applicant organization: Prismid, Inc.
+
+APPLICATION #:  8830
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $976,800
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to create a climate resilient landscape through the redevelopment of a 0.74-acre
+parcel in the St. Johns neighborhood to accommodate growing program demand. Key milestones
+include developing a community-led land design and architectural plans, securing permits and required
+approvals, securing leveraged funds, completing construction, and providing essential maintenance.
+Major goals include advancing climate resilience and ecological restoration, promoting PCEF priority
+population-led land stewardship and agricultural sovereignty, improving access to free, organic, and
+culturally relevant food, cultivating intergenerational ecological and cultural knowledge-sharing, and the
+supporting holistic wellness and collective joy.
+
+PCEF 2025 Community Grants Funding Awards                      Page 50 of 81
+Application title: Community Activation at Rosewood Initiative's Food
+Forest
+
+Applicant organization: Peace Village Global
+
+APPLICATION #:  10000
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $198,000
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to support the co-creation and implementation of community-based environmental
+education and stewardship events at Peace Village Global's (PVG) Rosewood Initiative site. Key
+milestones include PVG and partners co-facilitating a series of public workshops and skill-building
+sessions for a workforce development program, hosting planting events focused on climate resilience,
+regenerative urban agriculture, native habitat restoration, and sustainable practices including depaving,
+rainwater harvesting, and food forestry, creating replicable workshop templates and engagement
+strategies, implementing edible and medicinal gardens, pollinator habitat, and gathering areas designed
+to reflect both climate mitigation goals and community-led visioning. Major goals are to empower PCEF
+priority populations in East Portland by fostering long-term stewardship, increasing carbon
+sequestration, and reducing urban heat through strategic green infrastructure and equitable
+environmental education.
+
+PCEF 2025 Community Grants Funding Awards  Page 51 of 81
+Application title: The Black Agrarian Food Waste Reduction Program
+
+Applicant organization: Feed'em Freedom Foundation
+
+APPLICATION #:  9985
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $670,723
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project represents a collaborative proposal that seeks to build capacity for Portland's agrarian
+network, particularly among members of PCEF priority populations, by collecting and processing waste
+materials before returning them to farms to improve soil health and crop production. Key milestones
+include hosting community and youth gatherings and workshops on waste reduction, expanding access
+to local food and compost tea byproducts, rerouting surplus food from farmers markets to East Portland
+food pantries, collecting and summarizing data annually, conducting end of season soil health
+assessments, and producing story-based reports highlighting each year's activities, lessons learned, and
+stories from participating sites. Major goals include reducing waste, increasing community access to
+locally produced foods, lowering program costs by about $4,500-5,500 per year through reduced fuel
+use and decreased purchases of soil amendments and fertilizers, and strengthening both community
+and soil resiliency.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards  Page 52 of 81
+Application title: Feed Our People: Centering Accessibility and
+Ancestral Wisdom in Land Stewardship and Regenerative Agriculture
+
+Applicant organization: The UPRISE Collective
+
+APPLICATION #:  9974
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 4
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $825,894
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to expand UPRISE's Feed Our People programming, centering accessible cross-
+community education and knowledge sharing on Portland State University's Indigenous Traditional
+Ecological Knowledge (ITEK) program, food justice, first foods, and regenerative land stewardship. Key
+milestones include providing community education on cross-cultural cooking and storytelling, gardening
+in partnership with the Earth, intergenerational medicine production, and food sovereignty in
+emergency preparedness, as well as adding programming around accessible, eco-conscious fishing and
+water safety, expanded programming on food preservation, and ceremony. Major project goals include
+increased community investment and buy-in with the UPRISE Collective as a place to learn, grow, honor
+the past, and heal.
+
+PCEF 2025 Community Grants Funding Awards  Page 53 of 81
+Application title: Better Together women Rainbow Regenerative
+Program.
+
+Applicant organization: De Rose Community Bridge and Holistic Wellness
+
+APPLICATION #:  9770
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 5
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $999,904
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project seeks to empower PCEF priority populations through regenerative agriculture. Key
+milestones include year-round harvests, expanding access to land, tools, and culturally relevant seeds,
+and providing hands-on training in sustainable farming, food sovereignty, and climate resilience. Major
+goals include supporting participants in becoming self-sufficient, increasing confidence, and building
+economic independence, as well as expanding the farm's capacity beyond food production to also serve
+as a healing space and leadership hub.
+
+PCEF 2025 Community Grants Funding Awards  Page 54 of 81
+Application title: Zenger Farm Regenerative Agriculture
+Implementation Grant
+
+Applicant organization: Friends of Zenger Farm
+
+APPLICATION #:  9490
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 6
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $708,689
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project aims to transform Zenger Farm from a certified organic farm into the largest operating
+Regenerative Organic Certified farm in the Portland metro area while increasing access to fresh produce
+for the local community. Key milestones include expanding the free or low-cost CSA program,
+distributing high-quality produce to East Portland residents facing food insecurity, implementing low-
+and no-till practices, expanding annual and perennial cover cropping, and improving soil health through
+composting and microbial inoculation. Major goals include creating new pathways for the public to
+access regenerative agriculture knowledge, increasing carbon sequestration, reducing emissions, and
+improving ecosystem function on the farm and adjacent wetlands.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                Page 55 of 81
+Application title: Early Roots, Clean Routes: Zero-Emissions Food
+Recovery for ECE Families
+
+Applicant organization: Ecotrust
+
+APPLICATION #:  8837
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 7
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $588,430
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project seeks to minimize waste and emissions for thousands of households by redistributing
+surplus food from producers to consumers through a network of early childhood education (ECE)
+partners, engaging PCEF priority populations at every stage and using energy-efficient practices. Key
+milestones include recruiting and onboarding farmers and ECE sites, establishing infrastructure and
+completing a pilot phase to refine logistics and coordination, launching full-scale weekly food sourcing
+and distribution of thousands of produce boxes, conducting seasonal and annual evaluations to track
+food diverted, emissions avoided, and payments to producers, and developing sustainability and
+transition plans to continue the program beyond the grant period. Major goals include diverting more
+than 100K pounds of edible food from landfills over three years, supporting sustainable farming viability
+by converting unsold food into reliable income, strengthening long-term climate resilience, and
+offsetting an estimated 10-15% of annual food expenses for participating families.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards  Page 56 of 81
+Application title: Connecting Generations: The Japanese Kitchen
+Garden / Yasai Hata
+
+Applicant organization: Japanese Ancestral Society/ Ikoi no Kai
+
+APPLICATION #:  9862
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 8
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $8,882
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+The project seeks to educate the community about vegetables grown in the Japanese Heritage Herb and
+Vegetable Garden, focusing on best growing practices and traditional food preparation through a new
+website and expanded educational programming to reach over 100 in-person participants and more
+through the website. Key milestones include conducting community outreach through a monthly
+newsletter, designing and publishing the website, gathering one to ten recipes per month from
+community members, and hosting quarterly educational events to promote seasonal use of produce.
+Major goals include strengthening community resiliency and mutual aid, and providing community
+members with the knowledge, skills, and resources to grow and prepare their own food.
+
+PCEF 2025 Community Grants Funding Awards  Page 57 of 81
+Application title: General Operating: Regenerative Agriculture
+
+Applicant organization: Grow Portland
+
+APPLICATION #:  9963
+
+FUNDING AREA:   Regenerative Agriculture ­ General operations
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $359,206
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+Funding will provide general operating support (see Types of grants for details) to aid the expansion of
+Grow Portland's regenerative agriculture programming which creates biodiverse ecosystems while
+providing environmental education to over 6,500 Pre-K through 8th grade students. Key milestones
+include implementing the Garden School at an estimated 16 schools; planting, weeding, watering, and
+maintaining gardens for each year's Summer and Fall harvest; developing strategic goals with partners
+and staff annually. Major goals include helping students learn about ecosystems, life cycles, plant parts,
+pollination, and decomposition while tending their school's garden, and reducing the urban heat island
+effects by providing shading and absorbing solar radiation.
+
+PCEF 2025 Community Grants Funding Awards                      Page 58 of 81
+TRANSPORTATION
+DECARBONIZATION
+GRANTS
+
+Estimated lifetime GHG reduction estimate (metric tons CO2e): 3,862  Page 59 of 81
+Vehicle miles shifted to clean transportation options: 1,226,107
+
+PCEF 2025 Community Grants Funding Awards
+Application title: Launching Iron Tribe Network's First Climate
+Resilient Operations
+
+Applicant organization: Iron Tribe Network
+
+APPLICATION #:  8925
+
+FUNDING AREA:   Transportation Decarbonization - EV
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $297,000
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+The project seeks to launch Iron Tribe Network's first climate resilience initiative by transitioning from
+diesel to electric vehicles across its Portland-area recovery housing programs. The project addresses
+transportation barriers that limit residents' access to recovery services, healthcare, and employment
+opportunities. Key milestones include purchasing three electric vehicles to replace two diesel trucks,
+installing two Level 2 chargers, and eliminating over 700 pounds of PM2.5 emissions annually. Major
+goals include enabling safer, more reliable, and emission-free transportation for low-income families
+navigating recovery, housing instability, and reentry. By embedding vehicle maintenance in the existing
+budget and reinvesting cost savings into rent subsidies and family stabilization, the project strives to
+ensure long-term sustainability while positioning the grantee as a peer-led leader in climate-aligned
+reentry support.
+
+PCEF 2025 Community Grants Funding Awards            Page 60 of 81
+Application title: Shifa Healing Transportation Initiative
+
+Applicant organization: African Youth and Community Organization
+
+APPLICATION #:  10005
+
+FUNDING AREA:   Transportation Decarbonization - EV
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $630,513
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+The project aims to launch a zero-emission transportation system serving over 1,000 members from
+PCEF priority populations by replacing African Youth and Community Organization's gas-powered
+vehicles with an all-electric fleet. Key milestones include purchasing an electric fleet (six sedans, two
+wheelchair-accessible passenger vans, and a mobile medical unit) supported by expanded charging
+infrastructure, recruiting multilingual drivers from the local community, contracting with four PCEF
+priority population-owned medical transportation companies to provide overflow service, and tracking
+vehicle usage post-program launch. Major goals include reducing greenhouse gas emissions by over 70
+metric tons and providing over 259,200 miles of clean transportation each year and connecting over
+1,000 community members to critical services and support annually.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                         Page 61 of 81
+Application title: Electrify & Empower - Green Fleets
+
+Applicant organization: Black American Chamber of Commerce
+
+APPLICATION #:  9981
+
+FUNDING AREA:   Transportation Decarbonization - EV
+
+FUNDING AREA RANK: 4
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $2,000,000
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This project aims to increase EV fleet adoption among eligible small businesses owned by members of
+PCEF priority populations by providing direct vehicle purchase subsidies covering up to 25% of the cost
+and charging infrastructure. Key milestones include facilitating the purchase of 50 EVs, providing
+participants with one-on-one technical assistance, and coordinating with dealerships to issue subsidy
+payments. Major goals include dismantling systemic barriers to clean transportation while building long-
+term economic resilience, particularly for businesses that have been excluded from clean energy
+programs.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                   Page 62 of 81
+Application title: Clean Mobility for Climate Resilience and Youth
+Leadership
+
+Applicant organization: Bird Alliance of Oregon
+
+APPLICATION #:  9794
+
+FUNDING AREA:   Transportation Decarbonization - EV
+
+FUNDING AREA RANK: 5
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $248,339
+
+LENGTH OF GRANT: 5 year(s)
+
+PROJECT SUMMARY
+The project aims to provide zero-emission transportation for more than 200 youth and educators
+accessing climate justice programming, environmental education, workforce training, and restoration
+activities each year. Key milestones include purchasing two electric vans, reducing greenhouse gas
+emissions by over 5.2 metric tons annually, and transportation support that benefits programs such as
+seasonal nature camps, Green Leaders, school partnerships, and restoration work at the grantee's new
+12.5-acre Wildlife Care Center and Sanctuary. Major goals include reducing reliance on staff vehicles,
+improving equity in program access, and establishing a sustainable transportation model.
+
+PCEF 2025 Community Grants Funding Awards            Page 63 of 81
+Application title: Cycling Basics for Priority Populations
+
+Applicant organization: Community Cycling Center
+
+APPLICATION #:  9284
+
+FUNDING AREA:   Transportation Decarbonization - Active transportation
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $459,826
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+This project seeks to support the empowerment of new cyclists from PCEF priority populations by
+leveraging strong community engagement skills to provide positive initial on-bike experiences that will
+inspire people to take the next step. The proposal strives to impact up to 1,424 participants, including
+386 adults and 1,038 youth from PCEF priority populations. Key milestones include hiring two seasonal
+Bike Camp instructors, facilitating summer youth Bike Camps, Learn to Ride Clinics, group bike rides in
+partnership at no cost to participants, and distributing 120 bikes with accompanying accessories to Bike
+Camp participants. Major goals include getting new bicyclists on the streets while ensuring meaningful
+engagement for priority populations with little to no prior connection to cycling.
+
+PCEF 2025 Community Grants Funding Awards                               Page 64 of 81
+Application title: EECRC Eco-Transport Access & Education Project
+
+Applicant organization: Ethiopian and Eritrean Cultural and Resource Center
+
+APPLICATION #:  10009
+
+FUNDING AREA:   Transportation Decarbonization ­ Active transportation
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $658,145
+
+LENGTH OF GRANT: 4 year(s)
+
+PROJECT SUMMARY
+This project aims to implement a green transportation access and education initiative to reduce
+greenhouse gas emissions and advance environmental equity for PCEF priority populations by
+distributing 100 e-bikes, providing education on clean transportation for more than 200 residents, and
+more. Key milestones include distributing 100 electric bikes, providing bike safety and maintenance
+workshops, delivering education on green transportation in multiple languages, and promoting
+awareness of electric vehicle (EV) infrastructure. Major project goals include achieving an estimated
+$65,000 to $100,000 in total annual savings for the 100 e-bike users, lowering transportation-related
+emissions, and building long-term climate resilience through targeted community engagement.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                               Page 65 of 81
+Application title: Empowering Sustainable Mobility: Expanding E-Bike
+Access and Infrastructure in East Portland
+
+Applicant organization: P:ear
+
+APPLICATION #:  9265
+
+FUNDING AREA:   Transportation Decarbonization - Active transportation
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $1,837,403
+
+LENGTH OF GRANT: 5 year(s)
+
+PROJECT SUMMARY
+The project aims to deliver a comprehensive, community-centered approach to transportation
+decarbonization, including a retrofit of the grantee's shop for e-bike maintenance. Key milestones
+include acquiring specialized tools, hiring a dedicated mechanic, expanding the Pedal It Forward sliding-
+scale repair program, deploying a fleet of e-bikes for hands-on education, purchasing an electric cargo
+van, providing mobile repair services in PCEF priority population neighborhoods, hosting 9 multilingual
+e-bike education courses, offering 4 bike camp and pop-up maintenance events, and holding 7 learn-to-
+ride and community bike rides. The major goals include reducing greenhouse gas (GHG) emissions,
+improving air quality, and expanding affordable, low-carbon mobility options for East Portland residents
+from priority populations by combining infrastructure upgrades, mobile maintenance, and robust
+community outreach.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                               Page 66 of 81
+Application title: Ride 2 Own Ebikes for East Portland Disadvantaged
+Youth
+
+Applicant organization: The Street Trust
+
+APPLICATION #:  9965
+
+FUNDING AREA:   Transportation Decarbonization - Active transportation
+
+FUNDING AREA RANK: 4
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $253,743
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+The project seeks to expand the grantee's Ride2Own e-bike ownership program to provide 25 youth
+from the Parkrose community, ages 14 and up, with free Class 1 e-bikes, safety gear, and training. The
+project also proposes a collaboration with Portland State University's Transportation Research and
+Education Center, which will collect data on greenhouse gas reductions, mode shifts, and economic
+benefits for youth who might otherwise become auto-dependent adults. Key milestones include
+providing participants with training on bike handling, safety, and maintenance; offering opportunities to
+take part in community rides and peer-to-peer engagement; delivering 25 youth free e-bikes along with
+safety gear, maintenance, and education to support independent, low-carbon mobility. The major goals
+include building transportation confidence, reducing car dependency, and improving access to school,
+work, and community for youth from PCEF priority populations.
+
+PCEF 2025 Community Grants Funding Awards                               Page 67 of 81
+Application title: Expanding and Evaluating Bike Buses
+
+Applicant organization: Bike Bus PDX
+
+APPLICATION #:  9470
+
+FUNDING AREA:   Transportation Decarbonization - Active transportation
+
+FUNDING AREA RANK: 5
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $895,000
+
+LENGTH OF GRANT: 5 year(s)
+
+PROJECT SUMMARY
+The project aims to support bike bus programs at several schools, engaging nearly thousands of
+students. As part of the proposed project, Portland State University's Transportation Research and
+Education Center (PSU TREC) will conduct assessments to measure the impact of bike buses on
+transportation habits and carry out a longitudinal study following first graders to track their travel
+behavior beyond elementary school. Key milestones include developing a 'Bike Bus Toolkit' to help
+establish new bike buses, hosting bike fairs to distribute hundreds of bikes, promoting the benefits of
+bike buses and active transportation, and hiring "Bike Bus Cluster Coordinators" and "Bike Bus
+Champions" to support education, outreach, and promotion efforts. The major goal of the project is to
+replace more than half a million miles in car trips to school.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                               Page 68 of 81
+Application title: OHSU E-bike Loaner Program Expansion
+
+Applicant organization: Oregon Health and Science University
+
+APPLICATION #:  9465
+
+FUNDING AREA:   Transportation Decarbonization ­ Active transportation
+
+FUNDING AREA RANK: 6
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $662,563
+
+LENGTH OF GRANT: 5 year(s)
+
+PROJECT SUMMARY
+This project aims to expand OHSU's e-bike loaner program to encourage more employees to commute
+by bike rather than by car, reducing greenhouse gas emissions and improving personal and community
+health. The program will add 50 new e-bikes to the fleet, hire a part-time coordinator, and enhance
+outreach and education to increase participation across diverse employee groups. Key milestones
+include purchasing and outfitting new e-bikes, scheduling educational workshops in partnership with
+local bike organizations, and launching participant recruitment and data tracking to assess program
+outcomes. The project will also refine auditing tools to measure participation among PCEF priority
+populations and document environmental impact. Major goals include promoting long-term behavior
+change, improving access to sustainable transportation, and supporting a healthier, more accessible
+campus community.
+
+PCEF 2025 Community Grants Funding Awards                               Page 69 of 81
+OTHER
+GRANTS
+
+Estimated lifetime GHG reduction estimate (metric tons CO2e): 603  Page 70 of 81
+PCEF 2025 Community Grants Funding Awards
+Application title: Community Warehouse: Expanding Mattress Reuse
+and Redistribution Through Strategic Staffing Support
+
+Applicant organization: Community Warehouse
+
+APPLICATION #:  9488
+
+FUNDING AREA:   Other GHG-reducing projects
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Implementation
+
+AMOUNT AWARDED: $290,214
+
+LENGTH OF GRANT: 3 year(s)
+
+PROJECT SUMMARY
+Project aims to support critical staffing needs in the expansion of mattress reuse and recycling systems.
+Community Warehouse (CH) is participating as a service partner in Oregon's new mattress recycling
+program (Senate Bill 1576), but has limited capacity in the mattress assessment, logistics, staffing, and
+coordination required to manage the rising volume of mattresses. Key milestones include hiring and
+training a full-time Furniture Bank Manager. The major goals include processing, reusing or recycling
+over 6,600 mattresses over a 3-year period, reducing GHG emissions from the waste system, and
+supporting organizational success through additional coordinators, on-call staff, and drivers as needed.
+
+PCEF 2025 Community Grants Funding Awards    Page 71 of 81
+PLANNING GRANTS
+
+PCEF 2025 Community Grants Funding Awards  Page 72 of 81
+Application title: The Neighborhood House Barber Project
+
+Applicant organization: Neighborhood House
+
+APPLICATION #:  9128
+
+FUNDING AREA:   Energy efficiency
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $192,690
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This planning project aims to determine the best approach to upgrade the second floor and roof of
+Neighborhood House facility, which serves as an administrative and programmatic hub for the
+organization's Community Health Department and supports clients, approximately 66% of whom are
+from PCEF priority populations. Key milestones include hosting community and stakeholder meetings,
+conducting energy assessments with schematic designs and cost estimates, selecting energy-efficient
+upgrades based on pricing, climate impact, and community priorities, and presenting the final selection
+of upgrades with visual boards and walkthroughs, gathering feedback for future implementation and
+fundraising. Major goals include reducing emissions by an estimated 20-35%, and consolidating the
+organization's offerings in one location, bringing together housing navigation, wraparound care, early
+learning, senior support, and food access under one climate-resilient roof.
+
+PCEF 2025 Community Grants Funding Awards                 Page 73 of 81
+Application title: Resilient Communities: Inclusive Solutions for
+Emergency Readiness for Disabled People
+
+Applicant organization: Upstream Access
+
+APPLICATION #:  9792
+
+FUNDING AREA:   Renewable energy
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $199,997
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This planning project seeks to co-create a community-driven Clean Energy Resilience Access Plan, while
+identifying the most effective models of solar-powered emergency equipment used during extreme
+weather events and assessing the climate impacts on tools relied upon by members of PCEF priority
+populations. Key milestones include hosting community listening sessions to inform the framework for a
+solar battery backup program, conducting technical assessments, workshops, developing a pilot
+program framework, and creating a summary report with findings, next steps, and cost estimates to
+share with funders, stakeholders, and the community. Major goals include creating long-term,
+replicable, and scalable solutions for clean energy emergency preparation, as well as developing
+guidelines and training strategies to ensure users can confidently operate their backup systems.
+
+PCEF 2025 Community Grants Funding Awards  Page 74 of 81
+Application title: Tomorrow's Workforce: Engaging Youth in Home
+Energy Efficiency Careers
+
+Applicant organization: Enercity Collaborative
+
+APPLICATION #:  9026
+
+FUNDING AREA:   Workforce training
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $78,876
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This planning project aims to develop a comprehensive roadmap for integrating home energy efficiency
+career awareness, exploration, training, and post-secondary pathways into Portland Public Schools (PPS)
+for grades 1­12. Key milestones include co-developing educator resource modules for Career and
+Technical Education (CTE) and K­8 classrooms, convening a Home Performance Education and Industry
+Roundtable, finalizing a PPS CTE plan, and evaluating processes and partnerships. The project's major
+goals are to raise awareness of clean energy careers, support culturally responsive instruction, and
+create a sustainable pipeline into Oregon's clean energy workforce. Through this initiative, PPS aims to
+position itself as a regional leader in preparing students for high-skill, high-wage green jobs that
+strengthen local communities and the local economy.
+
+PCEF 2025 Community Grants Funding Awards  Page 75 of 81
+Application title: YOT YOT (Youth Organizing for Transformation
+Young-adults Organizing for Transition): Leading the Way to Just,
+Green Futures
+
+Applicant organization: Love is Stronger GV
+
+APPLICATION #:  8991
+
+FUNDING AREA:   Workforce training
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $98,740
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This planning project aims to design a scalable, youth-led workforce development model centered on
+environmental and economic justice. Key milestones include engaging youth from PCEF priority
+populations through events, surveys, peer interviews, and community sessions, and completing a
+feasibility brief that maps opportunities, barriers, and proposed partnerships and finalizing a planning
+report to inform a future implementation grant application. Major goals include increasing access to
+green jobs for youth most impacted by environmental inequities while equipping participants with
+leadership skills, paid learning opportunities, and a collective vision for inclusive climate solutions.
+
+PCEF 2025 Community Grants Funding Awards  Page 76 of 81
+Application title: Planning for Green Workforce Development
+Programs
+
+Applicant organization: Verde
+
+APPLICATION #:  9853
+
+FUNDING AREA:   Workforce training
+
+FUNDING AREA RANK: 3
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $100,000
+
+LENGTH OF GRANT: 2 year(s)
+
+PROJECT SUMMARY
+This planning project aims to develop a bilingual workforce development plan focused on three
+potential clean energy tracks, solar installation, HVAC, and weatherization. The proposed project also
+seeks to conduct a feasibility study to define organizational capacity needs, identify contractors who
+could place future program graduates, outline program roles and participant profiles, and develop a
+recruitment strategy and other foundational objectives. Key milestones include engaging the community
+through focus groups, surveys, and interviews, completing the feasibility study, developing the proposed
+curriculum, and identifying a capacity-building strategy to administer a weatherization program. Major
+goals include laying the foundation for a future workforce development program that creates living-
+wage opportunities for PCEF priority populations while supporting Portland's clean energy transition.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards                    Page 77 of 81
+Application title: Assessing the Climate Health Impacts of Indigenous
+Foodways
+
+Applicant organization: Indigenous Health Equity Institute
+
+APPLICATION #:  9980
+
+FUNDING AREA:   Regenerative Agriculture
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $200,000
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This planning project aims to support the refinement, pilot, and community-validated development of
+the Indigenous Food Sovereignty Health and Wellness Impact Assessment Tool. Key milestones include
+researching and assessing the impacts of culturally specific foodways on climate resilience and
+community wellness, hosting community engagement sessions, conducting three locally led food
+sovereignty assessments, producing a technical feasibility study, and creating a planning report and
+dashboard. Major goals include integrating climate science indicators and wellness metrics, generating
+qualitative and quantitative data to evaluate the environmental and health impacts of local food
+systems, and strengthening climate justice infrastructure led by PCEF priority populations in Portland.
+
+PCEF 2025 Community Grants Funding Awards  Page 78 of 81
+Application title: Latino Network Youth EV Pathways Feasibility Study
+
+Applicant organization: Latino Network
+
+APPLICATION #:  9858
+
+FUNDING AREA:   Transportation Decarbonization
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $100,000
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This planning project seeks to assess the feasibility of developing a cohort-based workforce
+development pathway that prepares youth from PCEF priority populations for careers in the electric
+vehicle and clean energy sectors. The project aims to center community voices through bilingual
+engagement and a youth-led advisory group to ensure that future programming reflects local strengths,
+aspirations, and values. Key milestones include a community needs and asset analysis, hosting regular
+meetings with stakeholders, evaluating methods from other similar successful models, designing a pilot
+program framework that begins in middle school and culminates with EV-related certifications in high
+school, and creating a final report with recommendations to leadership and funders. Major goals include
+closing opportunity gaps in STEAM education, advancing climate justice, and creating equitable access to
+family-wage jobs in the green economy.
+
+* Grant recommendation reflects a reduced funding amount based on considerations described in the
+Recommended portfolio development section. Final project scope and deliverables will be determined
+during the grant agreement drafting phase.
+
+PCEF 2025 Community Grants Funding Awards       Page 79 of 81
+Application title: Pedal Power: Community Bike Hubs & Youth Repair
+Training for Climate Justice
+
+Applicant organization: Trash for Peace
+
+APPLICATION #:  9319
+
+FUNDING AREA:   Transportation Decarbonization
+
+FUNDING AREA RANK: 2
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $99,998
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This planning project aims to design a community-based bike repair and access program that supports
+youth engagement and mobility in multifamily housing communities. The project will develop
+partnerships with schools, bike organizations, and housing providers to co-create a culturally responsive
+training curriculum and future hub model. Key milestones include conducting multilingual outreach and
+needs assessments, identifying potential hub and repair locations, co-designing the training curriculum
+with youth and families, and creating a repair toolkit and outreach materials for future implementation.
+The project will culminate in a pilot bike fair in partnership with Reborn Bikes, across selected housing
+sites and gathering feedback to inform a final implementation plan. Major goals include improving
+access to affordable transportation, creating youth skill-building opportunities, and fostering community
+connection through sustainable mobility.
+
+PCEF 2025 Community Grants Funding Awards       Page 80 of 81
+Application title: Planning for Energy, Restoration & Justice in Lower
+Albina
+
+Applicant organization: Albina Vision Trust, Inc.
+
+APPLICATION #:  8898
+
+FUNDING AREA:   Other
+
+FUNDING AREA RANK: 1
+
+GRANT TYPE:     Planning
+
+AMOUNT AWARDED: $198,000
+
+LENGTH OF GRANT: 1 year(s)
+
+PROJECT SUMMARY
+This project aims to support the development of a district-scale clean energy system within the Albina
+Vision Trust's Central City Master Plan. The effort will explore integrated thermal, electrical, and
+renewable energy systems to achieve climate-positive goals for a 10.5-acre redevelopment site. Key
+milestones include conducting a masterplan energy charrette and visioning sessions to identify
+sustainability strategies and site constraints, developing concept designs for district-scale energy
+systems, performing detailed energy and carbon modeling, and preparing cost estimates to align design
+decisions with feasibility. The project will conclude with a concept-level district design that defines
+energy sources, infrastructure strategies, and renewable integration. Major goals include advancing a
+replicable model for equitable, resilient, and carbon-neutral community development.
+
+PCEF 2025 Community Grants Funding Awards  Page 81 of 81
+

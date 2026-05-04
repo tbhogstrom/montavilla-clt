@@ -1,13 +1,13 @@
 # Montavilla Community Land Trust — Project Board
 
 **Campaign Director:** Maven
-**Last Updated:** 2026-05-01
+**Last Updated:** 2026-05-04
 **Property:** 7700 SE Stark St, Portland OR 97215
 **List Price:** $4,999,000
 **Parcel:** 0.84 acres, zoned CM2 (4-story mixed-use eligible)
 **Status:** 🔴 ACTIVE LISTING — CLOCK IS TICKING
 **Strategic Posture:** COMMUNITY-FIRST, OUTCOME-OPEN (approved 2026-04-13)
-**PCEF Deadline:** May 27, 2026 — **26 DAYS**
+**PCEF Deadline:** May 27, 2026 — **23 DAYS**
 **Property Listing:** ✅ Still active, not pending/sold (verified Apr 29)
 **PCEF Fiscal Sponsor:** ✅ Confirmed — fiscal sponsors satisfy 501(c) requirement, up to 10% of grant for sponsor fees
 
@@ -23,10 +23,11 @@
 | Pledge Ledger Total | **$1,175** (unchanged — focus has been on coalition, not money) |
 | Reddit Thread (r/askportland) | 94 upvotes, 78 comments, **removed by mods** |
 | Strategic Reframe | ✅ APPROVED Apr 13 — ✅ **website updated Apr 29** |
-| Montavilla Food Co-op | ✅ **MET — productive meeting, got stakeholder intel** |
+| Montavilla Food Co-op | ✅ **MET — productive meeting, got stakeholder intel. Tyler attended annual member meeting (May 2026).** |
 | National CLT Outreach | ✅ **Reached out to every CLT in the country** |
-| Proud Ground | 🟢 **Meeting scheduled Wed May 6 AM** |
-| Farmers Market (org) | 🟢🟡 **Lisa Hebert (ED) replied positively May 1 — meeting pending.** Tyler proposed Mon May 4 or Tue May 5, 7am, Carnelian Coffee or on-site. Awaiting Lisa's confirmation. Thread: `comms/2026-05-01-lisa-hebert-thread.md` |
+| Proud Ground | 🟢 **Meeting scheduled Wed 5/6, 8:00am** |
+| Farmers Market (org) | ✅🟢 **Lisa Hebert coffee CONFIRMED — Tue 5/5, 7:15am.** Location TBD (Carnelian or on-site). Meeting brief: `comms/2026-05-05-lisa-hebert-meeting-brief.md`. Thread: `comms/2026-05-01-lisa-hebert-thread.md` |
+| MFM Market Move Survey | 🟢 **Acquired May 3 (public) — 572 responses, Winter 2026.** 53% walk, 63% within 1 mile, #1 community priority = proximity to home. Canonical ref: `research/2026-05-03-mfm-market-move-survey.md` |
 | Farmers Market Vendors | 🟡 **Tiered plan ready — gated on Lisa response (see strategy/mfm-vendor-outreach-plan.md)** |
 | MNA Endorsement | 🔲 Status unknown |
 | Website Reframe | ✅ **COMPLETE — all components rewritten Apr 29** |
@@ -43,9 +44,9 @@
 
 ---
 
-## 🟡 CAMPAIGN STATUS: GROUND GAME ACTIVE — DIGITAL & LEGAL LAGGING
+## 🟢 CAMPAIGN STATUS: KEY MEETINGS THIS WEEK — PCEF CLOCK AT 23 DAYS
 
-### Updated Assessment (Apr 29)
+### Updated Assessment (May 4)
 
 The coalition-building work has been moving on the ground. Statton has been doing real organizing:
 
@@ -67,13 +68,13 @@ The coalition-building work has been moving on the ground. Statton has been doin
 
 ### The PCEF Clock Is Now Critical
 
-The PCEF Planning Grant deadline is **May 27 — 28 days away**. A $200K planning grant could fund:
+The PCEF Planning Grant deadline is **May 27 — 23 days away**. A $200K planning grant could fund:
 - Community engagement / listening sessions
 - Site assessment and BPO
 - Organizational development
 - Project design
 
-**But we need a fiscal sponsor to apply.** If we don't have one by ~May 10, we can't prepare a credible application in time. That gives us **11 days** to secure fiscal sponsorship.
+**But we need a fiscal sponsor to apply.** If we don't have one by ~May 10, we can't prepare a credible application in time. That gives us **6 days** to secure fiscal sponsorship.
 
 ---
 
@@ -126,7 +127,9 @@ If community process results in mixed-use/housing, this is a major funding sourc
 - [x] Reddit town hall analysis (78 comments)
 - [x] Strategic reframe approved
 - [x] **Initial intro email sent to Lisa Hebert, ED of Montavilla Farmers Market (Apr 29)** — opens MFM relationship track. See `comms/2026-04-29-lisa-hebert-email-packet.md` and `strategy/mfm-vendor-outreach-plan.md`.
-- [ ] **Lisa Hebert (MFM ED) meeting pending (May 1)** — Lisa replied positively to intro email. Tyler proposed Mon May 4 or Tue May 5 at 7am, Carnelian Coffee (Foster & 82nd) or on-site at 7700 SE Stark post-event cleanup. Awaiting Lisa's confirmation. First formal MFM relationship contact since Apr 13 strategic reframe. Thread: `comms/2026-05-01-lisa-hebert-thread.md`. Intentionally timed ahead of Proud Ground meeting (May 6).
+- [x] **Lisa Hebert (MFM ED) — replied positively May 1, CONFIRMED Tue 5/5 7:15am.** Meeting brief: `comms/2026-05-05-lisa-hebert-meeting-brief.md`. Thread: `comms/2026-05-01-lisa-hebert-thread.md`. Posture: active disclosure (Proud Ground TA + PCEF planning grant), not passive listening. Sequenced ahead of Proud Ground Wed 5/6 8am.
+- [x] **Tyler attended MFM 20th Anniversary Market (May 3)** — highest-traffic single-day event on the property. Photographed Market Move Survey Results infographic (572 responses). See `research/2026-05-03-mfm-market-move-survey.md`.
+- [x] **Tyler attended Montavilla Food Co-op annual member meeting** — continued presence in Co-op membership network. See `meeting-notes/2026-05-03-mfm-anniversary-attendance.md`.
 
 ### Overdue / Blocked
 - [ ] **Website reframe implementation** — 16 days overdue
@@ -151,7 +154,7 @@ If community process results in mixed-use/housing, this is a major funding sourc
 - [x] **NWCLTC membership application submitted (Apr 29)** — Tier 00 Start-up CLT (24 months, <10 homes). Signed form: `partnerships/nwcltc/Montavilla-NWCLTC-Application.pdf`. Fee waiver request emailed to membership@nwcltc.org (Apr 29) — see `comms/2026-04-29-nwcltc-fee-waiver-request.md`.
 
 ### Scheduled
-- [ ] **Proud Ground meeting — Wed May 6 AM** — Tyler meeting with Proud Ground. TA relationship (NOT affiliate model). Lisa Hebert meeting (May 4/5) intentionally sequenced to inform Tyler's framing for this conversation.
+- [ ] **Proud Ground meeting — Wed 5/6, 8:00am** — Tyler meeting with Proud Ground ED. TA relationship (NOT affiliate model). Lisa Hebert coffee (Tue 5/5 7:15am) intentionally sequenced first to inform Tyler's framing. Tyler to disclose this meeting to Lisa at coffee.
 
 ### Overdue / Not Started
 - [ ] **Secure fiscal sponsor** — PCEF blocker, need by ~May 10
@@ -232,19 +235,23 @@ If community process results in mixed-use/housing, this is a major funding sourc
 | 2026-04-29 | **Three PCEF/network prerequisites completed:** WebGrants account created (PCEF registration prerequisite ✅), NWCLTC membership submitted w/ fee waiver email sent, PCEF public comment delivered | Clears the WebGrants registration blocker for May 27 submission. NWCLTC + PCEF comment establish MCLT in institutional networks before the grant cycle. | Statton |
 | 2026-04-29 | **Four institutional actions executed in one day:** WebGrants account created (PCEF prerequisite), NWCLTC membership submitted w/ fee waiver request, PCEF public comment emailed for Committee meeting, initial intro email sent to Lisa Hebert (MFM ED) | Clears PCEF registration blocker, establishes MCLT in CLT and city networks, and opens the Farmers Market relationship track — all before the grant cycle begins. | Statton |
 | 2026-05-01 | **Two key institutional meetings advancing:** (1) Lisa Hebert (MFM ED) replied positively — meeting proposed Mon May 4 or Tue May 5 at 7am, awaiting her confirmation. First formal MFM relationship contact since Apr 13 reframe. (2) Proud Ground meeting scheduled Wed May 6 AM. Lisa meeting intentionally sequenced first to inform Tyler's Proud Ground framing. | Major Milestone 1 + 2 progress. MFM relationship moves from "email sent" to active engagement. Proud Ground moves from "not started" to scheduled. Thread: `comms/2026-05-01-lisa-hebert-thread.md`. | Tyler/Maven |
+| 2026-05-04 | **Lisa Hebert coffee CONFIRMED — Tue 5/5 7:15am** | First formal MFM leadership meeting locked. Lisa confirmed Tue (slight time shift to 7:15). | Tyler |
+| 2026-05-04 | **STRATEGIC SHIFT: Lisa meeting reframed from listening session → active disclosure** | Tyler will disclose (a) Wed 5/6 Proud Ground TA meeting and (b) PCEF $200K planning grant scoped as technical analysis of 7700 SE Stark. Builds trust by giving Lisa advance intel on MCLT moves that affect her site. PCEF framed as "MCLT funds the analysis MFM has been wanting, without MFM carrying the work or the risk." | Tyler/Maven |
+| 2026-05-04 | **MFM Market Move Survey results acquired (public)** | Tyler photographed infographic at May 3 anniversary. 572 responses, Winter 2026. Key findings: 53% walk, 63% within 1 mile, #1 community priority = proximity to home, #1 vendor priority = drive-up access, ~40% vendors couldn't attend Saturday. MFM's own data validates CLT thesis. Canonical ref: `research/2026-05-03-mfm-market-move-survey.md`. | Tyler/Maven |
+| 2026-05-04 | **Tyler attended MFM 20th Anniversary Market (May 3) + Co-op annual member meeting** | Anniversary = highest-traffic single-day event on the property. Co-op annual = continued MCLT presence in membership network. Both touchpoints strengthen coalition standing. See `meeting-notes/2026-05-03-mfm-anniversary-attendance.md`. | Tyler |
 
 ---
 
 ## Critical Path & Risks
 
-### 1. PCEF Deadline (CRITICAL — NEW ESCALATION)
-28 days to submit a $200K planning grant. Need fiscal sponsor by ~May 10 (11 days). No sponsor identified, no conversations started (that we know of). If we miss this, the next cycle is likely 12+ months away.
+### 1. PCEF Deadline (CRITICAL)
+23 days to submit a $200K planning grant. Need fiscal sponsor by ~May 10 (6 days). Proud Ground meeting Wed 5/6 may produce a fiscal sponsor lead. If we miss this, the next cycle is likely 12+ months away.
 
-### 2. Website–Strategy Contradiction (CRITICAL — 16 DAYS OVERDUE)
-Website says "SAVE THIS LOT." Strategy says "the neighborhood decides." Every day this contradiction is live, we erode credibility with anyone who visits the site. This is the single most visible indicator that we're not executing.
+### 2. Website–Strategy Contradiction (RESOLVED Apr 29)
+✅ Website reframed to "OUR NEIGHBORHOOD, OUR DECISION." AI content rewritten. This risk is closed.
 
-### 3. Credibility Gap (CRITICAL)
-No endorsements from MFM or MNA. AI content flagged by community. No legal entity. No visible progress in 16 days. If someone Googles us today, they find a stale site with predetermined framing that contradicts the strategy we claim to have adopted.
+### 3. Credibility Gap (MEDIUM — improving)
+No endorsements from MFM or MNA yet, but MFM relationship is active (Lisa meeting Tue 5/5). No legal entity. Website now reflects strategy. Ground game producing results (40 sigs, 20 members). Still need: formal MFM relationship, legal standing, institutional endorsements.
 
 ### 4. Momentum — Ground Game Strong, Digital Lagging (MEDIUM — downgraded)
 Petition grew from 7 to ~40 via ground canvassing. 20 MCLT member signups. Montavilla Co-op meeting productive. National CLT outreach done. Proud Ground ED meeting next week. The coalition work is happening — the website just doesn't reflect it.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MCLT — Fiscal Sponsorship Request to Proud Ground · May 1, 2026</title>
+<title>MCLT — Fiscal Sponsorship Request to Proud Ground · Updated May 5, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400..600&display=swap" rel="stylesheet">
@@ -28,6 +28,15 @@
 
   * { box-sizing: border-box; }
 
+  /* Force browsers to honor backgrounds and colors when printing.
+     Without this, Chromium/Safari strip the moss accent, the aside
+     fill, and the marker colors from the printed PDF. */
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
   html, body {
     margin: 0;
     padding: 0;
@@ -39,7 +48,15 @@
     font-family: "Source Serif 4", "Source Serif Pro", Georgia, serif;
     font-size: 10pt;
     line-height: 1.5;
-    font-feature-settings: "onum" 1, "kern" 1, "liga" 1;
+    /*
+     * Ligatures ("liga") disabled globally. Fraunces' fi/fl ligatures
+     * render as a visually distracting glyph at certain opsz/SOFT
+     * settings — most noticeably the capital-F-followed-by-i in
+     * "Fiscal." Turning liga off here fixes all instances without
+     * affecting Source Serif 4's readability. Re-enable selectively
+     * if a future Fraunces update ships a cleaner fi ligature.
+     */
+    font-feature-settings: "onum" 1, "kern" 1, "liga" 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -269,6 +286,8 @@
     border-bottom: 0.4pt solid var(--rule-soft);
     font-size: 9.5pt;
   }
+  /* Hide bottom border on last row in each column; with an 8-item grid
+     that fills 2 columns evenly, last-child in each is the last 2 items. */
   .status-grid .row:nth-last-child(-n+2) { border-bottom: 0; }
   .status-grid .row .k { color: var(--ink-soft); }
   .status-grid .row .v { color: var(--ink); font-variant-numeric: tabular-nums lining-nums; text-align: right; }
@@ -393,6 +412,12 @@
     h3 { page-break-after: avoid; }
     .hero-ask, .boundary, .aside-note, .decision, footer { page-break-inside: avoid; }
     a { color: inherit; text-decoration: none; }
+    /* Belt-and-suspenders: some print engines need the directive on
+       every painted element, not just the root. */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
   }
 
   /* ---------- Subtle rules between sections ---------- */
@@ -430,7 +455,7 @@
         addressed to the Executive Director and Finance &amp; Grants lead at Proud Ground.
       </div>
       <div class="right">
-        May 1, 2026<br>
+        Updated May 5, 2026<br>
         Portland, Oregon
       </div>
     </div>
@@ -451,16 +476,17 @@
       A neighborhood-led coalition forming a community land trust in Portland's Montavilla
       neighborhood, anchored to a 0.84-acre commercial site at <strong>7700 SE Stark Street</strong>
       and the existing Montavilla Farmers Market. The site sits in the 82nd Avenue corridor —
-      a documented environmental justice priority area where no community land trust currently
-      has a presence.
+      a documented environmental justice priority area with no CLT presence today.
     </p>
 
     <div class="status-grid" aria-label="MCLT current status">
-      <div class="row"><span class="k">Coalition formation</span><span class="v">~2 weeks active</span></div>
-      <div class="row"><span class="k">Petition signatures</span><span class="v">~40</span></div>
-      <div class="row"><span class="k">Member signups</span><span class="v">~20</span></div>
+      <div class="row"><span class="k">Coalition formation</span><span class="v">~3 weeks active</span></div>
+      <div class="row"><span class="k">Petition signatures</span><span class="v">~100</span></div>
+      <div class="row"><span class="k">Member signups</span><span class="v">~30</span></div>
+      <div class="row"><span class="k">MFM (Montavilla Farmers Market)</span><span class="v">Non-formal alignment on technical-analysis path</span></div>
       <div class="row"><span class="k">Individual pledges</span><span class="v">~$1,175</span></div>
       <div class="row"><span class="k">Legal entity</span><span class="v">Pre-incorporation</span></div>
+      <div class="row"><span class="k">Fiscal sponsor</span><span class="v">Pursuing — Proud Ground top choice</span></div>
       <div class="row"><span class="k">Coordinator</span><span class="v">Tyler Falcon</span></div>
     </div>
   </section>
@@ -489,8 +515,7 @@
     <p class="lede">
       Site assessment, infrastructure analysis, regenerative agriculture and green-infrastructure
       feasibility, community-led scenario design, and MCLT organizational formation
-      (bylaws, governance, 501(c)(3) filing). Community engagement is the methodology
-      that drives the technical decisions.
+      (bylaws, governance, 501(c)(3) filing). Community engagement drives the technical decisions.
     </p>
 
     <h3 style="margin-top:14pt">Indicative budget shape ($200K, 1 year)</h3>
@@ -524,7 +549,7 @@
       <div class="col-no">
         <div class="header-tag">What we are not asking</div>
         <ul>
-          <li><strong>No property acquisition or title-holding.</strong> Proud Ground does not need to acquire, hold, or carry real-estate liability for 7700 SE Stark. When MCLT pursues land control, MCLT — not Proud Ground — holds the parcel.</li>
+          <li><strong>No property acquisition or title-holding.</strong> The planning grant funds feasibility, not acquisition. When MCLT pursues land control, MCLT — not Proud Ground — holds the parcel.</li>
           <li><strong>No staffing or programmatic absorption</strong> of MCLT into Proud Ground's organization.</li>
           <li><strong>No long-term sponsorship commitment</strong> beyond the period needed for MCLT to obtain its own 501(c)(3) determination.</li>
         </ul>
@@ -557,9 +582,8 @@
       <p>
         Once MCLT has its own 501(c)(3), fiscal sponsorship terminates by mutual agreement.
         Proud Ground continues as a technical assistance partner — peer in the regional CLT
-        ecosystem, advisor on governance and operations, formally not a parent or sponsor.
-        That is the long-term relationship MCLT seeks regardless of how the sponsorship
-        question resolves.
+        ecosystem, advisor on governance and operations, not a parent or sponsor.
+        That is the long-term relationship MCLT seeks regardless of how the sponsorship question resolves.
       </p>
     </div>
   </section>
@@ -569,23 +593,19 @@
     <ul>
       <li>
         <strong>Extends a model PCEF already trusts.</strong>
-        Proud Ground's 2024 PCEF&nbsp;3 ($2.5M) and 2025 Net Zero Homes ($2.65M) awards have
-        established the CLT framework with PCEF reviewers. Adding Montavilla as the next
-        CLT-model project in PCEF's planning-grant pipeline extends that work into a new
-        East Portland geography.
+        Proud Ground's 2024 PCEF&nbsp;3 ($2.5M) and 2025 Net Zero Homes ($2.65M) awards
+        established the CLT framework with PCEF reviewers. Montavilla extends that work
+        into a new East Portland geography.
       </li>
       <li>
         <strong>New geography, priority corridor.</strong>
-        Montavilla sits on the 82nd Avenue corridor — a documented environmental justice
-        priority area where Proud Ground does not currently have a project. This expands
-        Proud Ground's footprint into terrain that PCEF actively prioritizes.
+        The 82nd Avenue corridor is a documented environmental justice priority area
+        where Proud Ground does not currently have a project.
       </li>
       <li>
         <strong>Bounded scope, low operational drag.</strong>
-        Planning-grant fiscal sponsorship — without property acquisition or programmatic
-        staffing — is a contained obligation. MCLT is committed to being a low-friction
-        sponsored entity: clear deliverables, on-time reporting, no scope creep into Proud
-        Ground's own work.
+        Planning-grant fiscal sponsorship — no property, no staffing, no scope creep.
+        Clear deliverables, on-time reporting, contained obligation.
       </li>
     </ul>
   </section>
@@ -597,12 +617,10 @@
     </div>
     <div>
       <p>
-        To leave realistic drafting and review runway before PCEF's <strong>May 27</strong>
+        To leave drafting and review runway before PCEF's <strong>May 27</strong>
         submission deadline, MCLT's internal target for sponsor confirmation is
-        <strong>May&nbsp;10</strong>. A 30-minute call with the Executive Director and
-        the finance &amp; grants lead at any time during <strong>May&nbsp;4–8</strong>
-        would let us walk through specifics and answer any questions Proud Ground's
-        team has.
+        <strong>May&nbsp;10</strong>. A 30-minute call this week would let us walk
+        through specifics and answer Proud Ground's questions.
       </p>
     </div>
   </section>

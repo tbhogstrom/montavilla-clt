@@ -1,25 +1,26 @@
 # Montavilla Community Land Trust — Fiscal Sponsorship Request to Proud Ground
 
-**One-page brief · May 1, 2026 · For: Proud Ground ED + Finance/Grants Lead**
+**One-page brief · Updated May 5, 2026 · For: Proud Ground ED + Finance/Grants Lead**
 
 ---
 
-**The ask in one line:** Short-term fiscal sponsorship for MCLT's PCEF planning grant application (May 27 deadline) and short-term donation handling, ending when MCLT obtains its own 501(c)(3) determination — at which point the relationship transitions to technical assistance only.
+**The ask in one line:** Short-term fiscal sponsorship for MCLT's PCEF planning grant application (May 27 deadline) and short-term donation handling — ending when MCLT obtains its own 501(c)(3), at which point the relationship transitions to technical assistance only.
 
 ---
 
 ## What MCLT Is
 
-A neighborhood-led coalition forming a community land trust in Portland's Montavilla neighborhood, anchored to a 0.84-acre commercial site at 7700 SE Stark Street and the existing Montavilla Farmers Market. The site is in the 82nd Avenue corridor — a documented environmental justice priority area where no community land trust currently has a presence.
+A neighborhood-led coalition forming a community land trust in Portland's Montavilla neighborhood, anchored to a 0.84-acre commercial site at 7700 SE Stark Street and the existing Montavilla Farmers Market. The site sits in the 82nd Avenue corridor — a documented environmental justice priority area where no community land trust currently has a presence.
 
 | MCLT current status | |
 |---|---|
-| Coalition formation | ~2 weeks active |
-| Petition signatures | ~40 |
-| Member signups | ~20 |
+| Coalition formation | ~3 weeks active |
+| Petition signatures | ~100 |
+| Member signups | ~30 |
+| MFM (Montavilla Farmers Market) | Non-formal alignment on technical-analysis path |
 | Individual pledges | ~$1,175 |
 | Legal entity | Pre-incorporation |
-| Fiscal sponsor | Pursuing — Proud Ground is our top choice |
+| Fiscal sponsor | Pursuing — Proud Ground is top choice |
 | Coordinator | Tyler Falcon |
 
 ## What MCLT Is Applying For
@@ -38,7 +39,7 @@ A neighborhood-led coalition forming a community land trust in Portland's Montav
 
 ### Planning grant scope (high level)
 
-Site assessment + infrastructure analysis + regenerative agriculture / green infrastructure feasibility + community-led scenario design + MCLT organizational formation (bylaws, governance, 501(c)(3) filing). Community engagement is the methodology that drives the technical decisions.
+Site assessment, infrastructure analysis, regenerative agriculture and green-infrastructure feasibility, community-led scenario design, and MCLT organizational formation (bylaws, governance, 501(c)(3) filing). Community engagement drives the technical decisions.
 
 ### Indicative budget ($200K, 1 year)
 
@@ -62,7 +63,7 @@ Site assessment + infrastructure analysis + regenerative agriculture / green inf
 
 ## What We Are Explicitly NOT Asking
 
-- **No property acquisition or title-holding.** Proud Ground does not need to acquire, hold, or carry real-estate liability for 7700 SE Stark. The planning grant is feasibility and community planning, not acquisition. When MCLT eventually pursues land control, MCLT — not Proud Ground — holds the parcel.
+- **No property acquisition or title-holding.** The planning grant funds feasibility and community planning, not acquisition. When MCLT pursues land control, MCLT — not Proud Ground — holds the parcel.
 - **No staffing or programmatic absorption** of MCLT into Proud Ground's organization.
 - **No long-term sponsorship commitment** beyond the period needed for MCLT to obtain its own 501(c)(3).
 
@@ -79,17 +80,17 @@ Site assessment + infrastructure analysis + regenerative agriculture / green inf
 
 ## After Sponsorship Ends
 
-MCLT obtains its own 501(c)(3); fiscal sponsorship terminates by mutual agreement. Proud Ground continues as a **technical assistance partner** — peer in the regional CLT ecosystem, advisor on governance and CLT operations, formally not a parent or sponsor. That is the long-term relationship MCLT wants regardless of how the sponsorship piece resolves.
+MCLT obtains its own 501(c)(3); fiscal sponsorship terminates by mutual agreement. Proud Ground continues as a **technical assistance partner** — peer in the regional CLT ecosystem, advisor on governance and operations, not a parent or sponsor. That is the long-term relationship MCLT seeks regardless of how the sponsorship question resolves.
 
 ## Why This Aligns with Proud Ground
 
-- Extends the CLT model — already established with PCEF reviewers via Proud Ground's 2024 PCEF 3 ($2.5M) and 2025 Net Zero Homes ($2.65M) awards — into a new East Portland geography (82nd Avenue corridor) that PCEF prioritizes.
+- Extends the CLT model — established with PCEF reviewers via Proud Ground's 2024 PCEF 3 ($2.5M) and 2025 Net Zero Homes ($2.65M) awards — into a new East Portland geography that PCEF prioritizes.
 - Positions another CLT-model project in PCEF's planning-grant pipeline behind the existing implementation portfolio.
-- Bounded, low-friction sponsorship: planning grant with no property, no staff, no scope creep into Proud Ground's own work.
+- Bounded, low-friction sponsorship: planning grant with no property, no staff, no scope creep.
 
 ## Internal Decision Point
 
-To leave realistic drafting and review runway before the May 27 PCEF deadline, MCLT's internal target for fiscal sponsor confirmation is **May 10**. A 30-minute call with the ED + grants/finance lead at any time during May 4–8 would let us walk through specifics and answer Proud Ground's questions.
+To leave drafting and review runway before the May 27 PCEF deadline, MCLT's internal target for sponsor confirmation is **May 10**. A 30-minute call at any point this week would let us walk through specifics and answer Proud Ground's questions.
 
 ---
 
